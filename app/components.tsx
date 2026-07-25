@@ -56,7 +56,7 @@ export function SectionHeading({
 }: {
   number: string;
   eyebrow: string;
-  title: string;
+  title: ReactNode;
   copy?: string;
 }) {
   return (

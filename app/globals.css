@@ -426,6 +426,92 @@ em {
   writing-mode: vertical-rl;
 }
 
+.trust-bar {
+  position: relative;
+  padding: 64px 0 72px;
+  overflow: hidden;
+  border-bottom: 1px solid var(--line);
+  background:
+    radial-gradient(circle at 11% 48%, rgba(102, 124, 255, 0.055), transparent 32%),
+    #08090c;
+}
+
+.trust-bar > p {
+  margin: 0 20px 48px;
+  color: rgba(199, 202, 210, 0.58);
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.24em;
+  line-height: 1.5;
+  text-align: center;
+}
+
+.trust-marquee {
+  position: relative;
+  overflow: hidden;
+}
+
+.trust-marquee::before,
+.trust-marquee::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  z-index: 2;
+  width: min(11vw, 150px);
+  pointer-events: none;
+}
+
+.trust-marquee::before {
+  left: 0;
+  background: linear-gradient(90deg, #08090c, transparent);
+}
+
+.trust-marquee::after {
+  right: 0;
+  background: linear-gradient(-90deg, #08090c, transparent);
+}
+
+.trust-track {
+  display: flex;
+  width: max-content;
+  will-change: transform;
+  animation: trust-scroll 34s linear infinite;
+}
+
+.trust-group {
+  display: flex;
+  align-items: center;
+  gap: clamp(64px, 7vw, 124px);
+  padding-right: clamp(64px, 7vw, 124px);
+}
+
+.trust-group img {
+  display: block;
+  width: auto;
+  height: clamp(38px, 4vw, 66px);
+  max-width: 230px;
+  object-fit: contain;
+  filter: grayscale(1) brightness(0.88);
+  opacity: 0.62;
+  transition: opacity 180ms ease;
+}
+
+.trust-group img:hover {
+  opacity: 0.88;
+}
+
+.trust-marquee:hover .trust-track {
+  animation-play-state: paused;
+}
+
+@keyframes trust-scroll {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
 .metrics-section {
   position: relative;
   display: grid;
@@ -2070,6 +2156,30 @@ em {
 
   .hero-side-label {
     display: none;
+  }
+
+  .trust-bar {
+    padding: 48px 0 54px;
+  }
+
+  .trust-bar > p {
+    margin-bottom: 38px;
+    font-size: 8px;
+    letter-spacing: 0.18em;
+  }
+
+  .trust-group {
+    gap: 48px;
+    padding-right: 48px;
+  }
+
+  .trust-group img {
+    height: 36px;
+    max-width: 154px;
+  }
+
+  .trust-track {
+    animation-duration: 25s;
   }
 
   .metrics-section {

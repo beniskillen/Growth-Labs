@@ -44,6 +44,19 @@ const growthMetrics = [
   },
 ];
 
+const trustBrands = [
+  { name: "Bybit", src: "/trustbar/bybit.svg" },
+  { name: "Your Corner 360", src: "/trustbar/your-corner-360.svg" },
+  { name: "Fortem Media", src: "/trustbar/fortem-media.png" },
+  {
+    name: "The Collective Solution",
+    src: "/trustbar/the-collective-solution.png",
+  },
+  { name: "3x3 Australia", src: "/trustbar/3x3-australia.svg" },
+  { name: "MTP Health", src: "/trustbar/mtp-health.svg" },
+  { name: "Juicy Festival", src: "/trustbar/juicy-festival.svg" },
+];
+
 const levels = [
   ["01", "DIAGNOSE", "Growth Constraint Audit", "Find the biggest constraint using our KPI benchmarks."],
   ["02", "INSTALL", "KPI Improvement Install", "Clean up the lowest hanging fruit in order to remove the #1 constraint blocking growth."],
@@ -93,7 +106,7 @@ export default function Home() {
         <div className="hero-copy">
           <Eyebrow>GROWTH LABS_ / OPERATOR-LED AI GROWTH STUDIO</Eyebrow>
           <h1>
-            Cut out the noise. Turn AI into a <em>revenue system</em>
+            Cut out the noise. Turn AI into a <em>revenue system</em>.
           </h1>
           <p>
             We identify your biggest commercial constraint, install the system
@@ -113,6 +126,29 @@ export default function Home() {
         </div>
         <ParticlePortrait />
         <div className="hero-side-label">MOVE TO FOCUS / CLICK TO RESOLVE</div>
+      </section>
+
+      <section className="trust-bar" aria-label="Brands Ben has worked with">
+        <p>BRANDS I&apos;VE WORKED WITH ACROSS 7+ INDUSTRIES</p>
+        <div className="trust-marquee">
+          <div className="trust-track">
+            {[0, 1].map((group) => (
+              <div
+                className="trust-group"
+                aria-hidden={group === 1}
+                key={group}
+              >
+                {trustBrands.map((brand) => (
+                  <img
+                    src={brand.src}
+                    alt={group === 0 ? brand.name : ""}
+                    key={brand.name}
+                  />
+                ))}
+              </div>
+            ))}
+          </div>
+        </div>
       </section>
 
       <section className="metrics-section grid-bg" id="metrics">
@@ -297,7 +333,7 @@ export default function Home() {
       <section className="section split-section grid-bg">
         <div>
           <Eyebrow>WHO IT IS FOR</Eyebrow>
-          <h2><em>Business owners who want growth. Not just AI hype.</em></h2>
+          <h2>Business owners who want growth. <em>Not just AI hype.</em></h2>
         </div>
         <div>
           <p>
@@ -336,7 +372,7 @@ export default function Home() {
         <SectionHeading
           number="06"
           eyebrow="ABOUT BEN KILLEN"
-          title="Marketing strategy first. AI leverage second."
+          title={<>Marketing strategy first. <em>AI leverage second.</em></>}
           copy="Growth Labs was built from more than a decade spent close to revenue — across marketing, sales, business development, offers, campaigns and operating systems."
         />
         <div className="home-about-grid">
