@@ -367,7 +367,7 @@ export default function Home() {
             <div className="home-about-equation" aria-label="Growth Labs operating equation">
               <span>MARKETING STRATEGY</span>
               <i>×</i>
-              <span>STRONG FOUNDATIONS</span>
+              <span>SALES FUNDAMENTALS</span>
               <i>×</i>
               <span>AI LEVERAGE</span>
               <i>=</i>
