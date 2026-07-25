@@ -12,9 +12,9 @@ import {
 const method = [
   ["01", "Discover", "Using our data backed business intelligence process we get an overview of the business."],
   ["02", "Prioritise", "Install the simple implementations that will move pipeline or free capacity."],
-  ["03", "Build", "Ship the first system inside the tools your team already uses."],
-  ["04", "Activate", "Train the owner and team until the system runs without theatre."],
-  ["05", "Measure", "Track touchpoints, replies, calls, hours saved and revenue moved."],
+  ["03", "Build", "Ship the next system focused on improving the metrics that matter."],
+  ["04", "Activate", "Install each system one at a time to activate the power of leverage that AI can bring."],
+  ["05", "Measure", "Track the key metrics with each implementation ensuring that the scope is working effectively."],
 ];
 
 const growthMetrics = [
@@ -106,7 +106,7 @@ export default function Home() {
         <div className="hero-copy">
           <Eyebrow>GROWTH LABS_ / OPERATOR-LED AI GROWTH STUDIO</Eyebrow>
           <h1>
-            Cut out the noise. Turn AI into a <em>revenue system</em>.
+            Cut out the noise. Turn AI into a <em>revenue system.</em>
           </h1>
           <p>
             We identify your biggest commercial constraint, install the system
