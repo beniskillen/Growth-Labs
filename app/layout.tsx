@@ -15,31 +15,26 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL("https://growth-labs-ben-killen.openai.site"),
   title: {
-    default: "Growth Labs — Find the constraint. Install the growth system.",
+    default: "Growth Labs — AI growth systems for founder-led businesses",
     template: "%s · Growth Labs",
   },
   description:
-    "Growth Labs identifies the commercial bottleneck, installs the system that fixes it, and applies AI only where it creates real leverage.",
+    "Operator-led AI growth systems: diagnose the bottleneck, build the workflow, train the team and measure the result.",
   icons: {
     icon: "/favicon.svg",
     shortcut: "/favicon.svg",
   },
   openGraph: {
-    title: "Growth Labs — Constraint first. Tools second.",
+    title: "Growth Labs — Turn AI into a revenue system",
     description:
-      "Growth implementation first. AI leverage second.",
-    images: [{
-      url: "/og.png",
-      width: 1731,
-      height: 909,
-      alt: "Growth Labs — Constraint first. Tools second.",
-    }],
+      "Diagnosis first. Systems second. Results measured.",
+    images: ["/og.png"],
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Growth Labs — Constraint first. Tools second.",
-    description: "Growth implementation first. AI leverage second.",
+    title: "Growth Labs — Turn AI into a revenue system",
+    description: "Diagnosis first. Systems second. Results measured.",
     images: ["/og.png"],
   },
 };

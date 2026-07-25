@@ -28,13 +28,12 @@ export function SiteHeader() {
     <header className="site-header">
       <Wordmark />
       <nav className="site-nav" aria-label="Main navigation">
+        <Link href="/solutions">Solutions</Link>
         <Link href="/#levels">10 Levels</Link>
-        <Link href="/#process">Method</Link>
-        <Link href="/#work">Proof</Link>
         <Link href="/about">About</Link>
       </nav>
       <a className="button button-small" href={AUDIT_URL} target="_blank" rel="noreferrer">
-        Book the audit
+        Book your audit
       </a>
     </header>
   );
@@ -77,7 +76,7 @@ export function Arrow() {
 }
 
 export function AuditButton({
-  children = "Book a Growth Constraint Audit",
+  children = "Book your 30-minute audit",
   className = "",
 }: {
   children?: ReactNode;
@@ -127,19 +126,17 @@ export function Footer() {
     <footer className="footer">
       <div>
         <Wordmark />
-        <p>Growth implementation first. AI leverage second. · Bali / remote</p>
+        <p>Operator-led AI growth studio · Bali / remote</p>
       </div>
       <nav aria-label="Footer navigation">
-        <Link href="/#levels">10 Levels</Link>
-        <Link href="/#process">Method</Link>
         <Link href="/solutions">Solutions</Link>
-        <Link href="/#work">Proof</Link>
+        <Link href="/#levels">10 Levels</Link>
         <Link href="/about">About</Link>
-        <Link href="/audit">Growth Constraint Audit</Link>
+        <Link href="/audit">AI Leverage Audit</Link>
       </nav>
       <div className="footer-meta">
         <span>© {new Date().getFullYear()} Growth Labs</span>
-        <span>Constraint first. Tools second.</span>
+        <span>Systems, not theatre.</span>
       </div>
     </footer>
   );

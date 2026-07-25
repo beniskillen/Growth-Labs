@@ -3,7 +3,7 @@ import { AuditButton, Eyebrow, SectionHeading, SiteFrame } from "../components";
 export const metadata = {
   title: "About Ben Killen",
   description:
-    "Ten years across sales, business development and operations — now focused on diagnosing growth constraints and installing the systems that remove them.",
+    "Ten years across sales, business development, growth, Web3, iGaming and community — now focused on installing practical AI growth systems.",
 };
 
 export default function AboutPage() {
@@ -42,10 +42,10 @@ export default function AboutPage() {
             time, and a system follows up until revenue happens.
           </p>
           <p>
-            AI can make that system cheaper and faster — once the commercial
-            constraint is clear and the underlying workflow works.
+            AI now makes that system radically cheaper and faster — if someone
+            knows where to install it.
           </p>
-          <strong>Constraint first. System second. Leverage third.</strong>
+          <strong>Growth Labs is that installation layer.</strong>
         </div>
       </section>
 
@@ -80,9 +80,9 @@ export default function AboutPage() {
         />
         <div className="belief-statement">
           <p>
-            Everyday operators should have a clear growth system that removes
-            reactive work, supports better decisions and creates more value per
-            person — without turning the business into a software experiment.
+            Everyday operators should be able to use AI to remove reactive
+            work, make cleaner decisions and create more value per person —
+            without turning the business into a software experiment.
           </p>
           <p>
             Practical leverage beats hype. Adoption beats demos. Measured
@@ -92,10 +92,10 @@ export default function AboutPage() {
       </section>
 
       <section className="final-cta grid-bg">
-        <Eyebrow>FIRST STEP / DIAGNOSTIC</Eyebrow>
-        <h2>Find the constraint before you add more tools.</h2>
-        <p>Thirty minutes. Direct diagnosis. A commercial priority you can act on.</p>
-        <AuditButton>Book the Growth Constraint Audit</AuditButton>
+        <Eyebrow>FIRST STEP / FREE</Eyebrow>
+        <h2>See where AI earns its place in your business.</h2>
+        <p>Thirty minutes. Direct diagnosis. A plan you can use.</p>
+        <AuditButton />
       </section>
     </SiteFrame>
   );
