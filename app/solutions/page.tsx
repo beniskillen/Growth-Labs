@@ -1,22 +1,9 @@
 import {
-  Arrow,
   AuditButton,
   PageHero,
   SectionHeading,
   SiteFrame,
 } from "../components";
-
-const cases = [
-  ["Jobited", "Commercial OS for a frontier engineering community: recruitment funnel, hiring intelligence, prospecting engine and CRM.", "1,000 targeted employer emails/mo → ~20 calls → ~2 paid outcomes.", "https://jobited.com"],
-  ["The Collective", "Community business build: website, Discord growth systems, membership pathway, content engine and CRM.", "Pathway toward 50 annual members / $150k ARR."],
-  ["Corvan AI", "AI chief-of-staff partnership: unified comms triage, People 360°, knowledge graph and meeting-to-task automation.", "Product target: 2–3× operator efficiency.", "https://corvanai.com"],
-  ["Bybit", "KOL BD and affiliate growth engine: outreach cadence, CRM, institutional outreach and reporting.", "50 KOL outreaches/week; 3+ warm replies; one deal progressed weekly."],
-  ["The RAW", "COO-level operating system: campaign portal, iGaming pipeline, KPI dashboards, recruitment and execution.", "Full commercial operating layer for a multi-brand growth group."],
-  ["Crypto Vega", "90-day master-affiliate activation: clip machine, social cadence, affiliate infrastructure and offer stack.", "$350K activation signed; campaign targets set for reach and acquisition."],
-  ["Empire Crypto", "Sales and reactivation system: trial-to-paid funnel, sales scripts, sequences and CRM pipeline.", "Three or more sales calls booked as the weekly operating KPI."],
-  ["YC360 / Your Corner", "CTO and project-management style delivery: campaign execution, lead flow, CEO dashboard and automation.", "Mortgage Destroyer lead flow and executive reporting health."],
-  ["Futurealty", "Website rebuild, warm contact graph, Notion CRM and approved outreach cadence.", "Site by day 30; warm outreach week four; 2–5 agency clients/month target by day 90."],
-];
 
 const lanes = [
   ["Revenue & pipeline systems", "CRM architecture, outreach engines, follow-up, sales dashboards and BD rhythm.", "GROWTH LABS CORE"],
@@ -25,15 +12,6 @@ const lanes = [
   ["Campaigns & content", "Launches, influencer/affiliate activations, clip machines, paid ads and tracking.", "PARTNER BENCH"],
   ["Technical talent & hiring", "Engineering hiring, proof-of-work search and recruitment systems.", "JOBITED"],
   ["Community & events", "Community platforms, event-to-CRM capture, workshops and activation.", "ECOSYSTEM BENCH"],
-];
-
-const partners = [
-  ["Faustas Media", "Conversion websites & CRO", "A site needs to create pipeline, not just look finished."],
-  ["Spectre Studios", "Campaigns, web & creative", "A brand or campaign needs studio-grade execution."],
-  ["Fillmore Media", "Paid ads, tracking & reporting", "Acquisition is ready to scale with proper measurement."],
-  ["Corvan AI", "AI chief of staff", "A team is drowning in email, chats and meetings."],
-  ["Jobited", "Frontier technical talent", "Technical hiring needs proof of work, not CV keywords."],
-  ["Soup Agency", "AI video & outbound", "Video-led outbound or content needs production volume."],
 ];
 
 export const metadata = {
@@ -87,39 +65,9 @@ export default function SolutionsPage() {
         </div>
       </section>
 
-      <section className="section case-section grid-bg">
-        <SectionHeading
-          number="02"
-          eyebrow="CASE FILES"
-          title="Selected systems and commercial builds."
-          copy="Proof points are shown as delivered outcomes or stated operating targets — never blurred together."
-        />
-        <div className="case-grid">
-          {cases.map(([title, built, proof, href], index) => (
-            <article className="case-card" key={title}>
-              <div className="case-card-top">
-                <span>{String(index + 1).padStart(2, "0")}</span>
-                <span className="status-label">CASE / ACTIVE FILE</span>
-              </div>
-              <h3>{title}</h3>
-              <p>{built}</p>
-              <div className="case-proof">
-                <span>PROOF / KPI</span>
-                <strong>{proof}</strong>
-              </div>
-              {href ? (
-                <a href={href} target="_blank" rel="noreferrer">
-                  Visit project <Arrow />
-                </a>
-              ) : null}
-            </article>
-          ))}
-        </div>
-      </section>
-
       <section className="section">
         <SectionHeading
-          number="03"
+          number="02"
           eyebrow="SOLUTION LANES"
           title="What ambitious teams can buy."
         />
@@ -130,24 +78,6 @@ export default function SolutionsPage() {
               <h3>{title}</h3>
               <p>{copy}</p>
               <strong>{delivered}</strong>
-            </article>
-          ))}
-        </div>
-      </section>
-
-      <section className="section partner-section">
-        <SectionHeading
-          number="04"
-          eyebrow="VETTED BENCH"
-          title="The right specialist, only when the build needs them."
-          copy="Only partners with live or recent delivery are listed. Prospects and unproven lines stay off the page."
-        />
-        <div className="partner-grid">
-          {partners.map(([name, specialty, fit]) => (
-            <article key={name}>
-              <span className="card-code">{specialty}</span>
-              <h3>{name}</h3>
-              <p>{fit}</p>
             </article>
           ))}
         </div>
