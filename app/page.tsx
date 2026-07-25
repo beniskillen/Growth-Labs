@@ -1,4 +1,5 @@
 import Link from "next/link";
+import ParticlePortrait from "./ParticlePortrait";
 import {
   Arrow,
   AuditButton,
@@ -58,12 +59,12 @@ export default function Home() {
   return (
     <SiteFrame>
       <div className="growth-home">
-        <section className="constraint-hero">
-          <div className="constraint-hero-copy">
+        <section className="home-hero grid-bg">
+          <div className="hero-copy">
             <Eyebrow>BEN KILLEN / GROWTH SYSTEMS OPERATOR</Eyebrow>
             <h1>
-              Most businesses don&apos;t need more AI.
-              <span>They need the right growth system.</span>
+              Most businesses don&apos;t need more AI. They need the{" "}
+              <em>right growth system.</em>
             </h1>
             <p>
               We identify your biggest commercial constraint, install the
@@ -72,55 +73,18 @@ export default function Home() {
             </p>
             <div className="button-row">
               <AuditButton>Book a Growth Constraint Audit</AuditButton>
-              <Link className="constraint-text-link" href="#levels">
-                See the 10 levels <span aria-hidden="true">↓</span>
+              <Link className="text-link" href="#levels">
+                See the 10 Levels of Growth Implementation <Arrow />
               </Link>
             </div>
-            <div className="hero-qualifier">
-              <span>FOR FOUNDER-LED BUSINESSES</span>
-              <span>SERVICE / AGENCY / CONSULTING</span>
-              <span>$200K–$2M+ / BUILT FOR TRACTION</span>
+            <div className="hero-proof" aria-label="Growth Labs experience">
+              <span><strong>10+</strong> years sales & growth</span>
+              <span><strong>20+</strong> clients & ventures</span>
+              <span><strong>05</strong> sectors in production</span>
             </div>
           </div>
-
-          <div className="constraint-scan" aria-label="Example commercial constraint scan">
-            <div className="scan-head">
-              <span>GROWTH CONSTRAINT SCAN</span>
-              <span className="scan-live"><i /> LIVE DIAGNOSTIC</span>
-            </div>
-            <div className="scan-statement">
-              <span>HYPOTHESIS / 001</span>
-              <strong>Demand is the constraint.</strong>
-              <p>More tools will not fix an unclear offer or an inconsistent pipeline.</p>
-            </div>
-            <div className="scan-bars">
-              {[
-                ["DEMAND", "86%", 86, true],
-                ["CONVERSION", "61%", 61, false],
-                ["DELIVERY", "38%", 38, false],
-                ["AI / TOOLS", "17%", 17, false],
-              ].map(([label, value, width, hot]) => (
-                <div className={hot ? "scan-bar is-hot" : "scan-bar"} key={String(label)}>
-                  <div><span>{label}</span><b>{value}</b></div>
-                  <i style={{ "--bar": `${width}%` } as React.CSSProperties} />
-                </div>
-              ))}
-            </div>
-            <div className="scan-gate">
-              <div>
-                <span>AI LEVERAGE GATE</span>
-                <strong>LOCKED</strong>
-              </div>
-              <p>Fix the commercial system first.</p>
-            </div>
-            <div className="scan-foot">
-              <span>CONSTRAINT FIRST</span>
-              <Arrow />
-              <span>SYSTEM SECOND</span>
-              <Arrow />
-              <span>LEVERAGE THIRD</span>
-            </div>
-          </div>
+          <ParticlePortrait />
+          <div className="hero-side-label">MOVE TO FOCUS / CLICK TO RESOLVE</div>
         </section>
 
         <section className="light-section problem-section">
