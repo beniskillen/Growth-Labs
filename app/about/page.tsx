@@ -12,7 +12,7 @@ export default function AboutPage() {
       <section className="about-hero grid-bg">
         <div className="about-copy">
           <Eyebrow>GROWTH LABS_ / THE OPERATOR</Eyebrow>
-          <h1>Operator first. <em>Consultant second.</em></h1>
+          <h1>Revenue first. <em>AI systems second.</em></h1>
           <p>
             Ten years across sales, marketing, business development, CRM,
             Web3, iGaming, creator campaigns and community.
