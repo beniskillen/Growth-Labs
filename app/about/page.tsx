@@ -23,7 +23,7 @@ export default function AboutPage() {
           <img src="/ben-professional.jpg" alt="Ben Killen presenting at Bybit" />
           <figcaption>
             <span>BEN KILLEN</span>
-            <span>BALI / REMOTE</span>
+            <span>MARKETING / GROWTH</span>
           </figcaption>
         </figure>
       </section>
