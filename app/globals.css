@@ -1128,6 +1128,144 @@ em {
   margin-left: 100px;
 }
 
+.home-about-section {
+  max-width: none;
+  overflow: hidden;
+  padding-right: max(42px, calc((100vw - var(--max)) / 2 + 42px));
+  padding-left: max(42px, calc((100vw - var(--max)) / 2 + 42px));
+  background-color: #0d0d10;
+}
+
+.home-about-section > * {
+  position: relative;
+  z-index: 1;
+  max-width: calc(var(--max) - 84px);
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.home-about-grid {
+  display: grid;
+  grid-template-columns: minmax(300px, 0.7fr) minmax(0, 1.3fr);
+  gap: clamp(52px, 7vw, 118px);
+  align-items: stretch;
+}
+
+.home-about-portrait {
+  position: relative;
+  min-height: 590px;
+  margin: 0;
+  overflow: hidden;
+  border: 1px solid var(--line-strong);
+  background: var(--panel);
+  clip-path: polygon(0 0, calc(100% - 34px) 0, 100% 34px, 100% 100%, 0 100%);
+}
+
+.home-about-portrait::before {
+  content: "OPERATOR / 001";
+  position: absolute;
+  z-index: 2;
+  top: 18px;
+  left: 18px;
+  padding: 8px 10px;
+  border: 1px solid var(--line);
+  background: rgba(10, 10, 11, 0.78);
+  color: var(--signal);
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 8px;
+  letter-spacing: 0.1em;
+}
+
+.home-about-portrait img {
+  display: block;
+  width: 100%;
+  height: calc(100% - 50px);
+  min-height: 540px;
+  object-fit: cover;
+  object-position: 50% 20%;
+  filter: grayscale(1) contrast(1.08) brightness(0.76);
+}
+
+.home-about-portrait::after {
+  content: "";
+  position: absolute;
+  inset: 0 0 50px;
+  pointer-events: none;
+  background:
+    linear-gradient(145deg, transparent 48%, rgba(102, 124, 255, 0.22)),
+    linear-gradient(0deg, rgba(10, 10, 11, 0.62), transparent 36%);
+  mix-blend-mode: screen;
+}
+
+.home-about-portrait figcaption {
+  display: flex;
+  min-height: 50px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  padding: 0 16px;
+  color: var(--steel);
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 8px;
+  letter-spacing: 0.09em;
+}
+
+.home-about-portrait figcaption span:last-child {
+  color: var(--signal);
+  text-align: right;
+}
+
+.home-about-story {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.home-about-story > p {
+  max-width: 780px;
+  color: var(--steel);
+  font-size: 16px;
+  line-height: 1.75;
+}
+
+.home-about-story .home-about-lead {
+  color: var(--paper);
+  font-size: clamp(25px, 2.4vw, 38px);
+  letter-spacing: -0.035em;
+  line-height: 1.25;
+}
+
+.home-about-equation {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr auto 1fr auto 1.18fr;
+  gap: 12px;
+  align-items: center;
+  margin: 32px 0 36px;
+  padding: 24px;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  background: linear-gradient(90deg, var(--signal-soft), transparent);
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 8px;
+  letter-spacing: 0.08em;
+  line-height: 1.45;
+}
+
+.home-about-equation i {
+  color: var(--steel);
+  font-style: normal;
+}
+
+.home-about-equation strong {
+  color: var(--signal);
+  font-weight: 700;
+}
+
+.home-about-story .text-link {
+  width: max-content;
+}
+
 .final-cta {
   position: relative;
   display: flex;
@@ -1783,6 +1921,11 @@ em {
     display: none;
   }
 
+  .home-about-grid {
+    grid-template-columns: minmax(280px, 0.72fr) minmax(0, 1.28fr);
+    gap: 48px;
+  }
+
   .method-track {
     grid-template-columns: repeat(3, 1fr);
   }
@@ -2137,6 +2280,35 @@ em {
   .belief-statement {
     grid-template-columns: 1fr;
     gap: 20px;
+  }
+
+  .home-about-section {
+    padding-right: 16px;
+    padding-left: 16px;
+  }
+
+  .home-about-grid {
+    grid-template-columns: 1fr;
+    gap: 42px;
+  }
+
+  .home-about-portrait {
+    min-height: 520px;
+  }
+
+  .home-about-portrait img {
+    min-height: 470px;
+  }
+
+  .home-about-equation {
+    grid-template-columns: 1fr auto;
+    gap: 12px;
+  }
+
+  .home-about-equation strong {
+    grid-column: 1 / -1;
+    padding-top: 14px;
+    border-top: 1px solid var(--line);
   }
 
   .final-cta {

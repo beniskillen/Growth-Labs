@@ -332,6 +332,54 @@ export default function Home() {
         </div>
       </section>
 
+      <section className="section home-about-section grid-bg" id="about-ben">
+        <SectionHeading
+          number="06"
+          eyebrow="ABOUT BEN KILLEN"
+          title="Marketing strategy first. AI leverage second."
+          copy="Growth Labs was built from more than a decade spent close to revenue — across marketing, sales, business development, offers, campaigns and operating systems."
+        />
+        <div className="home-about-grid">
+          <figure className="home-about-portrait">
+            <img src="/ben-killen.jpg" alt="Ben Killen, founder of Growth Labs" />
+            <figcaption>
+              <span>BEN KILLEN / FOUNDER</span>
+              <span>10+ YEARS / MARKETING &amp; SALES</span>
+            </figcaption>
+          </figure>
+          <div className="home-about-story">
+            <p className="home-about-lead">
+              After 10+ years in marketing and sales, Ben kept seeing the same
+              constraint: most businesses were reaching for more tactics and
+              tools before getting the foundations right.
+            </p>
+            <p>
+              The offer was unclear. Acquisition relied on word of mouth.
+              Follow-up was inconsistent. The numbers that should guide growth
+              were either invisible or ignored. AI could accelerate the work,
+              but it could not choose the right work.
+            </p>
+            <p>
+              Growth Labs is Ben&apos;s answer to that gap — combining the
+              strategic insight of marketing with the leverage of AI to build a
+              clear, measurable system for growing a business.
+            </p>
+            <div className="home-about-equation" aria-label="Growth Labs operating equation">
+              <span>MARKETING STRATEGY</span>
+              <i>×</i>
+              <span>STRONG FOUNDATIONS</span>
+              <i>×</i>
+              <span>AI LEVERAGE</span>
+              <i>=</i>
+              <strong>COMPOUNDING GROWTH</strong>
+            </div>
+            <Link className="text-link" href="/about">
+              Read Ben&apos;s story <Arrow />
+            </Link>
+          </div>
+        </div>
+      </section>
+
       <section className="final-cta grid-bg">
         <Eyebrow>FREE DIAGNOSTIC / 30 MINUTES</Eyebrow>
         <h2>Where can AI actually increase revenue in your business?</h2>
