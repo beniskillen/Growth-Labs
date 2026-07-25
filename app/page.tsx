@@ -10,15 +10,42 @@ import {
 } from "./components";
 
 const method = [
-  ["01", "Map", "See how attention becomes revenue — and where the founder is still the glue."],
-  ["02", "Prioritise", "Find the 5% of workflows that will move pipeline or free capacity."],
+  ["01", "Discover", "Using our data backed business intelligence process we get an overview of the business."],
+  ["02", "Prioritise", "Install the simple implementations that will move pipeline or free capacity."],
   ["03", "Build", "Ship the first system inside the tools your team already uses."],
   ["04", "Activate", "Train the owner and team until the system runs without theatre."],
   ["05", "Measure", "Track touchpoints, replies, calls, hours saved and revenue moved."],
 ];
 
+const growthMetrics = [
+  {
+    code: "01",
+    label: "Impressions",
+    question: "Are enough right-fit prospects seeing the offer?",
+    level: "LEVEL 08 / DEMAND",
+  },
+  {
+    code: "02",
+    label: "Click Through %",
+    question: "Does the message turn attention into intent?",
+    level: "LEVELS 01–02 / POSITIONING",
+  },
+  {
+    code: "03",
+    label: "Offer Conversion %",
+    question: "Does the path turn qualified intent into a client?",
+    level: "LEVELS 02 + 08 / CONVERSION",
+  },
+  {
+    code: "04",
+    label: "Lifetime Client Value",
+    question: "Does delivery retain, expand and compound the value?",
+    level: "LEVELS 09–10 / SCALE",
+  },
+];
+
 const levels = [
-  ["01", "DIAGNOSE", "Comprehensive Growth Constraint Audit", "Find the single constraint with the highest commercial cost."],
+  ["01", "DIAGNOSE", "Growth Constraint Audit", "Find the biggest constraint using our KPI benchmarks."],
   ["02", "INSTALL", "Constraint System Install", "Build the minimum system required to remove it."],
   ["03", "CAPTURE", "AI Memory Capture", "Make business context searchable and reusable."],
   ["04", "VISIBILITY", "Task Visibility", "Turn commitments, owners and next actions into a shared view."],
@@ -88,6 +115,80 @@ export default function Home() {
         <div className="hero-side-label">MOVE TO FOCUS / CLICK TO RESOLVE</div>
       </section>
 
+      <section className="metrics-section grid-bg" id="metrics">
+        <div className="metrics-intro">
+          <Eyebrow>THE METRICS THAT MATTER</Eyebrow>
+          <h2>Word of mouth is not an acquisition system.</h2>
+          <p>
+            For most founder-led businesses, growth still depends on referrals,
+            reputation and bursts of activity. There is no measurable path from
+            market attention to long-term client value — so nobody can see which
+            constraint is actually holding revenue back.
+          </p>
+          <div className="metrics-thesis">
+            <span>THE OPERATING QUESTION</span>
+            <strong>Which number is constraining growth right now?</strong>
+          </div>
+        </div>
+
+        <div className="metrics-system">
+          <div className="metrics-system-label">
+            <span>MEASURE THE GROWTH CHAIN</span>
+            <span>BASELINE → CONSTRAINT → SYSTEM</span>
+          </div>
+          <div className="metric-flow" aria-label="The four growth metrics">
+            {growthMetrics.map((metric, index) => (
+              <article className="metric-card" key={metric.label}>
+                <div className="metric-card-top">
+                  <span>{metric.code}</span>
+                  <span>CURRENT KPI / —</span>
+                </div>
+                <h3>{metric.label}</h3>
+                <p>{metric.question}</p>
+                <strong>{metric.level}</strong>
+                {index < growthMetrics.length - 1 ? (
+                  <span className="metric-arrow" aria-hidden="true">→</span>
+                ) : null}
+              </article>
+            ))}
+          </div>
+          <div className="metric-equation" aria-label="Predictable growth equation">
+            <span>IMPRESSIONS</span>
+            <i>×</i>
+            <span>CLICK THROUGH</span>
+            <i>×</i>
+            <span>CONVERSION</span>
+            <i>×</i>
+            <span>CLIENT VALUE</span>
+            <i>=</i>
+            <strong>PREDICTABLE GROWTH</strong>
+          </div>
+          <div className="metrics-level-map">
+            <div>
+              <span>LEVEL 01</span>
+              <p>Benchmark the four KPIs and expose the commercial constraint.</p>
+            </div>
+            <div>
+              <span>LEVEL 02</span>
+              <p>Install the simplest system capable of moving the weakest number.</p>
+            </div>
+            <div>
+              <span>LEVELS 03–07</span>
+              <p>Add memory, visibility, assisted execution and automation after the path is proven.</p>
+            </div>
+            <div>
+              <span>LEVELS 08–10</span>
+              <p>Connect acquisition, delivery and reporting into a compounding growth engine.</p>
+            </div>
+          </div>
+          <p className="metrics-bridge">
+            AI is leverage inside this chain. The KPI tells us where it belongs;
+            the implementation level tells us how much system the business is
+            ready to support.
+          </p>
+        </div>
+      </section>
+
       <section className="section section-problem">
         <SectionHeading
           number="01"
@@ -137,7 +238,7 @@ export default function Home() {
       <section className="section levels-section grid-bg" id="levels">
         <SectionHeading
           number="03"
-          eyebrow="THE 10 LEVELS OF GROWTH IMPLEMENTATION"
+          eyebrow="THE 10 LEVELS OF AI IMPLEMENTATION"
           title="Build the right system in the right order."
           copy="Growth is installed in sequence. Each level creates the conditions for the next — from commercial clarity to a compounding operating system."
         />

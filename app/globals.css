@@ -426,6 +426,225 @@ em {
   writing-mode: vertical-rl;
 }
 
+.metrics-section {
+  position: relative;
+  display: grid;
+  max-width: none;
+  grid-template-columns: minmax(330px, 0.72fr) minmax(0, 1.28fr);
+  gap: clamp(56px, 6vw, 110px);
+  padding: 132px max(42px, calc((100vw - var(--max)) / 2 + 42px));
+  overflow: hidden;
+  border-bottom: 1px solid var(--line);
+  background-color: #0d0d10;
+}
+
+.metrics-section > * {
+  position: relative;
+  z-index: 1;
+}
+
+.metrics-intro {
+  max-width: 520px;
+}
+
+.metrics-intro h2 {
+  margin-bottom: 28px;
+  font-size: clamp(42px, 4vw, 68px);
+  font-weight: 500;
+  letter-spacing: -0.05em;
+  line-height: 1.02;
+}
+
+.metrics-intro > p {
+  color: #b6bac1;
+  font-size: 17px;
+  line-height: 1.7;
+}
+
+.metrics-thesis {
+  margin-top: 48px;
+  padding: 24px 0 24px 26px;
+  border-left: 2px solid var(--signal);
+  background: linear-gradient(90deg, var(--signal-soft), transparent);
+}
+
+.metrics-thesis span,
+.metrics-system-label,
+.metric-card-top,
+.metric-card strong,
+.metrics-level-map span {
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 8px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.metrics-thesis span {
+  display: block;
+  margin-bottom: 10px;
+  color: var(--signal);
+}
+
+.metrics-thesis strong {
+  display: block;
+  max-width: 360px;
+  font-size: 18px;
+  font-weight: 520;
+  line-height: 1.35;
+}
+
+.metrics-system {
+  min-width: 0;
+}
+
+.metrics-system-label {
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 14px;
+  color: var(--steel);
+}
+
+.metrics-system-label span:last-child {
+  color: var(--signal);
+}
+
+.metric-flow {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  border-top: 1px solid var(--line);
+  border-left: 1px solid var(--line);
+}
+
+.metric-card {
+  position: relative;
+  display: flex;
+  min-height: 300px;
+  flex-direction: column;
+  padding: 22px;
+  border-right: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  background:
+    linear-gradient(145deg, rgba(102, 124, 255, 0.09), transparent 52%),
+    rgba(17, 17, 21, 0.88);
+}
+
+.metric-card-top {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  color: var(--steel);
+}
+
+.metric-card-top span:first-child {
+  color: var(--signal);
+}
+
+.metric-card-top span:last-child {
+  font-size: 7px;
+  text-align: right;
+}
+
+.metric-card h3 {
+  margin: 58px 0 14px;
+  font-size: clamp(21px, 1.7vw, 28px);
+  font-weight: 520;
+  letter-spacing: -0.035em;
+  line-height: 1.05;
+}
+
+.metric-card p {
+  margin-bottom: 26px;
+  color: var(--steel);
+  font-size: 13px;
+  line-height: 1.55;
+}
+
+.metric-card strong {
+  margin-top: auto;
+  color: var(--signal);
+  font-weight: 600;
+  line-height: 1.45;
+}
+
+.metric-arrow {
+  position: absolute;
+  z-index: 2;
+  top: 50%;
+  right: -13px;
+  display: grid;
+  width: 26px;
+  height: 26px;
+  place-items: center;
+  border: 1px solid var(--signal);
+  border-radius: 50%;
+  background: var(--ink);
+  color: var(--signal);
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 11px;
+  transform: translateY(-50%);
+}
+
+.metric-equation {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 22px;
+  border-right: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  border-left: 1px solid var(--line);
+  background: var(--ink);
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 8px;
+  letter-spacing: 0.08em;
+}
+
+.metric-equation i {
+  color: var(--steel);
+  font-style: normal;
+}
+
+.metric-equation strong {
+  color: var(--signal);
+  font-weight: 700;
+}
+
+.metrics-level-map {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  margin-top: 32px;
+  border-top: 1px solid var(--line);
+  border-left: 1px solid var(--line);
+}
+
+.metrics-level-map > div {
+  min-height: 156px;
+  padding: 20px;
+  border-right: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.metrics-level-map span {
+  color: var(--signal);
+}
+
+.metrics-level-map p {
+  margin: 42px 0 0;
+  color: #c8c9ca;
+  font-size: 12px;
+  line-height: 1.55;
+}
+
+.metrics-bridge {
+  margin: 28px 0 0;
+  padding-left: 22px;
+  border-left: 1px solid var(--signal);
+  color: var(--steel);
+  font-size: 14px;
+  line-height: 1.65;
+}
+
 .section {
   position: relative;
   max-width: var(--max);
@@ -1547,6 +1766,23 @@ em {
     min-height: 620px;
   }
 
+  .metrics-section {
+    grid-template-columns: 1fr;
+  }
+
+  .metrics-intro {
+    max-width: 760px;
+  }
+
+  .metric-flow,
+  .metrics-level-map {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .metric-arrow {
+    display: none;
+  }
+
   .method-track {
     grid-template-columns: repeat(3, 1fr);
   }
@@ -1690,6 +1926,48 @@ em {
 
   .hero-side-label {
     display: none;
+  }
+
+  .metrics-section {
+    gap: 56px;
+    padding: 92px 16px;
+  }
+
+  .metrics-intro h2 {
+    font-size: clamp(37px, 10.5vw, 52px);
+  }
+
+  .metrics-intro > p {
+    font-size: 16px;
+  }
+
+  .metric-flow,
+  .metrics-level-map {
+    grid-template-columns: 1fr;
+  }
+
+  .metric-card {
+    min-height: 250px;
+  }
+
+  .metric-equation {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 12px;
+  }
+
+  .metric-equation strong {
+    grid-column: 1 / -1;
+    padding-top: 14px;
+    border-top: 1px solid var(--line);
+  }
+
+  .metrics-level-map > div {
+    min-height: 130px;
+  }
+
+  .metrics-level-map p {
+    margin-top: 28px;
   }
 
   .section {
