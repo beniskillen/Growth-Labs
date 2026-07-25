@@ -37,18 +37,18 @@ const partners = [
 ];
 
 export const metadata = {
-  title: "Custom AI Growth Solutions",
+  title: "Growth Systems & Implementation",
   description:
-    "Full revenue engines, AI operating systems, platforms and campaigns led by one accountable operator and a vetted partner bench.",
+    "Revenue engines, operating systems, platforms and campaigns led by one accountable growth operator and a vetted partner bench.",
 };
 
 export default function SolutionsPage() {
   return (
     <SiteFrame>
       <PageHero
-        eyebrow="GROWTH LABS_ / CUSTOM SOLUTIONS"
-        title={<>Custom solutions for <em>ambitious teams.</em></>}
-        copy="Some problems do not fit a productised sprint. When you need a full revenue engine, platform, community system or AI product installed — Growth Labs scopes it, leads it and delivers it with a vetted partner bench."
+        eyebrow="GROWTH LABS_ / SYSTEM IMPLEMENTATION"
+        title={<>The right system for the <em>constraint.</em></>}
+        copy="Some growth constraints need more than advice. When the diagnosis calls for a full revenue engine, platform, delivery system or carefully placed AI workflow, Growth Labs scopes it, leads it and delivers it with a vetted partner bench."
         action={<AuditButton>Start a scoping conversation</AuditButton>}
         aside={
           <div className="scope-map" aria-label="Custom delivery model">
@@ -162,4 +162,3 @@ export default function SolutionsPage() {
     </SiteFrame>
   );
 }
-

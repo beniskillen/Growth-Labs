@@ -28,12 +28,13 @@ export function SiteHeader() {
     <header className="site-header">
       <Wordmark />
       <nav className="site-nav" aria-label="Main navigation">
-        <Link href="/solutions">Solutions</Link>
-        <Link href="/#work">Case studies</Link>
+        <Link href="/#levels">10 Levels</Link>
+        <Link href="/#process">Method</Link>
+        <Link href="/#work">Proof</Link>
         <Link href="/about">About</Link>
       </nav>
       <a className="button button-small" href={AUDIT_URL} target="_blank" rel="noreferrer">
-        Book your audit
+        Book the audit
       </a>
     </header>
   );
@@ -76,7 +77,7 @@ export function Arrow() {
 }
 
 export function AuditButton({
-  children = "Book your 30-minute audit",
+  children = "Book a Growth Constraint Audit",
   className = "",
 }: {
   children?: ReactNode;
@@ -126,17 +127,19 @@ export function Footer() {
     <footer className="footer">
       <div>
         <Wordmark />
-        <p>Operator-led AI growth studio · Bali / remote</p>
+        <p>Growth implementation first. AI leverage second. · Bali / remote</p>
       </div>
       <nav aria-label="Footer navigation">
+        <Link href="/#levels">10 Levels</Link>
+        <Link href="/#process">Method</Link>
         <Link href="/solutions">Solutions</Link>
-        <Link href="/#work">Case studies</Link>
+        <Link href="/#work">Proof</Link>
         <Link href="/about">About</Link>
-        <Link href="/audit">AI Leverage Audit</Link>
+        <Link href="/audit">Growth Constraint Audit</Link>
       </nav>
       <div className="footer-meta">
         <span>© {new Date().getFullYear()} Growth Labs</span>
-        <span>Systems, not theatre.</span>
+        <span>Constraint first. Tools second.</span>
       </div>
     </footer>
   );
@@ -151,4 +154,3 @@ export function SiteFrame({ children }: { children: ReactNode }) {
     </>
   );
 }
-
