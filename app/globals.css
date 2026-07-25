@@ -1182,7 +1182,7 @@ em {
   height: calc(100% - 50px);
   min-height: 540px;
   object-fit: cover;
-  object-position: 58% 50%;
+  object-position: center center;
   filter: grayscale(1) contrast(1.08) brightness(0.76);
 }
 
@@ -1800,7 +1800,7 @@ em {
   max-height: none;
   aspect-ratio: 4 / 3;
   object-fit: cover;
-  object-position: 58% 50%;
+  object-position: center center;
   filter: grayscale(1) contrast(1.08) brightness(0.8);
 }
 
