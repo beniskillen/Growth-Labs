@@ -108,7 +108,7 @@ export default function Home() {
           <div className="hero-proof" aria-label="Growth Labs experience">
             <span><strong>10+</strong> years sales & growth</span>
             <span><strong>20+</strong> clients & ventures</span>
-            <span><strong>05</strong> sectors in production</span>
+            <span><strong>1000+</strong> founder strategies</span>
           </div>
         </div>
         <ParticlePortrait />
