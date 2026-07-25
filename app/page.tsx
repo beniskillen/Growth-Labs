@@ -46,9 +46,9 @@ const growthMetrics = [
 
 const levels = [
   ["01", "DIAGNOSE", "Growth Constraint Audit", "Find the biggest constraint using our KPI benchmarks."],
-  ["02", "INSTALL", "Constraint System Install", "Build the minimum system required to remove it."],
-  ["03", "CAPTURE", "AI Memory Capture", "Make business context searchable and reusable."],
-  ["04", "VISIBILITY", "Task Visibility", "Turn commitments, owners and next actions into a shared view."],
+  ["02", "INSTALL", "KPI Improvement Install", "Clean up the lowest hanging fruit in order to remove the #1 constraint blocking growth."],
+  ["03", "CAPTURE", "AI Memory Capture", "With the top problem being solved we now focus on making things more efficient."],
+  ["04", "VISIBILITY", "Context & Workflow Visibility", "We now start to have AI understand context across the larger workflow, while defining the resources it has available."],
   ["05", "STANDARDISE", "Skills & SOPs", "Codify how high-value work should be done."],
   ["06", "ASSIST", "Assisted Execution", "Use AI inside human-led work where judgement still matters."],
   ["07", "AUTOMATE", "Workflow Automation", "Remove repetition only after the workflow is proven."],
@@ -61,19 +61,19 @@ const offers = [
   {
     code: "FREE / 30 MIN",
     title: "AI Leverage Audit",
-    copy: "Map your three highest-leverage AI systems and leave with a 7–14 day action plan.",
+    copy: "Map your three highest-leverage AI systems and leave with a 7–30 day action plan to move up 1-3 levels.",
     fit: "For founders unclear where AI actually fits.",
     href: "/audit",
   },
   {
     code: "7–14 DAYS",
-    title: "AI Workflow Sprint",
+    title: "AI Implementation Sprint",
     copy: "One workflow mapped, documented and rebuilt with AI. Live, measured and adopted.",
     fit: "For teams that want the first win fast.",
   },
   {
     code: "30–90 DAYS",
-    title: "AI Growth OS Build",
+    title: "Full Growth Campaign",
     copy: "Business brain, CRM, SOPs, agents, dashboards and team training.",
     fit: "For businesses ready to run AI-native.",
   },
@@ -238,7 +238,7 @@ export default function Home() {
       <section className="section levels-section grid-bg" id="levels">
         <SectionHeading
           number="03"
-          eyebrow="THE 10 LEVELS OF AI IMPLEMENTATION"
+          eyebrow="THE 10 LEVELS OF AI GROWTH IMPLEMENTATION"
           title="Build the right system in the right order."
           copy="Growth is installed in sequence. Each level creates the conditions for the next — from commercial clarity to a compounding operating system."
         />
@@ -297,12 +297,13 @@ export default function Home() {
       <section className="section split-section grid-bg">
         <div>
           <Eyebrow>WHO IT IS FOR</Eyebrow>
-          <h2>Demand already exists. The system should convert it.</h2>
+          <h2><em>Business owners who want growth. Not just AI hype.</em></h2>
         </div>
         <div>
           <p>
             Founders, operators, consultants, agencies, service businesses and
-            community-led brands that want clean systems around real demand.
+            community-led brands that want to harness AI by leveraging the
+            fundamentals of marketing to allow it to actually drive revenue.
           </p>
           <p className="muted">
             If you are pre-revenue with no offer, the audit will tell you that
