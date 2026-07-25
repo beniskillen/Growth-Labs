@@ -1182,7 +1182,7 @@ em {
   height: calc(100% - 50px);
   min-height: 540px;
   object-fit: cover;
-  object-position: 50% 20%;
+  object-position: 58% 50%;
   filter: grayscale(1) contrast(1.08) brightness(0.76);
 }
 
@@ -1797,9 +1797,10 @@ em {
 .about-portrait img {
   display: block;
   width: 100%;
-  max-height: 660px;
+  max-height: none;
+  aspect-ratio: 4 / 3;
   object-fit: cover;
-  object-position: 50% 20%;
+  object-position: 58% 50%;
   filter: grayscale(1) contrast(1.08) brightness(0.8);
 }
 

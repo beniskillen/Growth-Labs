@@ -20,7 +20,7 @@ export default function AboutPage() {
           <AuditButton />
         </div>
         <figure className="about-portrait">
-          <img src="/ben-killen.jpg" alt="Ben Killen, founder of Growth Labs" />
+          <img src="/ben-professional.jpg" alt="Ben Killen presenting at Bybit" />
           <figcaption>
             <span>BEN KILLEN</span>
             <span>BALI / REMOTE</span>

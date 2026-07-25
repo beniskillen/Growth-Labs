@@ -93,7 +93,7 @@ export default function Home() {
         <div className="hero-copy">
           <Eyebrow>GROWTH LABS_ / OPERATOR-LED AI GROWTH STUDIO</Eyebrow>
           <h1>
-            Turn AI into a <em>revenue system</em> — not another tool you never use.
+            Cut out the noise. Turn AI into a <em>revenue system</em>
           </h1>
           <p>
             We identify your biggest commercial constraint, install the system
@@ -341,7 +341,7 @@ export default function Home() {
         />
         <div className="home-about-grid">
           <figure className="home-about-portrait">
-            <img src="/ben-killen.jpg" alt="Ben Killen, founder of Growth Labs" />
+            <img src="/ben-professional.jpg" alt="Ben Killen presenting at Bybit" />
             <figcaption>
               <span>BEN KILLEN / FOUNDER</span>
               <span>10+ YEARS / MARKETING &amp; SALES</span>
