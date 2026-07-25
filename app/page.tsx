@@ -81,7 +81,7 @@ const offers = [
   {
     code: "7–14 DAYS",
     title: "AI Implementation Sprint",
-    copy: "One workflow mapped, documented and rebuilt with AI. Live, measured and adopted.",
+    copy: "The highest constraint workflow mapped, documented and rebuilt with AI. Live, measured and adopted.",
     fit: "For teams that want the first win fast.",
   },
   {

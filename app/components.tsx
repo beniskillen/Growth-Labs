@@ -126,7 +126,7 @@ export function Footer() {
     <footer className="footer">
       <div>
         <Wordmark />
-        <p>Operator-led AI growth studio · Bali / remote</p>
+        <p>Revenue first AI implementation · Marketing systems</p>
       </div>
       <nav aria-label="Footer navigation">
         <Link href="/solutions">Solutions</Link>
