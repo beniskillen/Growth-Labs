@@ -6,12 +6,12 @@ import {
 } from "../components";
 
 const lanes = [
-  ["Revenue & pipeline systems", "CRM architecture, outreach engines, follow-up, sales dashboards and BD rhythm.", "GROWTH LABS CORE"],
-  ["AI operating systems", "Business brain, SOP libraries, agents, meeting-to-task and comms triage.", "GROWTH LABS + CORVAN"],
-  ["Websites & conversion", "Conversion-first websites, landing pages, CRO, hosting and care.", "PARTNER BENCH"],
-  ["Campaigns & content", "Launches, influencer/affiliate activations, clip machines, paid ads and tracking.", "PARTNER BENCH"],
+  ["Revenue & pipeline systems", "CRM architecture, outreach engines, follow-up, sales dashboards and BD rhythm.", "GROWTH LABS"],
+  ["AI operating systems", "Business brain, SOP libraries, agents, meeting-to-task and comms triage.", "GROWTH LABS"],
+  ["Websites & conversion", "Conversion-first websites, landing pages, CRO, hosting and care.", "GROWTH LABS"],
+  ["Campaigns & content", "Launches, influencer/affiliate activations, clip machines, paid ads and tracking.", "GROWTH LABS"],
   ["Technical talent & hiring", "Engineering hiring, proof-of-work search and recruitment systems.", "JOBITED"],
-  ["Community & events", "Community platforms, event-to-CRM capture, workshops and activation.", "ECOSYSTEM BENCH"],
+  ["Community & events", "Community platforms, event-to-CRM capture, workshops and activation.", "GROWTH LABS"],
 ];
 
 export const metadata = {
