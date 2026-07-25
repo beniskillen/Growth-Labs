@@ -104,7 +104,7 @@ export default function Home() {
     <SiteFrame>
       <section className="home-hero grid-bg">
         <div className="hero-copy">
-          <Eyebrow>GROWTH LABS_ / OPERATOR-LED AI GROWTH STUDIO</Eyebrow>
+          <Eyebrow>GROWTH LABS_ / REVENUE-LED AI GROWTH SYSTEMS</Eyebrow>
           <h1>
             Cut out the noise. Turn AI into a <em>revenue system.</em>
           </h1>
