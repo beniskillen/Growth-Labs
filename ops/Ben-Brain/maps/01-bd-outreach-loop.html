@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Map · 01 — BD Outreach Loop</title>
+<style>
+  :root{
+    --bg:#f7f7f5; --panel:#ffffff; --ink:#1c1b19; --muted:#6b6a66;
+    --line:#e2e1dc; --agent:#2f6f4f; --agent-bg:#e7f2ec; --ben:#8a5a1a; --ben-bg:#f6ecd9;
+    --gate:#b23a3a; --gate-bg:#fbe9e9; --accent:#2f6f4f; --shadow:0 1px 3px rgba(0,0,0,.06);
+  }
+  @media (prefers-color-scheme: dark){
+    :root{
+      --bg:#17171a; --panel:#212125; --ink:#eceae6; --muted:#a09f99;
+      --line:#33333a; --agent:#7fcfa4; --agent-bg:#1c3a2c; --ben:#e0b46a; --ben-bg:#3a2f18;
+      --gate:#f08a8a; --gate-bg:#3a1e1e; --accent:#7fcfa4; --shadow:0 1px 3px rgba(0,0,0,.4);
+    }
+  }
+  :root[data-theme="light"]{ --bg:#f7f7f5; --panel:#fff; --ink:#1c1b19; --muted:#6b6a66; --line:#e2e1dc; --agent:#2f6f4f; --agent-bg:#e7f2ec; --ben:#8a5a1a; --ben-bg:#f6ecd9; --gate:#b23a3a; --gate-bg:#fbe9e9; --accent:#2f6f4f; }
+  :root[data-theme="dark"]{ --bg:#17171a; --panel:#212125; --ink:#eceae6; --muted:#a09f99; --line:#33333a; --agent:#7fcfa4; --agent-bg:#1c3a2c; --ben:#e0b46a; --ben-bg:#3a2f18; --gate:#f08a8a; --gate-bg:#3a1e1e; --accent:#7fcfa4; }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;padding:32px 20px 80px}
+  .wrap{max-width:920px;margin:0 auto}
+  header{margin-bottom:8px}
+  h1{font-size:24px;margin:0 0 4px}
+  .sub{color:var(--muted);margin:0 0 6px}
+  .meta{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0 4px}
+  .pill{font-size:12px;padding:3px 10px;border-radius:20px;border:1px solid var(--line);background:var(--panel);color:var(--muted)}
+  .pill b{color:var(--ink)}
+  .legend{display:flex;gap:14px;flex-wrap:wrap;margin:14px 0 24px;font-size:13px}
+  .badge{display:inline-flex;align-items:center;gap:6px;font-weight:600;font-size:12px;padding:2px 9px;border-radius:6px}
+  .b-agent{background:var(--agent-bg);color:var(--agent)}
+  .b-ben{background:var(--ben-bg);color:var(--ben)}
+  .flow{display:flex;flex-direction:column;gap:0}
+  .stage{background:var(--panel);border:1px solid var(--line);border-radius:12px;box-shadow:var(--shadow);overflow:hidden}
+  .stage summary{list-style:none;cursor:pointer;padding:14px 16px;display:flex;align-items:flex-start;gap:12px}
+  .stage summary::-webkit-details-marker{display:none}
+  .num{flex:none;width:30px;height:30px;border-radius:8px;background:var(--agent-bg);color:var(--agent);font-weight:700;display:flex;align-items:center;justify-content:center;font-size:14px}
+  .stitle{font-weight:650;margin:0}
+  .sgate{color:var(--muted);font-size:13px;margin:3px 0 0}
+  .chev{margin-left:auto;color:var(--muted);transition:transform .15s;flex:none}
+  details[open] .chev{transform:rotate(90deg)}
+  .body{padding:0 16px 16px 58px;font-size:14px;color:var(--ink)}
+  .body p{margin:0 0 8px}
+  .gatecard{border-color:var(--gate);background:var(--gate-bg)}
+  .gatecard .num{background:transparent;color:var(--gate);font-size:20px}
+  .gatecard .stitle{color:var(--gate)}
+  .connector{width:2px;height:16px;background:var(--line);margin:0 auto}
+  .cols{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:28px}
+  @media (max-width:680px){.cols{grid-template-columns:1fr}}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:16px;box-shadow:var(--shadow)}
+  .card h3{margin:0 0 10px;font-size:15px}
+  table{width:100%;border-collapse:collapse;font-size:13px}
+  td{padding:5px 6px;border-bottom:1px solid var(--line);vertical-align:top}
+  tr:last-child td{border-bottom:none}
+  td:first-child{font-weight:600;white-space:nowrap;padding-right:12px}
+  ul{margin:6px 0 0;padding-left:18px}
+  li{margin:3px 0}
+  .foot{margin-top:24px;color:var(--muted);font-size:12px;text-align:center}
+  code{background:var(--agent-bg);color:var(--agent);padding:1px 5px;border-radius:4px;font-size:12px}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>01 — BD Outreach Loop</h1>
+    <p class="sub">Daily Growth CRM chase-up · KPI: booked audit conversations per day</p>
+    <div class="meta">
+      <span class="pill"><b>Budget</b> · 15 drafts/run</span>
+      <span class="pill"><b>Gate</b> · Ben sends</span>
+      <span class="pill"><b>Home</b> · claude.ai + Notion connector</span>
+      <span class="pill"><b>Spec</b> · specs/01-bd-outreach-loop.md</span>
+    </div>
+    <div class="legend">
+      <span class="badge b-agent">▟ AGENT — you execute</span>
+      <span class="badge b-ben">▟ BEN — human only</span>
+    </div>
+  </header>
+
+  <p class="sub" style="margin-bottom:16px">Click any stage to see its exit gate. Nothing crosses the red gate without Ben's confirmation.</p>
+
+  <div class="flow" id="flow">
+    <details class="stage" open>
+      <summary><span class="num">0</span><span><p class="stitle">Sweep <span class="badge b-agent">AGENT</span></p><p class="sgate">Gate: full due list enumerated — no silent skips</p></span><span class="chev">▸</span></summary>
+      <div class="body"><p>Query the CRM for To-do / In-progress contacts where <b>Next Contact ≤ today OR empty</b>. A due date with an empty/stale Next Action is not skipped — it's surfaced flagged "action needed".</p></div>
+    </details>
+    <div class="connector"></div>
+
+    <details class="stage">
+      <summary><span class="num">1</span><span><p class="stitle">Objective sync <span class="badge b-agent">AGENT</span></p><p class="sgate">Gate: every contact carries a classification + one-line "why now"</p></span><span class="chev">▸</span></summary>
+      <div class="body"><p>Re-read the live Growth Labs objective page. Classify each contact: <b>audit-path</b>, <b>partner/channel-path</b>, or <b>park</b>. Communities are channels, not clients.</p></div>
+    </details>
+    <div class="connector"></div>
+
+    <details class="stage">
+      <summary><span class="num">2</span><span><p class="stitle">Best-action check <span class="badge b-agent">AGENT</span></p><p class="sgate">Gate: every action confirmed, or challenged with rationale</p></span><span class="chev">▸</span></summary>
+      <div class="body"><p>Test each assigned Next Action against the objective, status, and last real interaction. Advances the funnel → execute as drafted. A better move exists → propose a replacement <b>with reasoning shown</b>. Never silently override.</p></div>
+    </details>
+    <div class="connector"></div>
+
+    <details class="stage">
+      <summary><span class="num">3</span><span><p class="stitle">Draft the touches <span class="badge b-agent">AGENT</span></p><p class="sgate">Gate: read-aloud test — Ben could send it verbatim</p></span><span class="chev">▸</span></summary>
+      <div class="body"><p>Channel-native drafts in Ben's voice. One per contact; an alternate angle only where the read is genuinely ambiguous. Every draft anchors on real context — zero invented history. Match <code>context/voice-examples/</code>.</p></div>
+    </details>
+    <div class="connector"></div>
+
+    <details class="stage">
+      <summary><span class="num">4</span><span><p class="stitle">Cadence reset <span class="badge b-agent">AGENT</span></p><p class="sgate">Gate: a future date or a deliberate, logged close-out</p></span><span class="chev">▸</span></summary>
+      <div class="body"><p>Propose the new Next Contact date per the cadence matrix, plus the next-next action so the pipeline always has a forward move. Stated preferences beat the matrix — log the override.</p></div>
+    </details>
+    <div class="connector"></div>
+
+    <details class="stage">
+      <summary><span class="num">5</span><span><p class="stitle">Handoff — build the run sheet <span class="badge b-agent">AGENT</span></p><p class="sgate">Gate: the number first, then ready-to-send, judgment calls, flags, log line</p></span><span class="chev">▸</span></summary>
+      <div class="body"><p>Assemble the run sheet from <code>context/templates/run-sheet-template.md</code> and present it. Score the run 0–5 on Congruence · Objective fit · Cadence sanity · Evidence · Completeness — loop on anything under 4 first.</p></div>
+    </details>
+    <div class="connector"></div>
+
+    <details class="stage gatecard" open>
+      <summary><span class="num">⟡</span><span><p class="stitle">REVIEW GATE — hard stop <span class="badge b-ben">BEN</span></p><p class="sgate">Produce the run sheet, then STOP and WAIT</p></span><span class="chev">▸</span></summary>
+      <div class="body"><p>Ben reviews, fires the sends himself, and tells the agent which touches went out. <b>No CRM write, no "sent" mark, no date moves until Ben confirms</b> — however obvious the approval seems.</p></div>
+    </details>
+    <div class="connector"></div>
+
+    <details class="stage">
+      <summary><span class="num">6</span><span><p class="stitle">Write-back &amp; log <span class="badge b-agent">AGENT</span></p><p class="sgate">Gate: CRM reflects only what Ben confirmed; log line written</p></span><span class="chev">▸</span></summary>
+      <div class="body"><p>For confirmed sends only, update the CRM (Next Contact, Next Action, Status, notes). Append the run to the log (<code>context/templates/run-log-template.md</code>) — every run, even empty ones. A loop without a log is a cron job with vibes.</p></div>
+    </details>
+  </div>
+
+  <div class="cols">
+    <div class="card">
+      <h3>Cadence matrix (default by warmth)</h3>
+      <table>
+        <tr><td>In Conversation</td><td>Reply &lt;24h; follow up 2–3 days after silence</td></tr>
+        <tr><td>Warm Lead</td><td>5–7 days between touches</td></tr>
+        <tr><td>Active (partners)</td><td>7–14 days, value-led — never pitch</td></tr>
+        <tr><td>To Review / new</td><td>First touch within 3 days of triage</td></tr>
+        <tr><td>Cold (re-activation)</td><td>30+ day spacing, max 2/quarter</td></tr>
+      </table>
+    </div>
+    <div class="card">
+      <h3>Guardrails</h3>
+      <ul>
+        <li>Agent never sends — drafts only.</li>
+        <li>Do Not Contact is absolute.</li>
+        <li>One-item menu — only the audit is sold; no pricing / ladder in a first touch.</li>
+        <li>Three-strike rotation → rotate channel once, then park 30 days.</li>
+        <li>No two identical messages, ever. "Just bumping this" is banned.</li>
+        <li>Never fabricate shared history — flag the gap.</li>
+        <li>Cash base first; never rev-share-only.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="card" style="margin-top:16px">
+    <h3>Graduation (trust ladder)</h3>
+    <p style="margin:0;font-size:14px">Stays manual &amp; fully gated until <b>10 consecutive runs with ≥80% of drafts approved unedited</b> (tracked in the log line). Only then decide whether a scheduled morning run gets added — and which tiers, if any, graduate past draft-only.</p>
+  </div>
+
+  <p class="foot">Human-facing map · generated from <code>specs/01-bd-outreach-loop.md</code> · part of Ben-Brain</p>
+</div>
+</body>
+</html>
