@@ -1,12 +1,16 @@
 # Growth Labs
 
-Operator-led AI growth studio website for Ben Killen.
+Operator-led growth studio website for Ben Killen. The public home page
+engineers the brand thesis — **revenue systems from first principles** —
+around a scroll-driven quantum valence diagram.
 
 ## Site
 
-- `/` — positioning, method, offers and selected work
+- `/` — home: revenue atom, services, partners, about
+- `/landing` — original operator landing with the particle portrait
 - `/audit` — 30-Minute AI Leverage Audit
-- `/solutions` — custom solutions, case files and partner bench
+- `/solutions` — custom solutions and delivery lanes
+- `/partners` — partner bench, including AI Powered
 - `/about` — operator story and mission
 
 ## Local preview
@@ -24,7 +28,14 @@ Create a production build with:
 pnpm build
 ```
 
-The hero portrait is rendered from `public/ben-killen.jpg` as an interactive
-canvas point cloud. The website respects reduced-motion preferences and uses
-the supplied portrait directly on the About page.
+## Hero systems
 
+The home page replaces the particle portrait with a 3D **revenue atom**:
+
+- **Nucleus** — client logos from the trust bar, with **Revenue** sitting above
+- **Inner valence** — Impressions, UV's, CTR%
+- **Outer valence** — CAC, LTV, Page CVR %
+- **Outer bound** — TAM, with *(your potential)* underneath
+
+Scroll rotates the system. Hover or click a metric to focus that shell.
+The original portrait landing remains at `/landing`.

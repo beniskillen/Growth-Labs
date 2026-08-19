@@ -15,26 +15,26 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL("https://growth-labs-ben-killen.openai.site"),
   title: {
-    default: "Growth Labs — AI growth systems for founder-led businesses",
+    default: "Growth Labs — Engineering revenue systems from first principles",
     template: "%s · Growth Labs",
   },
   description:
-    "Operator-led AI growth systems: diagnose the bottleneck, build the workflow, train the team and measure the result.",
+    "Operator-led growth studio: diagnose the constraint, engineer the revenue system, and measure CAC, LTV and CTR before scaling.",
   icons: {
     icon: "/favicon.svg",
     shortcut: "/favicon.svg",
   },
   openGraph: {
-    title: "Growth Labs — Turn AI into a revenue system",
+    title: "Growth Labs — Engineer the revenue system",
     description:
-      "Diagnosis first. Systems second. Results measured.",
+      "First principles. Then high-ROI systems. Results measured.",
     images: ["/og.png"],
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Growth Labs — Turn AI into a revenue system",
-    description: "Diagnosis first. Systems second. Results measured.",
+    title: "Growth Labs — Engineer the revenue system",
+    description: "First principles. Then high-ROI systems. Results measured.",
     images: ["/og.png"],
   },
 };
