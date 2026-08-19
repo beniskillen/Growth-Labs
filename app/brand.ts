@@ -1,14 +1,35 @@
 export const trustBrands = [
-  { name: "Bybit", src: "/trustbar/bybit.svg" },
-  { name: "Your Corner 360", src: "/trustbar/your-corner-360.svg" },
-  { name: "Fortem Media", src: "/trustbar/fortem-media.png" },
+  { name: "Bybit", src: "/trustbar/bybit.svg", nucleus: "/trustbar/nucleus/bybit.png" },
+  {
+    name: "Your Corner 360",
+    src: "/trustbar/your-corner-360.svg",
+    nucleus: "/trustbar/nucleus/your-corner-360.svg",
+  },
+  {
+    name: "Fortem Media",
+    src: "/trustbar/fortem-media.png",
+    nucleus: "/trustbar/nucleus/fortem-media.png",
+  },
   {
     name: "The Collective Solution",
     src: "/trustbar/the-collective-solution.png",
+    nucleus: "/trustbar/nucleus/the-collective-solution.png",
   },
-  { name: "3x3 Australia", src: "/trustbar/3x3-australia.svg" },
-  { name: "MTP Health", src: "/trustbar/mtp-health.svg" },
-  { name: "Juicy Festival", src: "/trustbar/juicy-festival.svg" },
+  {
+    name: "3x3 Australia",
+    src: "/trustbar/3x3-australia.svg",
+    nucleus: "/trustbar/nucleus/3x3-australia.png",
+  },
+  {
+    name: "MTP Health",
+    src: "/trustbar/mtp-health.svg",
+    nucleus: "/trustbar/nucleus/mtp-health.png",
+  },
+  {
+    name: "Juicy Festival",
+    src: "/trustbar/juicy-festival.svg",
+    nucleus: "/trustbar/nucleus/juicy-festival.png",
+  },
 ] as const;
 
 export const innerShell = [

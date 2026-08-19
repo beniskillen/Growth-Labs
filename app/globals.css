@@ -1448,8 +1448,8 @@ em {
   top: 0;
   left: 0;
   display: grid;
-  width: 46px;
-  height: 46px;
+  width: 52px;
+  height: 52px;
   place-items: center;
   overflow: hidden;
   opacity: 0;
@@ -1467,10 +1467,10 @@ em {
 
 .valence-logo img {
   display: block;
-  width: 72%;
-  height: 72%;
-  object-fit: contain;
-  filter: grayscale(1) brightness(1.08);
+  width: 88%;
+  height: 88%;
+  object-fit: cover;
+  filter: none;
 }
 
 .valence-node {
@@ -2607,6 +2607,11 @@ em {
   .valence-node {
     font-size: 8px;
     padding: 6px 10px;
+  }
+
+  .valence-logo {
+    width: 42px;
+    height: 42px;
   }
 
   .valence-readout,

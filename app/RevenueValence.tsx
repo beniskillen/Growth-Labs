@@ -677,7 +677,7 @@ export default function RevenueValence({
             }}
             title={brand.name}
           >
-            <img src={brand.src} alt={brand.name} />
+            <img src={brand.nucleus} alt={brand.name} />
           </div>
         ))}
       </div>
