@@ -50,7 +50,7 @@ const STEEL = "#8a8f98";
 const INNER_R = 1.22;
 const OUTER_R = 1.78;
 const TAM_R = 2.32;
-const NUCLEUS_R = 0.86;
+const NUCLEUS_R = 0.98;
 
 function add(a: V3, b: V3): V3 {
   return [a[0] + b[0], a[1] + b[1], a[2] + b[2]];
@@ -394,7 +394,7 @@ export default function RevenueValence({
           depth: drawn.depth,
           x: drawn.x,
           y: drawn.y,
-          size: Math.max(34, Math.min(48, drawn.s * 0.58)),
+          size: Math.max(30, Math.min(42, drawn.s * 0.5)),
           sprite,
           s: drawn.s,
         });
@@ -485,11 +485,15 @@ export default function RevenueValence({
         ctx.lineWidth = 1.5;
         ctx.stroke();
 
+        const radialX = drawn.x - nucleusCore.x;
+        const radialY = drawn.y - nucleusCore.y;
+        const radial = Math.hypot(radialX, radialY) || 1;
+        const labelPush = metric.shell === 1 ? 34 : 38;
         writeOverlay({
           id: metric.id,
           kind: "metric",
-          x: drawn.x,
-          y: drawn.y,
+          x: drawn.x + (radialX / radial) * labelPush,
+          y: drawn.y + (radialY / radial) * labelPush,
           scale: isFocus ? 1.08 : drawn.depthScale,
           depth: drawn.depth,
           visible: true,
