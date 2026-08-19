@@ -1,7 +1,11 @@
 import type { NextConfig } from "next";
 
+const githubPages = process.env.GITHUB_PAGES === "true";
+
 const nextConfig: NextConfig = {
-  /* config options here */
+  basePath: githubPages ? "/Growth-Labs" : "",
+  assetPrefix: githubPages ? "/Growth-Labs" : undefined,
+  trailingSlash: githubPages,
 };
 
 export default nextConfig;

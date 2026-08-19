@@ -28,8 +28,9 @@ export function SiteHeader() {
     <header className="site-header">
       <Wordmark />
       <nav className="site-nav" aria-label="Main navigation">
+        <Link href="/#services">Services</Link>
+        <Link href="/partners">Partners</Link>
         <Link href="/solutions">Solutions</Link>
-        <Link href="/#levels">10 Levels</Link>
         <Link href="/about">About</Link>
       </nav>
       <a className="button button-small" href={AUDIT_URL} target="_blank" rel="noreferrer">
@@ -126,12 +127,14 @@ export function Footer() {
     <footer className="footer">
       <div>
         <Wordmark />
-        <p>Revenue first AI implementation · Marketing systems</p>
+        <p>Engineering revenue systems from first principles.</p>
       </div>
       <nav aria-label="Footer navigation">
+        <Link href="/#services">Services</Link>
+        <Link href="/partners">Partners</Link>
         <Link href="/solutions">Solutions</Link>
-        <Link href="/#levels">10 Levels</Link>
         <Link href="/about">About</Link>
+        <Link href="/landing">Operator landing</Link>
         <Link href="/audit">AI Leverage Audit</Link>
       </nav>
       <div className="footer-meta">

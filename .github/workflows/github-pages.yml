@@ -1,0 +1,53 @@
+name: GitHub Pages
+
+on:
+  push:
+    branches: [main, cursor/revenue-valence-home-cd9e]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 11.9.0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm build
+        env:
+          GITHUB_PAGES: "true"
+      - name: Prerender static pages
+        env:
+          GITHUB_PAGES: "true"
+        run: |
+          pnpm start &
+          for i in $(seq 1 45); do
+            if curl -fsS http://127.0.0.1:3000/Growth-Labs/ >/dev/null; then
+              break
+            fi
+            sleep 1
+          done
+          curl -fsS http://127.0.0.1:3000/Growth-Labs/ >/dev/null
+          node scripts/prerender-pages.mjs
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: gh-pages-site
+      - id: deployment
+        uses: actions/deploy-pages@v4
