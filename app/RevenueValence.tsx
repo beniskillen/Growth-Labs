@@ -501,7 +501,7 @@ export default function RevenueValence({
       }
 
       const revenuePoint = project(
-        worldOf([0, -0.92, 0], yaw, pitch, 0),
+        worldOf([0, -1.08, 0], yaw, pitch, 0),
         width,
         height,
         dist,

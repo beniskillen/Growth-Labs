@@ -12,8 +12,13 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+const siteUrl =
+  process.env.GITHUB_PAGES === "true"
+    ? "https://beniskillen.github.io/Growth-Labs"
+    : "https://growth-labs-ben-killen.openai.site";
+
 export const metadata: Metadata = {
-  metadataBase: new URL("https://growth-labs-ben-killen.openai.site"),
+  metadataBase: new URL(siteUrl),
   title: {
     default: "Growth Labs — Engineering revenue systems from first principles",
     template: "%s · Growth Labs",
