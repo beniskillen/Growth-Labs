@@ -136,7 +136,7 @@ export default function ValenceExperience({ children }: { children: ReactNode })
             scrollProgress={scrollProgress}
             onFocus={setFocusId}
           />
-          <div className="hero-side-label">SCROLL TO ORBIT / HOVER TO FOCUS</div>
+          <div className="hero-side-label">SCROLL OR DRAG TO ORBIT / HOVER TO FOCUS</div>
         </div>
       </aside>
     </div>

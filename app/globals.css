@@ -1429,6 +1429,12 @@ em {
   display: block;
   width: 100%;
   height: 100%;
+  cursor: grab;
+  touch-action: none;
+}
+
+.valence-stage canvas:active {
+  cursor: grabbing;
 }
 
 .valence-overlays {
@@ -1442,25 +1448,29 @@ em {
   top: 0;
   left: 0;
   display: grid;
-  width: 34px;
-  height: 34px;
+  width: 46px;
+  height: 46px;
   place-items: center;
   overflow: hidden;
   opacity: 0;
-  border: 1px solid rgba(102, 124, 255, 0.55);
+  border: 1px solid rgba(102, 124, 255, 0.5);
   border-radius: 50%;
-  background: #f6f6f3;
-  box-shadow: 0 0 10px rgba(102, 124, 255, 0.32);
+  background:
+    radial-gradient(circle at 50% 42%, rgba(102, 124, 255, 0.18), transparent 68%),
+    #0c0c10;
+  box-shadow:
+    0 0 0 1px rgba(10, 10, 11, 0.7),
+    0 0 16px rgba(102, 124, 255, 0.38);
   pointer-events: none;
   will-change: transform;
 }
 
 .valence-logo img {
   display: block;
-  width: 78%;
-  height: 78%;
+  width: 72%;
+  height: 72%;
   object-fit: contain;
-  filter: grayscale(1) contrast(1.05);
+  filter: grayscale(1) brightness(1.08);
 }
 
 .valence-node {

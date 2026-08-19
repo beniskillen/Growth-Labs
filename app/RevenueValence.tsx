@@ -50,7 +50,7 @@ const STEEL = "#8a8f98";
 const INNER_R = 1.22;
 const OUTER_R = 1.78;
 const TAM_R = 2.32;
-const NUCLEUS_R = 0.7;
+const NUCLEUS_R = 0.86;
 
 function add(a: V3, b: V3): V3 {
   return [a[0] + b[0], a[1] + b[1], a[2] + b[2]];
@@ -130,7 +130,8 @@ export default function RevenueValence({
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const rootRef = useRef<HTMLDivElement>(null);
   const overlayRefs = useRef<Record<string, HTMLElement | null>>({});
-  const pointer = useRef({ x: 0, y: 0, active: false });
+  const pointer = useRef({ x: 0, y: 0, active: false, dragging: false });
+  const dragRef = useRef({ yaw: 0, pitch: 0, lastX: 0, lastY: 0 });
   const scrollRef = useRef(0);
   const scrollPropRef = useRef(scrollProgress);
   const focusRef = useRef<ValenceMetricId | null>(focusId);
@@ -178,15 +179,15 @@ export default function RevenueValence({
 
     const seedParticles = () => {
       const next: Particle[] = [];
-      const cloud = fibonacci(72, 0.28);
+      const cloud = fibonacci(22, 0.16);
       for (const [i, point] of cloud.entries()) {
         next.push({
           p: add(point, [
-            (Math.random() - 0.5) * 0.08,
-            (Math.random() - 0.5) * 0.08,
-            (Math.random() - 0.5) * 0.08,
+            (Math.random() - 0.5) * 0.04,
+            (Math.random() - 0.5) * 0.04,
+            (Math.random() - 0.5) * 0.04,
           ]),
-          size: i % 5 === 0 ? 2.1 : 1.15,
+          size: i % 4 === 0 ? 1.7 : 0.95,
           tone: i % 3 === 0 ? SIGNAL : i % 2 === 0 ? PAPER : STEEL,
           phase: Math.random() * Math.PI * 2,
         });
@@ -207,6 +208,54 @@ export default function RevenueValence({
     const worldOf = (p: V3, yaw: number, pitch: number, roll: number) =>
       rotX(rotY(rotZ(p, roll), yaw), pitch);
 
+    const sampleRing = (
+      radius: number,
+      tilt: number,
+      roll: number,
+      yaw: number,
+      pitch: number,
+      dist: number,
+      segments: number,
+    ) => {
+      const points: { x: number; y: number }[] = [];
+      for (let i = 0; i <= segments; i += 1) {
+        const theta = (i / segments) * Math.PI * 2;
+        const point = worldOf(shellPoint(radius, theta, tilt, roll), yaw, pitch, 0);
+        const drawn = project(point, width, height, dist);
+        points.push({ x: drawn.x, y: drawn.y });
+      }
+      return points;
+    };
+
+    const strokePath = (
+      points: { x: number; y: number }[],
+      alpha: number,
+      widthScale: number,
+      dashes: boolean,
+    ) => {
+      ctx.beginPath();
+      points.forEach((point, index) => {
+        if (index === 0) ctx.moveTo(point.x, point.y);
+        else ctx.lineTo(point.x, point.y);
+      });
+      ctx.strokeStyle = `rgba(102, 124, 255, ${alpha})`;
+      ctx.lineWidth = widthScale;
+      ctx.setLineDash(dashes ? [5, 9] : []);
+      ctx.stroke();
+      ctx.setLineDash([]);
+    };
+
+    const fillPlane = (points: { x: number; y: number }[], alpha: number) => {
+      ctx.beginPath();
+      points.forEach((point, index) => {
+        if (index === 0) ctx.moveTo(point.x, point.y);
+        else ctx.lineTo(point.x, point.y);
+      });
+      ctx.closePath();
+      ctx.fillStyle = `rgba(102, 124, 255, ${alpha})`;
+      ctx.fill();
+    };
+
     const drawRing = (
       radius: number,
       tilt: number,
@@ -218,21 +267,12 @@ export default function RevenueValence({
       widthScale: number,
       dashes: boolean,
     ) => {
-      const segments = 160;
-      ctx.beginPath();
-      for (let i = 0; i <= segments; i += 1) {
-        const theta = (i / segments) * Math.PI * 2;
-        const point = worldOf(shellPoint(radius, theta, tilt, roll), yaw, pitch, 0);
-        const drawn = project(point, width, height, dist);
-        if (i === 0) ctx.moveTo(drawn.x, drawn.y);
-        else ctx.lineTo(drawn.x, drawn.y);
-      }
-      ctx.strokeStyle = `rgba(102, 124, 255, ${alpha})`;
-      ctx.lineWidth = widthScale;
-      if (dashes) ctx.setLineDash([5, 9]);
-      else ctx.setLineDash([]);
-      ctx.stroke();
-      ctx.setLineDash([]);
+      strokePath(
+        sampleRing(radius, tilt, roll, yaw, pitch, dist, 160),
+        alpha,
+        widthScale,
+        dashes,
+      );
     };
 
     const writeOverlay = (state: OverlayState) => {
@@ -262,8 +302,13 @@ export default function RevenueValence({
         : 0;
 
       const orbit = reduceMotion || lockedRef.current ? 0 : time * 0.00016;
-      const yaw = orbit * 1.4 + localScroll * 1.15 + px * 0.42;
-      const pitch = -0.18 + localScroll * 0.55 + py * 0.28;
+      const yaw =
+        orbit * 1.4 + localScroll * 1.15 + px * 0.42 + dragRef.current.yaw;
+      const pitch =
+        -0.18 +
+        localScroll * 0.55 +
+        py * 0.28 +
+        dragRef.current.pitch;
       const roll = Math.sin(time * 0.00012) * 0.08;
       const dist = 3.35 - localScroll * 0.28;
       const focus = focusRef.current;
@@ -282,10 +327,16 @@ export default function RevenueValence({
       ctx.fillStyle = haze;
       ctx.fillRect(0, 0, width, height);
 
-      drawRing(TAM_R, 0.32, 0.04, yaw, pitch, dist, 0.22, 1.15, false);
+      const tamRing = sampleRing(TAM_R, 0.32, 0.04, yaw, pitch, dist, 160);
+      const outerRing = sampleRing(OUTER_R, 0.7, -0.08, yaw, pitch, dist, 160);
+      const innerRing = sampleRing(INNER_R, 0.52, 0.12, yaw, pitch, dist, 160);
+      fillPlane(tamRing, 0.035);
+      fillPlane(outerRing, 0.05);
+      fillPlane(innerRing, 0.07);
+      strokePath(tamRing, 0.22, 1.15, false);
       drawRing(TAM_R * 0.992, 0.32, 0.04, yaw, pitch, dist, 0.08, 6, false);
-      drawRing(OUTER_R, 0.7, -0.08, yaw, pitch, dist, 0.42, 1.35, true);
-      drawRing(INNER_R, 0.52, 0.12, yaw, pitch, dist, 0.7, 1.5, true);
+      strokePath(outerRing, 0.42, 1.35, true);
+      strokePath(innerRing, 0.7, 1.5, true);
 
       const nucleusCore = project(worldOf([0, 0, 0], yaw, pitch, 0), width, height, dist);
       const core = ctx.createRadialGradient(
@@ -294,14 +345,14 @@ export default function RevenueValence({
         4,
         nucleusCore.x,
         nucleusCore.y,
-        40 * intro,
+        28 * intro,
       );
-      core.addColorStop(0, "rgba(244, 244, 242, 0.16)");
-      core.addColorStop(0.35, "rgba(102, 124, 255, 0.16)");
+      core.addColorStop(0, "rgba(244, 244, 242, 0.12)");
+      core.addColorStop(0.4, "rgba(102, 124, 255, 0.14)");
       core.addColorStop(1, "rgba(102, 124, 255, 0)");
       ctx.fillStyle = core;
       ctx.beginPath();
-      ctx.arc(nucleusCore.x, nucleusCore.y, 44 * intro, 0, Math.PI * 2);
+      ctx.arc(nucleusCore.x, nucleusCore.y, 30 * intro, 0, Math.PI * 2);
       ctx.fill();
 
       type DrawItem =
@@ -343,7 +394,7 @@ export default function RevenueValence({
           depth: drawn.depth,
           x: drawn.x,
           y: drawn.y,
-          size: Math.max(26, Math.min(34, drawn.s * 0.42)),
+          size: Math.max(34, Math.min(48, drawn.s * 0.58)),
           sprite,
           s: drawn.s,
         });
@@ -412,6 +463,20 @@ export default function RevenueValence({
         }
 
         const isFocus = focus === metric.id;
+        const glow = ctx.createRadialGradient(
+          drawn.x,
+          drawn.y,
+          0,
+          drawn.x,
+          drawn.y,
+          isFocus ? 22 : 14,
+        );
+        glow.addColorStop(0, `rgba(102, 124, 255, ${isFocus ? 0.55 : 0.28})`);
+        glow.addColorStop(1, "rgba(102, 124, 255, 0)");
+        ctx.fillStyle = glow;
+        ctx.beginPath();
+        ctx.arc(drawn.x, drawn.y, isFocus ? 22 : 14, 0, Math.PI * 2);
+        ctx.fill();
         ctx.beginPath();
         ctx.arc(drawn.x, drawn.y, isFocus ? 7 : 4.5, 0, Math.PI * 2);
         ctx.fillStyle = isFocus ? PAPER : SIGNAL;
@@ -468,12 +533,38 @@ export default function RevenueValence({
 
     const onPointer = (event: PointerEvent) => {
       const rect = canvas.getBoundingClientRect();
-      pointer.current.x = event.clientX - rect.left;
-      pointer.current.y = event.clientY - rect.top;
+      const x = event.clientX - rect.left;
+      const y = event.clientY - rect.top;
+      if (pointer.current.dragging) {
+        dragRef.current.yaw += (x - dragRef.current.lastX) * 0.006;
+        dragRef.current.pitch += (y - dragRef.current.lastY) * 0.004;
+        dragRef.current.pitch = Math.max(
+          -0.85,
+          Math.min(0.85, dragRef.current.pitch),
+        );
+      }
+      dragRef.current.lastX = x;
+      dragRef.current.lastY = y;
+      pointer.current.x = x;
+      pointer.current.y = y;
       pointer.current.active = true;
+    };
+    const onPointerDown = (event: PointerEvent) => {
+      const rect = canvas.getBoundingClientRect();
+      pointer.current.dragging = true;
+      dragRef.current.lastX = event.clientX - rect.left;
+      dragRef.current.lastY = event.clientY - rect.top;
+      canvas.setPointerCapture(event.pointerId);
+    };
+    const onPointerUp = (event: PointerEvent) => {
+      pointer.current.dragging = false;
+      if (canvas.hasPointerCapture(event.pointerId)) {
+        canvas.releasePointerCapture(event.pointerId);
+      }
     };
     const onLeave = () => {
       pointer.current.active = false;
+      pointer.current.dragging = false;
     };
     const onScroll = () => {
       if (typeof scrollPropRef.current === "number") return;
@@ -496,6 +587,9 @@ export default function RevenueValence({
     resizeObserver.observe(root);
     window.addEventListener("scroll", onScroll, { passive: true });
     canvas.addEventListener("pointermove", onPointer);
+    canvas.addEventListener("pointerdown", onPointerDown);
+    canvas.addEventListener("pointerup", onPointerUp);
+    canvas.addEventListener("pointercancel", onPointerUp);
     canvas.addEventListener("pointerleave", onLeave);
     frame = requestAnimationFrame(draw);
 
@@ -506,6 +600,9 @@ export default function RevenueValence({
       resizeObserver.disconnect();
       window.removeEventListener("scroll", onScroll);
       canvas.removeEventListener("pointermove", onPointer);
+      canvas.removeEventListener("pointerdown", onPointerDown);
+      canvas.removeEventListener("pointerup", onPointerUp);
+      canvas.removeEventListener("pointercancel", onPointerUp);
       canvas.removeEventListener("pointerleave", onLeave);
     };
   }, []);
@@ -603,7 +700,7 @@ export default function RevenueValence({
             ? "The outer bound of the market you could own if the system holds."
             : activeIsRevenue
               ? "Client proof sits at the centre. Every shell exists to protect and compound it."
-              : "Scroll to rotate the system. Metrics orbit like electrons around revenue."}
+              : "Scroll to rotate the system. Drag the atom. Metrics orbit like electrons around revenue."}
       </p>
       <button
         className="portrait-control valence-lock"
