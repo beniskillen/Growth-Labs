@@ -31,7 +31,6 @@ type OverlayState = {
 
 type LogoSprite = {
   name: string;
-  canvas: HTMLCanvasElement;
   base: V3;
   spin: number;
 };
@@ -48,10 +47,10 @@ type Trail = { x: number; y: number; a: number };
 const SIGNAL = "#667cff";
 const PAPER = "#f4f4f2";
 const STEEL = "#8a8f98";
-const INNER_R = 1.08;
-const OUTER_R = 1.62;
-const TAM_R = 2.18;
-const NUCLEUS_R = 0.42;
+const INNER_R = 1.22;
+const OUTER_R = 1.78;
+const TAM_R = 2.32;
+const NUCLEUS_R = 0.7;
 
 function add(a: V3, b: V3): V3 {
   return [a[0] + b[0], a[1] + b[1], a[2] + b[2]];
@@ -77,13 +76,25 @@ function rotZ([x, y, z]: V3, a: number): V3 {
 
 function project(p: V3, w: number, h: number, dist: number) {
   const z = p[2] + dist;
-  const s = (Math.min(w, h) * 0.236) / Math.max(0.55, z);
+  const pixel = (Math.min(w, h) * 0.325) / Math.max(0.7, z);
   return {
-    x: w * 0.5 + p[0] * s,
-    y: h * 0.535 + p[1] * s,
-    s,
+    x: w * 0.5 + p[0] * pixel,
+    y: h * 0.54 + p[1] * pixel,
+    s: pixel,
     depth: z,
+    depthScale: Math.max(0.72, Math.min(1.18, 3.15 / z)),
   };
+}
+
+function logoRing(count: number, radius: number): V3[] {
+  return Array.from({ length: count }, (_, index) => {
+    const theta = (index / count) * Math.PI * 2 - Math.PI / 2;
+    return [
+      Math.cos(theta) * radius,
+      Math.sin(theta) * radius * 0.7,
+      Math.sin(theta * 1.35) * radius * 0.14,
+    ];
+  });
 }
 
 function fibonacci(count: number, radius: number): V3[] {
@@ -100,46 +111,6 @@ function fibonacci(count: number, radius: number): V3[] {
     ]);
   }
   return points;
-}
-
-function makeLogoPlate(image: HTMLImageElement) {
-  const size = 128;
-  const plate = document.createElement("canvas");
-  plate.width = size;
-  plate.height = size;
-  const ctx = plate.getContext("2d");
-  if (!ctx) return plate;
-
-  ctx.beginPath();
-  ctx.arc(size / 2, size / 2, size / 2 - 2, 0, Math.PI * 2);
-  ctx.closePath();
-  ctx.fillStyle = "#16161c";
-  ctx.fill();
-
-  ctx.save();
-  ctx.beginPath();
-  ctx.arc(size / 2, size / 2, size / 2 - 10, 0, Math.PI * 2);
-  ctx.closePath();
-  ctx.clip();
-  ctx.fillStyle = "#f4f4f2";
-  ctx.fillRect(8, 8, size - 16, size - 16);
-
-  const pad = 18;
-  const box = size - pad * 2;
-  const aspect = image.naturalWidth / Math.max(1, image.naturalHeight);
-  let dw = box;
-  let dh = box;
-  if (aspect > 1) dh = box / aspect;
-  else dw = box * aspect;
-  ctx.drawImage(image, (size - dw) / 2, (size - dh) / 2, dw, dh);
-  ctx.restore();
-
-  ctx.beginPath();
-  ctx.arc(size / 2, size / 2, size / 2 - 3, 0, Math.PI * 2);
-  ctx.strokeStyle = "rgba(102, 124, 255, 0.55)";
-  ctx.lineWidth = 3;
-  ctx.stroke();
-  return plate;
 }
 
 function shellPoint(radius: number, theta: number, tilt: number, roll: number): V3 {
@@ -196,49 +167,14 @@ export default function RevenueValence({
     ).matches;
     let disposed = false;
 
-    const loadLogos = Promise.all(
-      trustBrands.map(
-        (brand, index) =>
-          new Promise<LogoSprite>((resolve) => {
-            const image = new Image();
-            image.decoding = "async";
-            image.onload = () => {
-              const points = fibonacci(trustBrands.length, NUCLEUS_R);
-              resolve({
-                name: brand.name,
-                canvas: makeLogoPlate(image),
-                base: points[index] ?? [0, 0, 0],
-                spin: index * 0.7,
-              });
-            };
-            image.onerror = () => {
-              const fallback = document.createElement("canvas");
-              fallback.width = 128;
-              fallback.height = 128;
-              const fctx = fallback.getContext("2d");
-              if (fctx) {
-                fctx.fillStyle = "#16161c";
-                fctx.beginPath();
-                fctx.arc(64, 64, 60, 0, Math.PI * 2);
-                fctx.fill();
-                fctx.fillStyle = PAPER;
-                fctx.font = "600 18px sans-serif";
-                fctx.textAlign = "center";
-                fctx.textBaseline = "middle";
-                fctx.fillText(brand.name.slice(0, 2).toUpperCase(), 64, 64);
-              }
-              const points = fibonacci(trustBrands.length, NUCLEUS_R);
-              resolve({
-                name: brand.name,
-                canvas: fallback,
-                base: points[index] ?? [0, 0, 0],
-                spin: index * 0.7,
-              });
-            };
-            image.src = brand.src;
-          }),
-      ),
-    );
+    const seedLogos = () => {
+      const points = logoRing(trustBrands.length, NUCLEUS_R);
+      logos = trustBrands.map((brand, index) => ({
+        name: brand.name,
+        base: points[index] ?? [0, 0, 0],
+        spin: index * 0.7,
+      }));
+    };
 
     const seedParticles = () => {
       const next: Particle[] = [];
@@ -358,14 +294,14 @@ export default function RevenueValence({
         4,
         nucleusCore.x,
         nucleusCore.y,
-        86 * intro,
+        40 * intro,
       );
-      core.addColorStop(0, "rgba(244, 244, 242, 0.22)");
-      core.addColorStop(0.35, "rgba(102, 124, 255, 0.2)");
+      core.addColorStop(0, "rgba(244, 244, 242, 0.16)");
+      core.addColorStop(0.35, "rgba(102, 124, 255, 0.16)");
       core.addColorStop(1, "rgba(102, 124, 255, 0)");
       ctx.fillStyle = core;
       ctx.beginPath();
-      ctx.arc(nucleusCore.x, nucleusCore.y, 90 * intro, 0, Math.PI * 2);
+      ctx.arc(nucleusCore.x, nucleusCore.y, 44 * intro, 0, Math.PI * 2);
       ctx.fill();
 
       type DrawItem =
@@ -390,21 +326,24 @@ export default function RevenueValence({
           depth: drawn.depth,
           x: drawn.x,
           y: drawn.y,
-          size: particle.size * drawn.s * 1.8,
+          size: particle.size,
           tone: particle.tone,
         });
       }
 
       for (const sprite of logos) {
-        const spun = rotY(rotX(sprite.base, time * 0.00025 + sprite.spin), time * 0.00018);
-        const point = worldOf(spun, yaw, pitch, roll);
+        const spun = rotY(
+          rotX(sprite.base, time * 0.00018 + sprite.spin * 0.15),
+          time * 0.00012,
+        );
+        const point = worldOf(spun, yaw, pitch, roll * 0.4);
         const drawn = project(point, width, height, dist);
         items.push({
           kind: "logo",
           depth: drawn.depth,
           x: drawn.x,
           y: drawn.y,
-          size: 34 * drawn.s * 2.05,
+          size: Math.max(26, Math.min(34, drawn.s * 0.42)),
           sprite,
           s: drawn.s,
         });
@@ -413,9 +352,9 @@ export default function RevenueValence({
           kind: "logo",
           x: drawn.x,
           y: drawn.y,
-          scale: drawn.s,
+          scale: Math.max(0.82, Math.min(1.08, drawn.depthScale)),
           depth: drawn.depth,
-          visible: false,
+          visible: true,
         });
       }
 
@@ -425,18 +364,15 @@ export default function RevenueValence({
           ctx.globalAlpha = Math.max(0.18, 0.85 - item.depth * 0.12) * intro;
           ctx.fillStyle = item.tone;
           ctx.beginPath();
-          ctx.arc(item.x, item.y, Math.max(0.6, item.size), 0, Math.PI * 2);
+          ctx.arc(item.x, item.y, Math.max(0.7, item.size), 0, Math.PI * 2);
           ctx.fill();
         } else {
-          const size = Math.max(18, item.size);
-          ctx.globalAlpha = Math.max(0.45, Math.min(1, 1.15 - item.depth * 0.08)) * intro;
-          ctx.save();
+          const size = item.size;
+          ctx.globalAlpha = Math.max(0.35, Math.min(1, 1.1 - item.depth * 0.08)) * intro;
           ctx.beginPath();
-          ctx.arc(item.x, item.y, size / 2 + 3, 0, Math.PI * 2);
-          ctx.fillStyle = "rgba(102, 124, 255, 0.18)";
+          ctx.arc(item.x, item.y, size / 2 + 2, 0, Math.PI * 2);
+          ctx.fillStyle = "rgba(102, 124, 255, 0.12)";
           ctx.fill();
-          ctx.drawImage(item.sprite.canvas, item.x - size / 2, item.y - size / 2, size, size);
-          ctx.restore();
         }
       }
       ctx.globalAlpha = 1;
@@ -489,14 +425,14 @@ export default function RevenueValence({
           kind: "metric",
           x: drawn.x,
           y: drawn.y,
-          scale: isFocus ? 1.08 : Math.max(0.84, Math.min(1.04, drawn.s * 0.92)),
+          scale: isFocus ? 1.08 : drawn.depthScale,
           depth: drawn.depth,
           visible: true,
         });
       }
 
       const revenuePoint = project(
-        worldOf([0, -0.62, 0], yaw, pitch, 0),
+        worldOf([0, -0.92, 0], yaw, pitch, 0),
         width,
         height,
         dist,
@@ -551,14 +487,13 @@ export default function RevenueValence({
 
     sizeCanvas();
     seedParticles();
+    seedLogos();
     onScroll();
-    void loadLogos.then((loaded) => {
-      if (disposed) return;
-      logos = loaded;
-      setReady(true);
-    });
+    setReady(true);
 
     window.addEventListener("resize", sizeCanvas);
+    const resizeObserver = new ResizeObserver(sizeCanvas);
+    resizeObserver.observe(root);
     window.addEventListener("scroll", onScroll, { passive: true });
     canvas.addEventListener("pointermove", onPointer);
     canvas.addEventListener("pointerleave", onLeave);
@@ -568,6 +503,7 @@ export default function RevenueValence({
       disposed = true;
       cancelAnimationFrame(frame);
       window.removeEventListener("resize", sizeCanvas);
+      resizeObserver.disconnect();
       window.removeEventListener("scroll", onScroll);
       canvas.removeEventListener("pointermove", onPointer);
       canvas.removeEventListener("pointerleave", onLeave);
@@ -634,6 +570,18 @@ export default function RevenueValence({
           >
             {metric.label}
           </button>
+        ))}
+        {trustBrands.map((brand) => (
+          <div
+            className="valence-logo"
+            key={brand.name}
+            ref={(node) => {
+              overlayRefs.current[`logo-${brand.name}`] = node;
+            }}
+            title={brand.name}
+          >
+            <img src={brand.src} alt={brand.name} />
+          </div>
         ))}
       </div>
       <div className="valence-readout">

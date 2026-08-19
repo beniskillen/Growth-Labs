@@ -43,7 +43,7 @@ test("server-renders the Growth Labs home page with the revenue atom", async () 
   assert.match(html, />TAM</);
   assert.match(html, /your potential/i);
   assert.match(html, /Impressions/);
-  assert.match(html, /CTR%/);
+  assert.match(html, /CTR %/);
   assert.match(html, /Page CVR %/);
   assert.match(html, /B2C marketing/);
   assert.match(html, /B2B marketing/);

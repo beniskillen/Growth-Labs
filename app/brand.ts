@@ -34,7 +34,7 @@ export const innerShell = [
   },
   {
     id: "ctr",
-    label: "CTR%",
+    label: "CTR %",
     shell: 1 as const,
     theta: Math.PI * 0.28,
     phi: 0.2,
