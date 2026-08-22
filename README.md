@@ -30,7 +30,9 @@ pnpm build
 
 ## Hero systems
 
-The home page opens on a full-viewport **revenue atom**:
+The home page opens on a split **revenue atom** hero: copy on the left, the compressed atom on the right. That module ends at the fold.
+
+Below it, a full-width module carries the proof stats, the client trust bar, then the shell walkthrough starting at **00 / Outer Boundary**.
 
 - **Nucleus** — tiny *your brand* label with a cluster of atoms; client logos stay hidden until you click
 - **Click** — logos expand out from the nucleus (click again to collapse)
@@ -38,4 +40,4 @@ The home page opens on a full-viewport **revenue atom**:
 - **Outer valence** — CAC, LTV, Page CVR %
 - **Outer bound** — TAM, with *(your potential)* underneath
 
-The diagram is the above-the-fold hero. Copy and the shell walkthrough sit in a separate module below the fold so nothing is cut off. Drag to orbit. The original portrait landing remains at `/landing`.
+Drag to orbit. The original portrait landing remains at `/landing`.

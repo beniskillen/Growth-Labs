@@ -1373,15 +1373,15 @@ em {
 .atom-hero {
   position: relative;
   z-index: 1;
-  display: flex;
+  display: grid;
+  grid-template-columns: minmax(420px, 0.92fr) minmax(480px, 1.08fr);
   height: 100svh;
   min-height: 100svh;
   max-height: 100svh;
   align-items: stretch;
-  justify-content: center;
   overflow: hidden;
   box-sizing: border-box;
-  padding: 76px 28px 18px;
+  padding: 76px max(28px, calc((100vw - var(--max)) / 2 + 28px)) 20px;
   border-bottom: 1px solid var(--line);
 }
 
@@ -1390,11 +1390,33 @@ em {
   z-index: 1;
 }
 
+.atom-hero-copy {
+  z-index: 3;
+  display: flex;
+  min-width: 0;
+  align-items: center;
+  padding-right: clamp(16px, 2vw, 36px);
+}
+
+.atom-hero-copy .hero-copy {
+  max-width: 640px;
+  padding-left: 0;
+}
+
+.atom-hero-copy .hero-copy h1 {
+  font-size: clamp(40px, 4.2vw, 68px);
+  margin-bottom: 20px;
+}
+
+.atom-hero-copy .hero-copy > p:not(.eyebrow) {
+  margin-bottom: 28px;
+  font-size: 17px;
+}
+
 .atom-hero-frame {
   position: relative;
-  width: min(1280px, 100%);
+  min-width: 0;
   height: 100%;
-  min-height: 0;
 }
 
 .atom-hero-frame .hero-side-label {
@@ -1414,22 +1436,36 @@ em {
   z-index: 1;
 }
 
-.home-hero-atom {
-  display: block;
-  min-height: 0;
-  padding: 108px 28px 72px max(42px, calc((100vw - var(--max)) / 2 + 42px));
-  overflow: visible;
-  border-bottom: 1px solid var(--line);
-  background-image: none;
+.atom-copy-proof {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  padding: 56px 0 0;
 }
 
-.home-hero-atom::before {
-  display: none;
+.atom-copy-proof .hero-proof {
+  margin-top: 0;
 }
 
-.home-hero-atom .hero-copy {
-  max-width: 820px;
-  padding-left: 0;
+.atom-copy-proof .hero-proof span {
+  min-height: 96px;
+  padding: 18px 28px;
+}
+
+.atom-copy-proof .hero-proof span:first-child {
+  padding-left: max(42px, calc((100vw - var(--max)) / 2 + 42px));
+}
+
+.atom-copy-proof .hero-proof span:last-child {
+  padding-right: max(42px, calc((100vw - var(--max)) / 2 + 42px));
+}
+
+.atom-copy-proof .hero-proof strong {
+  font-size: clamp(18px, 1.6vw, 24px);
+}
+
+.atom-copy-module .trust-bar {
+  border-bottom: 0;
 }
 
 .valence-stage {
@@ -1637,15 +1673,22 @@ em {
   display: flex;
   flex-direction: column;
   gap: 0;
-  max-width: var(--max);
-  margin: 0 auto;
-  padding: 8px 42px 120px;
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  padding: 8px 0 120px;
 }
 
 .valence-chapter {
-  max-width: 780px;
+  display: grid;
+  width: 100%;
+  max-width: none;
   min-height: 0;
-  padding: 56px 0 28px;
+  grid-template-columns: minmax(280px, 0.92fr) minmax(320px, 1.08fr);
+  column-gap: clamp(36px, 6vw, 120px);
+  row-gap: 0;
+  align-items: start;
+  padding: 56px max(42px, calc((100vw - var(--max)) / 2 + 42px)) 36px;
   border-top: 1px solid var(--line);
   opacity: 0.62;
   transition: opacity 220ms ease;
@@ -1655,22 +1698,35 @@ em {
   opacity: 1;
 }
 
+.valence-chapter .card-code {
+  grid-column: 1;
+  grid-row: 1;
+}
+
 .valence-chapter h3 {
-  margin: 22px 0 16px;
-  font-size: clamp(28px, 2.6vw, 42px);
+  grid-column: 1;
+  grid-row: 2;
+  margin: 18px 0 0;
+  font-size: clamp(32px, 3.4vw, 54px);
   font-weight: 510;
   letter-spacing: -0.04em;
   line-height: 1.08;
 }
 
-.valence-chapter p {
+.valence-chapter > p {
+  grid-column: 2;
+  grid-row: 1 / 3;
+  margin: 0;
+  max-width: none;
+  align-self: center;
   color: #b6bac1;
-  font-size: 17px;
+  font-size: 18px;
   line-height: 1.65;
 }
 
 .valence-metric-list {
-  margin: 28px 0 0;
+  grid-column: 1 / -1;
+  margin: 36px 0 0;
   padding: 0;
   list-style: none;
   border-top: 1px solid var(--line);
@@ -1678,10 +1734,10 @@ em {
 
 .valence-metric-list li {
   display: grid;
-  grid-template-columns: 132px 1fr;
-  gap: 18px;
+  grid-template-columns: minmax(140px, 0.28fr) minmax(0, 1fr);
+  gap: 24px;
   align-items: center;
-  padding: 14px 0;
+  padding: 18px 0;
   border-bottom: 1px solid var(--line);
 }
 
@@ -2505,16 +2561,34 @@ em {
   }
 
   .atom-hero {
+    grid-template-columns: 1fr 0.95fr;
     padding: 76px 24px 16px;
   }
 
-  .home-hero-atom {
-    display: block;
-    padding: 96px 24px 64px;
+  .atom-hero-copy .hero-copy h1 {
+    font-size: clamp(36px, 5.4vw, 56px);
+  }
+
+  .atom-copy-proof {
+    padding: 48px 0 0;
+  }
+
+  .atom-copy-proof .hero-proof span:first-child {
+    padding-left: 24px;
+  }
+
+  .atom-copy-proof .hero-proof span:last-child {
+    padding-right: 24px;
   }
 
   .valence-chapters {
-    padding: 0 24px 80px;
+    padding: 0 0 80px;
+  }
+
+  .valence-chapter {
+    grid-template-columns: 1fr 1fr;
+    padding-right: 24px;
+    padding-left: 24px;
   }
 
   .door-grid,
@@ -2634,11 +2708,32 @@ em {
   }
 
   .atom-hero {
-    padding: 66px 12px 12px;
+    display: flex;
+    height: auto;
+    min-height: 100svh;
+    max-height: none;
+    flex-direction: column;
+    padding: 66px 16px 16px;
   }
 
-  .home-hero-atom {
-    padding: 88px 16px 56px;
+  .atom-hero-copy {
+    padding: 12px 0 20px;
+  }
+
+  .atom-hero-frame {
+    height: min(72svh, 560px);
+  }
+
+  .atom-copy-proof {
+    padding: 36px 0 0;
+  }
+
+  .atom-copy-proof .hero-proof span:first-child {
+    padding-left: 16px;
+  }
+
+  .atom-copy-proof .hero-proof span:last-child {
+    padding-right: 16px;
   }
 
   .valence-node {
@@ -2658,12 +2753,23 @@ em {
   }
 
   .valence-chapters {
-    padding: 0 16px 72px;
+    padding: 0 0 72px;
   }
 
   .valence-chapter {
+    display: flex;
     min-height: 0;
-    padding: 36px 0 28px;
+    flex-direction: column;
+    padding: 36px 16px 28px;
+  }
+
+  .valence-chapter h3 {
+    margin: 16px 0 14px;
+    font-size: clamp(28px, 8vw, 40px);
+  }
+
+  .valence-chapter > p {
+    align-self: stretch;
   }
 
   .valence-metric-list li {
