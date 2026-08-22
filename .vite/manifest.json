@@ -25,7 +25,7 @@
     ]
   },
   "app/ValenceExperience.tsx": {
-    "file": "assets/ValenceExperience-TTkHrNbm.js",
+    "file": "assets/ValenceExperience-Bc5P4VDQ.js",
     "name": "ValenceExperience",
     "src": "app/ValenceExperience.tsx",
     "isDynamicEntry": true,
@@ -35,7 +35,7 @@
     ]
   },
   "node_modules/.pnpm/vinext@0.0.50_@vitejs+plugin-react@6.0.2_vite@8.0.13_@types+node@22.19.19_esbuild@0.28._411db1e72ff1d4e0dfb72e4a8d0c6b6d/node_modules/vinext/dist/shims/layout-segment-context.js": {
-    "file": "assets/layout-segment-context-BHec6DgP.js",
+    "file": "assets/layout-segment-context-B4oNHkYB.js",
     "name": "layout-segment-context",
     "src": "node_modules/.pnpm/vinext@0.0.50_@vitejs+plugin-react@6.0.2_vite@8.0.13_@types+node@22.19.19_esbuild@0.28._411db1e72ff1d4e0dfb72e4a8d0c6b6d/node_modules/vinext/dist/shims/layout-segment-context.js",
     "isDynamicEntry": true,
@@ -46,7 +46,7 @@
     ]
   },
   "node_modules/.pnpm/vinext@0.0.50_@vitejs+plugin-react@6.0.2_vite@8.0.13_@types+node@22.19.19_esbuild@0.28._411db1e72ff1d4e0dfb72e4a8d0c6b6d/node_modules/vinext/dist/shims/link.js": {
-    "file": "assets/link-DMkZRwbg.js",
+    "file": "assets/link-nxvr-pzb.js",
     "name": "link",
     "src": "node_modules/.pnpm/vinext@0.0.50_@vitejs+plugin-react@6.0.2_vite@8.0.13_@types+node@22.19.19_esbuild@0.28._411db1e72ff1d4e0dfb72e4a8d0c6b6d/node_modules/vinext/dist/shims/link.js",
     "isDynamicEntry": true,
@@ -61,7 +61,7 @@
     ]
   },
   "node_modules/.pnpm/vinext@0.0.50_@vitejs+plugin-react@6.0.2_vite@8.0.13_@types+node@22.19.19_esbuild@0.28._411db1e72ff1d4e0dfb72e4a8d0c6b6d/node_modules/vinext/dist/shims/router.js": {
-    "file": "assets/router-C6sBKN5M.js",
+    "file": "assets/router-BVuAi1j0.js",
     "name": "router",
     "src": "node_modules/.pnpm/vinext@0.0.50_@vitejs+plugin-react@6.0.2_vite@8.0.13_@types+node@22.19.19_esbuild@0.28._411db1e72ff1d4e0dfb72e4a8d0c6b6d/node_modules/vinext/dist/shims/router.js",
     "isDynamicEntry": true,
@@ -76,7 +76,7 @@
     ]
   },
   "virtual:vinext-app-browser-entry": {
-    "file": "assets/index-DclrQ_GI.js",
+    "file": "assets/index-BfCcJ96l.js",
     "name": "index",
     "src": "virtual:vinext-app-browser-entry",
     "isEntry": true,
