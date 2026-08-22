@@ -53,7 +53,9 @@ test("server-renders the Growth Labs home page with the revenue atom", async () 
   assert.match(html, /Custom engineering/);
   assert.match(html, /AI Powered/);
   assert.match(html, /atom-copy-module/);
+  assert.match(html, /atom-hero-copy/);
   assert.match(html, /Your brand sits in the centre/);
+  assert.match(html, /trust-bar[\s\S]*OUTER BOUNDARY/);
   assert.doesNotMatch(html, developmentPreviewMeta);
 });
 
