@@ -98,7 +98,15 @@ export default function ValenceExperience({ children }: { children: ReactNode })
                     .filter((metric) => metric.shell === 1)
                     .map((metric) => (
                       <li key={metric.id}>
-                        <button type="button" onClick={() => setFocusId(metric.id)}>
+                        <button
+                          type="button"
+                          onClick={() => {
+                            setFocusId(metric.id);
+                            document
+                              .querySelector(".atom-hero")
+                              ?.scrollIntoView({ behavior: "smooth" });
+                          }}
+                        >
                           {metric.label}
                         </button>
                         <span>{metric.question}</span>
@@ -112,7 +120,15 @@ export default function ValenceExperience({ children }: { children: ReactNode })
                     .filter((metric) => metric.shell === 2)
                     .map((metric) => (
                       <li key={metric.id}>
-                        <button type="button" onClick={() => setFocusId(metric.id)}>
+                        <button
+                          type="button"
+                          onClick={() => {
+                            setFocusId(metric.id);
+                            document
+                              .querySelector(".atom-hero")
+                              ?.scrollIntoView({ behavior: "smooth" });
+                          }}
+                        >
                           {metric.label}
                         </button>
                         <span>{metric.question}</span>
