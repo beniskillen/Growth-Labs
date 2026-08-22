@@ -2,7 +2,7 @@
 
 Operator-led growth studio website for Ben Killen. The public home page
 engineers the brand thesis — **revenue systems from first principles** —
-around a scroll-driven quantum valence diagram.
+around a click-to-expand quantum valence diagram.
 
 ## Site
 
@@ -30,12 +30,12 @@ pnpm build
 
 ## Hero systems
 
-The home page replaces the particle portrait with a 3D **revenue atom**:
+The home page opens on a full-viewport **revenue atom**:
 
-- **Nucleus** — client logos from the trust bar, with **Revenue** sitting above
+- **Nucleus** — tiny *your brand* label with a cluster of atoms; client logos stay hidden until you click
+- **Click** — logos expand out from the nucleus (click again to collapse)
 - **Inner valence** — Impressions, UV's, CTR%
 - **Outer valence** — CAC, LTV, Page CVR %
 - **Outer bound** — TAM, with *(your potential)* underneath
 
-Scroll rotates the system. Hover or click a metric to focus that shell.
-The original portrait landing remains at `/landing`.
+The diagram is the above-the-fold hero. Copy and the shell walkthrough sit in a separate module below the fold so nothing is cut off. Drag to orbit. The original portrait landing remains at `/landing`.

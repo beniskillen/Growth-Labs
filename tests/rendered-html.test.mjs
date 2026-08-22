@@ -39,7 +39,9 @@ test("server-renders the Growth Labs home page with the revenue atom", async () 
   assert.match(html, /We engineer/i);
   assert.match(html, /revenue systems/i);
   assert.match(html, /first principles/i);
-  assert.match(html, />Revenue</);
+  assert.match(html, /atom-hero/);
+  assert.match(html, /CLICK THE ATOM TO REVEAL BRANDS/);
+  assert.match(html, />brand</);
   assert.match(html, />TAM</);
   assert.match(html, /your potential/i);
   assert.match(html, /Impressions/);
@@ -50,7 +52,8 @@ test("server-renders the Growth Labs home page with the revenue atom", async () 
   assert.match(html, /Growth consulting/);
   assert.match(html, /Custom engineering/);
   assert.match(html, /AI Powered/);
-  assert.match(html, /About Ben Killen/i);
+  assert.match(html, /atom-copy-module/);
+  assert.match(html, /Your brand sits in the centre/);
   assert.doesNotMatch(html, developmentPreviewMeta);
 });
 

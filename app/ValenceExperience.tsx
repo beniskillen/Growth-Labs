@@ -36,18 +36,18 @@ const chapters: {
     id: "revenue",
     index: "03",
     eyebrow: "NUCLEUS",
-    title: "Revenue sits in the centre — proven by clients.",
-    copy: "The logos are not decoration. They are the nucleus: real businesses where the system has already been installed. Every shell exists to protect and compound that core.",
+    title: "Your brand sits in the centre.",
+    copy: "The nucleus is the brand — a tight cluster of atoms, not a logo wall. Click the diagram and the client marks expand out from that core. Every valence shell exists to protect and compound it.",
   },
 ];
 
 export default function ValenceExperience({ children }: { children: ReactNode }) {
-  const rootRef = useRef<HTMLDivElement>(null);
-  const [focusId, setFocusId] = useState<ValenceMetricId | null>("tam");
-  const [scrollProgress, setScrollProgress] = useState(0);
+  const copyRef = useRef<HTMLElement>(null);
+  const [focusId, setFocusId] = useState<ValenceMetricId | null>(null);
+  const [chapterId, setChapterId] = useState<ValenceMetricId | null>("tam");
 
   useEffect(() => {
-    const root = rootRef.current;
+    const root = copyRef.current;
     if (!root) return;
 
     const nodes = Array.from(root.querySelectorAll<HTMLElement>("[data-chapter]"));
@@ -57,39 +57,34 @@ export default function ValenceExperience({ children }: { children: ReactNode })
           .filter((entry) => entry.isIntersecting)
           .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
         const id = visible?.target.getAttribute("data-chapter") as ValenceMetricId | null;
-        if (id) setFocusId(id);
+        if (id) setChapterId(id);
       },
-      { root: null, threshold: [0.28, 0.5, 0.72], rootMargin: "-12% 0px -42% 0px" },
+      { root: null, threshold: [0.35, 0.55, 0.75], rootMargin: "-8% 0px -35% 0px" },
     );
     for (const node of nodes) observer.observe(node);
 
-    const onScroll = () => {
-      const rect = root.getBoundingClientRect();
-      const total = Math.max(rect.height - window.innerHeight * 0.4, 1);
-      const passed = Math.min(Math.max(-rect.top, 0), total);
-      setScrollProgress(passed / total);
-    };
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    window.addEventListener("resize", onScroll);
-
-    return () => {
-      observer.disconnect();
-      window.removeEventListener("scroll", onScroll);
-      window.removeEventListener("resize", onScroll);
-    };
+    return () => observer.disconnect();
   }, []);
 
   return (
-    <div className="atom-shell grid-bg" ref={rootRef}>
-      <div className="atom-left">
+    <div className="atom-shell">
+      <section className="atom-hero grid-bg" aria-label="Revenue atom">
+        <div className="atom-hero-frame">
+          <RevenueValence focusId={focusId} onFocus={setFocusId} />
+          <div className="hero-side-label">
+            CLICK THE ATOM TO REVEAL BRANDS / DRAG TO ORBIT
+          </div>
+        </div>
+      </section>
+
+      <section className="atom-copy-module grid-bg" ref={copyRef}>
         <section className="home-hero home-hero-atom">{children}</section>
         <div className="valence-chapters" id="system">
           {chapters.map((chapter) => (
             <article
               className="valence-chapter"
               data-chapter={chapter.id}
-              data-active={focusId === chapter.id}
+              data-active={chapterId === chapter.id}
               key={chapter.id}
             >
               <span className="card-code">
@@ -128,17 +123,7 @@ export default function ValenceExperience({ children }: { children: ReactNode })
             </article>
           ))}
         </div>
-      </div>
-      <aside className="valence-rail">
-        <div className="valence-rail-inner">
-          <RevenueValence
-            focusId={focusId}
-            scrollProgress={scrollProgress}
-            onFocus={setFocusId}
-          />
-          <div className="hero-side-label">SCROLL OR DRAG TO ORBIT / HOVER TO FOCUS</div>
-        </div>
-      </aside>
+      </section>
     </div>
   );
 }

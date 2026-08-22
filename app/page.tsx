@@ -23,12 +23,12 @@ export default function Home() {
             turning the right attention into profitable customers through a
             measurable system — impressions, unique visitors and CTR in the
             inner shell, conversion, CAC and LTV in the outer, TAM as your
-            potential, revenue at the centre.
+            potential, your brand at the centre.
           </p>
           <div className="button-row">
             <AuditButton />
             <Link className="text-link" href="#system">
-              Scroll the revenue atom <Arrow />
+              Read the system <Arrow />
             </Link>
           </div>
           <div className="hero-proof" aria-label="Growth Labs experience">

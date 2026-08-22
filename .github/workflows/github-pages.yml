@@ -2,7 +2,7 @@ name: GitHub Pages
 
 on:
   push:
-    branches: [main, cursor/revenue-valence-home-cd9e]
+    branches: [main, cursor/revenue-valence-home-cd9e, cursor/atom-click-expand-hero-5e3a]
   workflow_dispatch:
 
 permissions:
