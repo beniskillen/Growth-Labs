@@ -7,13 +7,21 @@
  *   node render.mjs path/to/agreement.html path/to/agreement.pdf
  */
 import { spawnSync } from "node:child_process";
-import { mkdtempSync, readFileSync, writeFileSync } from "node:fs";
+import { mkdirSync, mkdtempSync, readFileSync, writeFileSync } from "node:fs";
 import { tmpdir } from "node:os";
-import { dirname, isAbsolute, join, resolve } from "node:path";
+import { dirname, join, resolve } from "node:path";
 import { fileURLToPath, pathToFileURL } from "node:url";
 
 const skillDir = dirname(fileURLToPath(import.meta.url));
-const cssPath = join(skillDir, "..", "assets", "agreement.css");
+const assetsDir = join(skillDir, "..", "assets");
+const cssPath = join(assetsDir, "agreement.css");
+const fontDir = join(assetsDir, "fonts");
+
+function withFileFonts(css) {
+  return css.replace(/url\("fonts\/([^"]+)"\)/g, (_, file) => {
+    return `url("${pathToFileURL(join(fontDir, file)).href}")`;
+  });
+}
 
 const input = process.argv[2];
 const output = process.argv[3];
@@ -38,7 +46,7 @@ if (match) {
     const css = readFileSync(cssFile, "utf8");
     html = html.replace(
       cssHref,
-      `<style>\n${css}\n</style>`,
+      `<style>\n${withFileFonts(css)}\n</style>`,
     );
   } catch {
     // Keep the original link if CSS cannot be read.
@@ -51,6 +59,8 @@ writeFileSync(compiled, html, "utf8");
 
 const candidates = [
   process.env.CHROME,
+  "/opt/google/chrome/chrome",
+  "/usr/bin/google-chrome-stable",
   "/usr/local/bin/google-chrome",
   "google-chrome",
   "google-chrome-stable",
@@ -72,18 +82,24 @@ if (!chrome) {
   process.exit(1);
 }
 
+const userDataDir = join(dir, "chrome-profile");
+mkdirSync(userDataDir, { recursive: true });
 const result = spawnSync(
   chrome,
   [
     "--headless=new",
     "--disable-gpu",
+    "--no-sandbox",
+    "--disable-dev-shm-usage",
     "--no-pdf-header-footer",
     "--no-first-run",
     "--no-default-browser-check",
+    `--user-data-dir=${userDataDir}`,
+    "--virtual-time-budget=15000",
     `--print-to-pdf=${pdfPath}`,
     pathToFileURL(compiled).href,
   ],
-  { encoding: "utf8" },
+  { encoding: "utf8", timeout: 60000 },
 );
 
 if (result.status !== 0) {
