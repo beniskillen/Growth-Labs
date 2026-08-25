@@ -1,0 +1,481 @@
+/* Growth Labs — Service Agreement print system
+   Source of truth: shipped site tokens in app/globals.css
+   Do not use concept-green #2AF598 or concept-amber #FFB020. */
+
+@import url("https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500;600;700&display=swap");
+
+:root {
+  --ink: #0a0a0b;
+  --panel: #111115;
+  --panel-2: #16161b;
+  --line: rgba(244, 244, 242, 0.13);
+  --line-strong: rgba(244, 244, 242, 0.25);
+  --paper: #f4f4f2;
+  --steel: #8a8f98;
+  --signal: #667cff;
+  --signal-soft: rgba(102, 124, 255, 0.16);
+  --ink-soft: rgba(10, 10, 11, 0.72);
+  --rule: rgba(10, 10, 11, 0.12);
+  --open: #8a4b12;
+  --open-bg: #f4e6d4;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: "Geist", "Segoe UI", Arial, sans-serif;
+  font-size: 10.5pt;
+  line-height: 1.55;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+@page {
+  size: A4;
+  margin: 16mm 16mm 18mm 16mm;
+}
+
+@page cover {
+  margin: 0;
+}
+
+/* ---------- Wordmark ---------- */
+
+.wordmark {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  color: inherit;
+  font-family: "Geist Mono", ui-monospace, monospace;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+}
+
+.mark {
+  display: flex;
+  align-items: flex-end;
+  gap: 2px;
+  width: 24px;
+  height: 20px;
+}
+
+.mark i {
+  display: block;
+  width: 6px;
+  border-top: 2px solid var(--signal);
+  border-right: 2px solid var(--signal);
+}
+
+.mark i:nth-child(1) { height: 6px; }
+.mark i:nth-child(2) { height: 12px; }
+.mark i:nth-child(3) { height: 18px; }
+
+.wordmark.inverse { color: var(--paper); }
+
+/* ---------- Cover ---------- */
+
+.cover {
+  page: cover;
+  page-break-after: always;
+  break-after: page;
+  min-height: 297mm;
+  padding: 22mm 18mm 18mm;
+  background:
+    radial-gradient(circle at 78% 28%, rgba(102, 124, 255, 0.16), transparent 38%),
+    linear-gradient(180deg, transparent 62%, #070708 100%),
+    linear-gradient(rgba(244, 244, 242, 0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(244, 244, 242, 0.045) 1px, transparent 1px),
+    var(--ink);
+  background-size: auto, auto, 56px 56px, 56px 56px, auto;
+  color: var(--paper);
+  display: flex;
+  flex-direction: column;
+}
+
+.cover-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 24px;
+}
+
+.eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0 0 18px;
+  color: var(--steel);
+  font-family: "Geist Mono", ui-monospace, monospace;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.status-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--signal);
+  box-shadow: 0 0 14px var(--signal);
+  flex: 0 0 auto;
+}
+
+.cover-kicker {
+  color: var(--steel);
+  font-family: "Geist Mono", ui-monospace, monospace;
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  margin: 28px 0 10px;
+}
+
+.cover h1 {
+  margin: 0 0 14px;
+  font-size: 34px;
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  line-height: 1.08;
+  max-width: 14ch;
+}
+
+.cover .lede {
+  max-width: 42em;
+  color: rgba(244, 244, 242, 0.78);
+  font-size: 12.5px;
+  margin: 0 0 28px;
+}
+
+.party-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  margin-top: auto;
+}
+
+.party-card {
+  border: 1px solid var(--line);
+  background: rgba(17, 17, 21, 0.72);
+  padding: 16px 18px 18px;
+  min-height: 148px;
+}
+
+.party-card .label {
+  margin: 0 0 10px;
+  color: var(--signal);
+  font-family: "Geist Mono", ui-monospace, monospace;
+  font-size: 9px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.party-card h2 {
+  margin: 0 0 6px;
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+.party-card p {
+  margin: 0;
+  color: var(--steel);
+  font-size: 11px;
+  line-height: 1.45;
+}
+
+.cover-foot {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  margin-top: 22px;
+  padding-top: 14px;
+  border-top: 1px solid var(--line);
+  color: var(--steel);
+  font-family: "Geist Mono", ui-monospace, monospace;
+  font-size: 9px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+/* ---------- Running chrome (inner pages) ---------- */
+
+.doc {
+  max-width: 178mm;
+  margin: 0 auto;
+}
+
+.running {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  margin: 0 0 18px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--rule);
+  color: var(--steel);
+  font-family: "Geist Mono", ui-monospace, monospace;
+  font-size: 8px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.page-foot {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 22px;
+  padding-top: 8px;
+  border-top: 1px solid var(--rule);
+  color: var(--steel);
+  font-family: "Geist Mono", ui-monospace, monospace;
+  font-size: 8px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.section-break {
+  page-break-before: always;
+  break-before: page;
+}
+
+h1.page-title {
+  margin: 4px 0 6px;
+  font-size: 22px;
+  font-weight: 600;
+  letter-spacing: -0.03em;
+}
+
+.pair {
+  margin: 0 0 18px;
+  color: var(--steel);
+  font-family: "Geist Mono", ui-monospace, monospace;
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.section-label {
+  margin: 22px 0 10px;
+  color: var(--signal);
+  font-family: "Geist Mono", ui-monospace, monospace;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+p { margin: 0 0 10px; }
+
+.lead { font-size: 11.5pt; }
+
+/* ---------- At a Glance ---------- */
+
+.glance {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 0 0 22px;
+}
+
+.glance th,
+.glance td {
+  text-align: left;
+  vertical-align: top;
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--rule);
+}
+
+.glance th {
+  width: 28%;
+  color: var(--steel);
+  font-family: "Geist Mono", ui-monospace, monospace;
+  font-size: 8.5px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.glance td { font-size: 10.5pt; }
+
+/* ---------- Clauses ---------- */
+
+h2.clause {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  margin: 22px 0 10px;
+  padding-top: 6px;
+  border-top: 1px solid var(--rule);
+  font-size: 13pt;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+h2.clause .idx {
+  color: var(--signal);
+  font-family: "Geist Mono", ui-monospace, monospace;
+  font-size: 10px;
+  letter-spacing: 0.14em;
+}
+
+.sub {
+  display: grid;
+  grid-template-columns: 28px 1fr;
+  column-gap: 10px;
+  margin: 0 0 9px;
+}
+
+.sub .cn {
+  color: var(--steel);
+  font-family: "Geist Mono", ui-monospace, monospace;
+  font-size: 9px;
+  letter-spacing: 0.04em;
+  padding-top: 2px;
+}
+
+ol.alpha {
+  margin: 6px 0 10px 38px;
+  padding: 0;
+}
+
+ol.alpha li { margin: 0 0 6px; }
+
+.recital {
+  display: grid;
+  grid-template-columns: 22px 1fr;
+  column-gap: 10px;
+  margin: 0 0 10px;
+}
+
+.recital .ltr {
+  color: var(--signal);
+  font-family: "Geist Mono", ui-monospace, monospace;
+  font-weight: 600;
+}
+
+/* ---------- Tables ---------- */
+
+.sheet {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 8px 0 16px;
+  font-size: 10pt;
+}
+
+.sheet th,
+.sheet td {
+  text-align: left;
+  vertical-align: top;
+  padding: 8px 10px;
+  border: 1px solid var(--rule);
+}
+
+.sheet th {
+  background: #ecece8;
+  font-family: "Geist Mono", ui-monospace, monospace;
+  font-size: 8.5px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.sheet td:first-child { width: 32%; font-weight: 600; }
+
+/* ---------- Callouts ---------- */
+
+.note {
+  margin: 12px 0 16px;
+  padding: 12px 14px;
+  border-left: 3px solid var(--signal);
+  background: var(--signal-soft);
+}
+
+.note strong { color: var(--ink); }
+
+.open,
+.tbc {
+  display: inline;
+  padding: 0 4px;
+  background: var(--open-bg);
+  color: var(--open);
+  font-family: "Geist Mono", ui-monospace, monospace;
+  font-size: 0.86em;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+
+.sig-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px;
+  margin-top: 18px;
+}
+
+.sig h3 {
+  margin: 0 0 14px;
+  font-size: 12pt;
+}
+
+.sig .line {
+  margin: 18px 0 0;
+  padding-top: 22px;
+  border-top: 1px solid var(--ink);
+  color: var(--steel);
+  font-size: 10px;
+}
+
+.muted { color: var(--ink-soft); }
+.mono {
+  font-family: "Geist Mono", ui-monospace, monospace;
+  letter-spacing: 0.04em;
+}
+
+.swatch-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  margin: 10px 0 18px;
+}
+
+.swatch {
+  border: 1px solid var(--rule);
+  overflow: hidden;
+}
+
+.swatch .chip {
+  height: 42px;
+}
+
+.swatch figcaption {
+  padding: 8px 10px 10px;
+  font-family: "Geist Mono", ui-monospace, monospace;
+  font-size: 9px;
+}
+
+.dont {
+  text-decoration: line-through;
+  color: #9a3b3b;
+}
+
+@media screen {
+  body { padding: 24px 0 48px; }
+  .cover {
+    max-width: 210mm;
+    margin: 0 auto 28px;
+    box-shadow: 0 18px 48px rgba(0, 0, 0, 0.28);
+  }
+  .doc {
+    background: #fff;
+    padding: 18mm 16mm 16mm;
+    box-shadow: 0 10px 28px rgba(10, 10, 11, 0.08);
+  }
+}
+
+@media print {
+  body { background: #fff; padding: 0; }
+  .cover, .doc { box-shadow: none; max-width: none; }
+  .doc { padding: 0; }
+  a { color: inherit; text-decoration: none; }
+}
