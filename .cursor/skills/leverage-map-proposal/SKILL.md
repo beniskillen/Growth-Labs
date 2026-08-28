@@ -127,4 +127,10 @@ AI Powered / Productize Yourself / Upgrade (Bali flagship). Existing spine — s
 - https://app.notion.com/p/4455772244eb4b75805373effde6b25d (Cashflow / COGS)
 - https://app.notion.com/p/3c194a6ff38f8054bc0ec187e0de8a6a (Market research)
 
+First-run artefacts (this engagement):
+
+- https://app.notion.com/p/3ca94a6ff38f81f7888eebc5024bb4e5 (Leverage Map hub)
+- https://www.figma.com/board/FukQpxpkDcHUREaO306oxK (FigJam draft)
+- https://app.notion.com/p/3ca94a6ff38f81d9b481c0f8a461fb7c (SOP twin / Notion AI skill)
+
 Constraint in the source Loom: 0% call booking on enough sample (impressions and DMs exist; conversion does not). Do not prescribe 300M impressions until that leak is fixed.
