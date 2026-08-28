@@ -28,7 +28,7 @@ Search **Notion first** (and Slack/Drive if connected), then the public web. One
 
 ## 2. Competitive and analogue map
 
-**Queries:** category + geography + format (e.g. “Bali AI education event”, “operator cohort $12k”, “workshop conference”). Analogues the brief names (Hormozi launches, Gadzhi, Mastering the Markets, Tony Robbins pre-work, Priestley/Dent, Genius, Mindvalley) — copy **mechanisms**, not brands.
+**Queries:** category + geography + format from **this** brief (not the AIP example). Analogues the brief names — copy **mechanisms**, not brands.
 
 **Evidence:** price, fill mechanism, owned-list vs ads, sponsor type.
 
@@ -54,7 +54,7 @@ Search **Notion first** (and Slack/Drive if connected), then the public web. One
 
 **Output:** one named bottleneck. Current vs future path.
 
-**Deck test:** if bookings are 0% on enough sample, that is the cover constraint. Stop.
+**Deck test:** if **this** conversion metric is zero on enough sample, that is the cover constraint. Stop. Do not paste another client’s funnel.
 
 ## 5. Impression inventory
 
@@ -112,8 +112,8 @@ Flagship date, lock-in dates, working days, conversation maths, hire gates. Feed
 | --- | --- |
 | Round millions with no source | `Data gap` or drop |
 | Competitor “they do $20m” with no evidence | Analogous, not a fact |
-| “We will get 300M impressions” | Inventory first; stretch labelled stretch |
-| Backend 10% take-up | Planning-case; measure first 20 calls |
+| Unsourced impression theatre (worked example: “300M”) | Inventory first; stretch labelled stretch |
+| Backend take-up with no sample | Planning-case; measure a stated first-N (worked example: first 20 calls) |
 
 ## Tools
 

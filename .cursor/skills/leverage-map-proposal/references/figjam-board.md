@@ -45,7 +45,7 @@ UNASSIGNED swimlane cards are pink. Named owners are green labels.
 
 ## 30/90 swimlanes
 
-One column per named owner (Ben, Ross, Andy, …). One extra column **UNASSIGNED**. Each action is a sticky: action, done-when, due date. Do not exceed ~7 stickies per 30-day lane — parking lot the rest.
+One column per named owner from **this** brief’s RACI. One extra column **UNASSIGNED**. Do not default to AIP names (Ross, Andy, …). Each action is a sticky: action, done-when, due date. Do not exceed ~7 stickies per 30-day lane — parking lot the rest. Cover numbers and constraint copy are **this** client’s, not the worked example.
 
 ## Diagrams (`generate_diagram`)
 

@@ -45,7 +45,7 @@ Flagship sponsors get a **custom integration thesis**: agenda moments, coursewor
 
 Do not open with a rate card. Rate cards sell what is convenient for the organiser (impressions, booths). Custom sells what is convenient for the sponsor (a job in the attendee journey).
 
-One category winner. Category boundaries are set **before** exclusivity is granted. AI Powered (or the client) owns the attendee relationship. Vendors get only consented data required for delivery.
+One category winner. Category boundaries are set **before** exclusivity is granted. The **client** owns the attendee relationship. Vendors get only consented data required for delivery.
 
 ## Media value (honesty)
 
@@ -90,4 +90,4 @@ Three possible bottlenecks: **leads, sales (conversion), fulfilment**.
 
 Name one. Work only that one this cycle.
 
-If 25k impressions, 113 unique views, 36 email clicks, 10 DMs, 0 booked calls — that is a **conversion** constraint. Impression theatre is malpractice until the path books.
+Worked example (AIP only — do not reuse the digits): 25k impressions, 113 unique views, 36 email clicks, 10 DMs, 0 booked calls was a **conversion** constraint. Impression theatre is malpractice until **this** path books. Pull the current funnel; name **this** bottleneck.

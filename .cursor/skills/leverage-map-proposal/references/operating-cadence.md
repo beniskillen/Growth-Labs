@@ -29,14 +29,14 @@ Default shape (adapt to the brief):
 1. Freeze avatar, promise, ticket/backend boundary, date hypothesis (what would have to be true)
 2. Scoreboard live: impressions, UVs, CTR, bookings, show-ups, close, sponsor conversations, cash, hours
 3. Lead magnet / nurture path shipped — **one** variant
-4. Booking path that is not “DM → calendar with 0% conversion”
-5. N buyer conversations and N sponsor conversations — from **capacity**, not ambition
+4. Booking path that is not the current leak (worked example: DM → calendar with 0% conversion — replace with **this** path)
+5. N buyer conversations and N sponsor conversations — from **this** capacity, not ambition
 6. One flagship custom sponsor thesis issued (not ten decks)
 7. COGS band + cash gates written; no unfunded commitment
 8. RACI: every workstream Named or UNASSIGNED-by-date
 9. Decision log: approved / rejected / needs evidence / deferred
 
-**30-day pass/fail:** the constraint metric moved, **or** the path is officially killed and replaced. Example: booking rate is no longer 0% on a stated sample, **or** direct-to-call is killed for a tripwire/application.
+**30-day pass/fail:** **this** constraint metric moved, **or** the path is officially killed and replaced. Worked example (AIP only): booking rate no longer 0% on a stated sample, **or** direct-to-call killed for a tripwire/application. Write the pass/fail in **this** metric.
 
 ## Day 31–90 — install the engine (then New)
 
@@ -72,7 +72,7 @@ If hours/wk exceed named owners, either hire, meter supply, or cut the doctrine.
 
 ## What would have to be true (date / scale decisions)
 
-For each date hypothesis (e.g. April vs October), a table:
+For each date hypothesis on **this** brief (worked example was April vs October), a table:
 
 | Gate | Evidence required | Owner | By when | If miss → |
 | --- | --- | --- | --- | --- |

@@ -76,17 +76,17 @@ CREATE TABLE (
 
 If a tasks DB already exists on the project, add properties rather than a third tracker — but the assignment schema must still be visible.
 
-Seed rows from the brief + existing RACI. Unknown producer/closer = UNASSIGNED with a by-when date.
+Seed rows from **this** brief + **this** RACI. Unknown producer/closer = UNASSIGNED with a by-when date. Do not seed AIP names or hours.
 
 ## Mentions
 
 Use `<mention-page url="https://app.notion.com/p/...">` for existing pages. Do not wrap existing pages in `<page>` (that **moves** them).
 
-## First-run parent (AI Powered)
+## Parent for a new run
 
-Parent page_id: `3c294a6ff38f8020bdc5d55a71a7de5c` (Event Sponsorship & Sales | $2M Business).
+Parent the hub under **this** client’s project page. Reconcile **this** sprint / architecture into 30/90. Do not rewrite an existing meeting pack. Do not reuse another client’s parent ID.
 
-Reconcile the existing two-week sprint (26 Aug–8 Sept 2026) and October architecture into 30/90. Do not compete with that pack.
+Worked example (AIP only — not a default parent): Event Sponsorship & Sales page_id `3c294a6ff38f8020bdc5d55a71a7de5c`. See [worked-example-aip.md](worked-example-aip.md).
 
 ## Convert to Notion AI skill
 

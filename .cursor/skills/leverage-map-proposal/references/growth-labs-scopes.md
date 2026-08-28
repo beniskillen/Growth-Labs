@@ -23,7 +23,7 @@ Show a sophisticated buyer the **full capability** and the **narrow buy**. Mixin
 | Community & events | Event-to-CRM, workshops, activation | Event demand not captured |
 | Talent (Jobited) | Engineering hiring, proof-of-work | Seat is the constraint |
 | Operating layer (Corvan-class) | Comms, memory, meeting-to-task | Only **after** revenue path is proven |
-| Flagship partner (AI Powered) | Humans become AI-powered | Capability gap, not funnel gap |
+| Flagship partner | Humans become AI-powered (Growth Labs’ AIP-class lane) | Capability gap, not funnel gap — only if **this** constraint is capability |
 
 Method the proposal must **run**, not mention: Diagnose → Engineer → Activate → Measure → Scale. Warm graph first. Valence as governor.
 
@@ -52,24 +52,26 @@ On FigJam: a **scope strip** — what can be staffed (self / bench / partner) vs
 
 On Notion: a scope map table. Most rows should be Not now or Out. If more than ~5 rows are In this 30, the proposal is not palatable — cut.
 
-## Default AIP-class install (adapt; do not copy blindly)
+## Default conversion-constraint install (adapt to this brief)
 
-When the constraint is **conversion of owned demand** plus **sponsor architecture**:
+When **this** constraint is conversion of owned demand plus sponsor architecture (AIP was one instance — do not copy its tags or digits):
 
 **In 30:** diagnosis, scoreboard, lead magnet + booking path test, call doctrine, one flagship custom sponsor thesis, COGS/cash gates, RACI.
 
 **In 90:** proven channel scale, affiliates/JVs after conversion works, top-10 sponsors, fulfilment capacity, costed clip/stream system.
 
-**Not now:** paid media at volume, 300M impression theatre, software products, overseas tour, hackathon village.
+**Not now:** paid media at volume, unsourced impression theatre, software products, tour extensions, villages that are not the leak.
 
-**Out:** venue RFQs, speaker riders, producer/finance (unless appointed), legal/entity — unless the client names Growth Labs into those seats.
+**Out:** venue RFQs, speaker riders, producer/finance (unless appointed), legal/entity — unless **this** client names Growth Labs into those seats.
+
+If the leak is leads or fulfilment, rewrite the strip. The AIP In/Out list is in [worked-example-aip.md](worked-example-aip.md).
 
 ## Bench vs self
 
 Write who delivers:
 
-- **Growth Labs (Ben)** — commercial architecture, sponsor packaging, A-tier conversations, scoreboard
-- **Client team** — vision, authority closes, creative, CRM admin, speaker ops
+- **Growth Labs** — commercial architecture, sponsor packaging, A-tier conversations, scoreboard (name the human on **this** engagement)
+- **Client team** — vision, authority closes, creative, CRM admin, speaker ops (names from **this** RACI)
 - **Bench** — web/CRO, ads, clip/content, hiring (Jobited), AI OS (only after path converts)
 
 Never list a bench lane as In 30 without hours and a Named owner or UNASSIGNED-by-date.

@@ -51,7 +51,7 @@ Attraction offer → upsell → downsell → continuity.
 
 Show **cash this month**, **contribution margin**, and **continuity**. Unproven take-up = **planning-case**. Do not starve operations for vanity LTV.
 
-Example (planning-case only): 1,000 × $499 tickets is not the business if the doctrine is 1,000 discovery calls that ascend into a $12k programme and a services arm. Model call capacity or refuse the doctrine.
+Worked example (AIP only — replace with this brief’s ladder): 1,000 × US$499 tickets is not the business if the doctrine is 1,000 discovery calls that ascend into a US$12k programme. Model **this** call capacity or refuse **this** doctrine. See [worked-example-aip.md](worked-example-aip.md).
 
 ### Fulfilment before scale
 
@@ -87,13 +87,13 @@ One lead-magnet test, one booking-path test, one flagship sponsor thesis. Not tw
 
 ### Reason why
 
-Date, price, and “why these 30 days” need a reason why. April vs October is a **what would have to be true** table (cash, demand, production, speakers, conversion proof) — not a vibe.
+Date, price, and “why these 30 days” need a reason why. Competing flagship dates (worked example: April vs October) are a **what would have to be true** table (cash, demand, production, speakers, conversion proof) — not a vibe. Use **this** brief’s dates.
 
 ## Proof stack
 
 Every shareable number needs one of: owned dashboard, quote, public analogue with URL, or `Data gap`.
 
-Specific beats claimed. “113 unique views, 0 bookings” beats “we have a strong community”.
+Specific beats claimed. Worked example: “113 unique views, 0 bookings” beats “we have a strong community”. Next pack: **this** dashboard’s sample, not that sentence.
 
 Heritage numbers (Juicy, CryptoVega, Bybit) prove **Growth Labs has run this method**. They do not prove the current client’s reach.
 
