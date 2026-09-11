@@ -176,6 +176,7 @@ export default function StudioProvider({ children }: { children: ReactNode }) {
   }
 
   function exitStudio() {
+    restoreOriginalCopy();
     writeStudioFlag(false);
     syncRoot(false, typeface);
     const url = new URL(window.location.href);
