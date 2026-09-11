@@ -10,6 +10,20 @@ const nextConfig: NextConfig = {
   env: {
     NEXT_PUBLIC_BASE_PATH: basePath,
   },
+  redirects: githubPages
+    ? undefined
+    : async () => [
+        {
+          source: "/Growth-Labs",
+          destination: "/",
+          permanent: false,
+        },
+        {
+          source: "/Growth-Labs/:path*",
+          destination: "/:path*",
+          permanent: false,
+        },
+      ],
 };
 
 export default nextConfig;
