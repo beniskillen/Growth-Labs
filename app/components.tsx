@@ -34,7 +34,7 @@ export function SiteHeader() {
         <Link href="/about">About</Link>
       </nav>
       <a className="button button-small" href={AUDIT_URL} target="_blank" rel="noreferrer">
-        Book your audit
+        <span>Book your audit</span>
       </a>
     </header>
   );
@@ -44,7 +44,7 @@ export function Eyebrow({ children }: { children: ReactNode }) {
   return (
     <p className="eyebrow">
       <span className="status-dot" />
-      {children}
+      <span>{children}</span>
     </p>
   );
 }
@@ -90,7 +90,7 @@ export function AuditButton({
       target="_blank"
       rel="noreferrer"
     >
-      {children}
+      <span>{children}</span>
       <Arrow />
     </a>
   );

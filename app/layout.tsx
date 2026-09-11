@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono, Inter, Tenor_Sans } from "next/font/google";
+import StudioProvider from "./studio/StudioProvider";
+import { studioBootScript } from "./studio/keys";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -10,6 +12,17 @@ const geistSans = Geist({
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
+});
+
+const inter = Inter({
+  variable: "--font-inter",
+  subsets: ["latin"],
+});
+
+const tenorSans = Tenor_Sans({
+  variable: "--font-tenor",
+  subsets: ["latin"],
+  weight: "400",
 });
 
 const siteUrl =
@@ -50,9 +63,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable}`}>
-        {children}
+    <html lang="en" suppressHydrationWarning>
+      <body
+        className={`${geistSans.variable} ${geistMono.variable} ${inter.variable} ${tenorSans.variable}`}
+      >
+        <script dangerouslySetInnerHTML={{ __html: studioBootScript }} />
+        <StudioProvider>{children}</StudioProvider>
       </body>
     </html>
   );

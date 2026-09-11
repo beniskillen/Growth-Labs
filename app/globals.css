@@ -3133,3 +3133,38 @@ em {
     animation-iteration-count: 1 !important;
   }
 }
+
+html[data-typeface="aesop"] body {
+  --font-geist-sans: "Suisse Int'l", "Helvetica Neue", var(--font-inter), Arial, sans-serif;
+  --font-geist-mono: "Suisse Int'l", "Helvetica Neue", var(--font-inter), sans-serif;
+  font-family: "Suisse Int'l", "Helvetica Neue", var(--font-inter), Arial, sans-serif;
+  line-height: 1.6;
+}
+
+html[data-typeface="aesop"] h1,
+html[data-typeface="aesop"] h2,
+html[data-typeface="aesop"] .section-punchline,
+html[data-typeface="aesop"] .home-about-lead {
+  font-family: Optima, "Zapf Humanist 601", var(--font-tenor), sans-serif;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+}
+
+html[data-typeface="aesop"] .wordmark {
+  font-family: Optima, "Zapf Humanist 601", var(--font-tenor), sans-serif;
+  font-weight: 400;
+}
+
+html[data-typeface="aesop"] .hero-copy h1,
+html[data-typeface="aesop"] .page-hero h1,
+html[data-typeface="aesop"] .about-copy h1,
+html[data-typeface="aesop"] .metrics-intro h2,
+html[data-typeface="aesop"] .section-heading h2,
+html[data-typeface="aesop"] .split-section h2,
+html[data-typeface="aesop"] .final-cta h2,
+html[data-typeface="aesop"] .transparency-section h2,
+html[data-typeface="aesop"] .partner-feature-card h3,
+html[data-typeface="aesop"] .partner-hero-card h3 {
+  font-weight: 400;
+  letter-spacing: 0.01em;
+}

@@ -55,6 +55,17 @@ test("server-renders the Growth Labs home page with the revenue atom", async () 
   assert.match(html, /atom-copy-module/);
   assert.match(html, /Your brand sits in the centre/);
   assert.doesNotMatch(html, developmentPreviewMeta);
+  assert.doesNotMatch(html, /data-studio="on"/);
+  assert.doesNotMatch(html, /Click any line to edit/);
+  assert.doesNotMatch(html, /Exit studio/);
+});
+
+test("serves the studio gate without indexing it as marketing copy", async () => {
+  const response = await render("/studio");
+  assert.equal(response.status, 200);
+  const html = await response.text();
+  assert.match(html, /Opening the editable Aesop type preview/);
+  assert.match(html, /noindex/);
 });
 
 test("server-renders the partners page with AI Powered", async () => {

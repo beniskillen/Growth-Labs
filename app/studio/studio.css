@@ -1,0 +1,132 @@
+html[data-studio="on"] body {
+  padding-bottom: 96px;
+}
+
+html[data-studio="on"] [data-studio-hot] {
+  outline: 1px dashed rgba(102, 124, 255, 0.7);
+  outline-offset: 3px;
+  cursor: text;
+}
+
+html[data-studio="on"] [contenteditable="true"] {
+  outline: 1px solid var(--signal);
+  outline-offset: 3px;
+  cursor: text;
+}
+
+.studio-chrome {
+  position: fixed;
+  z-index: 80;
+  right: 16px;
+  bottom: 16px;
+  left: 16px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px 24px;
+  max-width: 1480px;
+  margin: 0 auto;
+  padding: 14px 18px;
+  border: 1px solid var(--line-strong);
+  background: rgba(10, 10, 11, 0.94);
+  color: var(--paper);
+  backdrop-filter: blur(18px);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.35);
+}
+
+.studio-chrome-copy {
+  min-width: min(100%, 420px);
+}
+
+.studio-chrome-kicker {
+  margin: 0 0 4px;
+  color: var(--signal);
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.studio-chrome h2 {
+  margin: 0 0 6px;
+  font-size: 16px;
+  font-weight: 520;
+  letter-spacing: -0.03em;
+  line-height: 1.2;
+}
+
+.studio-chrome p {
+  margin: 0;
+  color: var(--steel);
+  font-size: 12px;
+  line-height: 1.45;
+}
+
+.studio-chrome-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+
+.studio-toggle {
+  display: inline-flex;
+  border: 1px solid var(--line-strong);
+}
+
+.studio-chrome button {
+  min-height: 36px;
+  padding: 0 12px;
+  border: 1px solid var(--line-strong);
+  background: transparent;
+  color: var(--steel);
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.studio-toggle button {
+  border: 0;
+}
+
+.studio-chrome button[aria-pressed="true"],
+.studio-chrome button.studio-exit {
+  background: var(--signal);
+  color: white;
+  border-color: var(--signal);
+}
+
+.studio-gate {
+  display: grid;
+  min-height: 100svh;
+  place-items: center;
+  padding: 48px 24px;
+  text-align: center;
+}
+
+.studio-gate p {
+  margin: 0;
+  color: var(--steel);
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+@media (max-width: 760px) {
+  .studio-chrome {
+    right: 10px;
+    bottom: 10px;
+    left: 10px;
+    padding: 12px;
+  }
+
+  html[data-studio="on"] body {
+    padding-bottom: 168px;
+  }
+}
