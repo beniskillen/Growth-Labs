@@ -39,3 +39,7 @@ The home page opens on a full-viewport **revenue atom**:
 - **Outer bound** — TAM, with *(your potential)* underneath
 
 The diagram is the above-the-fold hero. Copy and the shell walkthrough sit in a separate module below the fold so nothing is cut off. Drag to orbit. The original portrait landing remains at `/landing`.
+
+## Social carousel
+
+A 12-slide LinkedIn / Instagram draft — definitions, desire, value equation, then the atom as a scoreboard — lives in [`content/social/revenue-atom-carousel/`](content/social/revenue-atom-carousel/). It is not on the public site. Rebuild with `node export-slides.mjs` in that folder.
