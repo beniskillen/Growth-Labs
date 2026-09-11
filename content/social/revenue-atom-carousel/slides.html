@@ -1,0 +1,788 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=1080" />
+    <title>Growth Labs — First-principles carousel</title>
+    <style>
+      @font-face {
+        font-family: "Geist";
+        font-style: normal;
+        font-weight: 400;
+        src: url("fonts/geist-sans-400.woff2") format("woff2");
+      }
+      @font-face {
+        font-family: "Geist";
+        font-style: normal;
+        font-weight: 500;
+        src: url("fonts/geist-sans-500.woff2") format("woff2");
+      }
+      @font-face {
+        font-family: "Geist";
+        font-style: normal;
+        font-weight: 600;
+        src: url("fonts/geist-sans-600.woff2") format("woff2");
+      }
+      @font-face {
+        font-family: "Geist Mono";
+        font-style: normal;
+        font-weight: 400;
+        src: url("fonts/geist-mono-400.woff2") format("woff2");
+      }
+      @font-face {
+        font-family: "Geist Mono";
+        font-style: normal;
+        font-weight: 500;
+        src: url("fonts/geist-mono-500.woff2") format("woff2");
+      }
+      @font-face {
+        font-family: "Geist Mono";
+        font-style: normal;
+        font-weight: 700;
+        src: url("fonts/geist-mono-700.woff2") format("woff2");
+      }
+
+      :root {
+        --ink: #0a0a0b;
+        --panel: #111115;
+        --panel-2: #16161b;
+        --line: rgba(244, 244, 242, 0.13);
+        --line-strong: rgba(244, 244, 242, 0.25);
+        --paper: #f4f4f2;
+        --steel: #8a8f98;
+        --signal: #667cff;
+        --signal-soft: rgba(102, 124, 255, 0.16);
+        --mute: #b6bac1;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        margin: 0;
+        background: #050506;
+        color: var(--paper);
+        font-family: Geist, Arial, sans-serif;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      body.export {
+        background: var(--ink);
+      }
+
+      .deck {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 32px;
+        padding: 32px 0 80px;
+      }
+
+      body.export .deck {
+        display: block;
+        padding: 0;
+      }
+
+      .slide {
+        position: relative;
+        width: 1080px;
+        height: 1350px;
+        overflow: hidden;
+        background: var(--ink);
+        color: var(--paper);
+        display: flex;
+        flex-direction: column;
+        padding: 56px 64px 48px;
+      }
+
+      body.export .slide {
+        display: none;
+      }
+
+      body.export .slide.is-active {
+        display: flex;
+      }
+
+      .grid-bg::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        background-image:
+          linear-gradient(rgba(244, 244, 242, 0.045) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(244, 244, 242, 0.045) 1px, transparent 1px);
+        background-size: 56px 56px;
+        mask-image: radial-gradient(ellipse at 50% 38%, #000 18%, transparent 78%);
+      }
+
+      .chrome {
+        position: relative;
+        z-index: 2;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 48px;
+      }
+
+      .wordmark {
+        display: inline-flex;
+        align-items: center;
+        gap: 12px;
+        font-family: "Geist Mono", monospace;
+        font-size: 13px;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+      }
+
+      .mark {
+        display: flex;
+        align-items: flex-end;
+        gap: 2px;
+        width: 24px;
+        height: 20px;
+      }
+
+      .mark i {
+        display: block;
+        width: 6px;
+        border-top: 2px solid var(--signal);
+        border-right: 2px solid var(--signal);
+      }
+
+      .mark i:nth-child(1) {
+        height: 6px;
+      }
+      .mark i:nth-child(2) {
+        height: 12px;
+      }
+      .mark i:nth-child(3) {
+        height: 18px;
+      }
+
+      .count {
+        color: var(--steel);
+        font-family: "Geist Mono", monospace;
+        font-size: 12px;
+        font-weight: 500;
+        letter-spacing: 0.14em;
+      }
+
+      .body {
+        position: relative;
+        z-index: 2;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        min-height: 0;
+      }
+
+      .pin-bottom {
+        margin-top: auto;
+      }
+
+      .eyebrow {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin: 0 0 28px;
+        color: var(--steel);
+        font-family: "Geist Mono", monospace;
+        font-size: 13px;
+        font-weight: 600;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+      }
+
+      .status-dot {
+        width: 7px;
+        height: 7px;
+        border-radius: 50%;
+        background: var(--signal);
+        box-shadow: 0 0 0 4px var(--signal-soft);
+      }
+
+      h1 {
+        margin: 0 0 28px;
+        font-size: 58px;
+        font-weight: 500;
+        letter-spacing: -0.055em;
+        line-height: 0.98;
+      }
+
+      .tight h1 {
+        font-size: 52px;
+      }
+
+      .lede {
+        margin: 0;
+        max-width: 920px;
+        color: var(--mute);
+        font-size: 26px;
+        font-weight: 400;
+        line-height: 1.45;
+      }
+
+      .rule-line {
+        margin: 36px 0 0;
+        color: var(--paper);
+        font-size: 24px;
+        line-height: 1.4;
+      }
+
+      .rule-line em,
+      h1 em,
+      .lede em {
+        color: var(--signal);
+        font-style: normal;
+      }
+
+      .foot-note {
+        margin-top: auto;
+        padding-top: 28px;
+        border-top: 1px solid var(--line);
+        color: var(--steel);
+        font-family: "Geist Mono", monospace;
+        font-size: 16px;
+        letter-spacing: 0.04em;
+        line-height: 1.5;
+      }
+
+      .slide-foot {
+        position: relative;
+        z-index: 2;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-top: 36px;
+        padding-top: 22px;
+        border-top: 1px solid var(--line);
+        color: var(--steel);
+        font-family: "Geist Mono", monospace;
+        font-size: 11px;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+      }
+
+      /* Cover */
+      .slide-cover {
+        padding: 56px 64px 48px;
+      }
+
+      .cover-atom {
+        position: relative;
+        flex: 1;
+        min-height: 520px;
+        margin: 28px -8px 0;
+        border: 1px solid var(--line);
+        background:
+          radial-gradient(ellipse at 50% 48%, rgba(102, 124, 255, 0.2), transparent 64%),
+          url("assets/revenue-atom.png") center 46% / 122% no-repeat,
+          #070709;
+      }
+
+      .slide-cover h1 {
+        font-size: 64px;
+        margin-bottom: 22px;
+      }
+
+      .byline {
+        margin: 28px 0 0;
+        color: var(--steel);
+        font-family: "Geist Mono", monospace;
+        font-size: 13px;
+        letter-spacing: 0.16em;
+      }
+
+      /* Stacks */
+      .mix-list {
+        display: grid;
+        gap: 16px;
+        margin-top: 12px;
+      }
+
+      .mix-item {
+        display: grid;
+        grid-template-columns: 72px 1fr;
+        gap: 18px;
+        align-items: center;
+        padding: 22px 24px;
+        background: var(--panel);
+        border: 1px solid var(--line);
+      }
+
+      .mix-item span {
+        color: var(--signal);
+        font-family: "Geist Mono", monospace;
+        font-size: 13px;
+        letter-spacing: 0.12em;
+      }
+
+      .mix-item p {
+        margin: 0;
+        font-size: 26px;
+        letter-spacing: -0.03em;
+        line-height: 1.25;
+      }
+
+      .watermark {
+        position: absolute;
+        right: 56px;
+        top: 58%;
+        color: rgba(102, 124, 255, 0.09);
+        font-size: 92px;
+        font-weight: 600;
+        letter-spacing: -0.06em;
+        line-height: 0.8;
+        pointer-events: none;
+        user-select: none;
+      }
+
+      .callout {
+        margin-top: 32px;
+        padding: 22px 24px;
+        border-left: 2px solid var(--signal);
+        background: var(--signal-soft);
+        color: var(--paper);
+        font-size: 22px;
+        line-height: 1.4;
+      }
+
+      .callout.pin-bottom,
+      .rule-line.pin-bottom {
+        margin-top: auto;
+      }
+
+      .metric-pill {
+        display: inline-flex;
+        margin-top: 28px;
+        padding: 14px 18px;
+        border: 1px solid var(--line-strong);
+        background: var(--panel);
+        color: var(--paper);
+        font-family: "Geist Mono", monospace;
+        font-size: 16px;
+        letter-spacing: 0.04em;
+        line-height: 1.45;
+      }
+
+      .formula {
+        margin-top: 36px;
+        padding: 28px 28px 24px;
+        background: var(--panel);
+        border: 1px solid var(--line);
+      }
+
+      .formula .label {
+        margin: 0 0 18px;
+        color: var(--signal);
+        font-family: "Geist Mono", monospace;
+        font-size: 12px;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+      }
+
+      .formula .eq {
+        font-size: 28px;
+        font-weight: 500;
+        letter-spacing: -0.04em;
+        line-height: 1.35;
+      }
+
+      .formula .eq .frac {
+        display: block;
+        margin-top: 10px;
+      }
+
+      .formula .num,
+      .formula .den {
+        display: block;
+      }
+
+      .formula .bar {
+        display: block;
+        height: 1px;
+        margin: 10px 0;
+        background: var(--line-strong);
+      }
+
+      .bench-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 14px;
+        margin-top: 22px;
+      }
+
+      .bench {
+        padding: 18px 18px 16px;
+        background: rgba(10, 10, 11, 0.72);
+        border: 1px solid var(--line);
+        backdrop-filter: blur(10px);
+      }
+
+      .bench small {
+        display: block;
+        margin-bottom: 8px;
+        color: var(--steel);
+        font-family: "Geist Mono", monospace;
+        font-size: 11px;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+
+      .bench strong {
+        font-size: 28px;
+        font-weight: 500;
+        letter-spacing: -0.04em;
+      }
+
+      .atom-panel {
+        position: relative;
+        flex: 1;
+        min-height: 420px;
+        margin: 8px -8px 0;
+        border: 1px solid var(--line);
+        background:
+          radial-gradient(ellipse at 50% 48%, rgba(102, 124, 255, 0.16), transparent 62%),
+          url("assets/revenue-atom.png") center 46% / 118% no-repeat,
+          #070709;
+      }
+
+      .diag-list {
+        display: grid;
+        gap: 0;
+        margin-top: 8px;
+        border-top: 1px solid var(--line);
+      }
+
+      .diag-list li {
+        display: grid;
+        grid-template-columns: 48px 1fr;
+        gap: 12px;
+        padding: 14px 0;
+        border-bottom: 1px solid var(--line);
+        list-style: none;
+        font-size: 22px;
+        letter-spacing: -0.02em;
+        line-height: 1.3;
+      }
+
+      .diag-list {
+        margin: 0;
+        padding: 0;
+      }
+
+      .diag-list span {
+        color: var(--signal);
+        font-family: "Geist Mono", monospace;
+        font-size: 13px;
+        letter-spacing: 0.08em;
+      }
+
+      .beats {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 10px 12px;
+        margin-top: 36px;
+        color: var(--paper);
+        font-family: "Geist Mono", monospace;
+        font-size: 15px;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+      }
+
+      .beats i {
+        color: var(--signal);
+        font-style: normal;
+      }
+
+      .beats strong {
+        color: var(--signal);
+        font-weight: 700;
+      }
+
+      .cta {
+        display: flex;
+        width: 100%;
+        align-items: center;
+        justify-content: space-between;
+        gap: 28px;
+        margin-top: 36px;
+        min-height: 64px;
+        padding: 0 24px;
+        background: var(--signal);
+        color: white;
+        font-family: "Geist Mono", monospace;
+        font-size: 14px;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .url {
+        margin-top: 18px;
+        color: var(--steel);
+        font-family: "Geist Mono", monospace;
+        font-size: 16px;
+        word-break: break-all;
+      }
+    </style>
+  </head>
+  <body>
+    <main class="deck">
+      <article class="slide slide-cover" data-slide="1">
+        <div class="chrome">
+          <span class="wordmark"><span class="mark" aria-hidden="true"><i></i><i></i><i></i></span>GROWTH LABS_</span>
+          <span class="count">01 / 12</span>
+        </div>
+        <div class="body">
+          <p class="eyebrow"><span class="status-dot"></span>GROWTH LABS_ / FIRST PRINCIPLES</p>
+          <h1>Most “marketing” is advertising with extra steps.</h1>
+          <p class="lede">Define the words. Tap a desire that already exists. Read every action as a signal.</p>
+          <p class="byline">BEN KILLEN</p>
+          <div class="cover-atom" role="img" aria-label="Revenue atom with metric labels"></div>
+        </div>
+        <div class="slide-foot">
+          <span>Revenue systems from first principles</span>
+          <span>01 / 12</span>
+        </div>
+      </article>
+
+      <article class="slide grid-bg" data-slide="2">
+        <div class="chrome">
+          <span class="wordmark"><span class="mark" aria-hidden="true"><i></i><i></i><i></i></span>GROWTH LABS_</span>
+          <span class="count">02 / 12</span>
+        </div>
+        <div class="body">
+          <p class="eyebrow"><span class="status-dot"></span>02 / THE ROOM</p>
+          <h1>5+ years in agencies. Lots of “marketing.” Almost no scoreboard.</h1>
+          <p class="lede">Campaigns shipped. Decks approved. Reach celebrated. CAC unknown. LTV ignored.</p>
+          <p class="rule-line pin-bottom">The work looked like marketing because it was busy. <em>Busy is not a system.</em></p>
+        </div>
+        <div class="slide-foot">
+          <span>Growth Labs</span>
+          <span>02 / 12</span>
+        </div>
+      </article>
+
+      <article class="slide grid-bg" data-slide="3">
+        <div class="chrome">
+          <span class="wordmark"><span class="mark" aria-hidden="true"><i></i><i></i><i></i></span>GROWTH LABS_</span>
+          <span class="count">03 / 12</span>
+        </div>
+        <div class="body">
+          <p class="eyebrow"><span class="status-dot"></span>03 / THE MIX-UP</p>
+          <h1 class="tight">These three words get used as if they mean the same thing. They do not.</h1>
+          <div class="mix-list">
+            <div class="mix-item"><span>01</span><p>Brand treated as logos and colours</p></div>
+            <div class="mix-item"><span>02</span><p>Advertising sold as “the marketing”</p></div>
+            <div class="mix-item"><span>03</span><p>Impressions treated as results</p></div>
+          </div>
+          <p class="foot-note">That mix is why so much spend produces theatre, not customers.</p>
+        </div>
+        <div class="slide-foot">
+          <span>Growth Labs</span>
+          <span>03 / 12</span>
+        </div>
+      </article>
+
+      <article class="slide grid-bg tight" data-slide="4">
+        <div class="watermark" aria-hidden="true">MKT</div>
+        <div class="chrome">
+          <span class="wordmark"><span class="mark" aria-hidden="true"><i></i><i></i><i></i></span>GROWTH LABS_</span>
+          <span class="count">04 / 12</span>
+        </div>
+        <div class="body">
+          <p class="eyebrow"><span class="status-dot"></span>04 / DEFINE THE WORDS</p>
+          <h1>Marketing is every piece of communication a business has with its market.</h1>
+          <p class="lede">Prospects and customers. The ad, the site, the email, the invoice, the founder reply, the packaging. If the business is speaking, that is marketing. It is not a department. It is not ads.</p>
+          <p class="callout pin-bottom">Advertising is one kind of that communication. It is not the whole of it.</p>
+        </div>
+        <div class="slide-foot">
+          <span>Growth Labs</span>
+          <span>04 / 12</span>
+        </div>
+      </article>
+
+      <article class="slide grid-bg tight" data-slide="5">
+        <div class="watermark" aria-hidden="true">BRAND</div>
+        <div class="chrome">
+          <span class="wordmark"><span class="mark" aria-hidden="true"><i></i><i></i><i></i></span>GROWTH LABS_</span>
+          <span class="count">05 / 12</span>
+        </div>
+        <div class="body">
+          <p class="eyebrow"><span class="status-dot"></span>05 / DEFINE THE WORDS</p>
+          <h1>A brand is the association someone has with something.</h1>
+          <p class="lede">It lives in their head, not in your logo file. You do not ship a brand in a deck. People form it from every piece of communication — and from whether the thing you sold held up.</p>
+          <p class="callout pin-bottom">Branding is only the word for trying to influence that association.</p>
+        </div>
+        <div class="slide-foot">
+          <span>Growth Labs</span>
+          <span>05 / 12</span>
+        </div>
+      </article>
+
+      <article class="slide grid-bg tight" data-slide="6">
+        <div class="watermark" aria-hidden="true">ADS</div>
+        <div class="chrome">
+          <span class="wordmark"><span class="mark" aria-hidden="true"><i></i><i></i><i></i></span>GROWTH LABS_</span>
+          <span class="count">06 / 12</span>
+        </div>
+        <div class="body">
+          <p class="eyebrow"><span class="status-dot"></span>06 / DEFINE THE WORDS</p>
+          <h1>Advertising brings someone’s attention to something specific.</h1>
+          <p class="lede">That is the job. A paid ad, a billboard, a launch post, a cold email with one object: look at this. It is marketing whose purpose is attention, not the relationship after.</p>
+          <p class="metric-pill">Measured first with impressions — how many times was that specific thing put in front of someone?</p>
+          <p class="callout pin-bottom">Impressions start the scoreboard. They do not prove anyone cared.</p>
+        </div>
+        <div class="slide-foot">
+          <span>Growth Labs</span>
+          <span>06 / 12</span>
+        </div>
+      </article>
+
+      <article class="slide grid-bg" data-slide="7">
+        <div class="chrome">
+          <span class="wordmark"><span class="mark" aria-hidden="true"><i></i><i></i><i></i></span>GROWTH LABS_</span>
+          <span class="count">07 / 12</span>
+        </div>
+        <div class="body">
+          <p class="eyebrow"><span class="status-dot"></span>07 / WHY THEY MOVE</p>
+          <h1>People buy to solve a problem or fulfill a desire.</h1>
+          <p class="lede">That is almost the whole game. Marketing cannot create a new desire inside someone. It can only tap a desire they already have, and cause them to act.</p>
+          <p class="callout pin-bottom">If the desire is not there, more reach is just more noise.</p>
+        </div>
+        <div class="slide-foot">
+          <span>Growth Labs</span>
+          <span>07 / 12</span>
+        </div>
+      </article>
+
+      <article class="slide grid-bg tight" data-slide="8">
+        <div class="chrome">
+          <span class="wordmark"><span class="mark" aria-hidden="true"><i></i><i></i><i></i></span>GROWTH LABS_</span>
+          <span class="count">08 / 12</span>
+        </div>
+        <div class="body">
+          <p class="eyebrow"><span class="status-dot"></span>08 / THE VALUE EQUATION</p>
+          <h1>The action they take is always an investment — even when no money moves.</h1>
+          <p class="lede">A click, an email, a call, a purchase. Attention and time are currencies. You asked them to spend something.</p>
+          <div class="formula">
+            <p class="label">Perceived value</p>
+            <p class="eq">
+              <span class="num">(outcome × likelihood of achievement)</span>
+              <span class="bar"></span>
+              <span class="den">(effort &amp; sacrifice × time delay)</span>
+            </p>
+          </div>
+          <p class="foot-note">Frequency of similar claims divides the left side and lowers perceived value. That is market sophistication — a story for another day.</p>
+        </div>
+        <div class="slide-foot">
+          <span>Growth Labs</span>
+          <span>08 / 12</span>
+        </div>
+      </article>
+
+      <article class="slide" data-slide="9">
+        <div class="chrome">
+          <span class="wordmark"><span class="mark" aria-hidden="true"><i></i><i></i><i></i></span>GROWTH LABS_</span>
+          <span class="count">09 / 12</span>
+        </div>
+        <div class="body">
+          <p class="eyebrow"><span class="status-dot"></span>09 / THE SCOREBOARD</p>
+          <h1 style="font-size: 42px; margin-bottom: 16px">Every action is a signal of resonance. The metrics are the strength of that signal.</h1>
+          <div class="atom-panel" role="img" aria-label="Revenue atom with metric labels only"></div>
+          <div class="bench-grid">
+            <div class="bench"><small>CTR</small><strong>&gt; 1.5%</strong></div>
+            <div class="bench"><small>Opt-in / CVR</small><strong>&gt; 2% ideally</strong></div>
+            <div class="bench"><small>Opt-in → customer</small><strong>&gt; 10%</strong></div>
+            <div class="bench"><small>LTV : CAC</small><strong>&gt; 3</strong></div>
+          </div>
+          <p class="foot-note" style="margin-top: 18px; padding-top: 18px">Below the bar, the market is not answering. Do not scale the channel.</p>
+        </div>
+        <div class="slide-foot">
+          <span>Growth Labs</span>
+          <span>09 / 12</span>
+        </div>
+      </article>
+
+      <article class="slide grid-bg" data-slide="10">
+        <div class="chrome">
+          <span class="wordmark"><span class="mark" aria-hidden="true"><i></i><i></i><i></i></span>GROWTH LABS_</span>
+          <span class="count">10 / 12</span>
+        </div>
+        <div class="body">
+          <p class="eyebrow"><span class="status-dot"></span>10 / THE CONSTRAINT</p>
+          <h1 style="font-size: 46px; margin-bottom: 10px">You do not have a tactics problem.</h1>
+          <p class="lede" style="color: var(--signal); font-size: 24px; margin-bottom: 18px">You have a first-principles problem.</p>
+          <ol class="diag-list">
+            <li><span>01</span>Fuzzy buyer → message cannot convert</li>
+            <li><span>02</span>Unclear offer → traffic is expensive</li>
+            <li><span>03</span>Guessed CTR → creative gets blamed for volume</li>
+            <li><span>04</span>Unknown CAC → spend scales a leak</li>
+            <li><span>05</span>Memory follow-up → intent dies cold</li>
+            <li><span>06</span>Ignored LTV → acquisition is treated as the whole business</li>
+          </ol>
+          <p class="foot-note pin-bottom">Often the copy asks for an investment the value equation cannot support, or speaks to a desire that is not there. Agencies get hired to add fuel. Nobody checks if the bucket holds water.</p>
+        </div>
+        <div class="slide-foot">
+          <span>Growth Labs</span>
+          <span>10 / 12</span>
+        </div>
+      </article>
+
+      <article class="slide grid-bg" data-slide="11">
+        <div class="chrome">
+          <span class="wordmark"><span class="mark" aria-hidden="true"><i></i><i></i><i></i></span>GROWTH LABS_</span>
+          <span class="count">11 / 12</span>
+        </div>
+        <div class="body">
+          <p class="eyebrow"><span class="status-dot"></span>11 / THE RULE</p>
+          <h1>Name the constraint. Then engineer the fix.</h1>
+          <p class="lede">Diagnose which signal is weak. Fix only that. Warm demand first. Scale only once LTV:CAC is above 3 with margin.</p>
+          <p class="beats">
+            <span>First principles</span><i>×</i>
+            <span>Revenue system</span><i>×</i>
+            <span>AI leverage</span><i>=</i>
+            <strong>High-ROI growth</strong>
+          </p>
+          <p class="callout pin-bottom">AI is leverage inside the chain. It cannot choose the right work.</p>
+        </div>
+        <div class="slide-foot">
+          <span>Growth Labs</span>
+          <span>11 / 12</span>
+        </div>
+      </article>
+
+      <article class="slide grid-bg" data-slide="12">
+        <div class="chrome">
+          <span class="wordmark"><span class="mark" aria-hidden="true"><i></i><i></i><i></i></span>GROWTH LABS_</span>
+          <span class="count">12 / 12</span>
+        </div>
+        <div class="body">
+          <p class="eyebrow"><span class="status-dot"></span>12 / FREE DIAGNOSTIC / 30 MINUTES</p>
+          <h1>Want the constraint named — and the metric that proves it?</h1>
+          <p class="lede">Thirty minutes. The bottleneck, the scoreboard reading, the first system worth building — whether or not we ever work together.</p>
+          <div class="cta">Book the free diagnostic <span>→</span></div>
+          <p class="url">calendar.notion.so/meet/beniskillen/30min</p>
+          <p class="foot-note pin-bottom">NO HYPE · NO TOOL LISTS · FIRST PRINCIPLES, THEN SYSTEMS</p>
+        </div>
+        <div class="slide-foot">
+          <span>Growth Labs</span>
+          <span>12 / 12</span>
+        </div>
+      </article>
+    </main>
+    <script>
+      const params = new URLSearchParams(location.search);
+      const n = Number(params.get("slide") || 0);
+      if (n >= 1 && n <= 12) {
+        document.body.classList.add("export");
+        const slide = document.querySelector(`.slide[data-slide="${n}"]`);
+        if (slide) slide.classList.add("is-active");
+      }
+    </script>
+  </body>
+</html>
