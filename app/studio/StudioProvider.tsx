@@ -1,7 +1,7 @@
 "use client";
 
 import { usePathname } from "next/navigation";
-import { useCallback, useEffect, useState, type ReactNode } from "react";
+import { useEffect, useSyncExternalStore, type ReactNode } from "react";
 import {
   applyCopyEdits,
   collectHosts,
@@ -9,40 +9,24 @@ import {
   isSafeTextHost,
   restoreOriginalCopy,
   serializeHost,
-  type CopyEdit,
 } from "./copy";
+import { STUDIO_FLAG_KEY, STUDIO_TYPEFACE_KEY } from "./keys";
 import {
-  STUDIO_EDITS_KEY,
-  STUDIO_FLAG_KEY,
-  STUDIO_TYPEFACE_KEY,
-  type StudioTypeface,
-} from "./keys";
+  emitStudioChange,
+  ensureStudioFromQuery,
+  getEditsServerSnapshot,
+  getEditsSnapshot,
+  getEnabledServerSnapshot,
+  getEnabledSnapshot,
+  getTypefaceServerSnapshot,
+  getTypefaceSnapshot,
+  subscribeStudio,
+  writeEdits,
+  writeStudioFlag,
+  writeTypeface,
+} from "./store";
 import "./studio.css";
-
-function readTypeface(): StudioTypeface {
-  try {
-    return localStorage.getItem(STUDIO_TYPEFACE_KEY) === "geist"
-      ? "geist"
-      : "aesop";
-  } catch {
-    return "aesop";
-  }
-}
-
-function readEdits(): CopyEdit[] {
-  try {
-    const raw = localStorage.getItem(STUDIO_EDITS_KEY);
-    if (!raw) return [];
-    const parsed = JSON.parse(raw) as CopyEdit[];
-    return Array.isArray(parsed) ? parsed : [];
-  } catch {
-    return [];
-  }
-}
-
-function writeEdits(edits: CopyEdit[]) {
-  localStorage.setItem(STUDIO_EDITS_KEY, JSON.stringify(edits));
-}
+import type { StudioTypeface } from "./keys";
 
 function syncRoot(enabled: boolean, typeface: StudioTypeface) {
   const root = document.documentElement;
@@ -57,26 +41,30 @@ function syncRoot(enabled: boolean, typeface: StudioTypeface) {
 
 export default function StudioProvider({ children }: { children: ReactNode }) {
   const pathname = usePathname();
-  const [enabled, setEnabled] = useState(false);
-  const [typeface, setTypeface] = useState<StudioTypeface>("aesop");
-  const [edits, setEdits] = useState<CopyEdit[]>([]);
+  const enabled = useSyncExternalStore(
+    subscribeStudio,
+    getEnabledSnapshot,
+    getEnabledServerSnapshot,
+  );
+  const typeface = useSyncExternalStore(
+    subscribeStudio,
+    getTypefaceSnapshot,
+    getTypefaceServerSnapshot,
+  );
+  const edits = useSyncExternalStore(
+    subscribeStudio,
+    getEditsSnapshot,
+    getEditsServerSnapshot,
+  );
 
   useEffect(() => {
-    const params = new URLSearchParams(window.location.search);
-    if (params.get("studio") === "1") {
-      localStorage.setItem(STUDIO_FLAG_KEY, "1");
-      if (!localStorage.getItem(STUDIO_TYPEFACE_KEY)) {
-        localStorage.setItem(STUDIO_TYPEFACE_KEY, "aesop");
-      }
-    }
-    const nextEnabled = localStorage.getItem(STUDIO_FLAG_KEY) === "1";
-    const nextTypeface = readTypeface();
-    const nextEdits = readEdits();
-    setEnabled(nextEnabled);
-    setTypeface(nextTypeface);
-    setEdits(nextEdits);
-    syncRoot(nextEnabled, nextTypeface);
+    ensureStudioFromQuery();
+    emitStudioChange();
   }, []);
+
+  useEffect(() => {
+    syncRoot(enabled, typeface);
+  }, [enabled, typeface]);
 
   useEffect(() => {
     if (!enabled) return;
@@ -97,30 +85,6 @@ export default function StudioProvider({ children }: { children: ReactNode }) {
     };
   }, [enabled, edits, pathname]);
 
-  const persistEdit = useCallback(
-    (el: HTMLElement) => {
-      const original = el.dataset.studioOriginal ?? serializeHost(el);
-      const occurrence = Number(el.dataset.studioOccurrence ?? "0");
-      const value = serializeHost(el);
-      setEdits((current) => {
-        const next = current.filter(
-          (edit) =>
-            !(
-              edit.pathname === pathname &&
-              edit.original === original &&
-              edit.occurrence === occurrence
-            ),
-        );
-        if (value !== original) {
-          next.push({ pathname, occurrence, original, value });
-        }
-        writeEdits(next);
-        return next;
-      });
-    },
-    [pathname],
-  );
-
   useEffect(() => {
     if (!enabled) return;
 
@@ -129,6 +93,24 @@ export default function StudioProvider({ children }: { children: ReactNode }) {
       const hit = target.closest(EDITABLE_SELECTOR);
       if (!(hit instanceof HTMLElement) || !isSafeTextHost(hit)) return null;
       return hit;
+    };
+
+    const persistEdit = (el: HTMLElement) => {
+      const original = el.dataset.studioOriginal ?? serializeHost(el);
+      const occurrence = Number(el.dataset.studioOccurrence ?? "0");
+      const value = serializeHost(el);
+      const next = edits.filter(
+        (edit) =>
+          !(
+            edit.pathname === pathname &&
+            edit.original === original &&
+            edit.occurrence === occurrence
+          ),
+      );
+      if (value !== original) {
+        next.push({ pathname, occurrence, original, value });
+      }
+      writeEdits(next);
     };
 
     const onPointerOver = (event: Event) => {
@@ -145,7 +127,7 @@ export default function StudioProvider({ children }: { children: ReactNode }) {
       if (host.isContentEditable) return;
       mouse.preventDefault();
       mouse.stopPropagation();
-      applyCopyEdits(pathname, readEdits());
+      applyCopyEdits(pathname, getEditsSnapshot());
       host.setAttribute("contenteditable", "true");
       host.focus();
     };
@@ -181,23 +163,20 @@ export default function StudioProvider({ children }: { children: ReactNode }) {
       document.removeEventListener("focusout", onBlur, true);
       document.removeEventListener("keydown", onKeyDown, true);
     };
-  }, [enabled, pathname, persistEdit]);
+  }, [enabled, edits, pathname]);
 
   function chooseTypeface(next: StudioTypeface) {
-    setTypeface(next);
-    localStorage.setItem(STUDIO_TYPEFACE_KEY, next);
+    writeTypeface(next);
     syncRoot(true, next);
   }
 
   function resetCopy() {
     writeEdits([]);
-    setEdits([]);
     restoreOriginalCopy();
   }
 
   function exitStudio() {
-    localStorage.removeItem(STUDIO_FLAG_KEY);
-    setEnabled(false);
+    writeStudioFlag(false);
     syncRoot(false, typeface);
     const url = new URL(window.location.href);
     if (url.searchParams.has("studio")) {
@@ -252,10 +231,11 @@ export default function StudioProvider({ children }: { children: ReactNode }) {
 
 export function StudioGateRedirect() {
   useEffect(() => {
-    localStorage.setItem(STUDIO_FLAG_KEY, "1");
-    if (!localStorage.getItem(STUDIO_TYPEFACE_KEY)) {
-      localStorage.setItem(STUDIO_TYPEFACE_KEY, "aesop");
+    window.localStorage.setItem(STUDIO_FLAG_KEY, "1");
+    if (!window.localStorage.getItem(STUDIO_TYPEFACE_KEY)) {
+      window.localStorage.setItem(STUDIO_TYPEFACE_KEY, "aesop");
     }
+    emitStudioChange();
     window.location.replace("/?studio=1");
   }, []);
 
