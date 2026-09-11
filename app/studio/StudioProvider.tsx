@@ -11,6 +11,7 @@ import {
   serializeHost,
 } from "./copy";
 import { STUDIO_FLAG_KEY, STUDIO_TYPEFACE_KEY } from "./keys";
+import { studioHomeHref } from "./paths";
 import {
   emitStudioChange,
   ensureStudioFromQuery,
@@ -237,7 +238,7 @@ export function StudioGateRedirect() {
       window.localStorage.setItem(STUDIO_TYPEFACE_KEY, "aesop");
     }
     emitStudioChange();
-    window.location.replace("/?studio=1");
+    window.location.replace(studioHomeHref);
   }, []);
 
   return (

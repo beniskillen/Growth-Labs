@@ -25,10 +25,7 @@ const tenorSans = Tenor_Sans({
   weight: "400",
 });
 
-const siteUrl =
-  process.env.GITHUB_PAGES === "true"
-    ? "https://beniskillen.github.io/Growth-Labs"
-    : "https://growth-labs-ben-killen.openai.site";
+const siteUrl = "https://beniskillen.github.io/Growth-Labs";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),

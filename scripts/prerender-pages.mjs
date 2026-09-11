@@ -4,7 +4,15 @@ import { dirname, join, extname } from "node:path";
 const origin = process.env.PREVIEW_ORIGIN ?? "http://127.0.0.1:3000";
 const base = (process.env.PAGES_BASE ?? "/Growth-Labs").replace(/\/$/, "");
 const out = process.env.PAGES_OUT ?? "gh-pages-site";
-const routes = ["/", "/about", "/audit", "/landing", "/partners", "/solutions"];
+const routes = [
+  "/",
+  "/about",
+  "/audit",
+  "/landing",
+  "/partners",
+  "/solutions",
+  "/studio",
+];
 const rewriteExt = new Set([".html", ".js", ".css", ".svg", ".txt", ".json", ".xml"]);
 
 function withBase(content) {
