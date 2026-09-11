@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, Inter, Tenor_Sans } from "next/font/google";
+import { Geist, Geist_Mono, Inter } from "next/font/google";
 import StudioProvider from "./studio/StudioProvider";
 import { studioBootScript } from "./studio/keys";
 import "./globals.css";
@@ -17,12 +17,6 @@ const geistMono = Geist_Mono({
 const inter = Inter({
   variable: "--font-inter",
   subsets: ["latin"],
-});
-
-const tenorSans = Tenor_Sans({
-  variable: "--font-tenor",
-  subsets: ["latin"],
-  weight: "400",
 });
 
 const siteUrl = "https://beniskillen.github.io/Growth-Labs";
@@ -62,7 +56,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${inter.variable} ${tenorSans.variable}`}
+        className={`${geistSans.variable} ${geistMono.variable} ${inter.variable}`}
       >
         <script dangerouslySetInnerHTML={{ __html: studioBootScript }} />
         <StudioProvider>{children}</StudioProvider>

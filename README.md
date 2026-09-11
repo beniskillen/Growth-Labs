@@ -13,7 +13,7 @@ around a click-to-expand quantum valence diagram.
 - `/solutions` — custom solutions and delivery lanes
 - `/partners` — partner bench, including AI Powered
 - `/about` — operator story and mission
-- `/studio` — local click-to-edit preview with an Aesop typeface toggle (not linked in the public nav). On GitHub Pages this is `/Growth-Labs/studio/`.
+- `/studio` — local click-to-edit preview. The Aesop toggle restyles buttons and small margin labels only; headlines stay Geist.
 
 ## Local preview
 

@@ -196,9 +196,8 @@ export default function StudioProvider({ children }: { children: ReactNode }) {
             <p className="studio-chrome-kicker">Studio / local preview</p>
             <h2>Click any line to edit. Compare typefaces live.</h2>
             <p>
-              Aesop web pairing: Zapf Humanist 601 / Optima on headlines,
-              Suisse Int’l on UI — previewed as Tenor Sans + Inter. Neue
-              Helvetica is packaging-only and is not applied.
+              Headlines and body stay Geist. Aesop’s Suisse Int’l (previewed as
+              Inter) is applied only to buttons and the small margin labels.
             </p>
           </div>
           <div className="studio-chrome-actions">
