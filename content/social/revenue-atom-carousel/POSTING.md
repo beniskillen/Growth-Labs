@@ -6,7 +6,7 @@ Upload the files in [`exports/`](exports/) (PNGs) and [`linkedin.pdf`](linkedin.
 
 1. Start a post from your personal profile (Ben Killen), not a company page if you want founder reach.
 2. Choose **Add a document** (not a multi-image carousel).
-3. Upload `linkedin.pdf`. Title the document: **Most “marketing” is advertising with extra steps.**
+3. Upload `linkedin.pdf`. Title the document: **“marketing” is not content.**
 4. Paste the **LinkedIn caption** from `COPY.md`. Do not dump hashtags.
 5. Post.
 6. Immediately add the **first comment** from `COPY.md` (live scoreboard + calendar link). LinkedIn captions do not always keep URLs prominent; the comment is the working CTA.
@@ -27,7 +27,7 @@ Do not label the atom rings as those three words in any overlay you add later.
 ## Same-week follow-up
 
 - Stories / LinkedIn native clip of the live atom: “This is the scoreboard. Definitions are not results.”
-- Do not rebuild the atom in Canva. If you need a text tweak, edit `slides.html` and run `node export-slides.mjs`.
+- Do not rebuild the atom in Canva. If you need a text tweak, replace `review.json` (or edit copy there) and run `node export-slides.mjs`.
 
 ## Files
 
@@ -36,4 +36,4 @@ Do not label the atom rings as those three words in any overlay you add later.
 | LinkedIn document | `linkedin.pdf` |
 | Instagram + spare LinkedIn images | `exports/slide-01.png` … `slide-12.png` |
 | Captions + alt text | `COPY.md` |
-| Rebuild | `node export-slides.mjs` |
+| Rebuild | Drop a new `review.json`, then `node export-slides.mjs` |

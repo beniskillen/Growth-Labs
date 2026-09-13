@@ -1,57 +1,72 @@
 # First-principles carousel — locked copy
 
 12 slides · 1080×1350 · LinkedIn document + Instagram carousel  
-Visual system: Growth Labs ink / signal / paper. Atom image on slides 01 and 09 only. No marketing / brand / advertising ring labels.
+Source: `review.json` (studio review export). Visual system: Growth Labs ink / signal / paper. Atom image on slides 01 and 09 only.
+
+Rebuild after a new review JSON:
+
+```bash
+node export-slides.mjs
+```
 
 ---
 
 ## 01 — Cover
 
 **Eyebrow:** GROWTH LABS_ / FIRST PRINCIPLES  
-**Headline:** Most “marketing” is advertising with extra steps.  
-**Sub:** Define the words. Tap a desire that already exists. Read every action as a signal.  
+**Headline:** “marketing” / is not content.  
+**Sub:** Insights from 10+ years as a sales driven marketer.  
 **Corner:** BEN KILLEN  
-**Visual:** Revenue atom, full-bleed, dimmed, unlabelled.
+**Visual:** Revenue atom, full-bleed, dimmed, unlabelled.  
+**Highlight:** “marketing”
 
 ---
 
-## 02 — The room you sat in
+## 02 — The room
 
 **Eyebrow:** 02 / THE ROOM  
-**Headline:** 5+ years in agencies. Lots of “marketing.” Almost no scoreboard.  
-**Body:** Campaigns shipped. Decks approved. Reach celebrated. CAC unknown. LTV ignored. The work looked like marketing because it was busy. Busy is not a system.
+**Headline:** After 10+ years I realised, most business owners are confused on first principles.  
+**Body:** When trying to achieve anything, we must be clear with our definitions to ensure we're talking about the same thing.  
+**Highlight:** first principles.
 
 ---
 
-## 03 — The confusion
+## 03 — The mix-up
 
 **Eyebrow:** 03 / THE MIX-UP  
-**Headline:** These three words get used as if they mean the same thing. They do not.  
+**Headline:** I found that when speaking to 10 different business owners they all had differing definitions. This lead to poor results.  
 **Lines:**
 
-1. Brand treated as logos and colours
-2. Advertising sold as “the marketing”
-3. Impressions treated as results
+1. 'Branding' touted as the Holy Grail
+2. Advertising thought of as 'paid'
+3. 'Content' sold as the silver bullet
 
-**Footer:** That mix is why so much spend produces theatre, not customers.
+**Footer:** When all we have is a hammer, everything looks like a nail.  
+**Highlight:** This lead to poor results.
 
 ---
 
 ## 04 — Marketing defined
 
 **Eyebrow:** 04 / DEFINE THE WORDS  
-**Headline:** Marketing is every piece of communication a business has with its market.  
-**Body:** Prospects and customers. The ad, the site, the email, the invoice, the founder reply, the packaging. If the business is speaking, that is marketing. It is not a department. It is not ads.  
-**Line:** Advertising is one kind of that communication. It is not the whole of it.
+**Headline:** Marketing Is best thought of as every piece of communication a business has with its market.  
+**Body:** Imagine your business in a large marketplace. What would make your business stand out amongst other businesses offering the same thing? What would make people want to come back?
+
+From how we pick up the phone, to how we send an email. This all leaves an impression. It's these impressions that deliver value.  
+**Line:** When we view marketing with this lens, we start to see that almost everything could be considered marketing. This is the unexplored opportunity for most businesses.  
+**Lead box:** Ma
 
 ---
 
 ## 05 — Brand defined
 
 **Eyebrow:** 05 / DEFINE THE WORDS  
-**Headline:** A brand is the association someone has with something.  
-**Body:** It lives in their head, not in your logo file. You do not ship a brand in a deck. People form it from every piece of communication — and from whether the thing you sold held up.  
-**Line:** Branding is only the word for trying to influence that association.
+**Headline:** Branding The association someone has with our business.  
+**Body:** Leading Indicators: CTR%, Opt In %, LTV:CAC.
+
+It lives in their head, not in your logo file. You do not ship a brand in a deck. People form it from every piece of communication — and from whether the thing you sold held up.  
+**Line:** Branding is only the word for trying to influence that association.  
+**Lead box:** Br
 
 ---
 
@@ -59,35 +74,44 @@ Visual system: Growth Labs ink / signal / paper. Atom image on slides 01 and 09 
 
 **Eyebrow:** 06 / DEFINE THE WORDS  
 **Headline:** Advertising brings someone’s attention to something specific.  
-**Body:** That is the job. A paid ad, a billboard, a launch post, a cold email with one object: look at this. It is marketing whose purpose is attention, not the relationship after.  
-**Metric:** Measured first with impressions — how many times was that specific thing put in front of someone?  
-**Line:** Impressions start the scoreboard. They do not prove anyone cared.
+**Body:** Leading Indicator: Impressions, CTR%.
+
+When we get a specific message in front of a person, that is considered advertising. There are 4 major variables here:  
+**Variables:**
+
+1. The audience.
+2. The message.
+3. The offer.
+4. The visual.
+
+**Lead box:** Ad
 
 ---
 
-## 07 — Why anyone acts
+## 07 — Why they move
 
 **Eyebrow:** 07 / WHY THEY MOVE  
-**Headline:** People buy to solve a problem or fulfill a desire.  
-**Body:** That is almost the whole game. Marketing cannot create a new desire inside someone. It can only tap a desire they already have, and cause them to act.  
-**Line:** If the desire is not there, more reach is just more noise.
+**Headline:** Customers buy to solve a problem or fulfill a desire.  
+**Body:** When we 'market' well we simply use the terms we defined previously to cause them to take an action towards us being able to fulfill their desire.  
+**Line:** Marketing does not create new desires for our market.  
+**Highlights:** solve a problem · create
 
 ---
 
-## 08 — Action is an investment
+## 08 — The value equation
 
 **Eyebrow:** 08 / THE VALUE EQUATION  
-**Headline:** The action they take is always an investment — even when no money moves.  
-**Body:** A click, an email, a call, a purchase. Attention and time are currencies. You asked them to spend something.  
+**Headline:** Time & attention = money  
+**Body:** Any action a prospect takes in response to our marketing should be viewed as signal that we're tapping into 'value' in the eyes of our market.
+
+A click, an email, a call, a purchase. Attention and time are currencies.  
 **Formula:**
 
 perceived value = (outcome × likelihood of achievement) / (effort & sacrifice × time delay)
 
-**Foot:** Frequency of similar claims divides the left side and lowers perceived value. That is market sophistication — a story for another day.
-
 ---
 
-## 09 — Signal and scoreboard
+## 09 — The scoreboard
 
 **Eyebrow:** 09 / THE SCOREBOARD  
 **Headline:** Every action is a signal of resonance. The metrics are the strength of that signal.  
@@ -99,93 +123,86 @@ perceived value = (outcome × likelihood of achievement) / (effort & sacrifice �
 - Opt-in → customer > 10%
 - LTV : CAC > 3
 
-**Line:** Below the bar, the market is not answering. Do not scale the channel.
+**Line:** Marketing is the combination of thousandas of variables. When isolated & measured, the key variables above provide the signal we need to start iterating.
 
 ---
 
-## 10 — Why the work did not produce results
+## 10 — The constraint
 
 **Eyebrow:** 10 / THE CONSTRAINT  
-**Headline:** You do not have a tactics problem.  
-**Sub:** You have a first-principles problem.  
+**Headline:** Here's the thing. There's only ever one constraint.  
+**Sub:** If there's a leak anywhere in this chain from 1-6, results will be subpar  
 **Diagnostics:**
 
-1. Fuzzy buyer → message cannot convert
-2. Unclear offer → traffic is expensive
-3. Guessed CTR → creative gets blamed for volume
-4. Unknown CAC → spend scales a leak
-5. Memory follow-up → intent dies cold
+1. Impressions < 100 p/d → not 'advertising' enough
+2. < 1.5% CTR (Clickthrough rate) → offer isn't attractive
+3. < 2% Opt In → Perceived value not matching action needed from the prospect
+4. < 10% Opt In to Customer → Perceived value to purchase not matching prospects desire
+5. < 3 LTV:CAC → Customer leakage along the lifecycle
 6. Ignored LTV → acquisition is treated as the whole business
 
-**Read:** Often the copy asks for an investment the value equation cannot support, or speaks to a desire that is not there.  
-**Close:** Agencies get hired to add fuel. Nobody checks if the bucket holds water.
+**Read:** Marketing requires us to test our hypotheses against the market, one variable at a time. We can't fix everything at once..
 
 ---
 
-## 11 — The operating rule
+## 11 — The rule
 
 **Eyebrow:** 11 / THE RULE  
-**Headline:** Name the constraint. Then engineer the fix.  
-**Body:** Diagnose which signal is weak. Fix only that. Warm demand first. Scale only once LTV:CAC is above 3 with margin.  
-**Equation:** FIRST PRINCIPLES × REVENUE SYSTEM × AI LEVERAGE = HIGH-ROI GROWTH  
-**Line:** AI is leverage inside the chain. It cannot choose the right work.
+**Headline:** Only when we know which number to focus on, can we really decide what 'marketing' we need.  
+**Body:** Don't confuse tactics with principles.. For some a new website is a great choice, for others, it's simply more noise  
+**Equation:** FIRST PRINCIPLES × PROVEN TACTICS × HEALTHY NUMBERS = MARKET SATURATION
 
 ---
 
 ## 12 — Close / CTA
 
 **Eyebrow:** 12 / FREE DIAGNOSTIC / 30 MINUTES  
-**Headline:** Want the constraint named — and the metric that proves it?  
-**Body:** Thirty minutes. The bottleneck, the scoreboard reading, the first system worth building — whether or not we ever work together.  
-**CTA:** Book the free diagnostic  
-**URL:** https://calendar.notion.so/meet/beniskillen/30min  
-**Secondary:** See the live scoreboard on the Growth Labs home.  
+**Headline:** Want to strategise your marketing to make acquiring customers a science for your business?  
+**Body:** Check the link in my bio to get a complete first principles strategy for your business. See where you sit within the market forces for your own business.  
 **Footer:** NO HYPE · NO TOOL LISTS · FIRST PRINCIPLES, THEN SYSTEMS
 
 ---
 
 ## LinkedIn caption
 
-Most “marketing” is advertising with extra steps.
+“marketing” is not content.
 
-After 5+ years inside agencies I watched the same pattern: campaigns shipped, decks approved, reach celebrated. CAC unknown. LTV ignored. The work looked like marketing because it was busy. Busy is not a system.
+Insights from 10+ years as a sales driven marketer.
 
-These three words get used as if they mean the same thing. They do not.
+After 10+ years I realised most business owners are confused on first principles. When trying to achieve anything, we must be clear with our definitions.
 
-Marketing is every piece of communication a business has with its market. If the business is speaking, that is marketing. It is not a department. It is not ads.
+Marketing is every piece of communication a business has with its market.
 
-A brand is the association someone has with something. It lives in their head, not in a logo file. Branding is only the word for trying to influence that association.
+Branding is the association someone has with our business.
 
-Advertising brings someone’s attention to something specific. Measured first with impressions. Impressions start the scoreboard. They do not prove anyone cared.
+Advertising brings someone’s attention to something specific — audience, message, offer, visual.
 
-People buy to solve a problem or fulfill a desire. Marketing cannot create a new desire. It can only tap one that already exists, and cause action.
+Customers buy to solve a problem or fulfill a desire. Marketing does not create new desires.
 
-That action is always an investment — even when no money moves. A click, an email, a call, a purchase. How large an investment they will make follows the value equation.
-
-Every action is a signal of resonance. The metrics are the strength of that signal.
+Time & attention = money. Every action is a signal of resonance.
 
 CTR > 1.5%  
 Opt-in / CVR > 2%  
 Opt-in → customer > 10%  
 LTV : CAC > 3
 
-Below the bar, the market is not answering. Do not scale the channel.
+There's only ever one constraint. Fix that number, then decide what marketing you need.
 
-Want the constraint named — and the metric that proves it? 30 minutes. Free diagnostic. First principles, then systems.
+Link in comments for a first-principles strategy session.
 
 ### First comment
 
-The live scoreboard is the revenue atom on the site — metric labels, not a metaphor for the three words.
-
-Book the diagnostic: https://calendar.notion.so/meet/beniskillen/30min
+Check the link in my bio — or book here: https://calendar.notion.so/meet/beniskillen/30min
 
 ---
 
 ## Instagram caption
 
-Most “marketing” is advertising with extra steps.
+“marketing” is not content.
 
-People buy to solve a problem or fulfill a desire. Marketing cannot create a new one. It can only tap what is already there.
+Insights from 10+ years as a sales driven marketer.
+
+Customers buy to solve a problem or fulfill a desire. Marketing does not create new ones.
 
 Then read every action as a signal:
 
@@ -194,23 +211,23 @@ Opt-in / CVR > 2%
 Lead → customer > 10%  
 LTV:CAC > 3
 
-Save this if your team keeps mixing marketing, brand, and advertising up.
+There's only ever one constraint.
 
-Link in bio for the free diagnostic.
+Link in bio for a first-principles strategy session.
 
 ---
 
 ## Alt text
 
-**01:** Dark Growth Labs slide. Headline: Most “marketing” is advertising with extra steps. Dimmed revenue-atom diagram in the background with metric labels such as impressions, CTR, CAC and LTV.  
-**02:** Headline: 5+ years in agencies. Lots of “marketing.” Almost no scoreboard. Body copy about busy campaigns with no unit economics.  
-**03:** Headline: These three words get used as if they mean the same thing. They do not. Three mix-ups listed: brand as logos, advertising sold as marketing, impressions treated as results.  
+**01:** Dark Growth Labs slide. Headline: “marketing” is not content. Dimmed revenue-atom diagram.  
+**02:** Light slide. After 10+ years I realised, most business owners are confused on first principles.  
+**03:** Three mix-ups: branding as holy grail, advertising as paid, content as silver bullet.  
 **04:** Definition slide. Marketing is every piece of communication a business has with its market.  
-**05:** Definition slide. A brand is the association someone has with something.  
-**06:** Definition slide. Advertising brings someone’s attention to something specific, measured first with impressions.  
-**07:** People buy to solve a problem or fulfill a desire. Marketing cannot create a new desire; it can only tap one that already exists.  
-**08:** The action they take is always an investment. Perceived value equals outcome times likelihood of achievement, divided by effort and sacrifice times time delay.  
-**09:** Revenue atom used as a scoreboard. Four bars: CTR greater than 1.5 percent, opt-in CVR greater than 2 percent, opt-in to customer greater than 10 percent, LTV to CAC greater than 3.  
-**10:** You do not have a tactics problem. You have a first-principles problem. Six diagnostics about buyer, offer, CTR, CAC, follow-up and LTV.  
-**11:** Name the constraint. Then engineer the fix. First principles times revenue system times AI leverage equals high-ROI growth.  
-**12:** Call to action. Want the constraint named and the metric that proves it? Free 30-minute diagnostic.
+**05:** Definition slide. Branding is the association someone has with our business.  
+**06:** Definition slide. Advertising brings someone’s attention to something specific, with four variables: audience, message, offer, visual.  
+**07:** Customers buy to solve a problem or fulfill a desire. Marketing does not create new desires.  
+**08:** Time and attention equal money. Perceived value equation.  
+**09:** Revenue atom used as a scoreboard. Four bars: CTR, opt-in CVR, opt-in to customer, LTV to CAC.  
+**10:** There's only ever one constraint. Six leak diagnostics from impressions through LTV.  
+**11:** Only when we know which number to focus on can we decide what marketing we need. First principles times proven tactics times healthy numbers equals market saturation.  
+**12:** Call to action. Want to strategise your marketing so acquiring customers is a science? Link in bio.

@@ -12,13 +12,9 @@ import { fileURLToPath } from "node:url";
 
 const root = dirname(fileURLToPath(import.meta.url));
 const outDir = join(root, "exports");
-const chrome =
-  process.env.CHROME_PATH ||
-  ["/usr/bin/google-chrome-stable", "/usr/bin/google-chrome", "/usr/local/bin/google-chrome"].find(
-    (path) => existsSync(path),
-  );
+const chrome = process.env.CHROME_PATH || "/opt/google/chrome/chrome";
 
-if (!chrome) {
+if (!existsSync(chrome)) {
   console.error("Chrome not found. Set CHROME_PATH.");
   process.exit(1);
 }
@@ -28,6 +24,7 @@ const types = {
   ".woff2": "font/woff2",
   ".png": "image/png",
   ".js": "text/javascript; charset=utf-8",
+  ".json": "application/json; charset=utf-8",
   ".css": "text/css; charset=utf-8",
 };
 
@@ -76,6 +73,12 @@ function run(cmd, args, env) {
   });
 }
 
+const review = JSON.parse(await readFile(join(root, "review.json"), "utf8"));
+await writeFile(
+  join(root, "review-data.js"),
+  `window.REVIEW = ${JSON.stringify(review)};\n`,
+);
+
 const { server, port } = await startServer();
 await mkdir(outDir, { recursive: true });
 
@@ -90,12 +93,15 @@ for (let i = 1; i <= 12; i += 1) {
     "--headless=new",
     "--no-sandbox",
     "--disable-gpu",
+    "--disable-dev-shm-usage",
     "--hide-scrollbars",
+    "--no-first-run",
+    "--no-default-browser-check",
     "--force-device-scale-factor=1",
+    `--user-data-dir=/tmp/growth-labs-carousel-chrome`,
     "--window-size=1080,1350",
     `--screenshot=${dest}`,
-    "--virtual-time-budget=8000",
-    "--timeout=20000",
+    "--virtual-time-budget=4000",
     url,
   ]);
 }

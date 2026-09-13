@@ -42,4 +42,4 @@ The diagram is the above-the-fold hero. Copy and the shell walkthrough sit in a 
 
 ## Social carousel
 
-A 12-slide LinkedIn / Instagram draft — definitions, desire, value equation, then the atom as a scoreboard — lives in [`content/social/revenue-atom-carousel/`](content/social/revenue-atom-carousel/). It is not on the public site. Rebuild with `node export-slides.mjs` in that folder.
+A 12-slide LinkedIn / Instagram draft lives in [`content/social/revenue-atom-carousel/`](content/social/revenue-atom-carousel/). Copy is driven by `review.json`. It is not on the public site. Rebuild with `node export-slides.mjs` in that folder.

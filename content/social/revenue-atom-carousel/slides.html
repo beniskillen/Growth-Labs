@@ -224,6 +224,10 @@
         line-height: 1.45;
       }
 
+      .lede + .lede {
+        margin-top: 16px;
+      }
+
       .rule-line {
         margin: 36px 0 0;
         color: var(--paper);
@@ -486,6 +490,9 @@
         align-items: center;
         gap: 10px 12px;
         margin-top: 36px;
+        padding: 22px 24px;
+        border: 1px solid var(--line);
+        background: var(--panel);
         color: var(--paper);
         font-family: "Geist Mono", monospace;
         font-size: 15px;
@@ -528,261 +535,160 @@
         font-size: 16px;
         word-break: break-all;
       }
+
+      .slide.theme-paper {
+        background: var(--paper);
+        color: var(--ink);
+      }
+
+      .slide.theme-paper .lede {
+        color: #3a3e46;
+      }
+
+      .slide.theme-paper .rule-line,
+      .slide.theme-paper .wordmark {
+        color: var(--ink);
+      }
+
+      .slide.theme-paper .count,
+      .slide.theme-paper .eyebrow,
+      .slide.theme-paper .slide-foot,
+      .slide.theme-paper .byline,
+      .slide.theme-paper .foot-note {
+        color: #5c616a;
+      }
+
+      .slide.theme-paper .mix-item,
+      .slide.theme-paper .formula,
+      .slide.theme-paper .metric-pill,
+      .slide.theme-paper .vars-list li {
+        background: #fff;
+        border-color: rgba(10, 10, 11, 0.12);
+        color: var(--ink);
+      }
+
+      .slide.theme-paper .bench {
+        background: rgba(255, 255, 255, 0.86);
+        border-color: rgba(10, 10, 11, 0.12);
+        color: var(--ink);
+      }
+
+      .slide.theme-paper .callout {
+        color: var(--ink);
+        background: rgba(102, 124, 255, 0.12);
+      }
+
+      .slide.theme-paper .grid-bg::before {
+        background-image:
+          linear-gradient(rgba(10, 10, 11, 0.055) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(10, 10, 11, 0.055) 1px, transparent 1px);
+      }
+
+      .slide.theme-paper .watermark {
+        color: rgba(102, 124, 255, 0.14);
+      }
+
+      .slide.theme-paper .diag-list,
+      .slide.theme-paper .diag-list li,
+      .slide.theme-paper .slide-foot,
+      .slide.theme-paper .foot-note,
+      .slide.theme-paper .cover-atom,
+      .slide.theme-paper .atom-panel {
+        border-color: rgba(10, 10, 11, 0.12);
+      }
+
+      .slide.theme-paper .beats {
+        color: var(--ink);
+        background: #fff;
+        border-color: rgba(10, 10, 11, 0.12);
+      }
+
+      .hl {
+        color: var(--signal);
+        font-style: normal;
+      }
+
+      .slide.theme-paper .formula .bar {
+        background: rgba(10, 10, 11, 0.28);
+      }
+
+      .hl-box {
+        display: inline-flex;
+        align-items: center;
+        border: 1.5px solid var(--signal);
+        padding: 0.04em 0.12em 0.08em;
+        margin-right: 0.06em;
+        line-height: 0.9;
+        transform: translateY(-0.04em);
+      }
+
+      .vars-list {
+        display: grid;
+        gap: 10px;
+        margin: 22px 0 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .vars-list li {
+        display: grid;
+        grid-template-columns: 48px 1fr;
+        gap: 12px;
+        align-items: center;
+        padding: 16px 18px;
+        background: var(--panel);
+        border: 1px solid var(--line);
+        font-size: 24px;
+        letter-spacing: -0.03em;
+      }
+
+      .vars-list p {
+        margin: 0;
+      }
+
+      .vars-list span {
+        color: var(--signal);
+        font-family: "Geist Mono", monospace;
+        font-size: 13px;
+        letter-spacing: 0.12em;
+      }
+
+      .signal-lede {
+        color: var(--signal) !important;
+        font-size: 24px;
+        margin-bottom: 18px;
+      }
+
+      h1.score-hed {
+        font-size: 42px;
+        margin-bottom: 16px;
+      }
+
+      .dense h1 {
+        font-size: 42px;
+      }
+
+      .dense .lede {
+        font-size: 22px;
+      }
+
+      .dense .diag-list li {
+        font-size: 18px;
+        padding: 10px 0;
+      }
+
+      .dense .callout {
+        font-size: 20px;
+      }
+
+      body.export {
+        overflow: hidden;
+      }
     </style>
   </head>
   <body>
-    <main class="deck">
-      <article class="slide slide-cover" data-slide="1">
-        <div class="chrome">
-          <span class="wordmark"><span class="mark" aria-hidden="true"><i></i><i></i><i></i></span>GROWTH LABS_</span>
-          <span class="count">01 / 12</span>
-        </div>
-        <div class="body">
-          <p class="eyebrow"><span class="status-dot"></span>GROWTH LABS_ / FIRST PRINCIPLES</p>
-          <h1>Most “marketing” is advertising with extra steps.</h1>
-          <p class="lede">Define the words. Tap a desire that already exists. Read every action as a signal.</p>
-          <p class="byline">BEN KILLEN</p>
-          <div class="cover-atom" role="img" aria-label="Revenue atom with metric labels"></div>
-        </div>
-        <div class="slide-foot">
-          <span>Revenue systems from first principles</span>
-          <span>01 / 12</span>
-        </div>
-      </article>
-
-      <article class="slide grid-bg" data-slide="2">
-        <div class="chrome">
-          <span class="wordmark"><span class="mark" aria-hidden="true"><i></i><i></i><i></i></span>GROWTH LABS_</span>
-          <span class="count">02 / 12</span>
-        </div>
-        <div class="body">
-          <p class="eyebrow"><span class="status-dot"></span>02 / THE ROOM</p>
-          <h1>5+ years in agencies. Lots of “marketing.” Almost no scoreboard.</h1>
-          <p class="lede">Campaigns shipped. Decks approved. Reach celebrated. CAC unknown. LTV ignored.</p>
-          <p class="rule-line pin-bottom">The work looked like marketing because it was busy. <em>Busy is not a system.</em></p>
-        </div>
-        <div class="slide-foot">
-          <span>Growth Labs</span>
-          <span>02 / 12</span>
-        </div>
-      </article>
-
-      <article class="slide grid-bg" data-slide="3">
-        <div class="chrome">
-          <span class="wordmark"><span class="mark" aria-hidden="true"><i></i><i></i><i></i></span>GROWTH LABS_</span>
-          <span class="count">03 / 12</span>
-        </div>
-        <div class="body">
-          <p class="eyebrow"><span class="status-dot"></span>03 / THE MIX-UP</p>
-          <h1 class="tight">These three words get used as if they mean the same thing. They do not.</h1>
-          <div class="mix-list">
-            <div class="mix-item"><span>01</span><p>Brand treated as logos and colours</p></div>
-            <div class="mix-item"><span>02</span><p>Advertising sold as “the marketing”</p></div>
-            <div class="mix-item"><span>03</span><p>Impressions treated as results</p></div>
-          </div>
-          <p class="foot-note">That mix is why so much spend produces theatre, not customers.</p>
-        </div>
-        <div class="slide-foot">
-          <span>Growth Labs</span>
-          <span>03 / 12</span>
-        </div>
-      </article>
-
-      <article class="slide grid-bg tight" data-slide="4">
-        <div class="watermark" aria-hidden="true">MKT</div>
-        <div class="chrome">
-          <span class="wordmark"><span class="mark" aria-hidden="true"><i></i><i></i><i></i></span>GROWTH LABS_</span>
-          <span class="count">04 / 12</span>
-        </div>
-        <div class="body">
-          <p class="eyebrow"><span class="status-dot"></span>04 / DEFINE THE WORDS</p>
-          <h1>Marketing is every piece of communication a business has with its market.</h1>
-          <p class="lede">Prospects and customers. The ad, the site, the email, the invoice, the founder reply, the packaging. If the business is speaking, that is marketing. It is not a department. It is not ads.</p>
-          <p class="callout pin-bottom">Advertising is one kind of that communication. It is not the whole of it.</p>
-        </div>
-        <div class="slide-foot">
-          <span>Growth Labs</span>
-          <span>04 / 12</span>
-        </div>
-      </article>
-
-      <article class="slide grid-bg tight" data-slide="5">
-        <div class="watermark" aria-hidden="true">BRAND</div>
-        <div class="chrome">
-          <span class="wordmark"><span class="mark" aria-hidden="true"><i></i><i></i><i></i></span>GROWTH LABS_</span>
-          <span class="count">05 / 12</span>
-        </div>
-        <div class="body">
-          <p class="eyebrow"><span class="status-dot"></span>05 / DEFINE THE WORDS</p>
-          <h1>A brand is the association someone has with something.</h1>
-          <p class="lede">It lives in their head, not in your logo file. You do not ship a brand in a deck. People form it from every piece of communication — and from whether the thing you sold held up.</p>
-          <p class="callout pin-bottom">Branding is only the word for trying to influence that association.</p>
-        </div>
-        <div class="slide-foot">
-          <span>Growth Labs</span>
-          <span>05 / 12</span>
-        </div>
-      </article>
-
-      <article class="slide grid-bg tight" data-slide="6">
-        <div class="watermark" aria-hidden="true">ADS</div>
-        <div class="chrome">
-          <span class="wordmark"><span class="mark" aria-hidden="true"><i></i><i></i><i></i></span>GROWTH LABS_</span>
-          <span class="count">06 / 12</span>
-        </div>
-        <div class="body">
-          <p class="eyebrow"><span class="status-dot"></span>06 / DEFINE THE WORDS</p>
-          <h1>Advertising brings someone’s attention to something specific.</h1>
-          <p class="lede">That is the job. A paid ad, a billboard, a launch post, a cold email with one object: look at this. It is marketing whose purpose is attention, not the relationship after.</p>
-          <p class="metric-pill">Measured first with impressions — how many times was that specific thing put in front of someone?</p>
-          <p class="callout pin-bottom">Impressions start the scoreboard. They do not prove anyone cared.</p>
-        </div>
-        <div class="slide-foot">
-          <span>Growth Labs</span>
-          <span>06 / 12</span>
-        </div>
-      </article>
-
-      <article class="slide grid-bg" data-slide="7">
-        <div class="chrome">
-          <span class="wordmark"><span class="mark" aria-hidden="true"><i></i><i></i><i></i></span>GROWTH LABS_</span>
-          <span class="count">07 / 12</span>
-        </div>
-        <div class="body">
-          <p class="eyebrow"><span class="status-dot"></span>07 / WHY THEY MOVE</p>
-          <h1>People buy to solve a problem or fulfill a desire.</h1>
-          <p class="lede">That is almost the whole game. Marketing cannot create a new desire inside someone. It can only tap a desire they already have, and cause them to act.</p>
-          <p class="callout pin-bottom">If the desire is not there, more reach is just more noise.</p>
-        </div>
-        <div class="slide-foot">
-          <span>Growth Labs</span>
-          <span>07 / 12</span>
-        </div>
-      </article>
-
-      <article class="slide grid-bg tight" data-slide="8">
-        <div class="chrome">
-          <span class="wordmark"><span class="mark" aria-hidden="true"><i></i><i></i><i></i></span>GROWTH LABS_</span>
-          <span class="count">08 / 12</span>
-        </div>
-        <div class="body">
-          <p class="eyebrow"><span class="status-dot"></span>08 / THE VALUE EQUATION</p>
-          <h1>The action they take is always an investment — even when no money moves.</h1>
-          <p class="lede">A click, an email, a call, a purchase. Attention and time are currencies. You asked them to spend something.</p>
-          <div class="formula">
-            <p class="label">Perceived value</p>
-            <p class="eq">
-              <span class="num">(outcome × likelihood of achievement)</span>
-              <span class="bar"></span>
-              <span class="den">(effort &amp; sacrifice × time delay)</span>
-            </p>
-          </div>
-          <p class="foot-note">Frequency of similar claims divides the left side and lowers perceived value. That is market sophistication — a story for another day.</p>
-        </div>
-        <div class="slide-foot">
-          <span>Growth Labs</span>
-          <span>08 / 12</span>
-        </div>
-      </article>
-
-      <article class="slide" data-slide="9">
-        <div class="chrome">
-          <span class="wordmark"><span class="mark" aria-hidden="true"><i></i><i></i><i></i></span>GROWTH LABS_</span>
-          <span class="count">09 / 12</span>
-        </div>
-        <div class="body">
-          <p class="eyebrow"><span class="status-dot"></span>09 / THE SCOREBOARD</p>
-          <h1 style="font-size: 42px; margin-bottom: 16px">Every action is a signal of resonance. The metrics are the strength of that signal.</h1>
-          <div class="atom-panel" role="img" aria-label="Revenue atom with metric labels only"></div>
-          <div class="bench-grid">
-            <div class="bench"><small>CTR</small><strong>&gt; 1.5%</strong></div>
-            <div class="bench"><small>Opt-in / CVR</small><strong>&gt; 2% ideally</strong></div>
-            <div class="bench"><small>Opt-in → customer</small><strong>&gt; 10%</strong></div>
-            <div class="bench"><small>LTV : CAC</small><strong>&gt; 3</strong></div>
-          </div>
-          <p class="foot-note" style="margin-top: 18px; padding-top: 18px">Below the bar, the market is not answering. Do not scale the channel.</p>
-        </div>
-        <div class="slide-foot">
-          <span>Growth Labs</span>
-          <span>09 / 12</span>
-        </div>
-      </article>
-
-      <article class="slide grid-bg" data-slide="10">
-        <div class="chrome">
-          <span class="wordmark"><span class="mark" aria-hidden="true"><i></i><i></i><i></i></span>GROWTH LABS_</span>
-          <span class="count">10 / 12</span>
-        </div>
-        <div class="body">
-          <p class="eyebrow"><span class="status-dot"></span>10 / THE CONSTRAINT</p>
-          <h1 style="font-size: 46px; margin-bottom: 10px">You do not have a tactics problem.</h1>
-          <p class="lede" style="color: var(--signal); font-size: 24px; margin-bottom: 18px">You have a first-principles problem.</p>
-          <ol class="diag-list">
-            <li><span>01</span>Fuzzy buyer → message cannot convert</li>
-            <li><span>02</span>Unclear offer → traffic is expensive</li>
-            <li><span>03</span>Guessed CTR → creative gets blamed for volume</li>
-            <li><span>04</span>Unknown CAC → spend scales a leak</li>
-            <li><span>05</span>Memory follow-up → intent dies cold</li>
-            <li><span>06</span>Ignored LTV → acquisition is treated as the whole business</li>
-          </ol>
-          <p class="foot-note pin-bottom">Often the copy asks for an investment the value equation cannot support, or speaks to a desire that is not there. Agencies get hired to add fuel. Nobody checks if the bucket holds water.</p>
-        </div>
-        <div class="slide-foot">
-          <span>Growth Labs</span>
-          <span>10 / 12</span>
-        </div>
-      </article>
-
-      <article class="slide grid-bg" data-slide="11">
-        <div class="chrome">
-          <span class="wordmark"><span class="mark" aria-hidden="true"><i></i><i></i><i></i></span>GROWTH LABS_</span>
-          <span class="count">11 / 12</span>
-        </div>
-        <div class="body">
-          <p class="eyebrow"><span class="status-dot"></span>11 / THE RULE</p>
-          <h1>Name the constraint. Then engineer the fix.</h1>
-          <p class="lede">Diagnose which signal is weak. Fix only that. Warm demand first. Scale only once LTV:CAC is above 3 with margin.</p>
-          <p class="beats">
-            <span>First principles</span><i>×</i>
-            <span>Revenue system</span><i>×</i>
-            <span>AI leverage</span><i>=</i>
-            <strong>High-ROI growth</strong>
-          </p>
-          <p class="callout pin-bottom">AI is leverage inside the chain. It cannot choose the right work.</p>
-        </div>
-        <div class="slide-foot">
-          <span>Growth Labs</span>
-          <span>11 / 12</span>
-        </div>
-      </article>
-
-      <article class="slide grid-bg" data-slide="12">
-        <div class="chrome">
-          <span class="wordmark"><span class="mark" aria-hidden="true"><i></i><i></i><i></i></span>GROWTH LABS_</span>
-          <span class="count">12 / 12</span>
-        </div>
-        <div class="body">
-          <p class="eyebrow"><span class="status-dot"></span>12 / FREE DIAGNOSTIC / 30 MINUTES</p>
-          <h1>Want the constraint named — and the metric that proves it?</h1>
-          <p class="lede">Thirty minutes. The bottleneck, the scoreboard reading, the first system worth building — whether or not we ever work together.</p>
-          <div class="cta">Book the free diagnostic <span>→</span></div>
-          <p class="url">calendar.notion.so/meet/beniskillen/30min</p>
-          <p class="foot-note pin-bottom">NO HYPE · NO TOOL LISTS · FIRST PRINCIPLES, THEN SYSTEMS</p>
-        </div>
-        <div class="slide-foot">
-          <span>Growth Labs</span>
-          <span>12 / 12</span>
-        </div>
-      </article>
-    </main>
-    <script>
-      const params = new URLSearchParams(location.search);
-      const n = Number(params.get("slide") || 0);
-      if (n >= 1 && n <= 12) {
-        document.body.classList.add("export");
-        const slide = document.querySelector(`.slide[data-slide="${n}"]`);
-        if (slide) slide.classList.add("is-active");
-      }
-    </script>
+    <main class="deck"></main>
+    <script src="review-data.js"></script>
+    <script src="render.js"></script>
   </body>
 </html>
