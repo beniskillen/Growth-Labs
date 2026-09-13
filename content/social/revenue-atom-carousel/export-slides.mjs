@@ -5,9 +5,9 @@
  */
 import { createServer } from "node:http";
 import { spawn } from "node:child_process";
-import { mkdir, readFile, unlink, writeFile } from "node:fs/promises";
+import { mkdir, readFile, unlink, writeFile, copyFile } from "node:fs/promises";
 import { existsSync } from "node:fs";
-import { extname, join, dirname } from "node:path";
+import { basename, extname, join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 
 const root = dirname(fileURLToPath(import.meta.url));
@@ -138,4 +138,14 @@ const pyEnv = {
 };
 await run("python3", [pyFile], pyEnv);
 await unlink(pyFile).catch(() => {});
+
+const postingDir = join(root, "..", "..");
+const instagramDir = join(postingDir, "instagram");
+await mkdir(instagramDir, { recursive: true });
+for (const png of pngs) {
+  await copyFile(png, join(instagramDir, basename(png)));
+}
+await copyFile(join(root, "linkedin.pdf"), join(postingDir, "linkedin.pdf"));
+await copyFile(join(root, "COPY.md"), join(postingDir, "COPY.md"));
+console.log("Copied posting pack to", postingDir);
 console.log("Done.");

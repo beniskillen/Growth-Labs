@@ -34,6 +34,7 @@ Do not label the atom rings as those three words in any overlay you add later.
 | Use | File |
 | --- | --- |
 | LinkedIn document | `linkedin.pdf` |
-| Instagram + spare LinkedIn images | `exports/slide-01.png` … `slide-12.png` |
+| Instagram + spare LinkedIn images | `exports/slide-01.png` … `slide-12.png`, also copied to [`content/instagram/`](../../instagram/) |
+| Easy local pack | [`content/`](../../) — `instagram/` + `linkedin.pdf` |
 | Captions + alt text | `COPY.md` |
 | Rebuild | Drop a new `review.json`, then `node export-slides.mjs` |
