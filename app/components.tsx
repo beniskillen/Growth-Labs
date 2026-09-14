@@ -133,7 +133,7 @@ export function Footer({ conversion = false }: { conversion?: boolean }) {
         <p>Engineering revenue systems from first principles.</p>
       </div>
       <nav aria-label="Footer navigation">
-        <Link href="/work/mtp-health">MTP Health</Link>
+        <Link href="/work/mtp-health">Case Studies</Link>
         {conversion ? null : (
           <>
             <Link href="/partners">Partners</Link>
