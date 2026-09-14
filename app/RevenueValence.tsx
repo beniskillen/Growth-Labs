@@ -752,7 +752,7 @@ export default function RevenueValence({
         ))}
       </div>
       <div className="valence-readout">
-        <span>REVENUE_ATOM.VALENCE</span>
+        <span>THE FIRST PRINCIPLES OF MARKETING</span>
         <span>
           {activeMetric
             ? `${activeMetric.layer} / ${activeMetric.label}`
@@ -760,7 +760,7 @@ export default function RevenueValence({
               ? "MARKET / TAM"
               : expanded
                 ? "BRANDS / EXPANDED"
-                : "CLICK / REVEAL BRANDS"}
+                : "Category King philosophy"}
         </span>
       </div>
       <p className="valence-caption" aria-live="polite">
@@ -770,7 +770,7 @@ export default function RevenueValence({
             ? "The outer bound of the market you could own if the system holds."
             : expanded
               ? "Client marks expand from the nucleus. Click the atom again to collapse them."
-              : "Your brand sits in the nucleus. Click the atom and the logos come out."}
+              : "The science of business growth"}
       </p>
       <button
         className="portrait-control valence-lock"

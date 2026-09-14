@@ -34,7 +34,7 @@ export function SiteHeader() {
         <Link href="/about">About</Link>
       </nav>
       <a className="button button-small" href={AUDIT_URL} target="_blank" rel="noreferrer">
-        <span>Book your audit</span>
+        <span>Get a growth strategy</span>
       </a>
     </header>
   );
