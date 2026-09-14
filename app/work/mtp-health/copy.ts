@@ -279,5 +279,5 @@ export const inputs = {
   kpi: "Category ownership + growth system → no longer demand constrained → 30% YOY revenue + multi-location specialised practice",
 } as const;
 
-export const offerLinkNote =
-  "The conversion rates, cash values and ad-spend maths on the Category King page are a simplified illustration of how funnel economics behave. MTP’s public proof is 30% YOY, always-on ads at ~20% into larger offerings, and the ability to choose demand.";
+export const illustrationNumbersNote =
+  "These exact numbers are not those of MTP Health. They are used for illustrative purposes as an aggregate of the type of numbers I typically see in similar businesses.";

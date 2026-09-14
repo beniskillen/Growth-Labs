@@ -1,7 +1,5 @@
 import type { ReactNode } from "react";
-import Link from "next/link";
 import {
-  Arrow,
   AuditButton,
   Eyebrow,
   SectionHeading,
@@ -12,6 +10,7 @@ import { DualFunnel, LeakSchematic } from "./offer/diagrams";
 import OfferAtom from "./offer/OfferAtom";
 import VslPlayer from "./offer/VslPlayer";
 import { MtpCaseFeature } from "./work/mtp-health/CaseFeature";
+import { illustrationNumbersNote } from "./work/mtp-health/copy";
 
 export const metadata = {
   title: "Category King System",
@@ -369,6 +368,12 @@ export default function OfferPage() {
             <strong>A worked example: allied health.</strong> The same clinical skill sold two ways. One runs a standard service offer. The other owns a category. The only difference is the offer you build and the audience you target.
           </p>
           <DualFunnel />
+          <p className="offer-caveat offer-illustration-note">
+            <strong>Note:</strong> {illustrationNumbersNote}
+          </p>
+          <div id="work">
+            <MtpCaseFeature />
+          </div>
           <div className="offer-compare-wrap">
             <table className="offer-compare">
               <thead>
@@ -397,30 +402,15 @@ export default function OfferPage() {
               <strong>The read:</strong> the standard offer can only work on warm, cheap, hand-held traffic, because its customer acquisition cost is higher than what the customer pays in 30 days <strong>and</strong> higher than their lifetime value. The Category King offer generates enough 30-day cash to cover acquisition, so it can scale on cold traffic and paid ads.
             </p>
             <p className="offer-caveat">
-              <strong>Caveat:</strong> highly industry specific. These conversion rates, cash values, MRR, CACs and ad spend are a simplified illustration of how the funnel maths behaves, not a promise of results for any individual business. Monthly Revenue and MRR assume 1,000 paid clicks per month; ad spend assumes a $50 CPM with the CTR in each column. They exist to show what a category king offering allows for.
-            </p>
-            <p>
-              <Link className="offer-case-link" href="/work/mtp-health">
-                This illustration is the MTP Health install. Read the case study <Arrow />
-              </Link>
+              <strong>Caveat:</strong> highly industry specific. {illustrationNumbersNote} These conversion rates, cash values, MRR, CACs and ad spend are a simplified illustration of how the funnel maths behaves, not a promise of results for any individual business. Monthly Revenue and MRR assume 1,000 paid clicks per month; ad spend assumes a $50 CPM with the CTR in each column. They exist to show what a category king offering allows for.
             </p>
           </div>
         </div>
       </section>
 
-      <section className="section offer-section" id="work">
-        <SectionHeading
-          number="06"
-          eyebrow="FLAGSHIP CASE"
-          title="The real allied health example."
-          copy="Same clinicians. A named category. A system that could hold paid traffic."
-        />
-        <MtpCaseFeature />
-      </section>
-
       <section className="section offer-section">
         <SectionHeading
-          number="07"
+          number="06"
           eyebrow="THE OFFER"
           title="$10,000 to your bottom line in 30 days. Or you don't pay."
         />
@@ -469,7 +459,7 @@ export default function OfferPage() {
       </section>
 
       <section className="offer-guarantee grid-bg">
-        <span className="section-index">§08</span>
+        <span className="section-index">§07</span>
         <Eyebrow>THE GUARANTEE</Eyebrow>
         <h2>Miss, and you owe nothing.</h2>
         <p>
@@ -479,7 +469,7 @@ export default function OfferPage() {
 
       <section className="section offer-section">
         <SectionHeading
-          number="09"
+          number="08"
           eyebrow="WHO IT'S FOR"
           title="Category kings only. Not marginal gains."
         />
@@ -505,7 +495,7 @@ export default function OfferPage() {
 
       <section className="section offer-section">
         <header className="section-heading">
-          <div className="section-index">§10</div>
+          <div className="section-index">§09</div>
           <div>
             <Eyebrow>WHO&apos;S BEHIND IT</Eyebrow>
           </div>
@@ -532,7 +522,7 @@ export default function OfferPage() {
 
       <section className="section faq-section">
         <header className="section-heading">
-          <div className="section-index">§11</div>
+          <div className="section-index">§10</div>
           <div>
             <Eyebrow>FAQ</Eyebrow>
           </div>

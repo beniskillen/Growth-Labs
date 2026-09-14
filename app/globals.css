@@ -1970,7 +1970,7 @@ em {
 }
 
 .footer-conversion {
-  grid-template-columns: 1fr auto;
+  grid-template-columns: 1.2fr 1fr 1fr;
 }
 
 /* Internal pages */
@@ -3609,7 +3609,16 @@ html[data-typeface="geist"] .valence-caption {
 
 .offer-funnel-svg {
   max-width: 900px;
-  margin: 0 0 48px;
+  margin: 0 0 28px;
+}
+
+.offer-illustration-note {
+  max-width: 780px;
+  margin: 0 0 48px !important;
+}
+
+.offer-example .case-feature {
+  margin: 0 0 56px;
 }
 
 .offer-compare-wrap {

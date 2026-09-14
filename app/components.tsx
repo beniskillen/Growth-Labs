@@ -132,16 +132,18 @@ export function Footer({ conversion = false }: { conversion?: boolean }) {
         <Wordmark />
         <p>Engineering revenue systems from first principles.</p>
       </div>
-      {conversion ? null : (
-        <nav aria-label="Footer navigation">
-          <Link href="/work/mtp-health">Work</Link>
-          <Link href="/partners">Partners</Link>
-          <Link href="/solutions">Solutions</Link>
-          <Link href="/about">About</Link>
-          <Link href="/landing">Operator landing</Link>
-          <Link href="/audit">AI Leverage Audit</Link>
-        </nav>
-      )}
+      <nav aria-label="Footer navigation">
+        <Link href="/work/mtp-health">MTP Health</Link>
+        {conversion ? null : (
+          <>
+            <Link href="/partners">Partners</Link>
+            <Link href="/solutions">Solutions</Link>
+            <Link href="/about">About</Link>
+            <Link href="/landing">Operator landing</Link>
+            <Link href="/audit">AI Leverage Audit</Link>
+          </>
+        )}
+      </nav>
       <div className="footer-meta">
         <span>© {new Date().getFullYear()} Growth Labs</span>
         <span>Systems, not theatre.</span>

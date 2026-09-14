@@ -14,12 +14,12 @@ import {
   comparison,
   gates,
   hero,
+  illustrationNumbersNote,
   inputs,
   leaks,
   lessons,
   moves,
   now,
-  offerLinkNote,
   results,
   servicesNote,
   snapshot,
@@ -221,14 +221,14 @@ export default function MtpHealthCase() {
       <section className="section offer-section">
         <div className="offer-example">
           <Eyebrow>WHY THIS OFFER SCALED</Eyebrow>
-          <h3>The allied health illustration on the Category King page is this business.</h3>
+          <h3>The Category King page uses an allied health illustration. MTP is the real install — not those exact figures.</h3>
           <p>
             <strong>A worked example that already ran.</strong> Sessions versus a named program. Warm, hand-held traffic versus an offer that can hold paid ads.
           </p>
-          <DualFunnel
-            leftLabel="STANDARD / SESSION OFFER"
-            rightLabel="KNEE PROGRAM / CATEGORY KING"
-          />
+          <DualFunnel />
+          <p className="offer-caveat offer-illustration-note">
+            <strong>Note:</strong> {illustrationNumbersNote}
+          </p>
           <div className="offer-compare-wrap">
             <table className="offer-compare">
               <thead>
@@ -257,7 +257,7 @@ export default function MtpHealthCase() {
               <strong>The read:</strong> they could turn away gym referrals. Choosing demand is Gate 2. ~30% assessment-to-program is the Category King close rate, not a gym-pack close rate.
             </p>
             <p className="offer-caveat">
-              <strong>Caveat:</strong> {offerLinkNote}
+              <strong>Caveat:</strong> MTP’s public proof is 30% YOY, always-on ads at ~20% into larger offerings, and the ability to choose demand. The 1,000-click funnel diagram above is the same illustrative aggregate shown on the Category King page, not MTP’s operating numbers.
             </p>
           </div>
         </div>
