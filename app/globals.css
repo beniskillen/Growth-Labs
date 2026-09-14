@@ -3134,13 +3134,24 @@ em {
   }
 }
 
-html[data-typeface="aesop"] .button,
-html[data-typeface="aesop"] .eyebrow,
-html[data-typeface="aesop"] .hero-side-label,
-html[data-typeface="aesop"] .section-index,
-html[data-typeface="aesop"] .portrait-readout,
-html[data-typeface="aesop"] .portrait-control,
-html[data-typeface="aesop"] .valence-readout,
-html[data-typeface="aesop"] .valence-caption {
+.button,
+.eyebrow,
+.hero-side-label,
+.section-index,
+.portrait-readout,
+.portrait-control,
+.valence-readout,
+.valence-caption {
   font-family: "Suisse Int'l", "Helvetica Neue", var(--font-inter), sans-serif;
+}
+
+html[data-typeface="geist"] .button,
+html[data-typeface="geist"] .eyebrow,
+html[data-typeface="geist"] .hero-side-label,
+html[data-typeface="geist"] .section-index,
+html[data-typeface="geist"] .portrait-readout,
+html[data-typeface="geist"] .portrait-control,
+html[data-typeface="geist"] .valence-readout,
+html[data-typeface="geist"] .valence-caption {
+  font-family: var(--font-geist-mono), monospace;
 }

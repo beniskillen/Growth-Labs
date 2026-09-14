@@ -196,8 +196,9 @@ export default function StudioProvider({ children }: { children: ReactNode }) {
             <p className="studio-chrome-kicker">Studio / local preview</p>
             <h2>Click any line to edit. Compare typefaces live.</h2>
             <p>
-              Headlines and body stay Geist. Aesop’s Suisse Int’l (previewed as
-              Inter) is applied only to buttons and the small margin labels.
+              Aesop pairing is the site default: headlines and body stay Geist;
+              Suisse Int’l (previewed as Inter) is on buttons and small margin
+              labels. Geist restores the mono labels.
             </p>
           </div>
           <div className="studio-chrome-actions">

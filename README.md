@@ -13,7 +13,7 @@ around a click-to-expand quantum valence diagram.
 - `/solutions` — custom solutions and delivery lanes
 - `/partners` — partner bench, including AI Powered
 - `/about` — operator story and mission
-- `/studio` — local click-to-edit preview. The Aesop toggle restyles buttons and small margin labels only; headlines stay Geist.
+- `/studio` — local click-to-edit preview. Aesop pairing is the site default: Suisse Int’l / Inter on buttons and small margin labels; headlines stay Geist. The Geist toggle restores mono labels.
 
 ## Local preview
 
