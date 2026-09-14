@@ -21,7 +21,8 @@ export const hero = {
 } as const;
 
 export const snapshot = {
-  caption: "Before the category, the owner was the pipeline.",
+  caption:
+    "MTP was a clinic owned by a bold entrepreneur, Luke Kane, who was incredible at his craft. The only challenge was that what got the owner to where he was was the exact thing stopping him from getting to the next level. Because everyone wanted to see him, he knew he had to approach things differently to achieve his vision of creating a world-leading Exercise Physiology practice and owning his own category.",
   rows: [
     {
       metric: "Primary KPI",
