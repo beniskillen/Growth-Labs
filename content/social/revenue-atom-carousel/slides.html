@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=1080" />
+    <title>Growth Labs — First-principles carousel</title>
+    <style>
+      @font-face {
+        font-family: "Geist";
+        font-style: normal;
+        font-weight: 400;
+        src: url("fonts/geist-sans-400.woff2") format("woff2");
+      }
+      @font-face {
+        font-family: "Geist";
+        font-style: normal;
+        font-weight: 500;
+        src: url("fonts/geist-sans-500.woff2") format("woff2");
+      }
+      @font-face {
+        font-family: "Geist";
+        font-style: normal;
+        font-weight: 600;
+        src: url("fonts/geist-sans-600.woff2") format("woff2");
+      }
+      @font-face {
+        font-family: "Geist Mono";
+        font-style: normal;
+        font-weight: 400;
+        src: url("fonts/geist-mono-400.woff2") format("woff2");
+      }
+      @font-face {
+        font-family: "Geist Mono";
+        font-style: normal;
+        font-weight: 500;
+        src: url("fonts/geist-mono-500.woff2") format("woff2");
+      }
+      @font-face {
+        font-family: "Geist Mono";
+        font-style: normal;
+        font-weight: 700;
+        src: url("fonts/geist-mono-700.woff2") format("woff2");
+      }
+
+      :root {
+        --ink: #0a0a0b;
+        --panel: #111115;
+        --panel-2: #16161b;
+        --line: rgba(244, 244, 242, 0.13);
+        --line-strong: rgba(244, 244, 242, 0.25);
+        --paper: #f4f4f2;
+        --steel: #8a8f98;
+        --signal: #667cff;
+        --signal-soft: rgba(102, 124, 255, 0.16);
+        --mute: #b6bac1;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        margin: 0;
+        background: #050506;
+        color: var(--paper);
+        font-family: Geist, Arial, sans-serif;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      body.export {
+        background: var(--ink);
+      }
+
+      .deck {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 32px;
+        padding: 32px 0 80px;
+      }
+
+      body.export .deck {
+        display: block;
+        padding: 0;
+      }
+
+      .slide {
+        position: relative;
+        width: 1080px;
+        height: 1350px;
+        overflow: hidden;
+        background: var(--ink);
+        color: var(--paper);
+        display: flex;
+        flex-direction: column;
+        padding: 56px 64px 48px;
+      }
+
+      body.export .slide {
+        display: none;
+      }
+
+      body.export .slide.is-active {
+        display: flex;
+      }
+
+      .grid-bg::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        background-image:
+          linear-gradient(rgba(244, 244, 242, 0.045) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(244, 244, 242, 0.045) 1px, transparent 1px);
+        background-size: 56px 56px;
+        mask-image: radial-gradient(ellipse at 50% 38%, #000 18%, transparent 78%);
+      }
+
+      .chrome {
+        position: relative;
+        z-index: 2;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 48px;
+      }
+
+      .wordmark {
+        display: inline-flex;
+        align-items: center;
+        gap: 12px;
+        font-family: "Geist Mono", monospace;
+        font-size: 13px;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+      }
+
+      .mark {
+        display: flex;
+        align-items: flex-end;
+        gap: 2px;
+        width: 24px;
+        height: 20px;
+      }
+
+      .mark i {
+        display: block;
+        width: 6px;
+        border-top: 2px solid var(--signal);
+        border-right: 2px solid var(--signal);
+      }
+
+      .mark i:nth-child(1) {
+        height: 6px;
+      }
+      .mark i:nth-child(2) {
+        height: 12px;
+      }
+      .mark i:nth-child(3) {
+        height: 18px;
+      }
+
+      .count {
+        color: var(--steel);
+        font-family: "Geist Mono", monospace;
+        font-size: 12px;
+        font-weight: 500;
+        letter-spacing: 0.14em;
+      }
+
+      .body {
+        position: relative;
+        z-index: 2;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        min-height: 0;
+      }
+
+      .pin-bottom {
+        margin-top: auto;
+      }
+
+      .eyebrow {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin: 0 0 28px;
+        color: var(--steel);
+        font-family: "Geist Mono", monospace;
+        font-size: 13px;
+        font-weight: 600;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+      }
+
+      .status-dot {
+        width: 7px;
+        height: 7px;
+        border-radius: 50%;
+        background: var(--signal);
+        box-shadow: 0 0 0 4px var(--signal-soft);
+      }
+
+      h1 {
+        margin: 0 0 28px;
+        font-size: 58px;
+        font-weight: 500;
+        letter-spacing: -0.055em;
+        line-height: 0.98;
+      }
+
+      .tight h1 {
+        font-size: 52px;
+      }
+
+      .lede {
+        margin: 0;
+        max-width: 920px;
+        color: var(--mute);
+        font-size: 26px;
+        font-weight: 400;
+        line-height: 1.45;
+      }
+
+      .lede + .lede {
+        margin-top: 16px;
+      }
+
+      .rule-line {
+        margin: 36px 0 0;
+        color: var(--paper);
+        font-size: 24px;
+        line-height: 1.4;
+      }
+
+      .rule-line em,
+      h1 em,
+      .lede em {
+        color: var(--signal);
+        font-style: normal;
+      }
+
+      .foot-note {
+        margin-top: auto;
+        padding-top: 28px;
+        border-top: 1px solid var(--line);
+        color: var(--steel);
+        font-family: "Geist Mono", monospace;
+        font-size: 16px;
+        letter-spacing: 0.04em;
+        line-height: 1.5;
+      }
+
+      .slide-foot {
+        position: relative;
+        z-index: 2;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-top: 36px;
+        padding-top: 22px;
+        border-top: 1px solid var(--line);
+        color: var(--steel);
+        font-family: "Geist Mono", monospace;
+        font-size: 11px;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+      }
+
+      /* Cover */
+      .slide-cover {
+        padding: 56px 64px 48px;
+      }
+
+      .cover-atom {
+        position: relative;
+        flex: 1;
+        min-height: 520px;
+        margin: 28px -8px 0;
+        border: 1px solid var(--line);
+        background:
+          radial-gradient(ellipse at 50% 48%, rgba(102, 124, 255, 0.2), transparent 64%),
+          url("assets/revenue-atom.png") center 46% / 122% no-repeat,
+          #070709;
+      }
+
+      .slide-cover h1 {
+        font-size: 64px;
+        margin-bottom: 22px;
+      }
+
+      .byline {
+        margin: 28px 0 0;
+        color: var(--steel);
+        font-family: "Geist Mono", monospace;
+        font-size: 13px;
+        letter-spacing: 0.16em;
+      }
+
+      /* Stacks */
+      .mix-list {
+        display: grid;
+        gap: 16px;
+        margin-top: 12px;
+      }
+
+      .mix-item {
+        display: grid;
+        grid-template-columns: 72px 1fr;
+        gap: 18px;
+        align-items: center;
+        padding: 22px 24px;
+        background: var(--panel);
+        border: 1px solid var(--line);
+      }
+
+      .mix-item span {
+        color: var(--signal);
+        font-family: "Geist Mono", monospace;
+        font-size: 13px;
+        letter-spacing: 0.12em;
+      }
+
+      .mix-item p {
+        margin: 0;
+        font-size: 26px;
+        letter-spacing: -0.03em;
+        line-height: 1.25;
+      }
+
+      .watermark {
+        position: absolute;
+        right: 56px;
+        top: 58%;
+        color: rgba(102, 124, 255, 0.09);
+        font-size: 92px;
+        font-weight: 600;
+        letter-spacing: -0.06em;
+        line-height: 0.8;
+        pointer-events: none;
+        user-select: none;
+      }
+
+      .callout {
+        margin-top: 32px;
+        padding: 22px 24px;
+        border-left: 2px solid var(--signal);
+        background: var(--signal-soft);
+        color: var(--paper);
+        font-size: 22px;
+        line-height: 1.4;
+      }
+
+      .callout.pin-bottom,
+      .rule-line.pin-bottom {
+        margin-top: auto;
+      }
+
+      .metric-pill {
+        display: inline-flex;
+        margin-top: 28px;
+        padding: 14px 18px;
+        border: 1px solid var(--line-strong);
+        background: var(--panel);
+        color: var(--paper);
+        font-family: "Geist Mono", monospace;
+        font-size: 16px;
+        letter-spacing: 0.04em;
+        line-height: 1.45;
+      }
+
+      .formula {
+        margin-top: 36px;
+        padding: 28px 28px 24px;
+        background: var(--panel);
+        border: 1px solid var(--line);
+      }
+
+      .formula .label {
+        margin: 0 0 18px;
+        color: var(--signal);
+        font-family: "Geist Mono", monospace;
+        font-size: 12px;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+      }
+
+      .formula .eq {
+        font-size: 28px;
+        font-weight: 500;
+        letter-spacing: -0.04em;
+        line-height: 1.35;
+      }
+
+      .formula .eq .frac {
+        display: block;
+        margin-top: 10px;
+      }
+
+      .formula .num,
+      .formula .den {
+        display: block;
+      }
+
+      .formula .bar {
+        display: block;
+        height: 1px;
+        margin: 10px 0;
+        background: var(--line-strong);
+      }
+
+      .bench-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 14px;
+        margin-top: 22px;
+      }
+
+      .bench {
+        padding: 18px 18px 16px;
+        background: rgba(10, 10, 11, 0.72);
+        border: 1px solid var(--line);
+        backdrop-filter: blur(10px);
+      }
+
+      .bench small {
+        display: block;
+        margin-bottom: 8px;
+        color: var(--steel);
+        font-family: "Geist Mono", monospace;
+        font-size: 11px;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+
+      .bench strong {
+        font-size: 28px;
+        font-weight: 500;
+        letter-spacing: -0.04em;
+      }
+
+      .atom-panel {
+        position: relative;
+        flex: 1;
+        min-height: 420px;
+        margin: 8px -8px 0;
+        border: 1px solid var(--line);
+        background:
+          radial-gradient(ellipse at 50% 48%, rgba(102, 124, 255, 0.16), transparent 62%),
+          url("assets/revenue-atom.png") center 46% / 118% no-repeat,
+          #070709;
+      }
+
+      .diag-list {
+        display: grid;
+        gap: 0;
+        margin-top: 8px;
+        border-top: 1px solid var(--line);
+      }
+
+      .diag-list li {
+        display: grid;
+        grid-template-columns: 48px 1fr;
+        gap: 12px;
+        padding: 14px 0;
+        border-bottom: 1px solid var(--line);
+        list-style: none;
+        font-size: 22px;
+        letter-spacing: -0.02em;
+        line-height: 1.3;
+      }
+
+      .diag-list {
+        margin: 0;
+        padding: 0;
+      }
+
+      .diag-list span {
+        color: var(--signal);
+        font-family: "Geist Mono", monospace;
+        font-size: 13px;
+        letter-spacing: 0.08em;
+      }
+
+      .beats {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 10px 12px;
+        margin-top: 36px;
+        padding: 22px 24px;
+        border: 1px solid var(--line);
+        background: var(--panel);
+        color: var(--paper);
+        font-family: "Geist Mono", monospace;
+        font-size: 15px;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+      }
+
+      .beats i {
+        color: var(--signal);
+        font-style: normal;
+      }
+
+      .beats strong {
+        color: var(--signal);
+        font-weight: 700;
+      }
+
+      .cta {
+        display: flex;
+        width: 100%;
+        align-items: center;
+        justify-content: space-between;
+        gap: 28px;
+        margin-top: 36px;
+        min-height: 64px;
+        padding: 0 24px;
+        background: var(--signal);
+        color: white;
+        font-family: "Geist Mono", monospace;
+        font-size: 14px;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .url {
+        margin-top: 18px;
+        color: var(--steel);
+        font-family: "Geist Mono", monospace;
+        font-size: 16px;
+        word-break: break-all;
+      }
+
+      .slide.theme-paper {
+        background: var(--paper);
+        color: var(--ink);
+      }
+
+      .slide.theme-paper .lede {
+        color: #3a3e46;
+      }
+
+      .slide.theme-paper .rule-line,
+      .slide.theme-paper .wordmark {
+        color: var(--ink);
+      }
+
+      .slide.theme-paper .count,
+      .slide.theme-paper .eyebrow,
+      .slide.theme-paper .slide-foot,
+      .slide.theme-paper .byline,
+      .slide.theme-paper .foot-note {
+        color: #5c616a;
+      }
+
+      .slide.theme-paper .mix-item,
+      .slide.theme-paper .formula,
+      .slide.theme-paper .metric-pill,
+      .slide.theme-paper .vars-list li {
+        background: #fff;
+        border-color: rgba(10, 10, 11, 0.12);
+        color: var(--ink);
+      }
+
+      .slide.theme-paper .bench {
+        background: rgba(255, 255, 255, 0.86);
+        border-color: rgba(10, 10, 11, 0.12);
+        color: var(--ink);
+      }
+
+      .slide.theme-paper .callout {
+        color: var(--ink);
+        background: rgba(102, 124, 255, 0.12);
+      }
+
+      .slide.theme-paper .grid-bg::before {
+        background-image:
+          linear-gradient(rgba(10, 10, 11, 0.055) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(10, 10, 11, 0.055) 1px, transparent 1px);
+      }
+
+      .slide.theme-paper .watermark {
+        color: rgba(102, 124, 255, 0.14);
+      }
+
+      .slide.theme-paper .diag-list,
+      .slide.theme-paper .diag-list li,
+      .slide.theme-paper .slide-foot,
+      .slide.theme-paper .foot-note,
+      .slide.theme-paper .cover-atom,
+      .slide.theme-paper .atom-panel {
+        border-color: rgba(10, 10, 11, 0.12);
+      }
+
+      .slide.theme-paper .beats {
+        color: var(--ink);
+        background: #fff;
+        border-color: rgba(10, 10, 11, 0.12);
+      }
+
+      .hl {
+        color: var(--signal);
+        font-style: normal;
+      }
+
+      .slide.theme-paper .formula .bar {
+        background: rgba(10, 10, 11, 0.28);
+      }
+
+      .hl-box {
+        display: inline-flex;
+        align-items: center;
+        border: 1.5px solid var(--signal);
+        padding: 0.04em 0.12em 0.08em;
+        margin-right: 0.06em;
+        line-height: 0.9;
+        transform: translateY(-0.04em);
+      }
+
+      .vars-list {
+        display: grid;
+        gap: 10px;
+        margin: 22px 0 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .vars-list li {
+        display: grid;
+        grid-template-columns: 48px 1fr;
+        gap: 12px;
+        align-items: center;
+        padding: 16px 18px;
+        background: var(--panel);
+        border: 1px solid var(--line);
+        font-size: 24px;
+        letter-spacing: -0.03em;
+      }
+
+      .vars-list p {
+        margin: 0;
+      }
+
+      .vars-list span {
+        color: var(--signal);
+        font-family: "Geist Mono", monospace;
+        font-size: 13px;
+        letter-spacing: 0.12em;
+      }
+
+      .signal-lede {
+        color: var(--signal) !important;
+        font-size: 24px;
+        margin-bottom: 18px;
+      }
+
+      h1.score-hed {
+        font-size: 42px;
+        margin-bottom: 16px;
+      }
+
+      .dense h1 {
+        font-size: 42px;
+      }
+
+      .dense .lede {
+        font-size: 22px;
+      }
+
+      .dense .diag-list li {
+        font-size: 18px;
+        padding: 10px 0;
+      }
+
+      .dense .callout {
+        font-size: 20px;
+      }
+
+      body.export {
+        overflow: hidden;
+      }
+    </style>
+  </head>
+  <body>
+    <main class="deck"></main>
+    <script src="review-data.js"></script>
+    <script src="render.js"></script>
+  </body>
+</html>

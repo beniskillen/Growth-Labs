@@ -1,0 +1,765 @@
+{
+  "reviewVersion": 1,
+  "baseRevision": "15306064f8004575",
+  "batch": {
+    "id": "first-principles",
+    "title": "First principles",
+    "locked": true,
+    "slides": [
+      {
+        "layout": "statement",
+        "theme": "ink",
+        "atom": false,
+        "eyebrow": "GROWTH LABS_ / FIRST PRINCIPLES",
+        "headline": "“marketing” \nis not content.",
+        "sub": "Insights from 10+ years as a sales driven marketer.",
+        "corner": "BEN KILLEN",
+        "highlights": [
+          {
+            "field": "headline",
+            "start": 0,
+            "end": 11,
+            "colour": "blue",
+            "border": false
+          }
+        ]
+      },
+      {
+        "layout": "statement",
+        "theme": "paper",
+        "eyebrow": "02 / THE ROOM",
+        "headline": "After 10+ years I realised, most business owners are confused on first principles.",
+        "body": "When trying to achieve anything, we must be clear with our definitions to ensure we're talking about the same thing.",
+        "highlights": [
+          {
+            "field": "headline",
+            "start": 65,
+            "end": 82,
+            "colour": "blue",
+            "border": false
+          }
+        ]
+      },
+      {
+        "layout": "comparison",
+        "theme": "paper",
+        "eyebrow": "03 / THE MIX-UP",
+        "headline": "I found that when speaking to 10 different business owners they all had differing definitions. This lead to poor results.",
+        "items": [
+          "'Branding' touted as the Holy Grail",
+          "Advertising thought of as 'paid'",
+          "'Content' sold as the silver bullet"
+        ],
+        "line": "When all we have is a hammer, everything looks like a nail.",
+        "highlights": [
+          {
+            "field": "headline",
+            "start": 95,
+            "end": 121,
+            "colour": "blue",
+            "border": false
+          }
+        ]
+      },
+      {
+        "layout": "definition",
+        "theme": "paper",
+        "symbol": "Mk",
+        "term": "MARKETING",
+        "eyebrow": "04 / DEFINE THE WORDS",
+        "headline": "Marketing Is best thought of as every piece of communication a business has with its market.",
+        "body": "Imagine your business in a large marketplace. What would make your business stand out amongst other businesses offering the same thing? What would make people want to come back? \n\nFrom how we pick up the phone, to how we send an email. This all leaves an impression. It's these impressions that deliver value.",
+        "line": "When we view marketing with this lens, we start to see that almost everything could be considered marketing. This is the unexplored opportunity for most businesses.",
+        "definitionLead": "Marketing",
+        "borderColour": "none",
+        "highlights": [
+          {
+            "field": "definitionLead",
+            "start": 0,
+            "end": 2,
+            "colour": "blue",
+            "border": true
+          }
+        ]
+      },
+      {
+        "layout": "definition",
+        "theme": "paper",
+        "symbol": "Br",
+        "term": "BRAND",
+        "eyebrow": "05 / DEFINE THE WORDS",
+        "headline": "Branding The association someone has with our business.",
+        "body": "Leading Indicators: CTR%, Opt In %, LTV:CAC.\n\nIt lives in their head, not in your logo file. You do not ship a brand in a deck. People form it from every piece of communication — and from whether the thing you sold held up.",
+        "line": "Branding is only the word for trying to influence that association.",
+        "definitionLead": "Branding",
+        "highlights": [
+          {
+            "field": "definitionLead",
+            "start": 0,
+            "end": 2,
+            "colour": "blue",
+            "border": true
+          }
+        ]
+      },
+      {
+        "layout": "definition",
+        "theme": "paper",
+        "symbol": "Ad",
+        "term": "ADVERTISING",
+        "eyebrow": "06 / DEFINE THE WORDS",
+        "headline": "Advertising brings someone’s attention to something specific.",
+        "body": "Leading Indicator: Impressions, CTR%. \n\nWhen we get a specific message in front of a person, that is considered advertising. There are 4 major variables here:",
+        "metric": "",
+        "line": "1. The audience.\n2. The message. \n3. The offer.\n4. The visual.",
+        "definitionLead": "Advertising",
+        "highlights": [
+          {
+            "field": "definitionLead",
+            "start": 0,
+            "end": 2,
+            "colour": "blue",
+            "border": true
+          }
+        ]
+      },
+      {
+        "layout": "statement",
+        "theme": "ink",
+        "eyebrow": "07 / WHY THEY MOVE",
+        "headline": "Customers buy to solve a problem or fulfill a desire.",
+        "body": "When we 'market' well we simply use the terms we defined previously to cause them to take an action towards us being able to fulfill their desire.",
+        "line": "Marketing does not create new desires for our market.",
+        "highlights": [
+          {
+            "field": "headline",
+            "start": 17,
+            "end": 32,
+            "colour": "blue",
+            "border": false
+          },
+          {
+            "field": "line",
+            "start": 10,
+            "end": 18,
+            "colour": "blue",
+            "border": false
+          }
+        ]
+      },
+      {
+        "layout": "equation",
+        "theme": "paper",
+        "eyebrow": "08 / THE VALUE EQUATION",
+        "headline": "Time & attention = money \n\nAny action a prospect takes in response to our marketing should be viewed as signal that we're tapping into 'value' in the eyes of our market.",
+        "body": "A click, an email, a call, a purchase. Attention and time are currencies.",
+        "formula": "perceived value = (outcome × likelihood of achievement) / (effort & sacrifice × time delay)",
+        "foot": "",
+        "equationStyle": "fraction",
+        "highlights": [
+          {
+            "field": "headline",
+            "start": 0,
+            "end": 25,
+            "colour": "blue",
+            "border": false
+          }
+        ]
+      },
+      {
+        "layout": "diagram",
+        "theme": "ink",
+        "atom": true,
+        "eyebrow": "09 / THE SCOREBOARD",
+        "headline": "Every action is a signal of resonance. The metrics are the strength of that signal.",
+        "items": [
+          "CTR > 1.5%",
+          "Opt-in / CVR > 2% ideally",
+          "Opt-in → customer > 10%",
+          "LTV : CAC > 3"
+        ],
+        "line": "Marketing is the combination of thousandas of variables. When isolated & measured, the key variables above provide the signal we need to start iterating.",
+        "highlights": [
+          {
+            "field": "headline",
+            "start": 16,
+            "end": 38,
+            "colour": "blue",
+            "border": false
+          }
+        ]
+      },
+      {
+        "layout": "diagnostic",
+        "theme": "paper",
+        "eyebrow": "10 / THE CONSTRAINT",
+        "headline": "Here's the thing. There's only ever one constraint.",
+        "sub": "If there's a leak anywhere in this chain from 1-6, results will be subpar",
+        "items": [
+          "Impressions < 100 p/d → not 'advertising' enough",
+          "< 1.5% CTR (Clickthrough rate) → offer isn't attractive",
+          "< 2% Opt In → Perceived value not matching action needed from the prospect",
+          "< 10% Opt In to Customer → Perceived value to purchase not matching prospects desire",
+          "< 3 LTV:CAC → Customer leakage along the lifecycle",
+          "Ignored LTV → acquisition is treated as the whole business"
+        ],
+        "body": "Marketing requires us to test our hypotheses against the market, one variable at a time. We can't fix everything at once..",
+        "line": "",
+        "highlights": [
+          {
+            "field": "headline",
+            "start": 36,
+            "end": 51,
+            "colour": "blue",
+            "border": false
+          }
+        ]
+      },
+      {
+        "layout": "equation",
+        "theme": "ink",
+        "eyebrow": "11 / THE RULE",
+        "headline": "Only when we know which number to focus on, can we really decide what 'marketing' we need.",
+        "body": "Don't confuse tactics with principles.. For some a new website is a great choice, for others, it's simply more noise",
+        "formula": "FIRST PRINCIPLES × PROVEN TACTICS × HEALTHY NUMBERS = MARKET SATURATION",
+        "line": "",
+        "equationStyle": "product",
+        "highlights": []
+      },
+      {
+        "layout": "diagnostic",
+        "variant": "cta",
+        "theme": "ink",
+        "eyebrow": "12 / FREE DIAGNOSTIC / 30 MINUTES",
+        "headline": "Want to strategise\nyour marketing \nto make acquiring customers a science for your business?",
+        "body": "Check the link in my bio to get a complete first principles strategy for your business. See where you sit within the market forces for your own business.",
+        "cta": "",
+        "url": "",
+        "secondary": "",
+        "footer": "NO HYPE · NO TOOL LISTS · FIRST PRINCIPLES, THEN SYSTEMS",
+        "highlights": [
+          {
+            "field": "headline",
+            "start": 19,
+            "end": 34,
+            "colour": "blue",
+            "border": false
+          }
+        ]
+      }
+    ],
+    "quotes": [
+      {
+        "layout": "statement",
+        "theme": "paper",
+        "variant": "quote",
+        "eyebrow": "GROWTH LABS_ / FIELD NOTES",
+        "headline": "Busy is not a system.",
+        "corner": "BEN KILLEN",
+        "highlight": "not a system."
+      },
+      {
+        "layout": "statement",
+        "theme": "ink",
+        "variant": "quote",
+        "eyebrow": "GROWTH LABS_ / FIELD NOTES",
+        "headline": "Name the constraint. Then engineer the fix.",
+        "corner": "BEN KILLEN",
+        "highlight": "Name the constraint."
+      }
+    ]
+  },
+  "originalBatch": {
+    "id": "first-principles",
+    "title": "First principles",
+    "locked": true,
+    "slides": [
+      {
+        "layout": "statement",
+        "theme": "ink",
+        "atom": false,
+        "eyebrow": "GROWTH LABS_ / FIRST PRINCIPLES",
+        "headline": "Most “marketing” is advertising with extra steps.",
+        "sub": "Define the words. Tap a desire that already exists. Read every action as a signal.",
+        "corner": "BEN KILLEN",
+        "highlight": "Most “marketing”"
+      },
+      {
+        "layout": "statement",
+        "theme": "paper",
+        "eyebrow": "02 / THE ROOM",
+        "headline": "5+ years in agencies. Lots of “marketing.” Almost no scoreboard.",
+        "body": "Campaigns shipped. Decks approved. Reach celebrated. CAC unknown. LTV ignored. The work looked like marketing because it was busy. Busy is not a system.",
+        "highlight": "Almost no scoreboard."
+      },
+      {
+        "layout": "comparison",
+        "theme": "paper",
+        "eyebrow": "03 / THE MIX-UP",
+        "headline": "These three words get used as if they mean the same thing. They do not.",
+        "items": [
+          "Brand treated as logos and colours",
+          "Advertising sold as “the marketing”",
+          "Impressions treated as results"
+        ],
+        "line": "That mix is why so much spend produces theatre, not customers.",
+        "highlight": "They do not."
+      },
+      {
+        "layout": "definition",
+        "theme": "paper",
+        "symbol": "Mk",
+        "term": "MARKETING",
+        "eyebrow": "04 / DEFINE THE WORDS",
+        "headline": "Marketing is every piece of communication a business has with its market.",
+        "body": "Prospects and customers. The ad, the site, the email, the invoice, the founder reply, the packaging. If the business is speaking, that is marketing. It is not a department. It is not ads.",
+        "line": "Advertising is one kind of that communication. It is not the whole of it.",
+        "definitionLead": "Marketing"
+      },
+      {
+        "layout": "definition",
+        "theme": "paper",
+        "symbol": "Br",
+        "term": "BRAND",
+        "eyebrow": "05 / DEFINE THE WORDS",
+        "headline": "A brand is the association someone has with something.",
+        "body": "It lives in their head, not in your logo file. You do not ship a brand in a deck. People form it from every piece of communication — and from whether the thing you sold held up.",
+        "line": "Branding is only the word for trying to influence that association.",
+        "definitionLead": "A brand"
+      },
+      {
+        "layout": "definition",
+        "theme": "paper",
+        "symbol": "Ad",
+        "term": "ADVERTISING",
+        "eyebrow": "06 / DEFINE THE WORDS",
+        "headline": "Advertising brings someone’s attention to something specific.",
+        "body": "That is the job. A paid ad, a billboard, a launch post, a cold email with one object: look at this. It is marketing whose purpose is attention, not the relationship after.",
+        "metric": "Measured first with impressions — how many times was that specific thing put in front of someone?",
+        "line": "Impressions start the scoreboard. They do not prove anyone cared.",
+        "definitionLead": "Advertising"
+      },
+      {
+        "layout": "statement",
+        "theme": "ink",
+        "eyebrow": "07 / WHY THEY MOVE",
+        "headline": "People buy to solve a problem or fulfill a desire.",
+        "body": "That is almost the whole game. Marketing cannot create a new desire inside someone. It can only tap a desire they already have, and cause them to act.",
+        "line": "If the desire is not there, more reach is just more noise.",
+        "highlight": "solve a problem"
+      },
+      {
+        "layout": "equation",
+        "theme": "paper",
+        "eyebrow": "08 / THE VALUE EQUATION",
+        "headline": "The action they take is always an investment — even when no money moves.",
+        "body": "A click, an email, a call, a purchase. Attention and time are currencies. You asked them to spend something.",
+        "formula": "perceived value = (outcome × likelihood of achievement) / (effort & sacrifice × time delay)",
+        "foot": "Frequency of similar claims divides the left side and lowers perceived value. That is market sophistication — a story for another day.",
+        "equationStyle": "fraction"
+      },
+      {
+        "layout": "diagram",
+        "theme": "ink",
+        "atom": true,
+        "eyebrow": "09 / THE SCOREBOARD",
+        "headline": "Every action is a signal of resonance. The metrics are the strength of that signal.",
+        "items": [
+          "CTR > 1.5%",
+          "Opt-in / CVR > 2% ideally",
+          "Opt-in → customer > 10%",
+          "LTV : CAC > 3"
+        ],
+        "line": "Below the bar, the market is not answering. Do not scale the channel.",
+        "highlight": "a signal of resonance."
+      },
+      {
+        "layout": "diagnostic",
+        "theme": "paper",
+        "eyebrow": "10 / THE CONSTRAINT",
+        "headline": "You do not have a tactics problem.",
+        "sub": "You have a first-principles problem.",
+        "items": [
+          "Fuzzy buyer → message cannot convert",
+          "Unclear offer → traffic is expensive",
+          "Guessed CTR → creative gets blamed for volume",
+          "Unknown CAC → spend scales a leak",
+          "Memory follow-up → intent dies cold",
+          "Ignored LTV → acquisition is treated as the whole business"
+        ],
+        "body": "Often the copy asks for an investment the value equation cannot support, or speaks to a desire that is not there.",
+        "line": "Agencies get hired to add fuel. Nobody checks if the bucket holds water.",
+        "highlight": "tactics problem."
+      },
+      {
+        "layout": "equation",
+        "theme": "ink",
+        "eyebrow": "11 / THE RULE",
+        "headline": "Name the constraint. Then engineer the fix.",
+        "body": "Diagnose which signal is weak. Fix only that. Warm demand first. Scale only once LTV:CAC is above 3 with margin.",
+        "formula": "FIRST PRINCIPLES × REVENUE SYSTEM × AI LEVERAGE = HIGH-ROI GROWTH",
+        "line": "AI is leverage inside the chain. It cannot choose the right work.",
+        "equationStyle": "product"
+      },
+      {
+        "layout": "diagnostic",
+        "variant": "cta",
+        "theme": "ink",
+        "eyebrow": "12 / FREE DIAGNOSTIC / 30 MINUTES",
+        "headline": "Want the constraint named — and the metric that proves it?",
+        "body": "Thirty minutes. The bottleneck, the scoreboard reading, the first system worth building — whether or not we ever work together.",
+        "cta": "Book the free diagnostic",
+        "url": "https://calendar.notion.so/meet/beniskillen/30min",
+        "secondary": "See the live scoreboard on the Growth Labs home.",
+        "footer": "NO HYPE · NO TOOL LISTS · FIRST PRINCIPLES, THEN SYSTEMS",
+        "highlight": "the constraint named"
+      }
+    ],
+    "quotes": [
+      {
+        "layout": "statement",
+        "theme": "paper",
+        "variant": "quote",
+        "eyebrow": "GROWTH LABS_ / FIELD NOTES",
+        "headline": "Busy is not a system.",
+        "corner": "BEN KILLEN",
+        "highlight": "not a system."
+      },
+      {
+        "layout": "statement",
+        "theme": "ink",
+        "variant": "quote",
+        "eyebrow": "GROWTH LABS_ / FIELD NOTES",
+        "headline": "Name the constraint. Then engineer the fix.",
+        "corner": "BEN KILLEN",
+        "highlight": "Name the constraint."
+      }
+    ]
+  },
+  "comments": [
+    {
+      "id": "92af7c95-33d1-47a0-b6d0-dd9a6669068e",
+      "kind": "slides",
+      "slide": 0,
+      "rect": {
+        "x": 0.4754959457392014,
+        "y": 0.42550587467362927,
+        "width": 0.43495333775307254,
+        "height": 0.09088405678851169
+      },
+      "text": "How do I put this text on a new line to sit below the highlighted text?",
+      "selectedText": "",
+      "field": "",
+      "resolved": true,
+      "createdAt": "2026-09-11T09:48:27.477Z",
+      "anchorHeadline": "“marketing” is not content."
+    }
+  ],
+  "updatedAt": "2026-09-13T08:17:49.711Z",
+  "designUpdates": [
+    "definition-boxes-br-ad-2026-09-13"
+  ],
+  "changes": [
+    {
+      "kind": "slides",
+      "slide": 1,
+      "field": "headline",
+      "before": "Most “marketing” is advertising with extra steps.",
+      "after": "“marketing” \nis not content."
+    },
+    {
+      "kind": "slides",
+      "slide": 1,
+      "field": "sub",
+      "before": "Define the words. Tap a desire that already exists. Read every action as a signal.",
+      "after": "Insights from 10+ years as a sales driven marketer."
+    },
+    {
+      "kind": "slides",
+      "slide": 2,
+      "field": "headline",
+      "before": "5+ years in agencies. Lots of “marketing.” Almost no scoreboard.",
+      "after": "After 10+ years I realised, most business owners are confused on first principles."
+    },
+    {
+      "kind": "slides",
+      "slide": 2,
+      "field": "body",
+      "before": "Campaigns shipped. Decks approved. Reach celebrated. CAC unknown. LTV ignored. The work looked like marketing because it was busy. Busy is not a system.",
+      "after": "When trying to achieve anything, we must be clear with our definitions to ensure we're talking about the same thing."
+    },
+    {
+      "kind": "slides",
+      "slide": 3,
+      "field": "headline",
+      "before": "These three words get used as if they mean the same thing. They do not.",
+      "after": "I found that when speaking to 10 different business owners they all had differing definitions. This lead to poor results."
+    },
+    {
+      "kind": "slides",
+      "slide": 3,
+      "field": "line",
+      "before": "That mix is why so much spend produces theatre, not customers.",
+      "after": "When all we have is a hammer, everything looks like a nail."
+    },
+    {
+      "kind": "slides",
+      "slide": 3,
+      "field": "items:0",
+      "before": "Brand treated as logos and colours",
+      "after": "'Branding' touted as the Holy Grail"
+    },
+    {
+      "kind": "slides",
+      "slide": 3,
+      "field": "items:1",
+      "before": "Advertising sold as “the marketing”",
+      "after": "Advertising thought of as 'paid'"
+    },
+    {
+      "kind": "slides",
+      "slide": 3,
+      "field": "items:2",
+      "before": "Impressions treated as results",
+      "after": "'Content' sold as the silver bullet"
+    },
+    {
+      "kind": "slides",
+      "slide": 4,
+      "field": "headline",
+      "before": "Marketing is every piece of communication a business has with its market.",
+      "after": "Marketing Is best thought of as every piece of communication a business has with its market."
+    },
+    {
+      "kind": "slides",
+      "slide": 4,
+      "field": "body",
+      "before": "Prospects and customers. The ad, the site, the email, the invoice, the founder reply, the packaging. If the business is speaking, that is marketing. It is not a department. It is not ads.",
+      "after": "Imagine your business in a large marketplace. What would make your business stand out amongst other businesses offering the same thing? What would make people want to come back? \n\nFrom how we pick up the phone, to how we send an email. This all leaves an impression. It's these impressions that deliver value."
+    },
+    {
+      "kind": "slides",
+      "slide": 4,
+      "field": "line",
+      "before": "Advertising is one kind of that communication. It is not the whole of it.",
+      "after": "When we view marketing with this lens, we start to see that almost everything could be considered marketing. This is the unexplored opportunity for most businesses."
+    },
+    {
+      "kind": "slides",
+      "slide": 5,
+      "field": "headline",
+      "before": "A brand is the association someone has with something.",
+      "after": "Branding The association someone has with our business."
+    },
+    {
+      "kind": "slides",
+      "slide": 5,
+      "field": "definitionLead",
+      "before": "A brand",
+      "after": "Branding"
+    },
+    {
+      "kind": "slides",
+      "slide": 5,
+      "field": "body",
+      "before": "It lives in their head, not in your logo file. You do not ship a brand in a deck. People form it from every piece of communication — and from whether the thing you sold held up.",
+      "after": "Leading Indicators: CTR%, Opt In %, LTV:CAC.\n\nIt lives in their head, not in your logo file. You do not ship a brand in a deck. People form it from every piece of communication — and from whether the thing you sold held up."
+    },
+    {
+      "kind": "slides",
+      "slide": 6,
+      "field": "body",
+      "before": "That is the job. A paid ad, a billboard, a launch post, a cold email with one object: look at this. It is marketing whose purpose is attention, not the relationship after.",
+      "after": "Leading Indicator: Impressions, CTR%. \n\nWhen we get a specific message in front of a person, that is considered advertising. There are 4 major variables here:"
+    },
+    {
+      "kind": "slides",
+      "slide": 6,
+      "field": "metric",
+      "before": "Measured first with impressions — how many times was that specific thing put in front of someone?",
+      "after": ""
+    },
+    {
+      "kind": "slides",
+      "slide": 6,
+      "field": "line",
+      "before": "Impressions start the scoreboard. They do not prove anyone cared.",
+      "after": "1. The audience.\n2. The message. \n3. The offer.\n4. The visual."
+    },
+    {
+      "kind": "slides",
+      "slide": 7,
+      "field": "headline",
+      "before": "People buy to solve a problem or fulfill a desire.",
+      "after": "Customers buy to solve a problem or fulfill a desire."
+    },
+    {
+      "kind": "slides",
+      "slide": 7,
+      "field": "body",
+      "before": "That is almost the whole game. Marketing cannot create a new desire inside someone. It can only tap a desire they already have, and cause them to act.",
+      "after": "When we 'market' well we simply use the terms we defined previously to cause them to take an action towards us being able to fulfill their desire."
+    },
+    {
+      "kind": "slides",
+      "slide": 7,
+      "field": "line",
+      "before": "If the desire is not there, more reach is just more noise.",
+      "after": "Marketing does not create new desires for our market."
+    },
+    {
+      "kind": "slides",
+      "slide": 8,
+      "field": "headline",
+      "before": "The action they take is always an investment — even when no money moves.",
+      "after": "Time & attention = money \n\nAny action a prospect takes in response to our marketing should be viewed as signal that we're tapping into 'value' in the eyes of our market."
+    },
+    {
+      "kind": "slides",
+      "slide": 8,
+      "field": "body",
+      "before": "A click, an email, a call, a purchase. Attention and time are currencies. You asked them to spend something.",
+      "after": "A click, an email, a call, a purchase. Attention and time are currencies."
+    },
+    {
+      "kind": "slides",
+      "slide": 8,
+      "field": "foot",
+      "before": "Frequency of similar claims divides the left side and lowers perceived value. That is market sophistication — a story for another day.",
+      "after": ""
+    },
+    {
+      "kind": "slides",
+      "slide": 9,
+      "field": "line",
+      "before": "Below the bar, the market is not answering. Do not scale the channel.",
+      "after": "Marketing is the combination of thousandas of variables. When isolated & measured, the key variables above provide the signal we need to start iterating."
+    },
+    {
+      "kind": "slides",
+      "slide": 10,
+      "field": "headline",
+      "before": "You do not have a tactics problem.",
+      "after": "Here's the thing. There's only ever one constraint."
+    },
+    {
+      "kind": "slides",
+      "slide": 10,
+      "field": "body",
+      "before": "Often the copy asks for an investment the value equation cannot support, or speaks to a desire that is not there.",
+      "after": "Marketing requires us to test our hypotheses against the market, one variable at a time. We can't fix everything at once.."
+    },
+    {
+      "kind": "slides",
+      "slide": 10,
+      "field": "sub",
+      "before": "You have a first-principles problem.",
+      "after": "If there's a leak anywhere in this chain from 1-6, results will be subpar"
+    },
+    {
+      "kind": "slides",
+      "slide": 10,
+      "field": "line",
+      "before": "Agencies get hired to add fuel. Nobody checks if the bucket holds water.",
+      "after": ""
+    },
+    {
+      "kind": "slides",
+      "slide": 10,
+      "field": "items:0",
+      "before": "Fuzzy buyer → message cannot convert",
+      "after": "Impressions < 100 p/d → not 'advertising' enough"
+    },
+    {
+      "kind": "slides",
+      "slide": 10,
+      "field": "items:1",
+      "before": "Unclear offer → traffic is expensive",
+      "after": "< 1.5% CTR (Clickthrough rate) → offer isn't attractive"
+    },
+    {
+      "kind": "slides",
+      "slide": 10,
+      "field": "items:2",
+      "before": "Guessed CTR → creative gets blamed for volume",
+      "after": "< 2% Opt In → Perceived value not matching action needed from the prospect"
+    },
+    {
+      "kind": "slides",
+      "slide": 10,
+      "field": "items:3",
+      "before": "Unknown CAC → spend scales a leak",
+      "after": "< 10% Opt In to Customer → Perceived value to purchase not matching prospects desire"
+    },
+    {
+      "kind": "slides",
+      "slide": 10,
+      "field": "items:4",
+      "before": "Memory follow-up → intent dies cold",
+      "after": "< 3 LTV:CAC → Customer leakage along the lifecycle"
+    },
+    {
+      "kind": "slides",
+      "slide": 11,
+      "field": "headline",
+      "before": "Name the constraint. Then engineer the fix.",
+      "after": "Only when we know which number to focus on, can we really decide what 'marketing' we need."
+    },
+    {
+      "kind": "slides",
+      "slide": 11,
+      "field": "body",
+      "before": "Diagnose which signal is weak. Fix only that. Warm demand first. Scale only once LTV:CAC is above 3 with margin.",
+      "after": "Don't confuse tactics with principles.. For some a new website is a great choice, for others, it's simply more noise"
+    },
+    {
+      "kind": "slides",
+      "slide": 11,
+      "field": "formula",
+      "before": "FIRST PRINCIPLES × REVENUE SYSTEM × AI LEVERAGE = HIGH-ROI GROWTH",
+      "after": "FIRST PRINCIPLES × PROVEN TACTICS × HEALTHY NUMBERS = MARKET SATURATION"
+    },
+    {
+      "kind": "slides",
+      "slide": 11,
+      "field": "line",
+      "before": "AI is leverage inside the chain. It cannot choose the right work.",
+      "after": ""
+    },
+    {
+      "kind": "slides",
+      "slide": 12,
+      "field": "headline",
+      "before": "Want the constraint named — and the metric that proves it?",
+      "after": "Want to strategise\nyour marketing \nto make acquiring customers a science for your business?"
+    },
+    {
+      "kind": "slides",
+      "slide": 12,
+      "field": "body",
+      "before": "Thirty minutes. The bottleneck, the scoreboard reading, the first system worth building — whether or not we ever work together.",
+      "after": "Check the link in my bio to get a complete first principles strategy for your business. See where you sit within the market forces for your own business."
+    },
+    {
+      "kind": "slides",
+      "slide": 12,
+      "field": "cta",
+      "before": "Book the free diagnostic",
+      "after": ""
+    },
+    {
+      "kind": "slides",
+      "slide": 12,
+      "field": "url",
+      "before": "https://calendar.notion.so/meet/beniskillen/30min",
+      "after": ""
+    },
+    {
+      "kind": "slides",
+      "slide": 12,
+      "field": "secondary",
+      "before": "See the live scoreboard on the Growth Labs home.",
+      "after": ""
+    }
+  ]
+}
