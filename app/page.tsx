@@ -12,7 +12,44 @@ import { partners, services, trustBrands } from "./brand";
 export default function Home() {
   return (
     <SiteFrame>
-      <ValenceExperience>
+      <ValenceExperience
+        proof={
+          <div className="atom-copy-proof">
+            <div className="hero-proof" aria-label="Growth Labs experience">
+              <span><strong>10+</strong> years sales &amp; growth</span>
+              <span><strong>First principles</strong> before tactics</span>
+              <span><strong>CAC · LTV · CTR</strong> as the scoreboard</span>
+            </div>
+          </div>
+        }
+        trust={
+          <section className="trust-bar" aria-label="Brands Ben has worked with">
+            <p>COMPANIES BEN HAS WORKED AT AND WITH</p>
+            <div className="trust-marquee">
+              <div className="trust-track">
+                {[0, 1].map((group) => (
+                  <div
+                    className="trust-group"
+                    aria-hidden={group === 1}
+                    key={group}
+                  >
+                    {trustBrands.map((brand) => (
+                      <img
+                        src={brand.src}
+                        alt={group === 0 ? brand.name : ""}
+                        key={`${group}-${brand.name}`}
+                      />
+                    ))}
+                  </div>
+                ))}
+              </div>
+            </div>
+            <Link className="trust-partner-link" href="/partners">
+              Join as partner <Arrow />
+            </Link>
+          </section>
+        }
+      >
         <div className="hero-copy">
           <Eyebrow>GROWTH LABS_ / ENGINEERS ARE THE CURRENCY OF THE DAY</Eyebrow>
           <h1>
@@ -31,39 +68,8 @@ export default function Home() {
               Read the system <Arrow />
             </Link>
           </div>
-          <div className="hero-proof" aria-label="Growth Labs experience">
-            <span><strong>10+</strong> years sales &amp; growth</span>
-            <span><strong>First principles</strong> before tactics</span>
-            <span><strong>CAC · LTV · CTR</strong> as the scoreboard</span>
-          </div>
         </div>
       </ValenceExperience>
-
-      <section className="trust-bar" aria-label="Brands Ben has worked with">
-        <p>COMPANIES BEN HAS WORKED AT AND WITH</p>
-        <div className="trust-marquee">
-          <div className="trust-track">
-            {[0, 1].map((group) => (
-              <div
-                className="trust-group"
-                aria-hidden={group === 1}
-                key={group}
-              >
-                {trustBrands.map((brand) => (
-                  <img
-                    src={brand.src}
-                    alt={group === 0 ? brand.name : ""}
-                    key={`${group}-${brand.name}`}
-                  />
-                ))}
-              </div>
-            ))}
-          </div>
-        </div>
-        <Link className="trust-partner-link" href="/partners">
-          Join as partner <Arrow />
-        </Link>
-      </section>
 
       <section className="section doors-section" id="services">
         <SectionHeading

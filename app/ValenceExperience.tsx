@@ -41,7 +41,15 @@ const chapters: {
   },
 ];
 
-export default function ValenceExperience({ children }: { children: ReactNode }) {
+export default function ValenceExperience({
+  children,
+  proof,
+  trust,
+}: {
+  children: ReactNode;
+  proof?: ReactNode;
+  trust?: ReactNode;
+}) {
   const copyRef = useRef<HTMLElement>(null);
   const [focusId, setFocusId] = useState<ValenceMetricId | null>(null);
   const [chapterId, setChapterId] = useState<ValenceMetricId | null>("tam");
@@ -69,6 +77,7 @@ export default function ValenceExperience({ children }: { children: ReactNode })
   return (
     <div className="atom-shell">
       <section className="atom-hero grid-bg" aria-label="Revenue atom">
+        <div className="atom-hero-copy">{children}</div>
         <div className="atom-hero-frame">
           <RevenueValence focusId={focusId} onFocus={setFocusId} />
           <div className="hero-side-label">
@@ -78,7 +87,8 @@ export default function ValenceExperience({ children }: { children: ReactNode })
       </section>
 
       <section className="atom-copy-module grid-bg" ref={copyRef}>
-        <section className="home-hero home-hero-atom">{children}</section>
+        {proof}
+        {trust}
         <div className="valence-chapters" id="system">
           {chapters.map((chapter) => (
             <article
