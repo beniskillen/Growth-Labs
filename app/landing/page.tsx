@@ -7,8 +7,8 @@ import {
   Eyebrow,
   SectionHeading,
   SiteFrame,
+  TrustBar,
 } from "../components";
-import { trustBrands } from "../brand";
 
 const method = [
   ["01", "Discover", "Using our data backed business intelligence process we get an overview of the business."],
@@ -122,28 +122,7 @@ export default function LandingPage() {
         <div className="hero-side-label">MOVE TO FOCUS / CLICK TO RESOLVE</div>
       </section>
 
-      <section className="trust-bar" aria-label="Brands Ben has worked with">
-        <p>BRANDS I&apos;VE WORKED WITH ACROSS 7+ INDUSTRIES</p>
-        <div className="trust-marquee">
-          <div className="trust-track">
-            {[0, 1].map((group) => (
-              <div
-                className="trust-group"
-                aria-hidden={group === 1}
-                key={group}
-              >
-                {trustBrands.map((brand) => (
-                  <img
-                    src={brand.src}
-                    alt={group === 0 ? brand.name : ""}
-                    key={brand.name}
-                  />
-                ))}
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <TrustBar caption="BRANDS I'VE WORKED WITH ACROSS 7+ INDUSTRIES" />
 
       <section className="metrics-section grid-bg" id="metrics">
         <div className="metrics-intro">

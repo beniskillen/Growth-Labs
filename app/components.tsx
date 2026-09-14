@@ -1,5 +1,6 @@
 import Link from "next/link";
 import type { ReactNode } from "react";
+import { trustBrands } from "./brand";
 
 export const AUDIT_URL =
   "https://calendar.notion.so/meet/beniskillen/30min";
@@ -23,16 +24,18 @@ export function Wordmark() {
   );
 }
 
-export function SiteHeader() {
+export function SiteHeader({ conversion = false }: { conversion?: boolean }) {
   return (
-    <header className="site-header">
+    <header className={`site-header${conversion ? " site-header-conversion" : ""}`}>
       <Wordmark />
-      <nav className="site-nav" aria-label="Main navigation">
-        <Link href="/#services">Services</Link>
-        <Link href="/partners">Partners</Link>
-        <Link href="/solutions">Solutions</Link>
-        <Link href="/about">About</Link>
-      </nav>
+      {conversion ? null : (
+        <nav className="site-nav" aria-label="Main navigation">
+          <Link href="/work/mtp-health">Work</Link>
+          <Link href="/partners">Partners</Link>
+          <Link href="/solutions">Solutions</Link>
+          <Link href="/about">About</Link>
+        </nav>
+      )}
       <a className="button button-small" href={AUDIT_URL} target="_blank" rel="noreferrer">
         <span>Get a growth strategy</span>
       </a>
@@ -122,21 +125,23 @@ export function PageHero({
   );
 }
 
-export function Footer() {
+export function Footer({ conversion = false }: { conversion?: boolean }) {
   return (
-    <footer className="footer">
+    <footer className={`footer${conversion ? " footer-conversion" : ""}`}>
       <div>
         <Wordmark />
         <p>Engineering revenue systems from first principles.</p>
       </div>
-      <nav aria-label="Footer navigation">
-        <Link href="/#services">Services</Link>
-        <Link href="/partners">Partners</Link>
-        <Link href="/solutions">Solutions</Link>
-        <Link href="/about">About</Link>
-        <Link href="/landing">Operator landing</Link>
-        <Link href="/audit">AI Leverage Audit</Link>
-      </nav>
+      {conversion ? null : (
+        <nav aria-label="Footer navigation">
+          <Link href="/work/mtp-health">Work</Link>
+          <Link href="/partners">Partners</Link>
+          <Link href="/solutions">Solutions</Link>
+          <Link href="/about">About</Link>
+          <Link href="/landing">Operator landing</Link>
+          <Link href="/audit">AI Leverage Audit</Link>
+        </nav>
+      )}
       <div className="footer-meta">
         <span>© {new Date().getFullYear()} Growth Labs</span>
         <span>Systems, not theatre.</span>
@@ -145,12 +150,52 @@ export function Footer() {
   );
 }
 
-export function SiteFrame({ children }: { children: ReactNode }) {
+export function TrustBar({
+  caption,
+  children,
+}: {
+  caption: ReactNode;
+  children?: ReactNode;
+}) {
+  return (
+    <section className="trust-bar" aria-label="Brands Ben has worked with">
+      <p>{caption}</p>
+      <div className="trust-marquee">
+        <div className="trust-track">
+          {[0, 1].map((group) => (
+            <div
+              className="trust-group"
+              aria-hidden={group === 1}
+              key={group}
+            >
+              {trustBrands.map((brand) => (
+                <img
+                  src={brand.src}
+                  alt={group === 0 ? brand.name : ""}
+                  key={`${group}-${brand.name}`}
+                />
+              ))}
+            </div>
+          ))}
+        </div>
+      </div>
+      {children}
+    </section>
+  );
+}
+
+export function SiteFrame({
+  children,
+  conversion = false,
+}: {
+  children: ReactNode;
+  conversion?: boolean;
+}) {
   return (
     <>
-      <SiteHeader />
+      <SiteHeader conversion={conversion} />
       <main>{children}</main>
-      <Footer />
+      <Footer conversion={conversion} />
     </>
   );
 }

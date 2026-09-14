@@ -105,7 +105,7 @@ export type ValenceMetricId = (typeof valenceMetrics)[number]["id"] | "tam" | "r
 export const services = [
   {
     code: "01 / B2C",
-    href: "/#b2c",
+    href: "/system#b2c",
     id: "b2c",
     title: "B2C marketing",
     fit: "Consumer, creator and community brands.",
@@ -113,7 +113,7 @@ export const services = [
   },
   {
     code: "02 / B2B",
-    href: "/#b2b",
+    href: "/system#b2b",
     id: "b2b",
     title: "B2B marketing",
     fit: "Founder-led service and pipeline businesses.",
@@ -121,7 +121,7 @@ export const services = [
   },
   {
     code: "03 / CONSULTING",
-    href: "/#consulting",
+    href: "/system#consulting",
     id: "consulting",
     title: "Growth consulting",
     fit: "Operators who need the constraint named.",

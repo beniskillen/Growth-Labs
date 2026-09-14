@@ -29,36 +29,39 @@ async function render(path = "/") {
   );
 }
 
-test("server-renders the Growth Labs home page with the revenue atom", async () => {
+test("server-renders the Category King home page", async () => {
   const response = await render("/");
   assert.equal(response.status, 200);
   assert.match(response.headers.get("content-type") ?? "", /^text\/html\b/i);
 
   const html = await response.text();
   assert.match(html, /Growth Labs/i);
+  assert.match(html, /Add \$10,000 to your bottom line/i);
+  assert.match(html, /BOOK A STRATEGY SESSION/);
+  assert.match(html, /Category King System/);
+  assert.match(html, /MTP Health/);
+  assert.match(html, /This illustration is the MTP Health install/);
+  assert.match(html, /href="\/work\/mtp-health"/);
+  assert.doesNotMatch(html, />Partners</);
+  assert.doesNotMatch(html, />Solutions</);
+  assert.doesNotMatch(html, />About</);
+  assert.doesNotMatch(html, /href="\/partners"/);
+  assert.doesNotMatch(html, /href="\/solutions"/);
+  assert.doesNotMatch(html, /href="\/about"/);
+  assert.doesNotMatch(html, /href="\/audit"/);
+  assert.doesNotMatch(html, /href="\/landing"/);
+  assert.doesNotMatch(html, developmentPreviewMeta);
+});
+
+test("keeps the revenue-atom homepage hidden at /system", async () => {
+  const response = await render("/system");
+  assert.equal(response.status, 200);
+  const html = await response.text();
   assert.match(html, /We engineer/i);
   assert.match(html, /revenue systems/i);
-  assert.match(html, /first principles/i);
   assert.match(html, /atom-hero/);
-  assert.match(html, /atom-hero-copy/);
   assert.match(html, /CLICK THE ATOM TO REVEAL BRANDS/);
-  assert.match(html, />brand</);
-  assert.match(html, />TAM</);
-  assert.match(html, /your potential/i);
-  assert.match(html, /Impressions/);
-  assert.match(html, /CTR %/);
-  assert.match(html, /Page CVR %/);
-  assert.match(html, /B2C marketing/);
-  assert.match(html, /B2B marketing/);
-  assert.match(html, /Growth consulting/);
-  assert.match(html, /Custom engineering/);
-  assert.match(html, /AI Powered/);
-  assert.match(html, /atom-copy-module/);
-  assert.match(html, /Your brand sits in the centre/);
-  assert.doesNotMatch(html, developmentPreviewMeta);
-  assert.doesNotMatch(html, /data-studio="on"/);
-  assert.doesNotMatch(html, /Click any line to edit/);
-  assert.doesNotMatch(html, /Exit studio/);
+  assert.match(html, /noindex/);
 });
 
 test("serves the studio gate without indexing it as marketing copy", async () => {
@@ -76,6 +79,16 @@ test("server-renders the partners page with AI Powered", async () => {
   assert.match(html, /Partner bench/i);
   assert.match(html, /AI Powered/);
   assert.match(html, /aipowered\.xyz/);
+});
+
+test("server-renders the MTP Health flagship case study", async () => {
+  const response = await render("/work/mtp-health");
+  assert.equal(response.status, 200);
+  const html = await response.text();
+  assert.match(html, /The Knee Program/);
+  assert.match(html, /30% YOY/);
+  assert.match(html, /North Shore Health Hub/);
+  assert.match(html, /href="\/work\/mtp-health"/);
 });
 
 test("keeps the original operator landing with the particle portrait", async () => {

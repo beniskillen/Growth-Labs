@@ -23,6 +23,11 @@ const nextConfig: NextConfig = {
           destination: "/:path*",
           permanent: false,
         },
+        {
+          source: "/offer",
+          destination: "/",
+          permanent: false,
+        },
       ],
 };
 
