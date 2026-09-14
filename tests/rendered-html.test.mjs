@@ -44,7 +44,8 @@ test("server-renders the Category King home page", async () => {
   assert.match(html, /illustrative purposes as an aggregate/);
   assert.match(html, /href="\/work\/mtp-health"/);
   assert.match(html, /aria-label="Footer navigation"/);
-  assert.doesNotMatch(html, /This illustration is the MTP Health install/);
+  assert.match(html, /FLAGSHIP CASE/);
+  assert.match(html, /The real allied health example/);
   assert.doesNotMatch(html, />Partners</);
   assert.doesNotMatch(html, />Solutions</);
   assert.doesNotMatch(html, />About</);
@@ -89,7 +90,8 @@ test("server-renders the MTP Health flagship case study", async () => {
   assert.equal(response.status, 200);
   const html = await response.text();
   assert.match(html, /The Knee Program/);
-  assert.match(html, /30% YOY/);
+  assert.match(html, /Consistent monthly profits/);
+  assert.doesNotMatch(html, /30% YOY/);
   assert.match(html, /North Shore Health Hub/);
   assert.match(html, /These exact numbers are not those of MTP Health/);
   assert.match(html, /href="\/work\/mtp-health"/);

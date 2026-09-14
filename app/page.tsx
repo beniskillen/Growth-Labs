@@ -371,9 +371,6 @@ export default function OfferPage() {
           <p className="offer-caveat offer-illustration-note">
             <strong>Note:</strong> {illustrationNumbersNote}
           </p>
-          <div id="work">
-            <MtpCaseFeature />
-          </div>
           <div className="offer-compare-wrap">
             <table className="offer-compare">
               <thead>
@@ -408,9 +405,19 @@ export default function OfferPage() {
         </div>
       </section>
 
-      <section className="section offer-section">
+      <section className="section offer-section" id="work">
         <SectionHeading
           number="06"
+          eyebrow="FLAGSHIP CASE"
+          title="The real allied health example."
+          copy="Same clinicians. A named category. A system that could hold paid traffic."
+        />
+        <MtpCaseFeature />
+      </section>
+
+      <section className="section offer-section">
+        <SectionHeading
+          number="07"
           eyebrow="THE OFFER"
           title="$10,000 to your bottom line in 30 days. Or you don't pay."
         />
@@ -459,7 +466,7 @@ export default function OfferPage() {
       </section>
 
       <section className="offer-guarantee grid-bg">
-        <span className="section-index">§07</span>
+        <span className="section-index">§08</span>
         <Eyebrow>THE GUARANTEE</Eyebrow>
         <h2>Miss, and you owe nothing.</h2>
         <p>
@@ -469,7 +476,7 @@ export default function OfferPage() {
 
       <section className="section offer-section">
         <SectionHeading
-          number="08"
+          number="09"
           eyebrow="WHO IT'S FOR"
           title="Category kings only. Not marginal gains."
         />
@@ -495,7 +502,7 @@ export default function OfferPage() {
 
       <section className="section offer-section">
         <header className="section-heading">
-          <div className="section-index">§09</div>
+          <div className="section-index">§10</div>
           <div>
             <Eyebrow>WHO&apos;S BEHIND IT</Eyebrow>
           </div>
@@ -522,7 +529,7 @@ export default function OfferPage() {
 
       <section className="section faq-section">
         <header className="section-heading">
-          <div className="section-index">§10</div>
+          <div className="section-index">§11</div>
           <div>
             <Eyebrow>FAQ</Eyebrow>
           </div>

@@ -3343,6 +3343,37 @@ html[data-typeface="geist"] .valence-caption {
   margin-bottom: 42px;
 }
 
+.offer-section .section-heading,
+.faq-section .section-heading {
+  max-width: 1100px;
+  width: 100%;
+  margin-inline: auto;
+}
+
+.offer-section .section-heading > div:last-child,
+.faq-section .section-heading > div:last-child {
+  max-width: none;
+}
+
+.offer-section .offer-prose,
+.offer-section .offer-chips,
+.offer-section .offer-quote,
+.offer-section .offer-definition,
+.offer-section .offer-lede,
+.offer-section .offer-scoreboard,
+.offer-section .offer-statement,
+.offer-section .offer-funnel-svg,
+.offer-section .offer-illustration-note,
+.offer-section .offer-example > p,
+.offer-section .offer-rule {
+  width: 100%;
+  margin-inline: auto;
+}
+
+.offer-section .button-row {
+  justify-content: center;
+}
+
 .offer-prose {
   max-width: 780px;
 }
@@ -3367,7 +3398,7 @@ html[data-typeface="geist"] .valence-caption {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   max-width: 780px;
-  margin: 36px 0 48px;
+  margin: 36px auto 48px;
   border-top: 1px solid var(--line);
   border-left: 1px solid var(--line);
 }
@@ -3383,7 +3414,7 @@ html[data-typeface="geist"] .valence-caption {
 
 .offer-quote {
   max-width: 900px;
-  margin: 48px 0;
+  margin: 48px auto;
   padding: 28px 0 28px 28px;
   border-left: 2px solid var(--signal);
   color: var(--paper);
@@ -3408,7 +3439,7 @@ html[data-typeface="geist"] .valence-caption {
 
 .offer-definition {
   max-width: 900px;
-  margin: 72px 0 64px;
+  margin: 72px auto 64px;
   padding-top: 48px;
   border-top: 1px solid var(--line);
 }
@@ -3423,7 +3454,7 @@ html[data-typeface="geist"] .valence-caption {
 
 .offer-lede {
   max-width: 780px;
-  margin: 0 0 36px;
+  margin: 0 auto 36px;
   color: var(--paper);
   font-size: 20px;
   letter-spacing: -0.02em;
@@ -3497,12 +3528,12 @@ html[data-typeface="geist"] .valence-caption {
 .offer-rule {
   display: grid;
   gap: 18px;
-  margin-left: 0;
+  max-width: 1020px;
 }
 
 .offer-scoreboard {
   max-width: 900px;
-  margin: 72px 0 48px;
+  margin: 72px auto 48px;
 }
 
 .offer-scoreboard ol {
@@ -3548,7 +3579,7 @@ html[data-typeface="geist"] .valence-caption {
 
 .offer-statement {
   max-width: 1040px;
-  margin: 72px 0 0;
+  margin: 72px auto 0;
   font-size: clamp(32px, 4vw, 58px);
   font-weight: 500;
   letter-spacing: -0.045em;
@@ -3601,7 +3632,7 @@ html[data-typeface="geist"] .valence-caption {
 
 .offer-example > p {
   max-width: 780px;
-  margin: 0 0 36px;
+  margin: 0 auto 36px;
   color: #b6bac1;
   font-size: 18px;
   line-height: 1.65;
@@ -3609,16 +3640,12 @@ html[data-typeface="geist"] .valence-caption {
 
 .offer-funnel-svg {
   max-width: 900px;
-  margin: 0 0 28px;
+  margin: 0 auto 28px;
 }
 
 .offer-illustration-note {
   max-width: 780px;
-  margin: 0 0 48px !important;
-}
-
-.offer-example .case-feature {
-  margin: 0 0 56px;
+  margin: 0 auto 48px !important;
 }
 
 .offer-compare-wrap {

@@ -3,17 +3,17 @@ export const card = {
   title: "MTP Health — Own the specialised knee category",
   oneLiner:
     "First Head of Growth seat: turned specialised exercise delivery into a category offer with commercial systems underneath — so demand pulled instead of being pushed.",
-  proof: "30% YOY revenue · The Knee Program as wedge · chose its demand",
+  proof: "Consistent monthly profits · Predictable revenue · The Knee Program as wedge",
   cta: "Read the case study",
 } as const;
 
 export const hero = {
   eyebrow: "Flagship case · Category King System",
-  titleBefore: "30% YOY.",
-  titleEm: "The Knee Program.",
+  titleBefore: "Consistent monthly profits.",
+  titleEm: "Predictable revenue.",
   lead: "This is the allied health example. Same clinicians. A named category. A system that could hold paid traffic.",
   proof: [
-    ["30% YOY", "Revenue during Head of Growth tenure"],
+    ["Consistent monthly profits", "Predictable revenue during Head of Growth tenure"],
     ["The Knee Program", "Named wedge for knee pain and OA"],
     ["Chose its demand", "Gym referrals deprioritised"],
     ["2019–2022", "Head of Growth seat (roles from 2018)"],
@@ -31,7 +31,7 @@ export const snapshot = {
     {
       metric: "Revenue / value",
       before: "Baseline practice growth — break-even",
-      after: "30% YOY during tenure",
+      after: "Consistent monthly profits and predictable revenue",
     },
     {
       metric: "Operating load",
@@ -100,7 +100,7 @@ export const categoryLayers = [
     "The Knee Program — specialised exercise to relieve pain, avoid surgery, stay active",
   ],
   ["One funnel / channel stack", "Marketing + sales + referral networks + stakeholder BD"],
-  ["One number", "Revenue growth YOY under the Head of Growth system"],
+  ["One number", "Consistent monthly profits and predictable revenue under the Head of Growth system"],
 ] as const;
 
 export const thesis = {
@@ -192,7 +192,7 @@ export const comparison: [string, string, string][] = [
   [
     "Public result",
     "Break-even generalist.",
-    "30% YOY during Head of Growth tenure.",
+    "Consistent monthly profits and predictable revenue during Head of Growth tenure.",
   ],
 ];
 
@@ -232,7 +232,7 @@ export const lessons = [
 ] as const;
 
 export const results = [
-  "30% increase in revenue YOY (LinkedIn / CV)",
+  "Consistent monthly profits and predictable revenue during Head of Growth tenure",
   "Multi-year infrastructure build in a regulated health environment",
   "Career proof that Category King works outside pure digital and crypto lanes",
   "From founder-as-pipeline to a specialised practice that still leads with knee and hip in 2026",
@@ -276,7 +276,7 @@ export const inputs = {
   roles:
     "Ben owned growth strategy and execution across marketing, sales and relationship BD. The clinician owned the program and fulfilment.",
   hours: "Full Head of Growth seat over a multi-year tenure",
-  kpi: "Category ownership + growth system → no longer demand constrained → 30% YOY revenue + multi-location specialised practice",
+  kpi: "Category ownership + growth system → no longer demand constrained → consistent monthly profits, predictable revenue, and a multi-location specialised practice",
 } as const;
 
 export const illustrationNumbersNote =

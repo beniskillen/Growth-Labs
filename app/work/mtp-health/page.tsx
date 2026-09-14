@@ -31,7 +31,7 @@ import { ReferralPath } from "./diagrams";
 export const metadata = {
   title: "MTP Health — Own the specialised knee category",
   description:
-    "First Head of Growth seat at MTP Health: 30% YOY by owning specialised knee/OA delivery through The Knee Program. The real allied health example behind the Category King System.",
+    "First Head of Growth seat at MTP Health: consistent monthly profits and predictable revenue by owning specialised knee/OA delivery through The Knee Program. The real allied health example behind the Category King System.",
 };
 
 function StrategyButton() {
@@ -257,7 +257,7 @@ export default function MtpHealthCase() {
               <strong>The read:</strong> they could turn away gym referrals. Choosing demand is Gate 2. ~30% assessment-to-program is the Category King close rate, not a gym-pack close rate.
             </p>
             <p className="offer-caveat">
-              <strong>Caveat:</strong> MTP’s public proof is 30% YOY, always-on ads at ~20% into larger offerings, and the ability to choose demand. The 1,000-click funnel diagram above is the same illustrative aggregate shown on the Category King page, not MTP’s operating numbers.
+              <strong>Caveat:</strong> MTP’s public proof is consistent monthly profits and predictable revenue, always-on ads at ~20% into larger offerings, and the ability to choose demand. The 1,000-click funnel diagram above is the same illustrative aggregate shown on the Category King page, not MTP’s operating numbers.
             </p>
           </div>
         </div>
@@ -295,7 +295,7 @@ export default function MtpHealthCase() {
         <SectionHeading
           number="07"
           eyebrow="RESULTS"
-          title="30% YOY. Then the category kept compounding."
+          title="Consistent monthly profits. Then the category kept compounding."
         />
         <div className="work-result-list">
           {results.map((item, index) => (
