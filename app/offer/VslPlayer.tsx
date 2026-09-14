@@ -57,8 +57,8 @@ export default function VslPlayer() {
         )}
       </div>
       <figcaption>
-        <span>VSL_01 / CATEGORY KING SYSTEM</span>
-        <span>16:9 / STRATEGY SESSION</span>
+        <span>HOW IT WORKS</span>
+        <span>CATEGORY KINGS SYSTEM</span>
       </figcaption>
     </figure>
   );

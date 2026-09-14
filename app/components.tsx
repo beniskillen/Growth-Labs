@@ -3,7 +3,7 @@ import type { ReactNode } from "react";
 import { trustBrands } from "./brand";
 
 export const AUDIT_URL =
-  "https://calendar.notion.so/meet/beniskillen/30min";
+  "https://calendly.com/ben_killen/growth_strategy";
 
 export function Mark() {
   return (
@@ -146,7 +146,7 @@ export function Footer({ conversion = false }: { conversion?: boolean }) {
       </nav>
       <div className="footer-meta">
         <span>© {new Date().getFullYear()} Growth Labs</span>
-        <span>Systems, not theatre.</span>
+        <span>Growth focused marketing</span>
       </div>
     </footer>
   );

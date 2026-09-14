@@ -398,9 +398,6 @@ export default function OfferPage() {
             <p>
               <strong>The read:</strong> the standard offer can only work on warm, cheap, hand-held traffic, because its customer acquisition cost is higher than what the customer pays in 30 days <strong>and</strong> higher than their lifetime value. The Category King offer generates enough 30-day cash to cover acquisition, so it can scale on cold traffic and paid ads.
             </p>
-            <p className="offer-caveat">
-              <strong>Caveat:</strong> highly industry specific. {illustrationNumbersNote} These conversion rates, cash values, MRR, CACs and ad spend are a simplified illustration of how the funnel maths behaves, not a promise of results for any individual business. Monthly Revenue and MRR assume 1,000 paid clicks per month; ad spend assumes a $50 CPM with the CTR in each column. They exist to show what a category king offering allows for.
-            </p>
           </div>
         </div>
       </section>
