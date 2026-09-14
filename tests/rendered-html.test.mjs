@@ -39,6 +39,10 @@ test("server-renders the Category King home page", async () => {
   assert.match(html, /Add \$10,000 to your bottom line/i);
   assert.match(html, /BOOK A STRATEGY SESSION/);
   assert.match(html, /Category King System/);
+  assert.match(
+    html,
+    /loom\.com\/embed\/1eeacffedf21496e94326b6becd645fc\?autoplay=1/,
+  );
   assert.match(html, /MTP Health/);
   assert.match(html, /These exact numbers are not those of MTP Health/);
   assert.match(html, /illustrative purposes as an aggregate/);
