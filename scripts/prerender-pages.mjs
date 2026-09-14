@@ -12,6 +12,8 @@ const routes = [
   "/partners",
   "/solutions",
   "/studio",
+  "/system",
+  "/work/mtp-health",
 ];
 const rewriteExt = new Set([".html", ".js", ".css", ".svg", ".txt", ".json", ".xml"]);
 
@@ -32,6 +34,12 @@ function withBase(content) {
     .replaceAll('href="/partners/', `href="${base}/partners/`)
     .replaceAll('src="/partners/', `src="${base}/partners/`)
     .replaceAll('"/partners/', `"${base}/partners/`)
+    .replaceAll('href="/work/', `href="${base}/work/`)
+    .replaceAll('src="/work/', `src="${base}/work/`)
+    .replaceAll('"/work/', `"${base}/work/`)
+    .replaceAll('href="/offer/', `href="${base}/offer/`)
+    .replaceAll('src="/offer/', `src="${base}/offer/`)
+    .replaceAll('"/offer/', `"${base}/offer/`)
     .replaceAll('href="/ben-', `href="${base}/ben-`)
     .replaceAll('src="/ben-', `src="${base}/ben-`)
     .replaceAll('"/ben-', `"${base}/ben-`)
