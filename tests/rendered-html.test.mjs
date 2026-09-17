@@ -49,7 +49,7 @@ test("server-renders the Category King home page", async () => {
   assert.match(html, /href="\/work\/mtp-health"/);
   assert.match(html, /aria-label="Footer navigation"/);
   assert.match(html, /FLAGSHIP CASE/);
-  assert.match(html, /The real allied health example/);
+  assert.match(html, /MTP Health - From breaking even to multiple clinics/);
   assert.doesNotMatch(html, />Partners</);
   assert.doesNotMatch(html, />Solutions</);
   assert.doesNotMatch(html, />About</);

@@ -406,8 +406,8 @@ export default function OfferPage() {
         <SectionHeading
           number="06"
           eyebrow="FLAGSHIP CASE"
-          title="The real allied health example."
-          copy="Same clinicians. A named category. A system that could hold paid traffic."
+          title="MTP Health - From breaking even to multiple clinics & world leading service"
+          copy="MTP Health illustrates the perfect example of what becoming a Category King by looking at real market data looks like. In an iterative process, we looked at the most valuable customers they consistently had coming through the door to analyse their entire journey from start to finish. This allowed for strategic business decisions to be made, which ultimately lead to creating a world leading service for Knee rehabilitation that is at the cutting edge of results & evidence based treatment. This change allowed MTP to skyrocket it's customer LTV & scale the entire business to multiple clinics with a streamlined model that was scalable."
         />
         <MtpCaseFeature />
       </section>
