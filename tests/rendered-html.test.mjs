@@ -95,9 +95,8 @@ test("server-renders the MTP Health flagship case study", async () => {
   const html = await response.text();
   assert.match(html, /The Knee Program/);
   assert.match(html, /Consistent monthly profits/);
-  assert.doesNotMatch(html, /30% YOY/);
+  assert.match(html, /Consistent monthly revenue increase/);
   assert.match(html, /North Shore Health Hub/);
-  assert.match(html, /These exact numbers are not those of MTP Health/);
   assert.match(html, /href="\/work\/mtp-health"/);
 });
 

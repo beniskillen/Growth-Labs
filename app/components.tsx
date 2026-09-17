@@ -65,7 +65,7 @@ export function SectionHeading({
 }) {
   return (
     <header className="section-heading">
-      <div className="section-index">§{number}</div>
+      <div className="section-index">_{number}</div>
       <div>
         <Eyebrow>{eyebrow}</Eyebrow>
         <h2>{title}</h2>
@@ -189,14 +189,16 @@ export function TrustBar({
 export function SiteFrame({
   children,
   conversion = false,
+  className,
 }: {
   children: ReactNode;
   conversion?: boolean;
+  className?: string;
 }) {
   return (
     <>
       <SiteHeader conversion={conversion} />
-      <main>{children}</main>
+      <main className={className}>{children}</main>
       <Footer conversion={conversion} />
     </>
   );

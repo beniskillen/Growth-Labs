@@ -9,14 +9,14 @@ export const card = {
 
 export const hero = {
   eyebrow: "Flagship case · Category King System",
-  titleBefore: "Consistent monthly profits.",
-  titleEm: "Predictable revenue.",
-  lead: "This is the allied health example. Same clinicians. A named category. A system that could hold paid traffic.",
+  titleBefore: "From breaking even to multiple clinics and a",
+  titleEm: "world-leading knee program.",
+  lead: "Same clinician. Same craft and team behind it. MTP Health was able to listen to its market, engineering the entire customer journey to solve a core problem for its primary avatar better than anyone else. This allowed MTP to stop chasing demand and start choosing it.",
   proof: [
     ["Consistent monthly profits", "Predictable revenue during Head of Growth tenure"],
-    ["The Knee Program", "Named wedge for knee pain and OA"],
-    ["Chose its demand", "Gym referrals deprioritised"],
-    ["2019–2022", "Head of Growth seat (roles from 2018)"],
+    ["One flagship model", "The Knee Program — allowing for a +300% increase in avg. customer LTV"],
+    ["Demand allowing for scale", "Clarity on where to invest for growth"],
+    ["Over 3 new clinics", "On the back of the new category king positioning and systemisation"],
   ] as const,
 } as const;
 
@@ -27,22 +27,17 @@ export const snapshot = {
     {
       metric: "Primary KPI",
       before: "General exercise/rehab positioning risk",
-      after: "Named SOM: knee pain and OA, 40s–60s",
+      after: "Named category with proven demand from actual pipeline analysed in their own database: Knee pain and OA in patients between 40–60",
     },
     {
       metric: "Revenue / value",
       before: "Baseline practice growth — break-even",
-      after: "Consistent monthly profits and predictable revenue",
+      after: "Consistent monthly profits and predictable revenue. Proven offer for scale with the ability to invest with clarity for growth.",
     },
     {
       metric: "Operating load",
       before: "Fragmented marketing/sales/networks. Owner as pipeline.",
-      after: "Owner could leave the floor. Demand chosen, not chased.",
-    },
-    {
-      metric: "Timeframe",
-      before: "2019–2022 Head of Growth (roles from 2018)",
-      after: "Career proof. Not a 2026 client engagement.",
+      after: "Owner could leave the floor progressively. Confidence that the team could execute and upskill itself over time.",
     },
   ],
 } as const;
@@ -51,13 +46,13 @@ export const challenge = {
   eyebrow: "THE CHALLENGE",
   title: "Allied health is crowded with general rehab and gym-adjacent offerings.",
   copy: [
-    "Without a sharp category, MTP risks competing on location and personality instead of becoming the obvious specialised choice for knee pain and osteoarthritis prevention.",
-    "That is the same line as the Category King System: you are not under-marketed. You are under-measured. The constraint was identity, not more ads.",
+    "Without a sharp category, MTP was competing on location and the reputation of each individual person within the business. Instead of MTP being known for its incredible ability to get results as a business, each practitioner was their own product.",
+    "This presented in 3 key areas that made it difficult for the business to reliably grow and scale.",
   ],
   bullets: [
-    "Two avatars, one generic line (“improve the way you move”) — CrossFit athlete and knee-pain patient. Nobody’s obvious choice.",
-    "The owner was the pipeline: 10-hour clinic days, break-even, hard to hire. That is demand-constrained by identity, not by spend.",
-    "~20% of people over 40 have knee problems. Big enough to own. Narrow enough to be obvious.",
+    "With two very different primary client bases: 1) CrossFit athletes 20–40 looking to be free from injury and 2) chronic pain and injury clients 40–60 needing dedicated care — fulfilment was reliant on individual ability within the team, as opposed to one clear model of delivery.",
+    "With a large amount of business coming through people specifically wanting to see Luke personally, 10 hour in-clinic days became the standard. Everything else required to grow and scale had to happen outside of this, requiring massive work weeks.",
+    "Due to most new customers coming through to see a specific person, based on prior reputation: hiring and maintaining a standard of delivery was challenging. This was a clear hurdle limiting consistency and growth.",
   ],
 } as const;
 
@@ -65,32 +60,32 @@ export const leaks = [
   {
     number: "01",
     title: "Advertising leak",
-    body: "The owner was the pipeline. The specialised offer was not in market enough. Impressions of The Knee Program were whatever the founder could push in a day.",
-    metric: "Owner as the channel",
+    body: "Referrals were strong, however the owner was the main pipeline. Their most valuable offer wasn't getting an impressions. By looking at the source of these clients, we had our first clear acquisition channel.",
+    metric: "No measured impressions on highest value offer",
   },
   {
     number: "02",
     title: "Interest leak",
-    body: "“Improve the way you move” made nobody the obvious choice. Two patient avatars, one generic line. The offer was not attractive because it was not specific.",
-    metric: "Generic positioning",
+    body: "“Improve the way you move” was good as a brand slogan, but not for a primary market offering. A shift to clear outcomes with the offer, specificity around who MTP was for & a strategy to find customers where there attention lived allowed for clear data to track interest.",
+    metric: "Generic positioning made interest challenging to track",
   },
   {
     number: "03",
     title: "Opt-in leak",
-    body: "The 12-week program is a real commitment. The path in was a free assessment and a content journey — value before the ask, not sex on the first date.",
-    metric: "Assessment before the program",
+    body: "Making an initial consultation process that allowed customers to feel why MTP was different allowed for significantly greater opt ins, at a point where customer drop off is typically high.",
+    metric: "Large upfront commitment",
   },
   {
     number: "04",
     title: "Sales action leak",
-    body: "The assessment was the conversion mechanism. Roughly 30% of the right people moved into the larger offering — the Category King close rate, not a gym-pack close rate.",
-    metric: "~30% into the program",
+    body: "Customers would come in for a one off consultation & expect a fix in 1-2 sessions. With the new framing, they knew there was a long term process involved, with options to meet them where they are at. This made the clinicians job of selling significantly easier as they could prescribe instead of trying to sell.",
+    metric: "No clear backend sales process",
   },
   {
     number: "05",
     title: "LTV leak",
-    body: "Data named the highest-lifetime-value customers and the channels they came from. Gym and CrossFit referrals were deprioritised. The clinic started choosing demand.",
-    metric: "LTV by channel, then choose",
+    body: "CRM data showed a clear pattern. Patients with chronic issues such as Knee Osteoarthritis had almost a 1000% higher customer value and stronger reviews and referrals than other segments.",
+    metric: "Large variance in customer LTV",
   },
 ] as const;
 
@@ -107,10 +102,6 @@ export const categoryLayers = [
 export const thesis = {
   eyebrow: "THE THESIS",
   title: "MTP was never short of a market. It was a generalist trying to be two businesses at once.",
-  copy: [
-    "Roughly 20% of people over 40 deal with knee-related problems. The constraint was never demand in aggregate. It was that MTP was competing on location and personality instead of being the obvious choice for one specific problem.",
-    "A generalist is demand constrained by definition: it has to win every conversation from scratch. A category owner gets pulled into conversations it never started. The Category King arc is the process of moving from the first state to the second. This is that process, as it actually ran at MTP.",
-  ],
 } as const;
 
 export const moves = [
@@ -119,9 +110,7 @@ export const moves = [
     step: "Step 01 — Get clear on what’s really going on",
     title: "Diagnose the real constraint (not more marketing)",
     copy: [
-      "The business was built around a genuinely talented clinician, a former CrossFit Games competitor, with strong referrals from the CrossFit community. Two patient avatars were emerging: the CrossFit athlete (late 20s to mid 30s) and the knee problem patient (40s to 60s). The brand was trying to serve both with a generic “improve the way you move” positioning.",
-      "The result was a business breaking even, an owner working 10 hours a day inside the clinic while also running the business, and constant struggle to hire and train staff. That is the classic demand-constrained generalist profile: the owner is the pipeline, and the pipeline moves only when the owner pushes it.",
-      "The first move was to stop treating this as a marketing problem and name the actual constraint: identity. A generalist cannot be the obvious choice for anyone.",
+      "The data was clear, limited impressions to their most valuable offering. What was needed was a complete system to make the clinic an asset, not just the founder.",
     ],
   },
   {
@@ -129,9 +118,7 @@ export const moves = [
     step: "Step 02 — Unplug the constraint on people you already own",
     title: "Name the category",
     copy: [
-      "The clinic evolved from “improve the way you move” to a highly specialised orthopedic assistance program, with the ambition to be the leading such program globally. The named offer became The Knee Program: specialised exercise to relieve pain, avoid surgery and stay active.",
-      "The market maths made the lane real. Roughly 20% of people over 40 struggle with knee-related issues. Big enough to own, narrow enough to be the obvious choice within.",
-      "The first test was not new traffic. It was the specialised offer in front of the referrals and word-of-mouth the clinic already owned.",
+      "This was a 2 folded approach. MTP had a strong customer base. We went out to those customers, letting them know about our specialist offering. We also went out to our referral network of medical & allied health practitioners to let them know about our specialisation. The outcome was immediate signal that our offering was right for the market.",
     ],
   },
   {
@@ -139,8 +126,7 @@ export const moves = [
     step: "The offer that can scale",
     title: "Define the mechanism and the fulfilment",
     copy: [
-      "The specialisation was not a marketing claim. It ran all the way through fulfilment: specific equipment, integration with surgeons and sports medicine practices, and a clinic inside a hospital precinct.",
-      "The category was backed by delivery, which is what made it defensible. A slogan without fulfilment is not a category.",
+      "Once the positioning was clear, every bit about how the clinic functioned started morphing to allow for the best delivery of service for its core avatar. This meant specific equipment, assessment processes, group based offerings & thousands of other actions that drove key results in the customer journey data.",
     ],
   },
   {
@@ -148,9 +134,7 @@ export const moves = [
     step: "Steps 03–04 — Rule of 100, then iterate",
     title: "Engineer the demand system",
     copy: [
-      "Data was used to identify the highest lifetime value customers, analyse their patterns and determine which acquisition channels they came from. The core channel was word of mouth and referrals, broken down across doctors, other physios, psychologists, nutritionists and gym communities.",
-      "Gym referrals were eventually identified as a distraction from the core fulfilment model. The clinic reached the point where it could turn away or deprioritise certain customer types. That is the signature of category ownership: you get to choose your demand.",
-      "Google Ads ran as an always-on channel with roughly a 20% conversion rate into larger offerings. Marketing was understood broadly, not as ads. It was the total customer journey and every communication touchpoint.",
+      "Once it was clear that outcomes could be achieved consistently, we installed acquisition channels one by one. This included a robust referral strategy, Google ads & Meta ads where required.",
     ],
   },
   {
@@ -158,7 +142,7 @@ export const moves = [
     step: "Then — keep what works and scale it",
     title: "Let the category pull demand",
     copy: [
-      "The result was that MTP was no longer demand constrained. The business grew from breaking even to a multi-location specialised practice inside a hospital precinct, plus an online program.",
+      "Through this process of becoming a Category King, MTP was less constrained by demand. It was able to go from one clinic struggling to be consistent to a multi location practice focused on creating one of the most validated treatment pathways in the industry.",
       "It became a leading specialised orthopedic practice in its market, with a surgeon-integrated clinic at North Shore Health Hub / North Shore Private, and a research overlay through surgeon-directors.",
     ],
   },
@@ -167,81 +151,46 @@ export const moves = [
 export const comparison: [string, string, string][] = [
   [
     "Core offering",
-    "Sessions sold one by one. Generic “improve the way you move.”",
-    "The Knee Program — named 12-week outcome program, packaged in advance.",
+    "Sessions sold one by one. Generic “improve the way you move” relied on individual brilliance to drive longer term sales.",
+    "The Knee Program — a clear 12-week outcome program, packaged in advance with clear milestones & proof.",
   ],
   [
     "Who it is for",
-    "Two avatars. Nobody’s obvious choice.",
-    "Knee pain and OA. 40s to 60s. One reachable list.",
+    "Those looking for Exercise Physiology or physio services.",
+    "Knee pain and OA. 40s to 60s.",
   ],
   [
     "Sales conversion",
-    "Founder-pushed. Gym-pack close rates.",
-    "~30% assessment-to-program. The Category King close.",
+    "Relationship led. Each patient had a different sale & plan mapped out.",
+    "Outcome led. Clear path to other service lines, with multiple options to suit where the patient was at.",
   ],
   [
     "Paid traffic",
-    "Cannot hold. Owner is the pipeline.",
-    "Google Ads always-on. ~20% into larger offerings.",
+    "Tried in the past, wasn't able to get leads cheap enough to make it work.",
+    "With an > 5X increase in customer LTV and a pivot to paid in advance long term treatment, MTP had a model to scale with its paid channels.",
   ],
   [
     "Demand",
-    "Has to win every conversation from scratch.",
-    "Gets pulled into conversations it never started. Could turn gym referrals away.",
+    "Sold as a commodity. Had to win every conversation from scratch.",
+    "Became the go to choice in the local market for knee related issues, generating a strong referral reputation & digital channels.",
   ],
   [
     "Public result",
-    "Break-even generalist.",
-    "Consistent monthly profits and predictable revenue during Head of Growth tenure.",
+    "Standard one location Exercise Physiology clinic. The clinic 'down the road'.",
+    "World leading Exercise based rehab programs with multiple clinics and consistent scale.",
   ],
 ];
 
-export const gates = [
-  {
-    gate: "Gate 0 · Named SOM",
-    pass: "A written, reachable list",
-    read: "The knee problem avatar (40s to 60s) became a named, reachable list; ~20% of over-40s",
-  },
-  {
-    gate: "Gate 1 · Problem-market fit",
-    pass: "Buyers describe the same pain in the same words",
-    read: "Knee pain, avoid surgery, stay active",
-  },
-  {
-    gate: "Gate 2 · PMF",
-    pass: "Demand pulls the offer",
-    read: "The clinic could turn away or deprioritise customer types (gym referrals)",
-  },
-  {
-    gate: "Gate 3 · Language ownership",
-    pass: "Prospects repeat your mechanism",
-    read: "The Knee Program became the named mechanism",
-  },
-  {
-    gate: "Gate 4 · Share of demand",
-    pass: "You are in the deals",
-    read: "Surgeon-integrated hospital-precinct practice. Multi-location. Online program.",
-  },
-] as const;
-
-export const lessons = [
-  "The Category King pattern is not digital or crypto only. It ran in a regulated health business with clinical and advertising obligations.",
-  "The demand constraint was solved by category ownership plus a commercial system, not by buying more attention. Ads were always-on but secondary; referrals and the total customer journey carried the growth.",
-  "The leaky bucket framing holds: MTP fixed the message leak (category), the traffic leak (referrals + always-on ads), the follow-up and the LTV. Each fix compounds.",
-  "The proof that category ownership is real: the ability to choose demand. Turning away gym referrals is the strongest signal that the business stopped being demand constrained.",
-] as const;
-
 export const results = [
-  "Consistent monthly profits and predictable revenue during Head of Growth tenure",
-  "Multi-year infrastructure build in a regulated health environment",
-  "Career proof that Category King works outside pure digital and crypto lanes",
+  "Consistent monthly revenue increase & controlled scale.",
+  "Clinically provable results better than industry & research benchmarks.",
+  "Direct partnership from leading specialists in the field as strong referrers.",
   "From founder-as-pipeline to a specialised practice that still leads with knee and hip in 2026",
 ] as const;
 
 export const now = {
   eyebrow: "WHERE THEY ARE NOW",
-  title: "The category is still the business.",
+  title: "A quantum leap in business.",
   copy: [
     "This seat ran 2018–2022. The clinic kept the wedge. In 2026 MTP Health still leads with a named Knee & Hip / Restore Program: 12 weeks, proprietary functional assessment, four levels from Foundations to Performance, small-group, one-to-one and online.",
     "St Leonards sits inside North Shore Health Hub — a hospital precinct, a short walk from Royal North Shore and North Shore Private. Orthopaedic surgeons consult in the same building. Beacon Hill covers the Northern Beaches. An online program carries the offer beyond the floor.",
@@ -253,31 +202,6 @@ export const now = {
     ["Beacon Hill", "Northern Beaches clinic"],
     ["Online", "The program travels. The category is not a postcode."],
   ] as const,
-} as const;
-
-export const servicesNote =
-  "This is the seat the current offer productises. MTP did not buy today’s SKUs in 2020. The pattern is Category Kings, Demand Engine and Growth Partner-style ownership: diagnose the constraint, name the category, install the commercial system, then run it.";
-
-export const who = {
-  apply: [
-    "Allied health operators stuck as the talented clinician in the room",
-    "Multi-location practitioners still running founder sales",
-    "Regulated service businesses that keep buying attention instead of naming a category",
-  ],
-  skip: [
-    "Pre-revenue with no offer",
-    "Want marginal gains, not a named category",
-    "Want someone to run the clinic instead of installing a system",
-  ],
-} as const;
-
-export const inputs = {
-  inputs:
-    "Clinical program strength, referral network, marketing channels, sales process, data on LTV and channel attribution",
-  roles:
-    "Ben owned growth strategy and execution across marketing, sales and relationship BD. The clinician owned the program and fulfilment.",
-  hours: "Full Head of Growth seat over a multi-year tenure",
-  kpi: "Category ownership + growth system → no longer demand constrained → consistent monthly profits, predictable revenue, and a multi-location specialised practice",
 } as const;
 
 export const illustrationNumbersNote =

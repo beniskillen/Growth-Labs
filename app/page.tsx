@@ -308,7 +308,7 @@ export default function OfferPage() {
 
       <section className="section offer-section">
         <header className="section-heading">
-          <div className="section-index">§04</div>
+          <div className="section-index">_04</div>
           <div>
             <Eyebrow>BECOMING THE CEO</Eyebrow>
           </div>
@@ -463,7 +463,7 @@ export default function OfferPage() {
       </section>
 
       <section className="offer-guarantee grid-bg">
-        <span className="section-index">§08</span>
+        <span className="section-index">_08</span>
         <Eyebrow>THE GUARANTEE</Eyebrow>
         <h2>Miss, and you owe nothing.</h2>
         <p>
@@ -499,7 +499,7 @@ export default function OfferPage() {
 
       <section className="section offer-section">
         <header className="section-heading">
-          <div className="section-index">§10</div>
+          <div className="section-index">_10</div>
           <div>
             <Eyebrow>WHO&apos;S BEHIND IT</Eyebrow>
           </div>
@@ -526,7 +526,7 @@ export default function OfferPage() {
 
       <section className="section faq-section">
         <header className="section-heading">
-          <div className="section-index">§11</div>
+          <div className="section-index">_11</div>
           <div>
             <Eyebrow>FAQ</Eyebrow>
           </div>

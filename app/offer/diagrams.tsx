@@ -25,10 +25,10 @@ export function LeakSchematic() {
         </g>
       ))}
       <text x="48" y="52" fill="#8a8f98" fontSize="9" letterSpacing="0.12em" fontFamily="ui-monospace, monospace">
-        HOLD
+        AWARENESS
       </text>
       <text x="48" y="368" fill="#bbc4ff" fontSize="9" letterSpacing="0.12em" fontFamily="ui-monospace, monospace">
-        LEAK
+        ADVOCACY
       </text>
     </svg>
   );

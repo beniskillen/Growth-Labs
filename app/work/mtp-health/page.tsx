@@ -6,25 +6,18 @@ import {
   SectionHeading,
   SiteFrame,
 } from "../../components";
-import { DualFunnel, LeakSchematic } from "../../offer/diagrams";
+import { LeakSchematic } from "../../offer/diagrams";
 import {
-  card,
   categoryLayers,
   challenge,
   comparison,
-  gates,
   hero,
-  illustrationNumbersNote,
-  inputs,
   leaks,
-  lessons,
   moves,
   now,
   results,
-  servicesNote,
   snapshot,
   thesis,
-  who,
 } from "./copy";
 import { ReferralPath } from "./diagrams";
 
@@ -40,7 +33,7 @@ function StrategyButton() {
 
 export default function MtpHealthCase() {
   return (
-    <SiteFrame>
+    <SiteFrame className="work-page">
       <section className="work-hero grid-bg">
         <div className="work-hero-copy">
           <Eyebrow>{hero.eyebrow}</Eyebrow>
@@ -48,7 +41,6 @@ export default function MtpHealthCase() {
             {hero.titleBefore} <em>{hero.titleEm}</em>
           </h1>
           <p>{hero.lead}</p>
-          <p className="work-hero-liner">{card.oneLiner}</p>
           <div className="button-row">
             <StrategyButton />
             <Link className="text-link" href="/#category-example">
@@ -62,8 +54,8 @@ export default function MtpHealthCase() {
             alt="MTP Health clinician consulting with a patient beside a knee model"
           />
           <figcaption>
-            <img src="/work/mtp-health/nucleus.png" alt="" />
-            <span>CAREER SEAT · 2019–2022</span>
+            <img src="/work/mtp-health/mark%20copy.svg" alt="" />
+            <span>Fractional Growth Consultant | Category King Execution</span>
           </figcaption>
         </figure>
         <div className="hero-proof offer-proof work-proof" aria-label="MTP Health proof">
@@ -129,8 +121,8 @@ export default function MtpHealthCase() {
         <SectionHeading
           number="03"
           eyebrow="THE DIAGNOSIS"
-          title="Five leaks. Same scoreboard as the Category King System."
-          copy="MTP was not under-marketed. It was under-measured. Each leak maps to a number you can name."
+          title="First principles showed that MTP could become a Category King"
+          copy="On an analysis of the numbers, it was clear that MTP had promising signs of an ability to take their existing resources to streamline for scale."
         />
         <div className="offer-leaks">
           <LeakSchematic />
@@ -149,20 +141,14 @@ export default function MtpHealthCase() {
         </div>
         <p className="section-punchline offer-rule">
           <span className="card-code">The rule</span>
-          Identity first. Then the system. Do not buy more attention until the bucket holds.
+          Data gives the clues we need. With a first principles analysis, the immediate actions for growth were clear.
         </p>
       </section>
 
       <section className="section split-section grid-bg offer-shift">
         <div>
           <Eyebrow>CATEGORY KING MOVE</Eyebrow>
-          <h2>Own specialised preventative knee/OA exercise delivery — The Knee Program.</h2>
-        </div>
-        <div className="offer-prose">
-          <p>Same clinical skill. Different offer. That is the whole business.</p>
-          <p>
-            A generalist has to win every conversation from scratch. A category owner gets pulled into conversations it never started.
-          </p>
+          <h2>Double down on the most valuable customer segment & design the business around them.</h2>
         </div>
       </section>
 
@@ -183,18 +169,10 @@ export default function MtpHealthCase() {
           eyebrow={thesis.eyebrow}
           title={thesis.title}
         />
-        <div className="offer-prose">
-          {thesis.copy.map((paragraph) => (
-            <p key={paragraph}>{paragraph}</p>
-          ))}
-        </div>
-      </section>
-
-      <section className="section offer-section">
         <SectionHeading
           number="05"
           eyebrow="THE PROCESS"
-          title="Five moves. The Category King Process as it actually ran."
+          title="How we turned MTP Health into a Category King"
           copy="Keep the arc. Prefix each move with the step from the Category King System so a reader recognises the same process."
         />
         <ol className="offer-rail">
@@ -213,21 +191,11 @@ export default function MtpHealthCase() {
         </ol>
         <ReferralPath />
         <blockquote className="offer-quote">
-          <span className="card-code">Position</span>
-          Marketing is not buying attention. It is the total customer journey — every communication touchpoint.
+          <span className="card-code">Growth Engineering</span>
+          Marketing is not simply just buying attention. It is every piece of communication along the whole customer journey.
         </blockquote>
-      </section>
-
-      <section className="section offer-section">
         <div className="offer-example">
           <Eyebrow>WHY THIS OFFER SCALED</Eyebrow>
-          <h3>
-            Numbers for illustrative purposes as a proxy of real data (not actual MTP data).
-          </h3>
-          <DualFunnel />
-          <p className="offer-caveat offer-illustration-note">
-            <strong>Note:</strong> {illustrationNumbersNote}
-          </p>
           <div className="offer-compare-wrap">
             <table className="offer-compare">
               <thead>
@@ -251,45 +219,12 @@ export default function MtpHealthCase() {
               </tbody>
             </table>
           </div>
-          <div className="offer-prose">
-            <p>
-              <strong>The read:</strong> they could turn away gym referrals. Choosing demand is Gate 2. ~30% assessment-to-program is the Category King close rate, not a gym-pack close rate.
-            </p>
-          </div>
         </div>
       </section>
 
       <section className="section offer-section">
         <SectionHeading
           number="06"
-          eyebrow="THE SCORECARD"
-          title="Gates 0–4. Same pass conditions. MTP’s read."
-        />
-        <div className="offer-compare-wrap">
-          <table className="offer-compare">
-            <thead>
-              <tr>
-                <th scope="col">Gate</th>
-                <th scope="col">Pass condition</th>
-                <th scope="col">MTP read</th>
-              </tr>
-            </thead>
-            <tbody>
-              {gates.map((row) => (
-                <tr key={row.gate}>
-                  <th scope="row">{row.gate}</th>
-                  <td>{row.pass}</td>
-                  <td>{row.read}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-      </section>
-
-      <section className="section offer-section">
-        <SectionHeading
-          number="07"
           eyebrow="RESULTS"
           title="Consistent monthly profits. Then the category kept compounding."
         />
@@ -301,22 +236,11 @@ export default function MtpHealthCase() {
             </article>
           ))}
         </div>
-        <div className="offer-prose">
-          <p>
-            <strong>Inputs.</strong> {inputs.inputs}
-          </p>
-          <p>
-            <strong>Roles.</strong> {inputs.roles}
-          </p>
-          <p>
-            <strong>Scope → KPI.</strong> {inputs.kpi}
-          </p>
-        </div>
       </section>
 
       <section className="section offer-section work-now">
         <SectionHeading
-          number="08"
+          number="07"
           eyebrow={now.eyebrow}
           title={now.title}
           copy="An industry-leading sports medicine practice — one of the world's first truly integrated exercise physiology clinics."
@@ -350,64 +274,14 @@ export default function MtpHealthCase() {
             </article>
           ))}
         </div>
-        <p className="section-punchline">The category is still the business.</p>
-      </section>
-
-      <section className="section offer-section">
-        <SectionHeading
-          number="09"
-          eyebrow="WHAT THIS PROVES"
-          title="Category King is not a digital-only pattern."
-        />
-        <div className="diagnostic-grid work-bullets">
-          {lessons.map((item, index) => (
-            <div className="diagnostic-item" key={item}>
-              <span>{String(index + 1).padStart(2, "0")}</span>
-              <p>{item}</p>
-            </div>
-          ))}
-        </div>
-        <div className="offer-definition">
-          <span className="card-code">Services used</span>
-          <h3>The pattern, not a 2020 SKU list.</h3>
-          <div className="offer-prose">
-            <p>{servicesNote}</p>
-          </div>
-        </div>
-      </section>
-
-      <section className="section offer-section">
-        <SectionHeading
-          number="10"
-          eyebrow="WHO THIS SPEAKS TO"
-          title="If you are competing on location and personality, this is the install."
-        />
-        <div className="offer-fit">
-          <article>
-            <span className="card-code">Apply if</span>
-            <ul>
-              {who.apply.map((item) => (
-                <li key={item}>{item}</li>
-              ))}
-            </ul>
-          </article>
-          <article>
-            <span className="card-code">Do not apply if</span>
-            <ul>
-              {who.skip.map((item) => (
-                <li key={item}>{item}</li>
-              ))}
-            </ul>
-          </article>
-        </div>
       </section>
 
       <section className="offer-guarantee grid-bg">
-        <span className="section-index">§11</span>
+        <span className="section-index">_08</span>
         <Eyebrow>NEXT</Eyebrow>
-        <h2>If you are an allied health operator competing on location and personality, this is the install.</h2>
+        <h2>Ready to take a quantum leap in your business & income?</h2>
         <p>
-          Thirty minutes. Direct diagnosis. The same first-principles scoreboard that named MTP’s constraint.
+          Book a growth strategy using the button below to get a tailored Category King plan for your business.
         </p>
         <div className="button-row" style={{ justifyContent: "center", marginTop: 36 }}>
           <StrategyButton />

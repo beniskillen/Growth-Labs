@@ -3991,7 +3991,38 @@ html[data-typeface="geist"] .valence-caption {
   }
 }
 
+body:has(.work-page) .site-header {
+  background: var(--ink);
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+
+.work-page .grid-bg::before {
+  display: none;
+}
+
+.work-page .split-section.offer-shift {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.work-page .split-section.offer-shift h2 {
+  max-width: none;
+}
+
+.work-page .offer-quote {
+  margin-bottom: 0;
+}
+
+.work-page .offer-quote + .offer-example {
+  margin-top: 56px;
+}
+
+.work-page .section-heading:has(+ .section-heading) {
+  margin-bottom: 56px;
+}
+
 .work-hero {
+  position: relative;
   display: grid;
   grid-template-columns: minmax(0, 1.05fr) minmax(280px, 0.95fr);
   grid-template-areas:
@@ -4014,7 +4045,7 @@ html[data-typeface="geist"] .valence-caption {
 }
 
 .work-hero h1 {
-  max-width: 16ch;
+  max-width: 22ch;
   margin: 18px 0 22px;
   font-size: clamp(44px, 5.4vw, 84px);
   font-weight: 500;
@@ -4027,6 +4058,10 @@ html[data-typeface="geist"] .valence-caption {
   color: #c4c6ca;
   font-size: 18px;
   line-height: 1.65;
+}
+
+.work-hero-copy .button-row {
+  margin-top: 32px;
 }
 
 .work-hero-liner {
@@ -4097,7 +4132,7 @@ html[data-typeface="geist"] .valence-caption {
   display: block;
   width: 100%;
   max-width: 920px;
-  margin: 48px 0 8px;
+  margin: 48px auto 8px;
 }
 
 .work-result-list {
