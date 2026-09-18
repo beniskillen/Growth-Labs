@@ -1,6 +1,18 @@
-import Link from "next/link";
-import type { ReactNode } from "react";
+import type { AnchorHTMLAttributes, ReactNode } from "react";
 import { trustBrands } from "./brand";
+import { withBasePath } from "./studio/paths";
+
+export function SiteLink({
+  href,
+  children,
+  ...props
+}: AnchorHTMLAttributes<HTMLAnchorElement> & { href: string }) {
+  return (
+    <a href={withBasePath(href)} {...props}>
+      {children}
+    </a>
+  );
+}
 
 export const AUDIT_URL =
   "https://calendly.com/ben_killen/growth_strategy";
@@ -17,23 +29,33 @@ export function Mark() {
 
 export function Wordmark() {
   return (
-    <Link className="wordmark" href="/" aria-label="Growth Labs home">
+    <SiteLink className="wordmark" href="/" aria-label="Growth Labs home">
       <Mark />
       <span>GROWTH LABS_</span>
-    </Link>
+    </SiteLink>
   );
 }
 
-export function SiteHeader({ conversion = false }: { conversion?: boolean }) {
+export function SiteHeader({
+  conversion = false,
+  homeOnly = false,
+}: {
+  conversion?: boolean;
+  homeOnly?: boolean;
+}) {
   return (
     <header className={`site-header${conversion ? " site-header-conversion" : ""}`}>
       <Wordmark />
-      {conversion ? null : (
+      {homeOnly ? (
         <nav className="site-nav" aria-label="Main navigation">
-          <Link href="/work/mtp-health">Work</Link>
-          <Link href="/partners">Partners</Link>
-          <Link href="/solutions">Solutions</Link>
-          <Link href="/about">About</Link>
+          <SiteLink href="/">Home</SiteLink>
+        </nav>
+      ) : conversion ? null : (
+        <nav className="site-nav" aria-label="Main navigation">
+          <SiteLink href="/work/mtp-health">Work</SiteLink>
+          <SiteLink href="/partners">Partners</SiteLink>
+          <SiteLink href="/solutions">Solutions</SiteLink>
+          <SiteLink href="/about">About</SiteLink>
         </nav>
       )}
       <a className="button button-small" href={AUDIT_URL} target="_blank" rel="noreferrer">
@@ -125,7 +147,13 @@ export function PageHero({
   );
 }
 
-export function Footer({ conversion = false }: { conversion?: boolean }) {
+export function Footer({
+  conversion = false,
+  homeOnly = false,
+}: {
+  conversion?: boolean;
+  homeOnly?: boolean;
+}) {
   return (
     <footer className={`footer${conversion ? " footer-conversion" : ""}`}>
       <div>
@@ -133,14 +161,20 @@ export function Footer({ conversion = false }: { conversion?: boolean }) {
         <p>Engineering revenue systems from first principles.</p>
       </div>
       <nav aria-label="Footer navigation">
-        <Link href="/work/mtp-health">Case Studies</Link>
-        {conversion ? null : (
+        {homeOnly ? (
+          <SiteLink href="/">Home</SiteLink>
+        ) : (
           <>
-            <Link href="/partners">Partners</Link>
-            <Link href="/solutions">Solutions</Link>
-            <Link href="/about">About</Link>
-            <Link href="/landing">Operator landing</Link>
-            <Link href="/audit">AI Leverage Audit</Link>
+            <SiteLink href="/work/mtp-health">Case Studies</SiteLink>
+            {conversion ? null : (
+              <>
+                <SiteLink href="/partners">Partners</SiteLink>
+                <SiteLink href="/solutions">Solutions</SiteLink>
+                <SiteLink href="/about">About</SiteLink>
+                <SiteLink href="/landing">Operator landing</SiteLink>
+                <SiteLink href="/audit">AI Leverage Audit</SiteLink>
+              </>
+            )}
           </>
         )}
       </nav>
@@ -189,17 +223,19 @@ export function TrustBar({
 export function SiteFrame({
   children,
   conversion = false,
+  homeOnly = false,
   className,
 }: {
   children: ReactNode;
   conversion?: boolean;
+  homeOnly?: boolean;
   className?: string;
 }) {
   return (
     <>
-      <SiteHeader conversion={conversion} />
+      <SiteHeader conversion={conversion} homeOnly={homeOnly} />
       <main className={className}>{children}</main>
-      <Footer conversion={conversion} />
+      <Footer conversion={conversion} homeOnly={homeOnly} />
     </>
   );
 }

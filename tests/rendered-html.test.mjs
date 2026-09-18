@@ -50,6 +50,7 @@ test("server-renders the Category King home page", async () => {
   assert.match(html, /aria-label="Footer navigation"/);
   assert.match(html, /FLAGSHIP CASE/);
   assert.match(html, /MTP Health - From breaking even to multiple clinics/);
+  assert.match(html, /Read the case study/);
   assert.doesNotMatch(html, />Partners</);
   assert.doesNotMatch(html, />Solutions</);
   assert.doesNotMatch(html, />About</);
@@ -96,8 +97,15 @@ test("server-renders the MTP Health flagship case study", async () => {
   assert.match(html, /The Knee Program/);
   assert.match(html, /Consistent monthly profits/);
   assert.match(html, /Consistent monthly revenue increase/);
-  assert.match(html, /North Shore Health Hub/);
-  assert.match(html, /href="\/work\/mtp-health"/);
+  assert.match(html, /true moat in the industry/);
+  assert.match(html, />Home</);
+  assert.match(html, /href="\/"/);
+  assert.doesNotMatch(html, /Add \$10,000 to your bottom line/);
+  assert.doesNotMatch(html, />Work</);
+  assert.doesNotMatch(html, />Partners</);
+  assert.doesNotMatch(html, />Solutions</);
+  assert.doesNotMatch(html, />About</);
+  assert.doesNotMatch(html, /href="\/partners"/);
 });
 
 test("keeps the original operator landing with the particle portrait", async () => {

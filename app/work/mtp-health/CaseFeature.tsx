@@ -1,14 +1,17 @@
-import Link from "next/link";
-import { Arrow } from "../../components";
+import { Arrow, SiteLink } from "../../components";
 import { card } from "./copy";
+
+const caseHref = "/work/mtp-health";
 
 export function MtpCaseFeature() {
   return (
     <article className="case-feature">
-      <img
-        src="/work/mtp-health/clinic-consult.jpg"
-        alt="MTP Health clinician consulting with a patient beside a knee model"
-      />
+      <SiteLink className="case-feature-media" href={caseHref} tabIndex={-1} aria-hidden="true">
+        <img
+          src="/work/mtp-health/clinic-consult.jpg"
+          alt="MTP Health clinician consulting with a patient beside a knee model"
+        />
+      </SiteLink>
       <div className="case-card">
         <div className="case-card-top">
           <span>{card.eyebrow}</span>
@@ -20,9 +23,9 @@ export function MtpCaseFeature() {
           <span>PROOF</span>
           <strong>{card.proof}</strong>
         </div>
-        <Link href="/work/mtp-health">
+        <SiteLink href={caseHref}>
           {card.cta} <Arrow />
-        </Link>
+        </SiteLink>
       </div>
     </article>
   );

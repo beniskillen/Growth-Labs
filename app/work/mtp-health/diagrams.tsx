@@ -1,6 +1,6 @@
 export function ReferralPath() {
   const steps: [string, string, string[], number][] = [
-    ["01", "Referrers", ["Doctors · physios · allied · gyms"], 0],
+    ["01", "Referrers", ["Doctors · specialists · trainers"], 0],
     [
       "02",
       "Entry Offer",

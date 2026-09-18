@@ -1,10 +1,10 @@
-import Link from "next/link";
 import {
   Arrow,
   AuditButton,
   Eyebrow,
   SectionHeading,
   SiteFrame,
+  SiteLink,
 } from "../../components";
 import { LeakSchematic } from "../../offer/diagrams";
 import {
@@ -33,7 +33,7 @@ function StrategyButton() {
 
 export default function MtpHealthCase() {
   return (
-    <SiteFrame className="work-page">
+    <SiteFrame className="work-page" homeOnly>
       <section className="work-hero grid-bg">
         <div className="work-hero-copy">
           <Eyebrow>{hero.eyebrow}</Eyebrow>
@@ -43,9 +43,9 @@ export default function MtpHealthCase() {
           <p>{hero.lead}</p>
           <div className="button-row">
             <StrategyButton />
-            <Link className="text-link" href="/#category-example">
+            <SiteLink className="text-link" href="/#category-example">
               Read the Category King System <Arrow />
-            </Link>
+            </SiteLink>
           </div>
         </div>
         <figure className="work-hero-media">
@@ -173,7 +173,7 @@ export default function MtpHealthCase() {
           number="05"
           eyebrow="THE PROCESS"
           title="How we turned MTP Health into a Category King"
-          copy="Keep the arc. Prefix each move with the step from the Category King System so a reader recognises the same process."
+          copy="The process of turning insights into action for MTP Health in a progressive manner."
         />
         <ol className="offer-rail">
           {moves.map((move) => (

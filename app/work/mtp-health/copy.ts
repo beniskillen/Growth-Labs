@@ -59,31 +59,31 @@ export const challenge = {
 export const leaks = [
   {
     number: "01",
-    title: "Advertising leak",
+    title: "Advertising leak - < 100 Impressions",
     body: "Referrals were strong, however the owner was the main pipeline. Their most valuable offer wasn't getting an impressions. By looking at the source of these clients, we had our first clear acquisition channel.",
     metric: "No measured impressions on highest value offer",
   },
   {
     number: "02",
-    title: "Interest leak",
-    body: "“Improve the way you move” was good as a brand slogan, but not for a primary market offering. A shift to clear outcomes with the offer, specificity around who MTP was for & a strategy to find customers where there attention lived allowed for clear data to track interest.",
+    title: "Interest leak - < 1.5% CTR",
+    body: "“Improve the way you move” was good as a brand slogan, but not for a primary market offering. This reflected in all channels + attempts at advertising (i.e. mailbox drops, facebook ads, signage etc.). Data showed early signs that specificity improved interest, however the clinic on the whole was still stuck in its generic position.",
     metric: "Generic positioning made interest challenging to track",
   },
   {
     number: "03",
-    title: "Opt-in leak",
-    body: "Making an initial consultation process that allowed customers to feel why MTP was different allowed for significantly greater opt ins, at a point where customer drop off is typically high.",
-    metric: "Large upfront commitment",
+    title: "Opt-in leak - < 3%",
+    body: "Due to the lack of a specific offering, it was clear that people viewing MTP's offering were simply 'shopping' around for what they could decide was the best option. The challenge was that as we weren't specific, there wasn't a clear way to help them know if MTP was for them. This reflected in the data with a < 3% Opt in on all channels.",
+    metric: "At point of first engagement, all channels showed < a 3% opt in for the next step",
   },
   {
     number: "04",
-    title: "Sales action leak",
+    title: "Sales action leak - < 10% conversion to flagship",
     body: "Customers would come in for a one off consultation & expect a fix in 1-2 sessions. With the new framing, they knew there was a long term process involved, with options to meet them where they are at. This made the clinicians job of selling significantly easier as they could prescribe instead of trying to sell.",
     metric: "No clear backend sales process",
   },
   {
     number: "05",
-    title: "LTV leak",
+    title: "LTV leak - CAC not reliably higher than LTV",
     body: "CRM data showed a clear pattern. Patients with chronic issues such as Knee Osteoarthritis had almost a 1000% higher customer value and stronger reviews and referrals than other segments.",
     metric: "Large variance in customer LTV",
   },
@@ -95,8 +95,8 @@ export const categoryLayers = [
     "One offer / mechanism",
     "The Knee Program — specialised exercise to relieve pain, avoid surgery, stay active",
   ],
-  ["One funnel / channel stack", "Marketing + sales + referral networks + stakeholder BD"],
-  ["One number", "Consistent monthly profits and predictable revenue under the Head of Growth system"],
+  ["One funnel / channel stack", "Referral networks & business development + outcome based marketing to support"],
+  ["One number", "Average customer LTV became the primary focus"],
 ] as const;
 
 export const thesis = {
@@ -110,15 +110,17 @@ export const moves = [
     step: "Step 01 — Get clear on what’s really going on",
     title: "Diagnose the real constraint (not more marketing)",
     copy: [
-      "The data was clear, limited impressions to their most valuable offering. What was needed was a complete system to make the clinic an asset, not just the founder.",
+      "The data was clear, limited impressions to their most valuable offering. What was needed was a complete system to make the clinic an asset, not just the founder. We knew that if we could keep the current lead flow, the referral rate of the knee program would lead us to be able to scale.",
+      "The real constraint meant that knee program impressions could be measured by an increase in customer LTV. More people in the knee program, the higher the LTV would trend up over time. This became the primary focus of tracking numbers to see positive increases in all leading activities.",
     ],
   },
   {
     code: "02",
     step: "Step 02 — Unplug the constraint on people you already own",
-    title: "Name the category",
+    title: "Double down on primary positioning & begin to own the category",
     copy: [
       "This was a 2 folded approach. MTP had a strong customer base. We went out to those customers, letting them know about our specialist offering. We also went out to our referral network of medical & allied health practitioners to let them know about our specialisation. The outcome was immediate signal that our offering was right for the market.",
+      "What was previously considered competitive to many referrers became something MTP's referrers saw as a prescription that many of their clients needed. This gave confidence that they could refer without fear of losing their own business.",
     ],
   },
   {
@@ -127,6 +129,8 @@ export const moves = [
     title: "Define the mechanism and the fulfilment",
     copy: [
       "Once the positioning was clear, every bit about how the clinic functioned started morphing to allow for the best delivery of service for its core avatar. This meant specific equipment, assessment processes, group based offerings & thousands of other actions that drove key results in the customer journey data.",
+      "Previously, customers would come in for a one off consultation & expect a fix in 1-2 sessions. With the new framing, they knew there was a long term process involved, with options to meet them where they are at. This made the clinicians job of selling significantly easier as they could prescribe instead of trying to sell.",
+      "The data reflected this, with an over 5X increase in customer LTV across the clinic, plus a conversion rate to flagship programs well above the 10% target.",
     ],
   },
   {
@@ -135,6 +139,7 @@ export const moves = [
     title: "Engineer the demand system",
     copy: [
       "Once it was clear that outcomes could be achieved consistently, we installed acquisition channels one by one. This included a robust referral strategy, Google ads & Meta ads where required.",
+      "Each channel was built up slowly, ensuring metrics supported the hypothesis around the customer journey matching the highest value channels. Primarily this was measured by customer LTV per channel.",
     ],
   },
   {
@@ -143,7 +148,7 @@ export const moves = [
     title: "Let the category pull demand",
     copy: [
       "Through this process of becoming a Category King, MTP was less constrained by demand. It was able to go from one clinic struggling to be consistent to a multi location practice focused on creating one of the most validated treatment pathways in the industry.",
-      "It became a leading specialised orthopedic practice in its market, with a surgeon-integrated clinic at North Shore Health Hub / North Shore Private, and a research overlay through surgeon-directors.",
+      "It has now morphed into an entirely new business with a true moat in the industry. As one of the few specialised orthopedic practices directly integrated into a surgical clinic, it has its strongest acquisition channel built into the business. This is unique in the allied health industry & only was able to happen after years of validated results that would be impossible to achieve without an entire business optimised towards owning one specific category.",
     ],
   },
 ] as const;
@@ -184,8 +189,8 @@ export const comparison: [string, string, string][] = [
 export const results = [
   "Consistent monthly revenue increase & controlled scale.",
   "Clinically provable results better than industry & research benchmarks.",
-  "Direct partnership from leading specialists in the field as strong referrers.",
-  "From founder-as-pipeline to a specialised practice that still leads with knee and hip in 2026",
+  "Direct partnership from leading specialists in the field as an inbuilt source of acquisition, allowing for consistent growth.",
+  "From the founder as the primary source of demand & fulfilment to a specialised practice with a product that can operate without any founder delivery, generating its own demand while leading the industry for outcomes.",
 ] as const;
 
 export const now = {

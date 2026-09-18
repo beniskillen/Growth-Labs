@@ -21,7 +21,7 @@ function withBase(content) {
   if (content.includes(`${base}/`) && !content.includes('href="/trustbar')) {
     // Still rewrite unprefixed public assets even if some URLs already have basePath.
   }
-  return content
+  let next = content
     .replaceAll('href="/assets/', `href="${base}/assets/`)
     .replaceAll('src="/assets/', `src="${base}/assets/`)
     .replaceAll('url(/assets/', `url(${base}/assets/`)
@@ -49,6 +49,13 @@ function withBase(content) {
     .replaceAll('"/favicon', `"${base}/favicon`)
     .replaceAll('"/og.png', `"${base}/og.png`)
     .replaceAll(`${base}${base}/`, `${base}/`);
+
+  for (const route of routes) {
+    if (route === "/") continue;
+    next = next.replaceAll(`href="${base}${route}"`, `href="${base}${route}/"`);
+  }
+
+  return next;
 }
 
 async function fetchHtml(path) {
@@ -89,7 +96,35 @@ async function main() {
   }
 
   await writeFile(join(out, ".nojekyll"), "");
-  await writeFile(join(out, "404.html"), await readFile(join(out, "index.html")));
+  const known = routes.map((route) =>
+    route === "/" ? `${base}/` : `${base}${route}/`,
+  );
+  await writeFile(
+    join(out, "404.html"),
+    `<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Redirecting</title>
+<script>
+(function () {
+  var known = ${JSON.stringify(known)};
+  var path = location.pathname;
+  var slashed = path.endsWith("/") ? path : path + "/";
+  if (known.indexOf(slashed) !== -1 && path !== slashed) {
+    location.replace(slashed + location.search + location.hash);
+    return;
+  }
+  location.replace(${JSON.stringify(`${base}/`)} + location.search + location.hash);
+})();
+</script>
+</head>
+<body>
+<p>This page moved. <a href="${base}/">Go to Growth Labs</a></p>
+</body>
+</html>
+`,
+  );
 }
 
 await main();
