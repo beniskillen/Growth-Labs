@@ -197,9 +197,9 @@ export const now = {
   eyebrow: "WHERE THEY ARE NOW",
   title: "A quantum leap in business.",
   copy: [
-    "This seat ran 2018–2022. The clinic kept the wedge. In 2026 MTP Health still leads with a named Knee & Hip / Restore Program: 12 weeks, proprietary functional assessment, four levels from Foundations to Performance, small-group, one-to-one and online.",
-    "St Leonards sits inside North Shore Health Hub — a hospital precinct, a short walk from Royal North Shore and North Shore Private. Orthopaedic surgeons consult in the same building. Beacon Hill covers the Northern Beaches. An online program carries the offer beyond the floor.",
-    "The homepage still carries the old mission — empower a million people by improving the way they move. That is useful. The wedge was The Knee Program. The brand later expanded hip. Expansion is compounding, not a retreat to generalism.",
+    "In 2026 MTP Health still has its flagship offering as outcome based, longer term rehab programs. The success of the Knee program, allowed for further diversification with the referral pathways to create a broader offering to a more general Restore Program that had the same skeleton: 12 weeks, a proprietary functional assessment, four levels from Foundations to Performance, delivered small-group, one-to-one and online.",
+    "The primary clinic moved to a much larger location inside North Shore Health Hub, a hospital precinct a short walk from Royal North Shore and North Shore Private, with orthopaedic surgeons consulting in the same building. The additional clinics were setup around key hospital precincts across Sydney, with a strong online offering that allows for scalable fulfilment.",
+    "The original mission is still intact: empower a million people by improving the way they move. The specific positioning allowed for MTP to take quantum leaps towards achieving it, with compounding month on month.",
   ],
   facts: [
     ["Offer", "Knee & Hip / Restore — 12 weeks, named, levelled"],
