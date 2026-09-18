@@ -1,4 +1,5 @@
-import { Arrow, SiteLink } from "../../components";
+import { Arrow } from "../../components";
+import { SiteLink } from "../../SiteLink";
 import { card } from "./copy";
 
 const caseHref = "/work/mtp-health";

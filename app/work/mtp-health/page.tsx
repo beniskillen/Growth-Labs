@@ -4,8 +4,8 @@ import {
   Eyebrow,
   SectionHeading,
   SiteFrame,
-  SiteLink,
 } from "../../components";
+import { SiteLink } from "../../SiteLink";
 import { LeakSchematic } from "../../offer/diagrams";
 import {
   categoryLayers,

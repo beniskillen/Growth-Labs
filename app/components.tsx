@@ -1,18 +1,6 @@
-import type { AnchorHTMLAttributes, ReactNode } from "react";
+import type { ReactNode } from "react";
+import { SiteLink } from "./SiteLink";
 import { trustBrands } from "./brand";
-import { withBasePath } from "./studio/paths";
-
-export function SiteLink({
-  href,
-  children,
-  ...props
-}: AnchorHTMLAttributes<HTMLAnchorElement> & { href: string }) {
-  return (
-    <a href={withBasePath(href)} {...props}>
-      {children}
-    </a>
-  );
-}
 
 export const AUDIT_URL =
   "https://calendly.com/ben_killen/growth_strategy";
