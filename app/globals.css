@@ -4021,6 +4021,10 @@ body:has(.work-page) .site-header {
   margin-top: 56px;
 }
 
+.work-page .offer-prose + .work-layers {
+  margin-top: 56px;
+}
+
 .work-page .section-heading:has(+ .section-heading) {
   margin-bottom: 56px;
 }

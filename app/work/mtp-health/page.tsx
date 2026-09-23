@@ -44,7 +44,7 @@ export default function MtpHealthCase() {
           <div className="button-row">
             <StrategyButton />
             <SiteLink className="text-link" href="/#category-example">
-              Read the Category King System <Arrow />
+              How It Works <Arrow />
             </SiteLink>
           </div>
         </div>
