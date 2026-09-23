@@ -13,7 +13,19 @@ const routes = [
   "/solutions",
   "/studio",
   "/system",
+  "/work",
   "/work/mtp-health",
+  "/work/fortem",
+  "/work/bybit",
+  "/work/your-corner-360",
+  "/work/ethos",
+  "/work/juicy",
+  "/work/scala-lane",
+  "/work/introvert",
+  "/work/investors-agency",
+  "/work/futurealty",
+  "/work/jobited",
+  "/work/the-collective",
 ];
 const rewriteExt = new Set([".html", ".js", ".css", ".svg", ".txt", ".json", ".xml"]);
 

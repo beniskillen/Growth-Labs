@@ -40,7 +40,7 @@ export function SiteHeader({
         </nav>
       ) : conversion ? null : (
         <nav className="site-nav" aria-label="Main navigation">
-          <SiteLink href="/work/mtp-health">Work</SiteLink>
+          <SiteLink href="/work">Work</SiteLink>
           <SiteLink href="/partners">Partners</SiteLink>
           <SiteLink href="/solutions">Solutions</SiteLink>
           <SiteLink href="/about">About</SiteLink>
@@ -153,7 +153,7 @@ export function Footer({
           <SiteLink href="/">Home</SiteLink>
         ) : (
           <>
-            <SiteLink href="/work/mtp-health">Case Studies</SiteLink>
+            <SiteLink href="/work">Case Studies</SiteLink>
             {conversion ? null : (
               <>
                 <SiteLink href="/partners">Partners</SiteLink>

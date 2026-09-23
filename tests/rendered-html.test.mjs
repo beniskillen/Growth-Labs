@@ -108,6 +108,25 @@ test("server-renders the MTP Health flagship case study", async () => {
   assert.doesNotMatch(html, /href="\/partners"/);
 });
 
+test("server-renders the case study index and the Fortem page", async () => {
+  const index = await render("/work");
+  assert.equal(index.status, 200);
+  const indexHtml = await index.text();
+  assert.match(indexHtml, /The same read/);
+  assert.match(indexHtml, /href="\/work\/mtp-health"/);
+  assert.match(indexHtml, /href="\/work\/fortem"/);
+  assert.match(indexHtml, /Unofficial Run Club|Build the room/);
+
+  const fortem = await render("/work/fortem");
+  assert.equal(fortem.status, 200);
+  const html = await fortem.text();
+  assert.match(html, /Unofficial Run Club/);
+  assert.match(html, /\$1\.5M\+/);
+  assert.match(html, /not getting seen/);
+  assert.match(html, />Home</);
+  assert.match(html, /href="\/work"/);
+});
+
 test("keeps the original operator landing with the particle portrait", async () => {
   const response = await render("/landing");
   assert.equal(response.status, 200);
