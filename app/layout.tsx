@@ -20,6 +20,7 @@ const inter = Inter({
 });
 
 const siteUrl = "https://beniskillen.github.io/Growth-Labs";
+const pagesBase = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -30,8 +31,16 @@ export const metadata: Metadata = {
   description:
     "Operator-led growth studio: diagnose the constraint, engineer the revenue system, and measure CAC, LTV and CTR before scaling.",
   icons: {
-    icon: "/favicon.svg",
-    shortcut: "/favicon.svg",
+    icon: [
+      { url: `${pagesBase}/favicon.ico`, sizes: "48x48" },
+      {
+        url: `${pagesBase}/favicon.png`,
+        type: "image/png",
+        sizes: "512x512",
+      },
+    ],
+    apple: `${pagesBase}/apple-touch-icon.png`,
+    shortcut: `${pagesBase}/favicon.ico`,
   },
   openGraph: {
     title: "Growth Labs — Engineer the revenue system",
