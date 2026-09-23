@@ -4026,7 +4026,7 @@ body:has(.work-page) .site-header {
 }
 
 .work-page .section-heading:has(+ .section-heading) {
-  margin-bottom: 56px;
+  margin-bottom: 140px;
 }
 
 .work-hero {
