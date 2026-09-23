@@ -9,8 +9,6 @@ import {
 import { DualFunnel, LeakSchematic } from "./offer/diagrams";
 import OfferAtom from "./offer/OfferAtom";
 import VslPlayer from "./offer/VslPlayer";
-import { SiteLink } from "./SiteLink";
-import { moreStudies } from "./work/catalog";
 import { MtpCaseFeature } from "./work/mtp-health/CaseFeature";
 import { illustrationNumbersNote } from "./work/mtp-health/copy";
 
@@ -412,18 +410,6 @@ export default function OfferPage() {
           copy="MTP Health illustrates the perfect example of what becoming a Category King by looking at real market data looks like. In an iterative process, we looked at the most valuable customers they consistently had coming through the door to analyse their entire journey from start to finish. This allowed for strategic business decisions to be made, which ultimately lead to creating a world leading service for Knee rehabilitation that is at the cutting edge of results & evidence based treatment. This change allowed MTP to skyrocket it's customer LTV & scale the entire business to multiple clinics with a streamlined model that was scalable."
         />
         <MtpCaseFeature />
-        <div className="work-more">
-          <p className="work-more-label">The same system, on other businesses</p>
-          <div className="work-index">
-            {moreStudies.map((study) => (
-              <SiteLink href={study.href} key={study.href}>
-                <strong>{study.title}</strong>
-                <span>{study.oneLiner}</span>
-                <em>{study.proof}</em>
-              </SiteLink>
-            ))}
-          </div>
-        </div>
       </section>
 
       <section className="section offer-section">
