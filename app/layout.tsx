@@ -32,15 +32,15 @@ export const metadata: Metadata = {
     "Operator-led growth studio: diagnose the constraint, engineer the revenue system, and measure CAC, LTV and CTR before scaling.",
   icons: {
     icon: [
-      { url: `${pagesBase}/favicon.ico`, sizes: "48x48" },
+      { url: `${pagesBase}/favicon.ico?v=2`, sizes: "48x48" },
       {
-        url: `${pagesBase}/favicon.png`,
+        url: `${pagesBase}/favicon.png?v=2`,
         type: "image/png",
         sizes: "512x512",
       },
     ],
-    apple: `${pagesBase}/apple-touch-icon.png`,
-    shortcut: `${pagesBase}/favicon.ico`,
+    apple: `${pagesBase}/apple-touch-icon.png?v=2`,
+    shortcut: `${pagesBase}/favicon.ico?v=2`,
   },
   openGraph: {
     title: "Growth Labs — Engineer the revenue system",
