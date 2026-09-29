@@ -16,7 +16,7 @@ export function MtpCaseFeature() {
       <div className="case-card">
         <div className="case-card-top">
           <span>{card.eyebrow}</span>
-          <img className="case-card-mark" src="/work/mtp-health/nucleus.png" alt="" />
+          <img className="case-card-mark" src="/work/mtp-health/mark.svg" alt="MTP Health" />
         </div>
         <h3>{card.title}</h3>
         <p>{card.oneLiner}</p>
