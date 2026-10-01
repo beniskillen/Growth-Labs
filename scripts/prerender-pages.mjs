@@ -5,12 +5,14 @@ const origin = process.env.PREVIEW_ORIGIN ?? "http://127.0.0.1:3000";
 const base = (process.env.PAGES_BASE ?? "/Growth-Labs").replace(/\/$/, "");
 const out = process.env.PAGES_OUT ?? "gh-pages-site";
 const routes = [
+  // /blog stays off this list until BLOG_PUBLIC is turned on.
   "/",
   "/about",
   "/audit",
   "/landing",
   "/partners",
   "/solutions",
+  "/growth-partnership",
   "/studio",
   "/system",
   "/work/mtp-health",

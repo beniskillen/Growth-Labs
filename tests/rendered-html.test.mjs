@@ -36,7 +36,22 @@ test("server-renders the Category King home page", async () => {
 
   const html = await response.text();
   assert.match(html, /Growth Labs/i);
-  assert.match(html, /Add \$10,000 to your bottom line/i);
+  assert.match(html, /I will make you \$10,000 to your bottom line in 90 days/i);
+  assert.match(html, /Or I will work for free until I do/);
+  assert.match(html, /proof of concept/i);
+  assert.match(html, /One specific buyer/);
+  assert.match(html, /\$3,000/);
+  assert.match(html, /Data and segment audit/);
+  assert.match(html, /One angle and one offer/);
+  assert.match(html, /Instagram profile funnel/);
+  assert.match(html, /Step 04[^<]*Landing page/);
+  assert.match(html, /30-day growth experiment/);
+  assert.match(html, /Step 06[^<]*Traffic/);
+  assert.match(html, /book anyway/i);
+  assert.doesNotMatch(html, /\$5000/);
+  assert.doesNotMatch(html, /\$300 p\/m/);
+  assert.doesNotMatch(html, /What exactly do I pay/);
+  assert.doesNotMatch(html, /href="\/growth-partnership"/);
   assert.match(html, /BOOK A STRATEGY SESSION/);
   assert.match(html, /Category King System/);
   assert.match(
@@ -63,6 +78,19 @@ test("server-renders the Category King home page", async () => {
   assert.doesNotMatch(html, /href="\/audit"/);
   assert.doesNotMatch(html, /href="\/landing"/);
   assert.doesNotMatch(html, developmentPreviewMeta);
+});
+
+test("keeps the 30-day offer hidden at /growth-partnership", async () => {
+  const response = await render("/growth-partnership");
+  assert.equal(response.status, 200);
+  const html = await response.text();
+  assert.match(html, /Add \$10,000 to your bottom line/i);
+  assert.match(html, /in 30 days/i);
+  assert.match(html, /\$5000/);
+  assert.match(html, /\$300 p\/m/);
+  assert.match(html, /What it costs/);
+  assert.match(html, /noindex/);
+  assert.doesNotMatch(html, /I will make you \$10,000 to your bottom line in 90 days/);
 });
 
 test("keeps the revenue-atom homepage hidden at /system", async () => {
