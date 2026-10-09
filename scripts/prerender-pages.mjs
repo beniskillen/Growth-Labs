@@ -101,32 +101,26 @@ async function main() {
   const known = routes.map((route) =>
     route === "/" ? `${base}/` : `${base}${route}/`,
   );
-  await writeFile(
-    join(out, "404.html"),
-    `<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<title>Redirecting</title>
-<script>
+  const missingUrl = `${origin}${base}/this-page-does-not-exist`;
+  const missing = await fetch(missingUrl, { headers: { accept: "text/html" } });
+  if (missing.status !== 404) {
+    throw new Error(`Expected a 404 from ${missingUrl} (${missing.status})`);
+  }
+  const slashRedirect = `<script>
 (function () {
   var known = ${JSON.stringify(known)};
   var path = location.pathname;
   var slashed = path.endsWith("/") ? path : path + "/";
   if (known.indexOf(slashed) !== -1 && path !== slashed) {
     location.replace(slashed + location.search + location.hash);
-    return;
   }
-  location.replace(${JSON.stringify(`${base}/`)} + location.search + location.hash);
 })();
-</script>
-</head>
-<body>
-<p>This page moved. <a href="${base}/">Go to Growth Labs</a></p>
-</body>
-</html>
-`,
+</script>`;
+  const html = withBase(await missing.text()).replace(
+    /<head([^>]*)>/,
+    `<head$1>${slashRedirect}`,
   );
+  await writeFile(join(out, "404.html"), html);
 }
 
 await main();

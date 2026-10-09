@@ -158,6 +158,23 @@ test("server-renders the case study index and the Fortem page", async () => {
   assert.match(html, /href="\/work"/);
 });
 
+test("serves a first-principles 404 that returns to the offer", async () => {
+  const response = await render("/this-page-does-not-exist");
+  assert.equal(response.status, 404);
+  const html = await response.text();
+  assert.match(html, /This page is gone/);
+  assert.match(html, /The first principles are not/);
+  assert.match(html, /\$10,000 hits your bottom line/);
+  assert.match(html, /valence-stage/);
+  assert.match(html, /CLICK THE ATOM TO REVEAL BRANDS/);
+  assert.match(
+    html,
+    /Discover the first principles of marketing &amp; never see business the same again/,
+  );
+  assert.match(html, /class="button missing-cta"[^>]*href="\/"/);
+  assert.match(html, /noindex/);
+});
+
 test("keeps the original operator landing with the particle portrait", async () => {
   const response = await render("/landing");
   assert.equal(response.status, 200);

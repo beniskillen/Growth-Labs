@@ -5335,3 +5335,149 @@ body:has(.work-page) .site-header {
     grid-template-columns: 1fr;
   }
 }
+
+.missing-page {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(320px, 0.9fr) minmax(460px, 1.1fr);
+  grid-template-areas:
+    "copy stage"
+    "cta cta";
+  gap: 8px 36px;
+  align-items: center;
+  min-height: 100svh;
+  overflow: hidden;
+  padding: 108px 42px 36px;
+  text-align: left;
+}
+
+.missing-page > * {
+  position: relative;
+  z-index: 1;
+}
+
+.missing-copy-block {
+  grid-area: copy;
+  max-width: 640px;
+}
+
+.missing-kicker {
+  margin: 0 0 18px;
+  color: var(--signal);
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.28em;
+}
+
+.missing-page .eyebrow {
+  margin-bottom: 22px;
+}
+
+.missing-page h1 {
+  max-width: 920px;
+  margin: 0 0 22px;
+  font-size: clamp(40px, 3.5vw, 64px);
+  font-weight: 500;
+  letter-spacing: -0.055em;
+  line-height: 0.98;
+}
+
+.missing-page h1 span {
+  display: block;
+  margin-top: 10px;
+  color: var(--ink-soft);
+}
+
+.missing-copy {
+  max-width: 680px;
+  margin: 0;
+  color: var(--ink-soft);
+  font-size: 18px;
+  line-height: 1.55;
+}
+
+.missing-copy em {
+  color: var(--signal);
+}
+
+.missing-stage {
+  position: relative;
+  grid-area: stage;
+  width: 100%;
+  height: min(58svh, 560px);
+  min-height: 440px;
+  margin: 0;
+}
+
+.missing-stage .hero-side-label {
+  right: 18px;
+  bottom: 16%;
+}
+
+.missing-cta {
+  grid-area: cta;
+  width: 100%;
+  min-height: 0;
+  margin-top: 8px;
+  padding: 22px 24px;
+  font-family: var(--font-geist-sans), Arial, sans-serif;
+  font-size: clamp(18px, 2.1vw, 26px);
+  font-weight: 500;
+  letter-spacing: -0.03em;
+  line-height: 1.25;
+  text-align: left;
+  text-transform: none;
+}
+
+.missing-cta > span {
+  letter-spacing: -0.03em;
+  text-transform: none;
+}
+
+@media (max-width: 980px) {
+  .missing-page {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "copy"
+      "stage"
+      "cta";
+    padding: 112px 20px 48px;
+    text-align: center;
+  }
+
+  .missing-copy-block {
+    max-width: 680px;
+    margin: 0 auto;
+  }
+
+  .missing-stage {
+    height: min(62svh, 520px);
+    min-height: 420px;
+  }
+}
+
+@media (max-width: 760px) {
+  .missing-page {
+    padding: 112px 16px 48px;
+  }
+
+  .missing-page h1 {
+    font-size: clamp(36px, 10vw, 52px);
+  }
+
+  .missing-copy {
+    font-size: 16px;
+  }
+
+  .missing-stage {
+    height: min(70svh, 520px);
+    min-height: 420px;
+    margin-top: 24px;
+  }
+
+  .missing-cta {
+    align-items: flex-start;
+    padding: 18px 16px;
+  }
+}
