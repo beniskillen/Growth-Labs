@@ -87,8 +87,8 @@ export default function MtpHealthCase() {
               {snapshot.rows.map((row) => (
                 <tr key={row.metric}>
                   <th scope="row">{row.metric}</th>
-                  <td>{row.before}</td>
-                  <td>{row.after}</td>
+                  <td data-label="Before">{row.before}</td>
+                  <td data-label="After">{row.after}</td>
                 </tr>
               ))}
             </tbody>
@@ -152,7 +152,7 @@ export default function MtpHealthCase() {
         </div>
       </section>
 
-      <section className="section offer-section">
+      <section className="section offer-section section-compact">
         <div className="work-layers">
           {categoryLayers.map(([layer, decision]) => (
             <article key={layer}>
@@ -212,8 +212,8 @@ export default function MtpHealthCase() {
                     key={label}
                   >
                     <th scope="row">{label}</th>
-                    <td>{standard}</td>
-                    <td>{king}</td>
+                    <td data-label="Standard service offer">{standard}</td>
+                    <td data-label="The Knee Program">{king}</td>
                   </tr>
                 ))}
               </tbody>
@@ -277,13 +277,15 @@ export default function MtpHealthCase() {
       </section>
 
       <section className="offer-guarantee grid-bg">
-        <span className="section-index">_08</span>
-        <Eyebrow>NEXT</Eyebrow>
+        <div className="section-label">
+          <span className="section-index">_08</span>
+          <Eyebrow>NEXT</Eyebrow>
+        </div>
         <h2>Ready to take a quantum leap in your business & income?</h2>
         <p>
           Book a growth strategy using the button below to get a tailored Category King plan for your business.
         </p>
-        <div className="button-row" style={{ justifyContent: "center", marginTop: 36 }}>
+        <div className="button-row">
           <StrategyButton />
         </div>
       </section>

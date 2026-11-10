@@ -5,10 +5,10 @@ export const study = {
   meta: {
     title: "Ethos Performance — Sell the outcome, not the hour",
     description:
-      "Head of Growth at Ethos Performance. Productised a high-margin online offer beside the combat gym floor. $80k+ from that new line in the first 12 months.",
+      "Marketing Coordinator at Ethos Performance. Productised a high-margin online offer beside the combat gym floor. $80k+ from that new line in the first 12 months.",
   },
   card: {
-    eyebrow: "Combat performance · Head of Growth",
+    eyebrow: "Combat performance · Marketing Coordinator",
     title: "Ethos — Stop selling hours on the floor",
     oneLiner:
       "A serious combat gym, easy to confuse with a membership. We productised the outcome. The new line did $80k+ online in its first 12 months.",

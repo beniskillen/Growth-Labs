@@ -288,12 +288,7 @@ export default function GuaranteeLanding() {
         <section className="g-block" aria-labelledby="faq-heading">
           <div className="g-wrap">
             <header className="g-center">
-              <h2 id="faq-heading">Questions</h2>
-              <p className="g-lede">
-                Straight answers. Your number, your fee and your remedy are
-                written down before anyone starts. The signed paper is the
-                contract.
-              </p>
+              <h2 id="faq-heading">FAQ&apos;s</h2>
             </header>
             <div className="g-faq">
               {faqs.map((item) => (

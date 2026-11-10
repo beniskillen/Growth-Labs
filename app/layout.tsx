@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono, Inter } from "next/font/google";
+import GoogleAnalytics from "./GoogleAnalytics";
 import StudioProvider from "./studio/StudioProvider";
 import { studioBootScript } from "./studio/keys";
 import "./globals.css";
@@ -19,7 +20,10 @@ const inter = Inter({
   subsets: ["latin"],
 });
 
-const siteUrl = "https://beniskillen.github.io/Growth-Labs";
+const githubPages = process.env.GITHUB_PAGES === "true";
+const siteUrl = githubPages
+  ? "https://beniskillen.github.io/Growth-Labs"
+  : "https://growthlabsconsulting.xyz";
 const pagesBase = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 
 export const metadata: Metadata = {
@@ -30,18 +34,6 @@ export const metadata: Metadata = {
   },
   description:
     "Operator-led growth studio: diagnose the constraint, engineer the revenue system, and measure CAC, LTV and CTR before scaling.",
-  icons: {
-    icon: [
-      { url: `${pagesBase}/favicon.ico?v=2`, sizes: "48x48" },
-      {
-        url: `${pagesBase}/favicon.png?v=2`,
-        type: "image/png",
-        sizes: "512x512",
-      },
-    ],
-    apple: `${pagesBase}/apple-touch-icon.png?v=2`,
-    shortcut: `${pagesBase}/favicon.ico?v=2`,
-  },
   openGraph: {
     title: "Growth Labs — Engineer the revenue system",
     description:
@@ -64,9 +56,28 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
+      <head>
+        <link
+          rel="icon"
+          href={`${pagesBase}/favicon.ico?v=3`}
+          sizes="48x48"
+        />
+        <link
+          rel="icon"
+          href={`${pagesBase}/favicon.png?v=3`}
+          type="image/png"
+          sizes="512x512"
+        />
+        <link
+          rel="apple-touch-icon"
+          href={`${pagesBase}/apple-touch-icon.png?v=3`}
+        />
+        <link rel="shortcut icon" href={`${pagesBase}/favicon.ico?v=3`} />
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${inter.variable}`}
       >
+        <GoogleAnalytics />
         <script dangerouslySetInnerHTML={{ __html: studioBootScript }} />
         <StudioProvider>{children}</StudioProvider>
       </body>

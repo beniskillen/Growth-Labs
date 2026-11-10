@@ -16,7 +16,7 @@ function toEmbed(src: string) {
   const wistia = src.match(/wistia\.(?:com|net)\/(?:medias|embed\/iframe)\/(\w+)/);
   if (wistia) return `https://fast.wistia.net/embed/iframe/${wistia[1]}`;
   const loom = src.match(/loom\.com\/(?:share|embed)\/([a-f0-9]+)/i);
-  if (loom) return `https://www.loom.com/embed/${loom[1]}?autoplay=1`;
+  if (loom) return `https://www.loom.com/embed/${loom[1]}`;
   return null;
 }
 
@@ -45,11 +45,11 @@ export default function VslPlayer() {
           <iframe
             src={embed}
             title="Category King system video"
-            allow="autoplay; fullscreen; accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allow="fullscreen; accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowFullScreen
           />
         ) : src ? (
-          <video src={src} controls autoPlay playsInline preload="auto" />
+          <video src={src} controls playsInline preload="metadata" />
         ) : (
           <div className="offer-vsl-poster" role="img" aria-label="Video slot for the Category King VSL">
             <span className="offer-vsl-play" aria-hidden="true" />

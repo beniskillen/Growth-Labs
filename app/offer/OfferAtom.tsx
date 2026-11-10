@@ -20,7 +20,7 @@ export default function OfferAtom() {
       <p className="offer-atom-callout">
         You&apos;ve scrolled this far, why not just get a strategy for your time
       </p>
-      <AuditButton>BOOK A STRATEGY SESSION</AuditButton>
+      <AuditButton arrow={false}>BOOK A STRATEGY SESSION</AuditButton>
     </section>
   );
 }

@@ -37,9 +37,21 @@ export function LeakSchematic() {
 export function DualFunnel({
   leftLabel = "STANDARD / 1,000 CLICKS",
   rightLabel = "CATEGORY KING / 1,000 CLICKS",
+  leftClicks = "1,000 clicks",
+  leftMiddle = "20 members",
+  leftBottom = "0.352 customers",
+  rightClicks = "1,000 clicks",
+  rightMiddle = "60 members",
+  rightBottom = "1.92 customers",
 }: {
   leftLabel?: string;
   rightLabel?: string;
+  leftClicks?: string;
+  leftMiddle?: string;
+  leftBottom?: string;
+  rightClicks?: string;
+  rightMiddle?: string;
+  rightBottom?: string;
 } = {}) {
   return (
     <svg
@@ -63,13 +75,13 @@ export function DualFunnel({
       <polygon points="460,128 640,128 610,188 490,188" fill="rgba(102,124,255,0.18)" stroke="#667cff" />
       <polygon points="500,198 600,198 580,258 520,258" fill="rgba(102,124,255,0.28)" stroke="#667cff" />
 
-      <text x="86" y="86" fill="#b6bac1" fontSize="13">1,000 clicks</text>
-      <text x="108" y="162" fill="#b6bac1" fontSize="13">10 opt-ins</text>
-      <text x="118" y="232" fill="#b6bac1" fontSize="13">1 customer</text>
+      <text x="170" y="88" textAnchor="middle" fill="#b6bac1" fontSize="13">{leftClicks}</text>
+      <text x="170" y="164" textAnchor="middle" fill="#b6bac1" fontSize="13">{leftMiddle}</text>
+      <text x="170" y="234" textAnchor="middle" fill="#b6bac1" fontSize="13">{leftBottom}</text>
 
-      <text x="466" y="86" fill="#f4f4f2" fontSize="13">1,000 clicks</text>
-      <text x="488" y="162" fill="#f4f4f2" fontSize="13">100 opt-ins</text>
-      <text x="498" y="232" fill="#f4f4f2" fontSize="13">30 customers</text>
+      <text x="550" y="88" textAnchor="middle" fill="#f4f4f2" fontSize="13">{rightClicks}</text>
+      <text x="550" y="164" textAnchor="middle" fill="#f4f4f2" fontSize="13">{rightMiddle}</text>
+      <text x="550" y="234" textAnchor="middle" fill="#f4f4f2" fontSize="13">{rightBottom}</text>
     </svg>
   );
 }

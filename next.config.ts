@@ -9,6 +9,8 @@ const nextConfig: NextConfig = {
   trailingSlash: githubPages,
   env: {
     NEXT_PUBLIC_BASE_PATH: basePath,
+    NEXT_PUBLIC_GA_MEASUREMENT_ID:
+      process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID ?? "G-41VGPG216X",
   },
   redirects: githubPages
     ? undefined

@@ -13,7 +13,13 @@ const isCodexSeatbeltSandbox = process.env.CODEX_SANDBOX === "seatbelt";
 
 const localBindingConfig = {
   main: "./worker/index.ts",
-  compatibility_flags: ["nodejs_compat"],
+  // nodejs_compat already lives in wrangler.jsonc. Passing it again makes
+  // workerd refuse to start ("Compatibility flag specified multiple times").
+  workers_dev: true,
+  routes: [
+    { pattern: "growthlabsconsulting.xyz", custom_domain: true },
+    { pattern: "www.growthlabsconsulting.xyz", custom_domain: true },
+  ],
   d1_databases: d1
     ? [
         {
@@ -33,7 +39,7 @@ const localBindingConfig = {
     : [],
 };
 
-export default defineConfig(async () => {
+export default defineConfig(async ({ command }) => {
   // Keep Wrangler and Miniflare state project-local. These are non-secret tool
   // settings; application environment belongs in ignored `.env*` files.
   process.env.WRANGLER_WRITE_LOGS ??= "false";
@@ -52,7 +58,12 @@ export default defineConfig(async () => {
       sites(),
       cloudflare({
         viteEnvironment: { name: "rsc", childEnvironments: ["ssr"] },
-        config: localBindingConfig,
+        config: () => ({
+          ...localBindingConfig,
+          // The installed workerd binary only accepts dates through 2026-05-22.
+          // Keep the production date in wrangler.jsonc; this override is dev-only.
+          ...(command === "serve" ? { compatibility_date: "2026-05-22" } : {}),
+        }),
       }),
     ],
   };

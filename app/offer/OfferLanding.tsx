@@ -1,6 +1,6 @@
-import type { ReactNode } from "react";
 import {
   AuditButton,
+  MarkButton,
   Eyebrow,
   SectionHeading,
   SiteFrame,
@@ -11,6 +11,8 @@ import OfferAtom from "./OfferAtom";
 import VslPlayer from "./VslPlayer";
 import { MtpCaseFeature } from "../work/mtp-health/CaseFeature";
 import { illustrationNumbersNote } from "../work/mtp-health/copy";
+import { categoryKing as model } from "../model/category-king";
+import { CategoryKingTable } from "../model/CategoryKingTable";
 
 export type OfferVariant = "partnership" | "schedule";
 
@@ -140,71 +142,6 @@ const scheduleGets = [
   "Traffic — paid ads or cold email — only after the system is live. All IP we build stays yours.",
 ];
 
-const comparison: [string, ReactNode, ReactNode][] = [
-  [
-    "Core Offering",
-    "Sessions sold one by one, generic positioning, each treatment journey bespoke.",
-    "Signature outcome program in one owned category, with packages pre sold in advance.",
-  ],
-  [
-    "Monthly Revenue (at 1,000 clicks/month)",
-    "$150 (1 customer × typical entry of $150)",
-    "$30,000 (30 customers × $1,000)",
-  ],
-  [
-    "MRR",
-    "$0 (one-off sessions, no recurring commitments)",
-    "$4,500 (15 of 30 retained × $300/mo membership layer)",
-  ],
-  [
-    "ARR (at 1,000 clicks/month)",
-    "$0 (no recurring revenue — MRR × 12 = 0)",
-    "$54,000 (MRR $4,500 × 12)",
-  ],
-  [
-    "Ad spend (at $50 CPM, 1,000 clicks)",
-    "$3,333 (66,667 impressions needed at 1.5% CTR)",
-    "$1,667 (33,333 impressions needed at 3% CTR)",
-  ],
-  ["Click-through rate", "1.5%", "3%"],
-  ["On-page conversion rate", "1%", "10%"],
-  ["Result per 1,000 clicks", "10 opt-ins → 1 customer", "100 opt-ins → 30 customers"],
-  ["Sales conversion rate", "10%", "30%"],
-  ["Initial cash collected", "$2 to $300 (typical entry ~$150)", "$1,000"],
-  ["30-day cash per customer", "~$150", "~$1,000"],
-  ["Average 12 month lifetime value (LTV)", "~$500", "~$5,000"],
-  [
-    "Refund / complaint rate",
-    "5% (erodes the cash in, no breathing room)",
-    "5% (Despite some misses with our offer, our increased conversions allow plenty of breathing room)",
-  ],
-  [
-    "Customer acquisition cost (CAC)",
-    <>~$3,333 — higher than 30-day cash <strong>and</strong> higher than LTV</>,
-    "~$56 — lower than the 30-day cash from that customer",
-  ],
-  [
-    "Scales on cold traffic and paid ads?",
-    <><strong>No.</strong> Every bought customer loses money</>,
-    <><strong>Yes.</strong> The customer pays for themselves inside 30 days</>,
-  ],
-  [
-    "Founder mindset",
-    "Ads don’t work. Business is a grind.",
-    "I can scale as much as I want. My customers get great results.",
-  ],
-  [
-    "Annual revenue (at 1,000 clicks/month, × 12)",
-    "$1,800",
-    "$360,000",
-  ],
-  [
-    "Annual revenue difference",
-    "—",
-    "+$358,200 a year vs the standard offer",
-  ],
-];
-
 function StrategyButton() {
   return <AuditButton>BOOK A STRATEGY SESSION</AuditButton>;
 }
@@ -258,7 +195,7 @@ export default function OfferLanding({ variant }: { variant: OfferVariant }) {
               : "Marketing that puts its money where its mouth is. We install a proven system for creating consistent monthly profit, run it until it is installed in your business, and only collect a fee when we hit your target."}
           </p>
           <div className="button-row">
-            <StrategyButton />
+            <MarkButton />
           </div>
         </div>
         <aside className="offer-hero-vsl">
@@ -446,38 +383,25 @@ export default function OfferLanding({ variant }: { variant: OfferVariant }) {
           <Eyebrow>WHY A CATEGORY KING OFFER SCALES</Eyebrow>
           <h3>An Illustrated example of the difference a Category King Offer Makes — WHY A CATEGORY KING OFFER SCALES</h3>
           <p>
-            <strong>A worked example: allied health.</strong> The same clinical skill sold two ways. One runs a standard service offer. The other owns a category. The only difference is the offer you build and the audience you target.
+            <strong>A worked example: allied health.</strong> The same 1,000 clicks, read at the two ends of the low-ticket community funnel. The standard column is the low end. The Category King column is the high end.
           </p>
-          <DualFunnel />
+          <DualFunnel
+            leftLabel="STANDARD / 1,000 CLICKS"
+            rightLabel="CATEGORY KING / 1,000 CLICKS"
+            leftClicks="1,000 clicks"
+            leftMiddle={`${model.standard.members} members`}
+            leftBottom={`${model.standard.customers} customers`}
+            rightClicks="1,000 clicks"
+            rightMiddle={`${model.king.members} members`}
+            rightBottom={`${model.king.customers} customers`}
+          />
           <p className="offer-caveat offer-illustration-note">
             <strong>Note:</strong> {illustrationNumbersNote}
           </p>
-          <div className="offer-compare-wrap">
-            <table className="offer-compare">
-              <thead>
-                <tr>
-                  <th scope="col"></th>
-                  <th scope="col">Standard service offer</th>
-                  <th scope="col">Category King offer</th>
-                </tr>
-              </thead>
-              <tbody>
-                {comparison.map(([label, standard, king], index) => (
-                  <tr
-                    className={index === comparison.length - 1 ? "offer-compare-highlight" : undefined}
-                    key={label}
-                  >
-                    <th scope="row">{label}</th>
-                    <td data-label="Standard service offer">{standard}</td>
-                    <td data-label="Category King offer">{king}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
+          <CategoryKingTable />
           <div className="offer-prose">
             <p>
-              <strong>The read:</strong> the standard offer can only work on warm, cheap, hand-held traffic, because its customer acquisition cost is higher than what the customer pays in 30 days <strong>and</strong> higher than their lifetime value. The Category King offer generates enough 30-day cash to cover acquisition, so it can scale on cold traffic and paid ads.
+              <strong>The read:</strong> both columns start from 1,000 clicks. The standard offer uses the low end of the funnel, 0.5% click-through, 2% join, 11% booked, and $3 a visit, so the cost per customer is {model.standard.cac}. The Category King offer uses the high end, 1% click-through, 6% join, 20% booked, and $1 a visit, so the cost is {model.king.cac} against a {model.king.value} lifetime value. Held calls stay at 80%, and 20% of held calls become customers. Referral rate is not applied to the cost.
             </p>
           </div>
         </div>
