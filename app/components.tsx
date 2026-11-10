@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import { BLOG_PUBLIC } from "./blog/publish";
 import { SiteLink } from "./SiteLink";
 import { trustBrands } from "./brand";
 
@@ -24,6 +25,19 @@ export function Wordmark() {
   );
 }
 
+function MainNavLinks() {
+  return (
+    <>
+      <SiteLink href="/work/mtp-health">Work</SiteLink>
+      <SiteLink href="/services">Services</SiteLink>
+      <SiteLink href="/partners">Partners</SiteLink>
+      <SiteLink href="/solutions">Solutions</SiteLink>
+      <SiteLink href="/about">About</SiteLink>
+      {BLOG_PUBLIC ? <SiteLink href="/blog">Writing</SiteLink> : null}
+    </>
+  );
+}
+
 export function SiteHeader({
   conversion = false,
   homeOnly = false,
@@ -31,20 +45,37 @@ export function SiteHeader({
   conversion?: boolean;
   homeOnly?: boolean;
 }) {
+  const variant = conversion
+    ? " site-header-conversion"
+    : homeOnly
+      ? " site-header-home-only"
+      : " site-header-full";
+
   return (
-    <header className={`site-header${conversion ? " site-header-conversion" : ""}`}>
+    <header className={`site-header${variant}`}>
       <Wordmark />
       {homeOnly ? (
         <nav className="site-nav" aria-label="Main navigation">
           <SiteLink href="/">Home</SiteLink>
         </nav>
       ) : conversion ? null : (
-        <nav className="site-nav" aria-label="Main navigation">
-          <SiteLink href="/work/mtp-health">Work</SiteLink>
-          <SiteLink href="/partners">Partners</SiteLink>
-          <SiteLink href="/solutions">Solutions</SiteLink>
-          <SiteLink href="/about">About</SiteLink>
-        </nav>
+        <>
+          <nav className="site-nav" aria-label="Main navigation">
+            <MainNavLinks />
+          </nav>
+          {/* Compact disclosure menu for viewports where the inline nav is hidden. */}
+          <details className="site-menu">
+            <summary aria-label="Open navigation menu">
+              <span className="site-menu-icon" aria-hidden="true">
+                <i />
+                <i />
+              </span>
+            </summary>
+            <nav className="site-menu-panel" aria-label="Main navigation">
+              <MainNavLinks />
+            </nav>
+          </details>
+        </>
       )}
       <a className="button button-small" href={AUDIT_URL} target="_blank" rel="noreferrer">
         <span>Get a growth strategy</span>
@@ -89,12 +120,40 @@ export function Arrow() {
   return <span aria-hidden="true">↗</span>;
 }
 
+export function MarkButton({
+  leading = "Book a",
+  trailing = "strategy session",
+  className = "",
+}: {
+  leading?: string;
+  trailing?: string;
+  className?: string;
+}) {
+  return (
+    <a
+      className={`button button-mark ${className}`.trim()}
+      href={AUDIT_URL}
+      target="_blank"
+      rel="noreferrer"
+      aria-label={`${leading} ${trailing}`}
+    >
+      <span>{leading}</span>
+      <span className="button-mark-orb" aria-hidden="true">
+        <Mark />
+      </span>
+      <span>{trailing}</span>
+    </a>
+  );
+}
+
 export function AuditButton({
   children = "Book your 30-minute audit",
   className = "",
+  arrow = true,
 }: {
   children?: ReactNode;
   className?: string;
+  arrow?: boolean;
 }) {
   return (
     <a
@@ -104,7 +163,7 @@ export function AuditButton({
       rel="noreferrer"
     >
       <span>{children}</span>
-      <Arrow />
+      {arrow ? <Arrow /> : null}
     </a>
   );
 }
@@ -156,11 +215,14 @@ export function Footer({
             <SiteLink href="/work/mtp-health">Case Studies</SiteLink>
             {conversion ? null : (
               <>
+                <SiteLink href="/services">Services</SiteLink>
                 <SiteLink href="/partners">Partners</SiteLink>
                 <SiteLink href="/solutions">Solutions</SiteLink>
                 <SiteLink href="/about">About</SiteLink>
+                <SiteLink href="/roadmap">Scaling roadmap</SiteLink>
                 <SiteLink href="/landing">Operator landing</SiteLink>
                 <SiteLink href="/audit">AI Leverage Audit</SiteLink>
+                {BLOG_PUBLIC ? <SiteLink href="/blog">Writing</SiteLink> : null}
               </>
             )}
           </>

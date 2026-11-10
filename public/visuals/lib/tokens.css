@@ -1,0 +1,67 @@
+/* Growth Labs visual library: design tokens.
+   Colour and type follow the Growth Labs brand kit: Geist, Geist Mono, signal #667CFF.
+   The previous Lovable blue ramp and Fraunces files now live on the desktop. */
+:root {
+  --font-serif: "Geist", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-sans: "Geist", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: "Geist Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  --signal: #667cff;
+  --sky: #7b8dff;
+  --blueprint: #354bb6;
+  --tint: #bbc4ff;
+  --fill-tint: #bbc4ff;
+  --parchment: #f4f4f2;
+  --slate: #323638;
+}
+
+/* Dark: the site canvas. */
+[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: #000000;
+  --surface: #0b0b0d;
+  --surface-2: #131316;
+  --surface-3: #1b1b20;
+  --line: rgba(255, 255, 255, 0.14);
+  --line-strong: rgba(255, 255, 255, 0.32);
+  --ink: #ffffff;
+  --ink-2: #b8bcc4;
+  --ink-3: #7c8189;
+  --ink-4: #4f545b;
+  --accent: var(--signal);
+  --accent-2: var(--sky);
+  --accent-soft: rgba(102, 124, 255, 0.16);
+  --accent-ink: #ffffff;
+  --fill-1: #667cff;
+  --fill-2: #354bb6;
+  --fill-3: #24306e;
+  --fill-4: #171e42;
+  --fill-tint: #bbc4ff;
+  --danger: #ff5d5d;
+  --ok: #4ade80;
+}
+
+/* Light: paper canvas from the Growth Labs brand kit. */
+[data-theme="light"] {
+  color-scheme: light;
+  --bg: #f4f4f2;
+  --surface: #ffffff;
+  --surface-2: #ececea;
+  --surface-3: #e4e4e1;
+  --line: rgba(10, 10, 10, 0.14);
+  --line-strong: rgba(10, 10, 10, 0.34);
+  --ink: #0a0a0a;
+  --ink-2: #474b51;
+  --ink-3: #82868d;
+  --ink-4: #b4b7bc;
+  --accent: var(--signal);
+  --accent-2: var(--blueprint);
+  --accent-soft: rgba(102, 124, 255, 0.14);
+  --accent-ink: #ffffff;
+  --fill-1: #0a0a0a;
+  --fill-2: #323638;
+  --fill-3: #6b6f74;
+  --fill-4: #b4b7bc;
+  --danger: #d43d3d;
+  --ok: #1f8a4c;
+}

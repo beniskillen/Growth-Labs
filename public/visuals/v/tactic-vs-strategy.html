@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="en-AU" data-slug="tactic-vs-strategy" data-ratio="16/10">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The way most owners think about growth goes against the natural laws of the universe — Growth Labs visual</title>
+<meta name="description" content="Two years on one linear scale to $10M a year. Tactic-led growth copies the market and stalls near $3M. Strategy-led growth proves the offer in six months, then passes the ten levels.">
+<script src="../lib/visual.js"></script>
+<link rel="stylesheet" href="../lib/fonts.css">
+<link rel="stylesheet" href="../lib/tokens.css">
+<link rel="stylesheet" href="../lib/visual.css">
+<style>
+  .title h1 { font-size: 2.35cqw; }
+  .title p { max-width: none; font-size: 1.02cqw; line-height: 1.38; }
+  .pair { display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: auto minmax(0, 1fr) auto; column-gap: 2.6cqw; row-gap: 0.55cqw; flex: 1 1 auto; min-height: 0; position: relative; }
+  .pair::before { content: ""; position: absolute; left: 50%; top: 0; bottom: 0; width: 1px; background: var(--line); transform: translateX(-50%); }
+  .side-h { min-width: 0; }
+  .side-h .k { display: flex; align-items: center; gap: 0.7cqw; }
+  .side-h h3 { font-family: var(--font-serif); font-weight: 400; font-size: 1.55cqw; line-height: 1.12; margin: 0.28cqw 0 0; letter-spacing: -0.02em; }
+  .side-h .sub { margin: 0.22cqw 0 0; font-size: 0.84cqw; line-height: 1.35; color: var(--ink-2); max-width: 42cqw; }
+  .chart { min-height: 0; min-width: 0; }
+  .chart svg { width: 100%; height: 100%; display: block; }
+  svg .axis { stroke: var(--line-strong); }
+  svg .grid { stroke: var(--line); }
+  svg .ref { stroke: var(--ink-3); stroke-dasharray: 3 4; }
+  svg .tick { font-family: var(--font-mono); font-size: 11px; fill: var(--ink-3); letter-spacing: 0.08em; }
+  svg .ann { font-size: 13px; fill: var(--ink); }
+  svg .ann.m { fill: var(--ink-2); font-size: 12px; }
+  svg .lineT { fill: none; stroke: var(--ink-2); stroke-width: 2.25; stroke-linejoin: round; stroke-linecap: round; }
+  svg .lineS { fill: none; stroke: var(--accent); stroke-width: 2.5; stroke-linejoin: round; stroke-linecap: round; }
+  svg .areaS { fill: var(--accent); opacity: 0.12; }
+  svg .poc { fill: var(--accent-soft); }
+  svg .drop { stroke: var(--accent); stroke-width: 1.15; stroke-dasharray: 2.5 3.5; opacity: 0.85; }
+  svg .leader { stroke: var(--ink-3); stroke-width: 1; stroke-dasharray: 2 3; }
+  svg .ptT { fill: var(--bg); stroke: var(--ink-2); stroke-width: 2; }
+  svg .ptS { fill: var(--bg); stroke: var(--accent); stroke-width: 2; }
+  svg .stage-no { font-family: var(--font-mono); font-size: 11px; font-weight: 600; fill: var(--accent); text-anchor: middle; }
+  svg .knock { fill: var(--bg); }
+  [data-theme="light"] svg .lineS,
+  [data-theme="light"] svg .drop,
+  [data-theme="light"] svg .ptS { stroke: var(--ink); }
+  [data-theme="light"] svg .areaS { fill: var(--ink); opacity: 0.06; }
+  [data-theme="light"] svg .stage-no { fill: var(--ink); }
+  [data-theme="light"] svg .poc { fill: rgba(10, 10, 10, 0.05); }
+  .read { min-width: 0; align-self: start; padding-top: 0.35cqw; border-top: 1px solid var(--line); }
+  .read .mono { display: block; margin-bottom: 0.28cqw; font-size: 0.64cqw; }
+  .read p { margin: 0; font-size: 0.86cqw; line-height: 1.4; color: var(--ink-2); }
+  .read b { color: var(--ink); font-weight: 500; }
+  .levels-wrap { min-width: 0; align-self: start; padding-top: 0.35cqw; border-top: 1px solid var(--line); }
+  .levels-wrap .mono { display: block; margin-bottom: 0.35cqw; font-size: 0.64cqw; }
+  .levels { list-style: none; margin: 0; padding: 0; display: grid; grid-template-rows: repeat(5, auto); grid-auto-flow: column; gap: 0.38cqw 1.1cqw; }
+  .levels li { display: grid; grid-template-columns: 1.35cqw 1fr; gap: 0.35cqw; align-items: baseline; min-width: 0; }
+  .levels i { font-style: normal; font-family: var(--font-mono); font-size: 0.64cqw; letter-spacing: 0.04em; color: var(--accent); font-weight: 600; }
+  [data-theme="light"] .levels i { color: var(--ink); }
+  .levels b { display: block; font-weight: 500; font-size: 0.78cqw; line-height: 1.2; color: var(--ink); letter-spacing: -0.01em; }
+  .levels span { display: block; font-size: 0.68cqw; line-height: 1.25; color: var(--ink-2); }
+</style>
+</head>
+<body>
+<div class="page">
+<section class="stage stage--16x10">
+  <header class="head">
+    <div class="eyebrow">Growth Labs <span class="sep">·</span> The opening idea</div>
+    <a class="brand" href="https://growthlabsconsulting.xyz/" target="_blank" rel="noopener">BK</a>
+  </header>
+  <div class="title">
+    <h1>The way most owners think about growth goes <em>against the natural laws of the universe</em></h1>
+    <p>This natural law is the Pareto distribution. Natural selection, and the resources of the many accruing to the few. Otherwise known as the 80/20 phenomenon, we see it applied to different ways of thinking, which highlights the major difference between unicorn growth tactics implemented by the top companies in the world and what most businesses do. Same two years. Same linear scale, up to $10M a year. One path copies the market. The other chooses where every resource goes.</p>
+  </div>
+
+  <div class="body">
+    <div class="pair">
+      <div class="side-h reveal" style="--i:1">
+        <div class="k"><span class="pill">Tactic-led</span></div>
+        <h3>Doing what everyone else does</h3>
+        <p class="sub">The same channels, campaigns and hires as every other owner.</p>
+      </div>
+
+      <div class="side-h reveal" style="--i:2">
+        <div class="k"><span class="pill pill--accent">Strategy-led</span></div>
+        <h3>Every resource on the most valuable option</h3>
+        <p class="sub">Unlimited options. One is clearly worth more. The whole business moves there.</p>
+      </div>
+
+      <div class="chart reveal" style="--i:1">
+        <svg viewBox="0 0 740 308" role="img" aria-label="Tactic-led annual revenue over two years on a linear scale to $10M plus. The line makes small gains, goes flat, dips, and ends near $3M a year.">
+          <g class="grid">
+            <line x1="56" y1="52.3" x2="708" y2="52.3"/>
+            <line x1="56" y1="160.2" x2="708" y2="160.2"/>
+          </g>
+          <line class="ref" x1="56" y1="203.3" x2="708" y2="203.3"/>
+          <line class="axis" x1="56" y1="268" x2="708" y2="268"/>
+          <g class="tick" dominant-baseline="middle">
+            <text x="50" y="52.3" text-anchor="end">$10M+</text>
+            <text x="50" y="160.2" text-anchor="end">$5M</text>
+            <text x="50" y="203.3" text-anchor="end">$3M</text>
+            <text x="50" y="268" text-anchor="end">$0</text>
+          </g>
+          <g class="tick" text-anchor="middle">
+            <text x="56" y="288">Start</text>
+            <text x="219" y="288">6 mo</text>
+            <text x="382" y="288">1 yr</text>
+            <text x="545" y="288">18 mo</text>
+            <text x="708" y="288">2 yrs</text>
+          </g>
+          <line class="leader" x1="170" y1="118" x2="170" y2="228"/>
+          <line class="leader" x1="208" y1="118" x2="208" y2="252"/>
+          <line class="leader" x1="170" y1="118" x2="208" y2="118"/>
+          <text class="ann m" x="189" y="108" text-anchor="middle">Flat, then a dip</text>
+          <path class="lineT" d="M56 252.9 L99.5 238.9 L137.5 231.3 L170.1 230.9 L208.1 254 L257 234.6 L300.5 223.8 L338.5 223.1 L382 243.2 L436.3 221.6 L479.8 213 L517.8 214.1 L555.9 231.3 L604.8 213 L653.7 206.5 L708 203.3"/>
+          <circle class="ptT" cx="708" cy="203.3" r="4.5"/>
+          <text class="ann" x="692" y="190" text-anchor="end">About $3M a year</text>
+        </svg>
+      </div>
+
+      <div class="chart reveal" style="--i:2">
+        <svg viewBox="0 0 740 308" role="img" aria-label="Strategy-led annual revenue over two years. The first six months are the proof of concept. An exponential then passes ten stages, marked with dotted lines, and finishes past $10M a year.">
+          <rect class="poc" x="56" y="16" width="163" height="252"/>
+          <text class="tick" x="137.5" y="124" text-anchor="middle">PROOF OF CONCEPT</text>
+          <text class="tick" x="137.5" y="140" text-anchor="middle">FIRST 6 MONTHS</text>
+          <g class="grid">
+            <line x1="56" y1="52.3" x2="708" y2="52.3"/>
+            <line x1="56" y1="160.2" x2="708" y2="160.2"/>
+          </g>
+          <line class="ref" x1="56" y1="203.3" x2="708" y2="203.3"/>
+          <g class="drop">
+            <line x1="219" y1="16" x2="219" y2="246"/>
+            <line x1="273.3" y1="16" x2="273.3" y2="246"/>
+            <line x1="327.7" y1="16" x2="327.7" y2="246"/>
+            <line x1="382" y1="16" x2="382" y2="246"/>
+            <line x1="436.3" y1="16" x2="436.3" y2="246"/>
+            <line x1="490.7" y1="16" x2="490.7" y2="246"/>
+            <line x1="545" y1="16" x2="545" y2="246"/>
+            <line x1="599.3" y1="16" x2="599.3" y2="246"/>
+            <line x1="653.7" y1="16" x2="653.7" y2="246"/>
+            <line x1="708" y1="16" x2="708" y2="246"/>
+          </g>
+          <line class="axis" x1="56" y1="268" x2="708" y2="268"/>
+          <g class="tick" dominant-baseline="middle">
+            <text x="50" y="52.3" text-anchor="end">$10M+</text>
+            <text x="50" y="160.2" text-anchor="end">$5M</text>
+            <text x="50" y="203.3" text-anchor="end">$3M</text>
+            <text x="50" y="268" text-anchor="end">$0</text>
+          </g>
+          <g class="tick" text-anchor="middle">
+            <text x="56" y="288">Start</text>
+            <text x="219" y="288">6 mo</text>
+            <text x="382" y="288">1 yr</text>
+            <text x="545" y="288">18 mo</text>
+            <text x="708" y="288">2 yrs</text>
+          </g>
+          <path class="areaS" d="M56 250.7 L62.8 250.3 L69.6 249.8 L76.4 249.3 L83.2 248.8 L90 248.3 L96.8 247.7 L103.5 247.2 L110.3 246.6 L117.1 246 L123.9 245.4 L130.7 244.8 L137.5 244.2 L144.3 243.5 L151.1 242.9 L157.9 242.2 L164.7 241.5 L171.5 240.7 L178.3 240 L185 239.2 L191.8 238.4 L198.6 237.6 L205.4 236.8 L212.2 236 L219 235.1 L225.8 234.2 L232.6 233.3 L239.4 232.3 L246.2 231.3 L253 230.3 L259.8 229.3 L266.5 228.3 L273.3 227.2 L280.1 226.1 L286.9 224.9 L293.7 223.7 L300.5 222.5 L307.3 221.3 L314.1 220 L320.9 218.7 L327.7 217.4 L334.5 216 L341.3 214.6 L348 213.1 L354.8 211.6 L361.6 210.1 L368.4 208.5 L375.2 206.9 L382 205.2 L388.8 203.5 L395.6 201.7 L402.4 199.9 L409.2 198.1 L416 196.1 L422.8 194.2 L429.5 192.2 L436.3 190.1 L443.1 188 L449.9 185.8 L456.7 183.6 L463.5 181.3 L470.3 178.9 L477.1 176.5 L483.9 174 L490.7 171.4 L497.5 168.8 L504.3 166.1 L511 163.3 L517.8 160.4 L524.6 157.5 L531.4 154.5 L538.2 151.4 L545 148.2 L551.8 144.9 L558.6 141.6 L565.4 138.1 L572.2 134.6 L579 130.9 L585.8 127.2 L592.5 123.3 L599.3 119.4 L606.1 115.3 L612.9 111.2 L619.7 106.9 L626.5 102.5 L633.3 98 L640.1 93.3 L646.9 88.6 L653.7 83.7 L660.5 78.7 L667.3 73.5 L674 68.2 L680.8 62.7 L687.6 57.1 L694.4 51.4 L701.2 45.5 L708 39.4 L708 268 L56 268 Z"/>
+          <path class="lineS" d="M56 250.7 L62.8 250.3 L69.6 249.8 L76.4 249.3 L83.2 248.8 L90 248.3 L96.8 247.7 L103.5 247.2 L110.3 246.6 L117.1 246 L123.9 245.4 L130.7 244.8 L137.5 244.2 L144.3 243.5 L151.1 242.9 L157.9 242.2 L164.7 241.5 L171.5 240.7 L178.3 240 L185 239.2 L191.8 238.4 L198.6 237.6 L205.4 236.8 L212.2 236 L219 235.1 L225.8 234.2 L232.6 233.3 L239.4 232.3 L246.2 231.3 L253 230.3 L259.8 229.3 L266.5 228.3 L273.3 227.2 L280.1 226.1 L286.9 224.9 L293.7 223.7 L300.5 222.5 L307.3 221.3 L314.1 220 L320.9 218.7 L327.7 217.4 L334.5 216 L341.3 214.6 L348 213.1 L354.8 211.6 L361.6 210.1 L368.4 208.5 L375.2 206.9 L382 205.2 L388.8 203.5 L395.6 201.7 L402.4 199.9 L409.2 198.1 L416 196.1 L422.8 194.2 L429.5 192.2 L436.3 190.1 L443.1 188 L449.9 185.8 L456.7 183.6 L463.5 181.3 L470.3 178.9 L477.1 176.5 L483.9 174 L490.7 171.4 L497.5 168.8 L504.3 166.1 L511 163.3 L517.8 160.4 L524.6 157.5 L531.4 154.5 L538.2 151.4 L545 148.2 L551.8 144.9 L558.6 141.6 L565.4 138.1 L572.2 134.6 L579 130.9 L585.8 127.2 L592.5 123.3 L599.3 119.4 L606.1 115.3 L612.9 111.2 L619.7 106.9 L626.5 102.5 L633.3 98 L640.1 93.3 L646.9 88.6 L653.7 83.7 L660.5 78.7 L667.3 73.5 L674 68.2 L680.8 62.7 L687.6 57.1 L694.4 51.4 L701.2 45.5 L708 39.4"/>
+          <g class="ptS">
+            <circle cx="219" cy="235.1" r="3.4"/>
+            <circle cx="273.3" cy="227.2" r="3.4"/>
+            <circle cx="327.7" cy="217.4" r="3.4"/>
+            <circle cx="382" cy="205.2" r="3.4"/>
+            <circle cx="436.3" cy="190.1" r="3.4"/>
+            <circle cx="490.7" cy="171.4" r="3.4"/>
+            <circle cx="545" cy="148.2" r="3.4"/>
+            <circle cx="599.3" cy="119.4" r="3.4"/>
+            <circle cx="653.7" cy="83.7" r="3.4"/>
+            <circle cx="708" cy="39.4" r="3.4"/>
+          </g>
+          <g class="stage-no">
+            <text x="219" y="258">1</text>
+            <text x="273.3" y="258">2</text>
+            <text x="327.7" y="258">3</text>
+            <text x="382" y="258">4</text>
+            <text x="436.3" y="258">5</text>
+            <text x="490.7" y="258">6</text>
+            <text x="545" y="258">7</text>
+            <text x="599.3" y="258">8</text>
+            <text x="653.7" y="258">9</text>
+            <text x="708" y="258">10</text>
+          </g>
+          <rect class="knock" x="616" y="20" width="82" height="18"/>
+          <text class="ann" x="694" y="34" text-anchor="end">Past $10M</text>
+        </svg>
+      </div>
+
+      <div class="read reveal" style="--i:3">
+        <span class="mono">Where the effort goes</span>
+        <p><b>Effort spread across the moves everyone else is already making.</b> Small gains, flat months when a tactic stops working, and dips when it costs more than it returns. After two years the business is still about $3M a year.</p>
+      </div>
+
+      <div class="levels-wrap reveal" style="--i:3">
+        <span class="mono">Ten levels · the key action as each stage is passed</span>
+        <ol class="levels">
+        <li><i>01</i><div><b>Proof of concept</b><span>Prove one buyer will pay.</span></div></li>
+        <li><i>02</i><div><b>One offer</b><span>One offer, one measured path.</span></div></li>
+        <li><i>03</i><div><b>Value</b><span>Raise what each customer is worth.</span></div></li>
+        <li><i>04</i><div><b>Feedback</b><span>Read outcomes and who refers.</span></div></li>
+        <li><i>05</i><div><b>Conversion</b><span>Fix the step before buying volume.</span></div></li>
+        <li><i>06</i><div><b>Economics</b><span>Make the next customer pay back.</span></div></li>
+        <li><i>07</i><div><b>Delivery</b><span>Deliver without the founder.</span></div></li>
+        <li><i>08</i><div><b>Management</b><span>Forecast cash, capacity and risk.</span></div></li>
+        <li><i>09</i><div><b>Preference</b><span>Prove buyers choose you.</span></div></li>
+        <li><i>10</i><div><b>Position</b><span>Defend it, then extend it.</span></div></li>
+        </ol>
+      </div>
+    </div>
+  </div>
+
+  <footer class="foot">
+    <div class="source">Illustration, not a forecast. Linear scale, annual revenue, two years. Levels follow the Growth Labs stages. The first six months are the proof of concept. Each dotted line is a stage passed.</div>
+    <div class="handle">@beniskillen</div>
+  </footer>
+</section>
+</div>
+</body>
+</html>

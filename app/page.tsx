@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
-import OfferLanding from "./offer/OfferLanding";
+import GuaranteeLanding from "./guarantee/GuaranteeLanding";
 
 export const metadata: Metadata = {
-  title: "Category King System",
+  title: "Add up to $100k/month in 180 days",
   description:
-    "I will make you $10,000 to your bottom line in 90 days. Or I will work for free until I do.",
+    "Add up to $100k a month to your business in 180 days, or you don't pay the service fee. The number depends on the business, the data analysis, and agreement from the Growth Labs director.",
 };
 
-export default function HomePage() {
-  return <OfferLanding variant="schedule" />;
+export default function Page() {
+  return <GuaranteeLanding />;
 }

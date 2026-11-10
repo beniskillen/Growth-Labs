@@ -29,54 +29,28 @@ async function render(path = "/") {
   );
 }
 
-test("server-renders the Category King home page", async () => {
+test("server-renders the guarantee offer as the home page", async () => {
   const response = await render("/");
   assert.equal(response.status, 200);
   assert.match(response.headers.get("content-type") ?? "", /^text\/html\b/i);
 
   const html = await response.text();
-  assert.match(html, /Growth Labs/i);
-  assert.match(html, /I will make you \$10,000 to your bottom line in 90 days/i);
-  assert.match(html, /Or I will work for free until I do/);
-  assert.match(html, /proof of concept/i);
-  assert.match(html, /One specific buyer/);
-  assert.match(html, /\$3,000/);
-  assert.match(html, /Data and segment audit/);
-  assert.match(html, /One angle and one offer/);
-  assert.match(html, /Instagram profile funnel/);
-  assert.match(html, /Step 04[^<]*Landing page/);
-  assert.match(html, /30-day growth experiment/);
-  assert.match(html, /Step 06[^<]*Traffic/);
-  assert.match(html, /book anyway/i);
+  assert.match(html, /Add up to \$100k\/month/);
+  assert.match(html, /180 days/);
+  assert.match(html, /or you don&#x27;t pay|or you don't pay/);
+  assert.match(html, /Get a Growth Strategy/);
+  assert.match(html, /Category King System/);
+  assert.match(html, /We've worked with/);
+  assert.match(html, /loom\.com\/embed\/3a9f9fc4977c40dba0c92f7dc9e059e5/);
+  assert.match(html, /href="\/work\/mtp-health"/);
+  assert.match(html, /fortemmedia\.com/);
+  assert.match(html, /ethosperformance\.com\.au\/ben-killen/);
+  assert.match(html, /proprietary data analysis/);
+  assert.match(html, /Growth Labs director/);
+  assert.doesNotMatch(html, /\bdraft\b/i);
   assert.doesNotMatch(html, /\$5000/);
   assert.doesNotMatch(html, /\$300 p\/m/);
-  assert.doesNotMatch(html, /What exactly do I pay/);
   assert.doesNotMatch(html, /href="\/growth-partnership"/);
-  assert.match(html, /BOOK A STRATEGY SESSION/);
-  assert.match(html, /Category King System/);
-  assert.match(
-    html,
-    /loom\.com\/embed\/1eeacffedf21496e94326b6becd645fc\?autoplay=1/,
-  );
-  assert.match(html, /MTP Health/);
-  assert.match(html, /These exact numbers are not those of MTP Health/);
-  assert.match(html, /illustrative purposes as an aggregate/);
-  assert.match(html, /href="\/work\/mtp-health"/);
-  assert.match(html, /aria-label="Footer navigation"/);
-  assert.match(html, /href="\/work\/mtp-health"[^>]*>Case Studies</);
-  assert.doesNotMatch(html, /href="\/work\/fortem"/);
-  assert.doesNotMatch(html, /href="\/work"(?!\/)/);
-  assert.match(html, /FLAGSHIP CASE/);
-  assert.match(html, /MTP Health - From breaking even to multiple clinics/);
-  assert.match(html, /Read the case study/);
-  assert.doesNotMatch(html, />Partners</);
-  assert.doesNotMatch(html, />Solutions</);
-  assert.doesNotMatch(html, />About</);
-  assert.doesNotMatch(html, /href="\/partners"/);
-  assert.doesNotMatch(html, /href="\/solutions"/);
-  assert.doesNotMatch(html, /href="\/about"/);
-  assert.doesNotMatch(html, /href="\/audit"/);
-  assert.doesNotMatch(html, /href="\/landing"/);
   assert.doesNotMatch(html, developmentPreviewMeta);
 });
 
