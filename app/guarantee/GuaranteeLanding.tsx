@@ -1,4 +1,5 @@
 import { AuditButton, Eyebrow, SiteFrame, TrustBar } from "../components";
+import { CategoryKing } from "../presentations/secrets-of-unicorn-growth/Ingredients";
 import { SiteLink } from "../SiteLink";
 import "./guarantee.css";
 
@@ -61,11 +62,11 @@ const faqs = [
   },
   {
     q: "How much time do I have to put in?",
-    a: "A few hours a week. Enough to approve the work and follow up the customers. You are not building the page, the list, the ads or the ledger. You bring the business. Ben brings the system.",
+    a: "A few hours a week. Enough to approve the work and execute the baseline content needed to help us keep moving, pending how involved you want to be. You are not building the page, the list, the ads or the ledger. You bring the business. We bring the system. This is a two-way street. For best results, we want founders who are eager to engineer the best of their business into the process we work on. Response to email requests is critical for this, aided by our proprietary AI assistant communication structure.",
   },
   {
-    q: "Does this work from a standing start?",
-    a: "Your starting point does not decide whether a path can be built. It decides the size of the number that can be written down. One offer, one market, one channel. It does not have to be a course or a community. The buyer is the same either way: someone who has to trust the offer before they pay. If the business cannot hold a written target, the call ends in a smaller test, a diagnostic, or a no.",
+    q: "Does this work from zero?",
+    a: "The key ingredients are a process that can solve problems for people and the ability to deliver that process. Growth Labs operates across businesses of many stages of maturity and size, focusing in on the details of one specific product to engineer growth through that. As such it can be for new businesses ready to scale, needing to establish proof of concept with lighter scopes, or large businesses who want to sharpen the sword to dominate a market.",
   },
   {
     q: "How does the guarantee work? What does “you don't pay” mean?",
@@ -73,7 +74,7 @@ const faqs = [
   },
   {
     q: "How long does it take?",
-    a: "180 days. Long enough to build the path and read the number in writing. Short enough that you are not locked in forever. What those 180 days look like for your business is mapped on the call. If you want to keep going after that, it is a separate agreement. It does not roll on by itself.",
+    a: "Up to 180 days is the typical timeframe for full realisation of the system, however the process of refinement never stops. We aim to empower businesses to execute this themselves without needing to be reliant on Growth Labs. What those 180 days look like for your business is mapped on the call. Some businesses choose to continue on with fractional growth services and management to continue optimising key metrics.",
   },
   {
     q: "How much does it cost?",
@@ -85,7 +86,7 @@ const faqs = [
   },
   {
     q: "What actually happens on the call?",
-    a: "No pitch. You talk to Ben. Bring the numbers you have. He looks at the business, shows you what the system would change, and tells you the number that can go in writing. Worst case, you leave knowing the constraint. Best case, you leave with a written target, up to $100k a month, and a remedy. If the business cannot hold it, you get a smaller test, a diagnostic, or a no.",
+    a: "This is not a pitch fest. This is a comprehensive growth strategy based on the data you have on your business. You talk to one of our senior growth consultants. Bring the numbers you have. We look at your business, get a diagnosis on your current offering, then show you where the biggest areas for growth are. From there we can come up with a number that can go in writing that communicates the size of the guarantee we feel comfortable offering based on the Category King system. Worst case, you leave knowing where the biggest constraints in your business's growth are. Best case, you leave with a written target, up to $100k a month, and a solution to have it fixed by our team. We will suggest the most appropriate scope, implementations and timeframe on the call to ensure you get the right strategy for where you're at. For those that aren't ready, we typically give tactical recommendations and a way to measure them with suggested follow up actions to continue iterating once data comes in.",
   },
 ] as const;
 
@@ -140,12 +141,16 @@ export default function GuaranteeLanding() {
               </div>
             </figure>
             <p className="g-subhead">
-              Schedule a free growth strategy to get this system of
-              first-principles-led growth broken down for your business. This
-              system will give a clear roadmap to help your business achieve
-              guaranteed revenue in 180 days or less by factoring in your
-              numbers to put together a growth roadmap.
+              Schedule a free growth strategy to get the Category King system
+              of first-principles-led growth broken down for your business.
+              This system will give a clear roadmap to help your business get
+              the data it needs to achieve growth. For businesses that qualify,
+              Growth Labs provides revenue guarantees in writing up to $100,000
+              per month.
             </p>
+            <div className="g-cta">
+              <AuditButton arrow={false}>Get a Growth Strategy</AuditButton>
+            </div>
           </div>
         </section>
 
@@ -202,6 +207,24 @@ export default function GuaranteeLanding() {
                 <span>LinkedIn</span>
               </a>
             </p>
+            <div className="g-span">
+              <p>
+                Growth Labs Consulting helps service-based businesses attract
+                qualified leads, convert more clients and increase customer
+                lifetime value. We combine growth strategy with hands-on
+                implementation across positioning, offer design, paid
+                advertising, sales funnels and customer retention.
+              </p>
+              <p>
+                Led by Ben Killen, Growth Labs works with businesses including
+                allied health clinics, agencies and performance businesses. Our
+                Category King system identifies the constraints holding back
+                growth, then builds and manages the marketing and sales systems
+                needed to address them. Services include growth consulting,
+                fractional growth leadership and ongoing implementation, with
+                written revenue guarantees available to qualifying businesses.
+              </p>
+            </div>
           </div>
         </section>
 
@@ -239,6 +262,25 @@ export default function GuaranteeLanding() {
                 <span>Ben Killen</span>
               </figcaption>
             </figure>
+            <div className="g-equation">
+              <p>
+                Not ready to work with someone? Apply this system for yourself
+                by watching the full video above that breaks down my entire
+                system, showing clearly how to get to &gt; $100k p/m.
+              </p>
+              <CategoryKing
+                exampleLtv
+                proof={false}
+                title={
+                  <>
+                    The <em>Growth</em> equation.
+                  </>
+                }
+                lead="The top growth limitations for most small businesses are 1) they are too commoditised, selling raw materials instead of defined processes that achieve clear outcomes, and 2) they don't know how to measure growth with proper leading indicators."
+                trackTitle="Product Engineering"
+                trackLead="Winning products can be engineered by the numbers. By tracking this data, we can know how each decision impacts growth instead of guessing."
+              />
+            </div>
             <figure className="g-process">
               <iframe
                 src={PROCESS}
@@ -252,31 +294,15 @@ export default function GuaranteeLanding() {
             </figure>
             <div className="g-copy">
               <p>
-                The Category King system is the process behind the work on this
-                page. One offer. One market. One path, read in money collected.
+                The Category King system is about getting to the root of what
+                is valuable in your marketplace to help businesses take quantum
+                leaps in their revenue.
               </p>
               <p>
-                Instead of copying the tactic everyone else is already running,
-                every prospect is routed through a path you can actually read.
-                The message turns attention into a conversation. The offer turns
-                that conversation into a customer. What happens after the first
-                purchase is what makes the number compound.
-              </p>
-              <p>
-                Every stage is tracked in cleared cash, so you know what a
-                conversation and a customer are worth. A platform screenshot is
-                not the number.
-              </p>
-              <p>
-                You approve the offer, the claims and the spend. Growth Labs
-                builds and runs the named scope. Decisions follow the data in
-                the business, not a guess borrowed from the market.
-              </p>
-              <p>
-                The result is a written roadmap for where the business actually
-                sits. Where a guarantee is offered, it is set against that
-                scope, and it is confirmed in writing on the back of a growth
-                strategy.
+                Taking a constraints-based approach to implement growth tactics
+                that seek to improve upon the key metrics listed above, Growth
+                Labs is able to put a guarantee behind its work for businesses
+                that fit the criteria.
               </p>
             </div>
           </div>

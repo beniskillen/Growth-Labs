@@ -119,6 +119,10 @@
   line-height: 1.55;
 }
 
+.g-hero .g-cta {
+  margin-top: 28px;
+}
+
 .g-block {
   border-top: 1px solid var(--line);
 }
@@ -268,6 +272,21 @@
   color: var(--signal);
 }
 
+.g-span {
+  display: grid;
+  gap: 16px;
+  width: 100%;
+  margin-top: 36px;
+  color: var(--ink-soft);
+  font-size: 17px;
+  line-height: 1.65;
+  text-align: center;
+}
+
+.g-span p {
+  margin: 0;
+}
+
 .g-cta {
   display: flex;
   flex-direction: column;
@@ -348,6 +367,266 @@
 
 .g-copy p {
   margin: 0;
+}
+
+.g-equation {
+  margin-top: 56px;
+  text-align: left;
+}
+
+.g-equation > p {
+  max-width: 46rem;
+  margin: 0 auto 28px;
+  color: var(--ink-soft);
+  font-size: 17px;
+  line-height: 1.65;
+  text-align: center;
+}
+
+.guarantee .king {
+  display: grid;
+  gap: 18px;
+}
+
+.guarantee .deck-kicker {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  margin: 0 0 12px;
+  color: var(--steel);
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.guarantee .deck-kicker span {
+  color: var(--signal);
+}
+
+.guarantee .king h3,
+.guarantee .king h4 {
+  margin: 0;
+  color: var(--paper);
+  font-weight: 500;
+  letter-spacing: -0.04em;
+}
+
+.guarantee .king h3 {
+  max-width: 16em;
+  font-size: clamp(28px, 3vw, 42px);
+  line-height: 1.05;
+}
+
+.guarantee .king h3.king-track-title {
+  margin-top: 28px;
+}
+
+.guarantee .king-track-lead {
+  margin: 0;
+  color: var(--ink-soft);
+  font-size: 17px;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: 1.65;
+}
+
+.guarantee .king-lead {
+  margin: 16px 0 0;
+  color: var(--ink-soft);
+  font-size: 17px;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: 1.65;
+}
+
+.guarantee .king-eq {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 10px;
+  align-items: baseline;
+  margin: 0;
+  color: var(--paper);
+  font-size: clamp(22px, 2.4vw, 34px);
+  font-weight: 500;
+  letter-spacing: -0.04em;
+  line-height: 1.15;
+}
+
+.guarantee .king-term {
+  display: inline-flex;
+  gap: 10px;
+  align-items: baseline;
+}
+
+.guarantee .king-op {
+  color: var(--signal);
+}
+
+.guarantee .king-defs {
+  display: grid;
+  gap: 12px;
+  margin: 0;
+}
+
+.guarantee .king-defs div {
+  display: grid;
+  grid-template-columns: 11em 1fr;
+  gap: 16px;
+  align-items: baseline;
+}
+
+.guarantee .king-defs dt {
+  margin: 0;
+  color: var(--signal);
+  font-size: 15px;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+}
+
+.guarantee .king-defs dd {
+  margin: 0;
+  color: var(--ink-soft);
+  font-size: 15px;
+  line-height: 1.45;
+}
+
+.guarantee .king-bleed {
+  display: grid;
+  grid-template-columns: 132px minmax(0, 1fr) 132px;
+  align-items: stretch;
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  border-block: 1px solid var(--line);
+  background: #000;
+}
+
+.guarantee .king-state {
+  display: grid;
+  place-items: center;
+  margin: 0;
+  padding: 16px 12px;
+  background: var(--signal);
+  color: white;
+  font-size: clamp(18px, 1.6vw, 22px);
+  font-weight: 500;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  text-align: center;
+}
+
+.guarantee .king-track {
+  display: grid;
+  align-content: start;
+  min-width: 0;
+}
+
+.guarantee .king-measure,
+.guarantee .king-ltv-note {
+  margin: 0;
+  padding: 14px 16px 0;
+  color: var(--signal);
+  font-size: 15px;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+}
+
+.guarantee .king-ltv-note {
+  max-width: 62ch;
+  color: var(--ink-soft);
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+.guarantee .king-scroll {
+  display: flex;
+  gap: 12px;
+  overflow-x: auto;
+  padding: 14px 16px 18px;
+  scroll-snap-type: x mandatory;
+  scrollbar-color: var(--signal) transparent;
+}
+
+.guarantee .king-engine {
+  flex: none;
+  width: max-content;
+  display: grid;
+  align-content: start;
+  gap: 8px;
+  padding: 14px;
+  border: 1px solid var(--line);
+  scroll-snap-align: start;
+}
+
+.guarantee .king-banner {
+  margin: 0;
+  min-height: 1.3em;
+  color: var(--paper);
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+}
+
+.guarantee .king-banner:not(.king-banner-spacer) {
+  color: var(--signal);
+}
+
+.guarantee .king-engine-name,
+.guarantee .king-rate {
+  margin: 0;
+  color: var(--steel);
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.guarantee .king-rate {
+  color: var(--signal);
+  letter-spacing: 0.04em;
+  text-transform: none;
+}
+
+.guarantee .king-engine h4 {
+  font-size: 20px;
+  line-height: 1.15;
+}
+
+.guarantee .king-engine ol,
+.guarantee .king-stars ul {
+  display: flex;
+  gap: 8px;
+  margin: 8px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.guarantee .king-engine li {
+  flex: none;
+  width: 12.5em;
+  margin: 0;
+  padding: 12px;
+  border: 1px solid var(--line);
+  color: var(--paper);
+  font-size: 14px;
+  line-height: 1.35;
+}
+
+.guarantee .king-engine li[data-rate="true"] {
+  display: grid;
+  place-items: center;
+  width: auto;
+  min-width: 4.5em;
+  border-color: transparent;
+  color: var(--signal);
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  text-align: center;
+}
+
+.guarantee .king-stars ul {
+  display: grid;
 }
 
 .g-steps {
@@ -554,5 +833,18 @@
 
   .g-faq summary {
     font-size: 16px;
+  }
+
+  .guarantee .king-defs div {
+    grid-template-columns: 1fr;
+    gap: 4px;
+  }
+
+  .guarantee .king-bleed {
+    grid-template-columns: 76px minmax(0, 1fr) 76px;
+  }
+
+  .guarantee .king-state {
+    font-size: 14px;
   }
 }
